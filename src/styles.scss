@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+$laranja: #F99F31;
+$cinza: #B0B7C2;
+$cinza-escuro: #635D6A;
+$branco: #ffff;
+
+body {
+  background-color: $cinza;
+  font-family: 'Roboto', sans-serif;
+}
