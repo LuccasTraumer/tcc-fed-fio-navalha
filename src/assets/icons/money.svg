@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="56" height="56">
+	<title>money-svg</title>
+	<defs>
+		<image  width="48" height="48" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwAQMAAABtzGvEAAAAAXNSR0IB2cksfwAAAAZQTFRFAAAA+Z8xuHVnfwAAAAJ0Uk5TAP9bkSK1AAAAzklEQVR4nEWQMQ7CMAxFf1SJMFQtY4aKXgGJpQxwlk5l7QYDUrJxCQ7CmAmWihMwVGJg7chQEWy3FVacl8h28m0AtgdZFIIjpF51hB1whPiS0AIaUJ6yHC8+akggYdSIGSsY5B/aChiDjO6LOUXqQJag5LrZhJYRwTvtBXkn2F4F64vg0DB8dYsUfHifA+N1Z7jqISn7Zih4CjZDecqPlU63//9qFp9gRdAxCkuSMlJKZgbxxdTK2NjY5tj0OIJpIOQnHpaTYaneei6yX+AHNBBMj3ULq6QAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<use id="Layer" href="#img1" x="0" y="0" />
+</svg>
