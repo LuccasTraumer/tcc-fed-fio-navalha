@@ -1,0 +1,45 @@
+.container {
+  max-height: 100vh;
+  max-height: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  .informacoes {
+    height: 60%;
+
+    .container-informacoes {
+      display: grid;
+      align-items: center;
+
+      section {
+        padding: 5%;
+      }
+
+      a {
+        color: var(--font-color);
+        text-decoration: none;
+        span {
+          color: #685DAB;
+        }
+      }
+
+      fdn-button {
+        width: 80%;
+        height: 5%;
+        padding-left: 3%;
+      }
+
+      #esqueceu-senha {
+        text-align: end;
+        padding: 5% 0%;
+      }
+
+      #cadastre-se {
+        text-align: center;
+        padding-top: 10%;
+      }
+    }
+  }
+}
