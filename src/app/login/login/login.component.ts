@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 
 @Component({
   selector: 'fdn-login',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  pathImage = '';
+  pathImage = ConstantesIcons.LOGO_ICON_PNG;
 
   constructor() { }
 

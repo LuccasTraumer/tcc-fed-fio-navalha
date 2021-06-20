@@ -6,6 +6,16 @@
   align-items: center;
   justify-content: space-between;
 
+  .logo {
+    padding: 15vh 0% 5vh 0%;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 50%;
+    }
+  }
+
   .informacoes {
     height: 60%;
 
@@ -14,7 +24,14 @@
       align-items: center;
 
       section {
-        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        padding: 5% 0% 2% 0%;
+        height: 100%;
+
+        label {
+          padding-bottom: 2%;
+        }
       }
 
       a {
@@ -22,6 +39,7 @@
         text-decoration: none;
         span {
           color: #685DAB;
+          font-weight: 600;
         }
       }
 
@@ -33,12 +51,12 @@
 
       #esqueceu-senha {
         text-align: end;
-        padding: 5% 0%;
       }
 
       #cadastre-se {
         text-align: center;
-        padding-top: 10%;
+        padding-top: 15%;
+
       }
     }
   }
