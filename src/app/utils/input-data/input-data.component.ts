@@ -7,7 +7,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class InputDataComponent implements OnInit {
   @Input()
-  public type;
+  public type?;
+
+  @Input()
+  public textoInterno?;
 
   constructor() { }
 

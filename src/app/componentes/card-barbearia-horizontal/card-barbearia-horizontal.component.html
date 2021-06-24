@@ -1,0 +1,32 @@
+<nav class="container">
+  <section class="icon">
+
+  </section>
+  <section class="informacoes">
+    <header></header>
+    <section>
+      <div class="avaliacao">
+        <img src="{{AVALIACAO_ICON}}" alt="icone avalição" srcset="">
+        <label for="">{{avaliacaoBarbearia()}}</label>
+      </div>
+      <div class="estilo-principal">
+        <label for="">{{especialidadeBarbearia()}}</label>
+      </div>
+      <div class="distancia">
+        <div class="ponto"></div>
+        <label for="">{{distanciaBarbearia()}}</label>
+      </div>
+      <div class="isFavorite">
+        <img src="{{FAVORITO_ICON}}" alt="icone favorito">
+      </div>
+
+      <div class="tempo-medio">
+        <label for="">{{tempoMedio()}} - {{margemAtraso()}} min</label>
+      </div>
+
+      <div class="preco-medio">
+        <label for="">{{precoMedio() | currency: 'BRL'}}</label>
+      </div>
+    </section>
+  </section>
+</nav>
