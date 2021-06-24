@@ -1,10 +1,10 @@
 <nav class="container">
   <section class="icon">
-
+    <img src="{{ICONE_BARBEAIRIA}}" alt="icone barbearia" srcset="">
   </section>
   <section class="informacoes">
-    <header></header>
-    <section>
+    <header>{{nomeBarbearia()}}</header>
+    <section class="sub-container-cima">
       <div class="avaliacao">
         <img src="{{AVALIACAO_ICON}}" alt="icone avalição" srcset="">
         <label for="">{{avaliacaoBarbearia()}}</label>
@@ -14,14 +14,19 @@
       </div>
       <div class="distancia">
         <div class="ponto"></div>
-        <label for="">{{distanciaBarbearia()}}</label>
+        <label for="">{{distanciaBarbearia()}} KM</label>
       </div>
+    </section>
+
+    <section class="sub-container-meio">
       <div class="isFavorite">
         <img src="{{FAVORITO_ICON}}" alt="icone favorito">
       </div>
+    </section>
 
+    <section class="sub-container-baixo">
       <div class="tempo-medio">
-        <label for="">{{tempoMedio()}} - {{margemAtraso()}} min</label>
+        <label for="">{{tempoMedio()}}-{{margemAtraso()}} min</label>
       </div>
 
       <div class="preco-medio">
