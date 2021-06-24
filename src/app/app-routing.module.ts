@@ -1,3 +1,4 @@
+import { LoadingComponent } from './loading/loading/loading.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login/login.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'esqueceu',
     component: EsqueceuSenhaComponent
+  },
+  {
+    path: 'loading',
+    component: LoadingComponent
   },
 ];
 
