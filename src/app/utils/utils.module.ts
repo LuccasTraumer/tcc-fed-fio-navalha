@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { InputDataComponent } from './input-data/input-data.component';
 import { ButtonComponent } from './button/button.component';
 
@@ -10,6 +11,7 @@ import { ButtonComponent } from './button/button.component';
   imports: [
     CommonModule
   ],
-  exports: [InputDataComponent, ButtonComponent]
+  exports: [InputDataComponent, ButtonComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class UtilsModule { }
