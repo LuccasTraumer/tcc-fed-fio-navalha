@@ -19,17 +19,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
-
-  it(`should have as title 'tcc-fed-fio-navalha'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('tcc-fed-fio-navalha');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('tcc-fed-fio-navalha app is running!');
-  });
 });
