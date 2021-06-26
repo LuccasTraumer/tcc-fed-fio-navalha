@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { ComponentesModule } from '../componentes/componentes.module';
+import { LoadingModule } from '../loading/loading.module';
 
 
 
@@ -9,7 +10,8 @@ import { ComponentesModule } from '../componentes/componentes.module';
   declarations: [PaginaPrincipalComponent],
   imports: [
     CommonModule,
-    ComponentesModule
+    ComponentesModule,
+    LoadingModule
   ],
   exports: [PaginaPrincipalComponent]
 })

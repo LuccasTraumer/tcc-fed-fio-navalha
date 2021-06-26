@@ -34,13 +34,16 @@
       flex-flow: row wrap;
       justify-content: space-around;
       align-items: center;
+      text-align: start;
 
       .avaliacao {
         display: flex;
         align-items: center;
+        max-width: 15%;
 
         img {
-          width: 10vw;
+          width: 100%;
+          padding: 3%;
         }
 
         label {
