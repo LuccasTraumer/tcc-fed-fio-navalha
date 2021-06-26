@@ -1,18 +1,16 @@
-import { LoadingModule } from './loading/loading.module';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { LoadingModule } from './loading/loading.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LoginModule } from './login/login.module';
 import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { EsqueceuSenhaModule } from './esqueceu-senha/esqueceu-senha.module';
 import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.module';
-import { ButtonComponent } from './utils/button/button.component';
-import { InputDataComponent } from './utils/input-data/input-data.component';
 
 
 
@@ -37,6 +35,7 @@ import { InputDataComponent } from './utils/input-data/input-data.component';
     })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
