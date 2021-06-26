@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
 import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha.component';
 import { UtilsModule } from '../utils/utils.module';
 
@@ -11,6 +12,7 @@ import { UtilsModule } from '../utils/utils.module';
     CommonModule,
     UtilsModule
   ],
-  exports: [EsqueceuSenhaComponent]
+  exports: [EsqueceuSenhaComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EsqueceuSenhaModule { }
