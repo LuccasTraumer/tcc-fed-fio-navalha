@@ -1,9 +1,16 @@
 <div class="container">
-  <form action="" method="post">
-    <nav class="switch">
-        <input type="checkbox" name="" id="">
+  <form action="/esqueceu-senha" method="post">
+
+    <nav class="toggle">
+      <label for="">TELEFONE</label>
+      <hr>
+      <label for="">E-MAIL</label>
     </nav>
-    <fdn-input-data textoInterno="{{textoInternoTelefone}}" type="'{{switchType}}'"></fdn-input-data>
-    <fdn-button textoInterno="Enviar"></fdn-button>
+
+    <hr>
+    <div class="submit">
+      <fdn-input-data textoInterno="{{textoInternoTelefone}}" type="{{switchType}}"></fdn-input-data>
+      <fdn-button textoInterno="Enviar" ></fdn-button>
+    </div>
   </form>
 </div>

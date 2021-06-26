@@ -11,22 +11,22 @@ const routes: Routes = [
     path: '',
     component: PaginaPrincipalComponent
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
-  // {
-  //   path: 'cards',
-  //   component: CardBarbeariaHorizontalComponent
-  // },
-  // {
-  //   path: 'esqueceu',
-  //   component: EsqueceuSenhaComponent
-  // },
-  // {
-  //   path: 'loading',
-  //   component: LoadingComponent
-  // },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'cards',
+    component: CardBarbeariaHorizontalComponent
+  },
+  {
+    path: 'esqueceu',
+    component: EsqueceuSenhaComponent
+  },
+  {
+    path: 'loading',
+    component: LoadingComponent
+  },
   {
     path: '**',
     redirectTo: ''

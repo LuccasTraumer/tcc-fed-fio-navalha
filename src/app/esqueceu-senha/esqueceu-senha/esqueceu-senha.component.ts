@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./esqueceu-senha.component.scss'],
 })
 export class EsqueceuSenhaComponent {
-  public switchType: 'x';
+  public switchType = 'e-mail';
 
-  public textoInternoEmail: 'Insira seu email';
+  public textoInternoEmail = 'Insira seu email';
 
-  public textoInternoTelefone: 'Insira seu telefone';
+  public textoInternoTelefone = 'Insira seu telefone';
 }
