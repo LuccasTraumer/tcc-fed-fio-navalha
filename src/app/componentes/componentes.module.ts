@@ -11,11 +11,7 @@ import { CardBarbeariaVerticalComponent } from './card-barbearia-vertical/card-b
   imports: [
     CommonModule
   ],
-<<<<<<< HEAD
-  exports: [CardBarbeariaHorizontalComponent, CardBarbeariaVerticalComponent]
-=======
   exports: [CardBarbeariaHorizontalComponent, CardBarbeariaVerticalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
->>>>>>> release/esteira
 })
 export class ComponentesModule { }

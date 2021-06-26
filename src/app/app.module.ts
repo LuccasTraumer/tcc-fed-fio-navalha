@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { LoadingModule } from './loading/loading.module';
-=======
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
->>>>>>> release/esteira
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
