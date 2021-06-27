@@ -9,23 +9,20 @@ import { Component } from '@angular/core';
 export class EsqueceuSenhaComponent {
   public switchType = 'e-mail';
 
-  public textoInterno: string;
+  public textoInterno: string = "Insira seu Telefone";
 
-
-  public textoInternoTelefone = 'Insira seu telefone';
-
-  opcao: number = 0;
+  public opcao: number = 0;
 
   ChosePhone()
   {
-    this.opcao=0;
+    this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
     console.log(this.opcao);
   }
 
   ChoseEmail()
   {
-    this.opcao=1;
+    this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
     console.log(this.opcao);
   }
