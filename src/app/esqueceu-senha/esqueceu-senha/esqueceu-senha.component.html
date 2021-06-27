@@ -2,15 +2,17 @@
   <form action="/esqueceu-senha" method="post">
 
     <nav class="toggle">
-      <label for="">TELEFONE</label>
+      <label style="color:rgb(167,165,165);" *ngIf="opcao == 0;" (click)="ChosePhone()">TELEFONE</label>
+      <label *ngIf="opcao == 1" (click)="ChosePhone()">TELEFONE</label>
       <hr>
-      <label for="">E-MAIL</label>
+      <label style="color:rgb(167, 165, 165);" *ngIf="opcao == 1;" (click)="ChoseEmail()">E-MAIL</label>
+      <label *ngIf="opcao == 0"  (click)="ChoseEmail()">E-MAIL</label>
     </nav>
 
     <hr>
     <div class="submit">
-      <fdn-input-data textoInterno="{{textoInternoTelefone}}" type="{{switchType}}"></fdn-input-data>
-      <fdn-button textoInterno="Enviar" ></fdn-button>
+      <fdn-input-data textoInterno="{{textoInterno}}" type="{{switchType}}"></fdn-input-data>
+      <fdn-button textoInterno="Enviar" (click)= "Alertar()"></fdn-button>
     </div>
   </form>
 </div>

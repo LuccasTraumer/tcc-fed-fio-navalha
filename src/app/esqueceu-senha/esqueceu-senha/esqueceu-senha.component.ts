@@ -9,7 +9,33 @@ import { Component } from '@angular/core';
 export class EsqueceuSenhaComponent {
   public switchType = 'e-mail';
 
-  public textoInternoEmail = 'Insira seu email';
+  public textoInterno: string;
+
 
   public textoInternoTelefone = 'Insira seu telefone';
+
+  opcao: number = 0;
+
+  ChosePhone()
+  {
+    this.opcao=0;
+    this.textoInterno = "Insira seu Telefone"
+    console.log(this.opcao);
+  }
+
+  ChoseEmail()
+  {
+    this.opcao=1;
+    this.textoInterno = "Insira seu E-mail"
+    console.log(this.opcao);
+  }
+
+  Alertar()
+  {
+    if(this.opcao == 0)
+      alert("Código enviado para seu número");
+    else
+      alert("Código enviado para seu email")
+  }
+
 }
