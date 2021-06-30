@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./esqueceu-senha.component.scss'],
 })
 export class EsqueceuSenhaComponent {
-  public switchType = 'e-mail';
+
+  public switchType: string;
 
   public textoInterno: string = "Insira seu Telefone";
 
@@ -15,6 +16,7 @@ export class EsqueceuSenhaComponent {
 
   ChosePhone()
   {
+    this.switchType = 'TELEFONE'
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
     console.log(this.opcao);
@@ -22,6 +24,7 @@ export class EsqueceuSenhaComponent {
 
   ChoseEmail()
   {
+    this.switchType = 'E-MAIL'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
     console.log(this.opcao);

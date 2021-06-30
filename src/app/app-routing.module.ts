@@ -5,6 +5,8 @@ import { LoginComponent } from './login/login/login.component';
 import { CardBarbeariaHorizontalComponent } from './componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
 import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha/esqueceu-senha.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal/pagina-principal.component';
+import { CadastroEmailCelularComponent } from './cadastro-usuario/cadastro-email-celular/cadastro-email-celular.component';
+import { CadastroCodigoConfirmacaoComponent } from './cadastro-usuario/cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'loading',
     component: LoadingComponent
+  },
+  {
+    path:'cadastroEmailCelular',
+    component: CadastroEmailCelularComponent
+  },
+  {
+    path:'cadastroCodigoConfirmacao',
+    component: CadastroCodigoConfirmacaoComponent
   },
   {
     path: '**',

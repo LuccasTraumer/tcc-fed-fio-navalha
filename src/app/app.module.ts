@@ -1,3 +1,5 @@
+import { CadastroUsuarioModule } from './cadastro-usuario/cadastro-usuario.module';
+import { CadastroCodigoConfirmacaoComponent } from './cadastro-usuario/cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
@@ -11,12 +13,13 @@ import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { EsqueceuSenhaModule } from './esqueceu-senha/esqueceu-senha.module';
 import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.module';
+import { CadastroEmailCelularComponent } from './cadastro-usuario/cadastro-email-celular/cadastro-email-celular.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.modul
     EsqueceuSenhaModule,
     PaginaPrincipalModule,
     LoadingModule,
+    CadastroUsuarioModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
