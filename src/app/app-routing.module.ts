@@ -7,6 +7,7 @@ import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha/esqueceu
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal/pagina-principal.component';
 import { CadastroEmailCelularComponent } from './cadastro-usuario/cadastro-email-celular/cadastro-email-celular.component';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-usuario/cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
+import { CadastroTipoContaComponent } from './cadastro-usuario/cadastro-tipo-conta/cadastro-tipo-conta.component';
 
 const routes: Routes = [
   {
@@ -30,12 +31,16 @@ const routes: Routes = [
     component: LoadingComponent
   },
   {
-    path:'cadastroEmailCelular',
+    path: 'cadastroEmailCelular',
     component: CadastroEmailCelularComponent
   },
   {
-    path:'cadastroCodigoConfirmacao',
+    path: 'cadastroCodigoConfirmacao',
     component: CadastroCodigoConfirmacaoComponent
+  },
+  {
+    path: 'cadastroTipoConta',
+    component: CadastroTipoContaComponent
   },
   {
     path: '**',

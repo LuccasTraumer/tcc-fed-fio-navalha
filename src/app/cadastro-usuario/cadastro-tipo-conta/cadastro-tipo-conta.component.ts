@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroTipoContaComponent implements OnInit {
 
+  public opcaoSelecionada: number;
+
   constructor() { }
 
   ngOnInit(): void {
