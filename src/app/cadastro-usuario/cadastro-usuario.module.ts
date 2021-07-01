@@ -6,6 +6,7 @@ import { CadastroTipoContaComponent } from './cadastro-tipo-conta/cadastro-tipo-
 import { CadastroEmailCelularComponent } from './cadastro-email-celular/cadastro-email-celular.component';
 import { ButtonComponent } from '../utils/button/button.component';
 import { UtilsModule } from '../utils/utils.module';
+import { CadastroNomeSenhaComponent } from './cadastro-nome-senha/cadastro-nome-senha.component';
 
 
 @NgModule({
@@ -13,6 +14,8 @@ import { UtilsModule } from '../utils/utils.module';
     CadastroEmailCelularComponent,
     CadastroCodigoConfirmacaoComponent,
     CadastroTipoContaComponent,
+    CadastroNomeSenhaComponent,
+    CadastroNomeSenhaComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +25,7 @@ import { UtilsModule } from '../utils/utils.module';
     CadastroEmailCelularComponent,
     CadastroCodigoConfirmacaoComponent,
     CadastroTipoContaComponent,
+    CadastroNomeSenhaComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
