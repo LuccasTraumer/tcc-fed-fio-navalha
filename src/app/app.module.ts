@@ -13,7 +13,6 @@ import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { EsqueceuSenhaModule } from './esqueceu-senha/esqueceu-senha.module';
 import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.module';
-import { CadastroEmailCelularComponent } from './cadastro-usuario/cadastro-email-celular/cadastro-email-celular.component';
 
 
 

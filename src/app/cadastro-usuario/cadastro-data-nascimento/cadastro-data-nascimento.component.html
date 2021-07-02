@@ -1,0 +1,24 @@
+<div class="container">
+  <form action="/cadastro-codigo-confirmacao" method="post">
+
+    <nav class="toggle">
+      <h4>
+        Adicione sua data de nascimento
+      </h4>
+
+      <div>Isso não fará parte do seu perfil publico</div>
+    </nav>
+    <section class="submit">
+      <fdn-input-data name="phone" class="phone" id="input-type" textoInterno="Codigo de Confirmação" type="date" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"></fdn-input-data>
+      <div>
+        Você precisa inserir sua data de nascimento
+      <br><br>
+      Use sua propria data de nascimento,
+      <br>
+      mesmo se essa for uma conta de empresa
+      </div>
+        <fdn-button textoInterno="Avançar"></fdn-button>
+   </section>
+  </form>
+</div>
+

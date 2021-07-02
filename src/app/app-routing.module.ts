@@ -8,6 +8,8 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal/pa
 import { CadastroEmailCelularComponent } from './cadastro-usuario/cadastro-email-celular/cadastro-email-celular.component';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-usuario/cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { CadastroTipoContaComponent } from './cadastro-usuario/cadastro-tipo-conta/cadastro-tipo-conta.component';
+import { CadastroNomeSenhaComponent } from './cadastro-usuario/cadastro-nome-senha/cadastro-nome-senha.component';
+import { CadastroDataNascimentoComponent } from './cadastro-usuario/cadastro-data-nascimento/cadastro-data-nascimento.component';
 
 const routes: Routes = [
   {
@@ -41,6 +43,14 @@ const routes: Routes = [
   {
     path: 'cadastroTipoConta',
     component: CadastroTipoContaComponent
+  },
+  {
+    path: 'cadastroNomeSenha',
+    component: CadastroNomeSenhaComponent
+  },
+  {
+    path: 'cadastroDataNascimento',
+    component: CadastroDataNascimentoComponent
   },
   {
     path: '**',
