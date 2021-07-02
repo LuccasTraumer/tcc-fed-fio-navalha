@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
@@ -7,6 +8,7 @@ import { ButtonComponent } from '../utils/button/button.component';
 import { UtilsModule } from '../utils/utils.module';
 import { CadastroNomeSenhaComponent } from './cadastro-nome-senha/cadastro-nome-senha.component';
 import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento/cadastro-data-nascimento.component';
+import { CadastroDadosBarbeariaComponent } from './cadastro-dados-barbearia/cadastro-dados-barbearia.component';
 
 
 @NgModule({
@@ -15,18 +17,21 @@ import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento/cada
     CadastroCodigoConfirmacaoComponent,
     CadastroTipoContaComponent,
     CadastroNomeSenhaComponent,
-    CadastroDataNascimentoComponent
+    CadastroDataNascimentoComponent,
+    CadastroDadosBarbeariaComponent
   ],
   imports: [
     CommonModule,
-    UtilsModule
+    UtilsModule,
+    HttpClientModule
   ],
   exports: [
     CadastroEmailCelularComponent,
     CadastroCodigoConfirmacaoComponent,
     CadastroTipoContaComponent,
     CadastroNomeSenhaComponent,
-    CadastroDataNascimentoComponent
+    CadastroDataNascimentoComponent,
+    CadastroDadosBarbeariaComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
