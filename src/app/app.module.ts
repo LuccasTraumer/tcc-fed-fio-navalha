@@ -1,3 +1,4 @@
+import { EnderecoService } from './cadastro-usuario/services/endereco.service/endereco.service';
 import { CadastroUsuarioModule } from './cadastro-usuario/cadastro-usuario.module';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-usuario/cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -13,12 +14,14 @@ import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { EsqueceuSenhaModule } from './esqueceu-senha/esqueceu-senha.module';
 import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.module';
+import { CadastroDadosBarbeariaComponent } from './cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.modul
     EsqueceuSenhaModule,
     PaginaPrincipalModule,
     LoadingModule,
+    HttpClientModule,
     CadastroUsuarioModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
@@ -37,7 +41,7 @@ import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.modul
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [EnderecoService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

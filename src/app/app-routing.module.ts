@@ -10,6 +10,7 @@ import { CadastroCodigoConfirmacaoComponent } from './cadastro-usuario/cadastro-
 import { CadastroTipoContaComponent } from './cadastro-usuario/cadastro-tipo-conta/cadastro-tipo-conta.component';
 import { CadastroNomeSenhaComponent } from './cadastro-usuario/cadastro-nome-senha/cadastro-nome-senha.component';
 import { CadastroDataNascimentoComponent } from './cadastro-usuario/cadastro-data-nascimento/cadastro-data-nascimento.component';
+import { CadastroDadosBarbeariaComponent } from './cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'cadastroDataNascimento',
     component: CadastroDataNascimentoComponent
+  },
+  {
+    path: 'cadastroDadosBarbearia',
+    component: CadastroDadosBarbeariaComponent
   },
   {
     path: '**',
