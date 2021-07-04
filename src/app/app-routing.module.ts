@@ -1,6 +1,7 @@
 import { LoadingComponent } from './loading/loading/loading.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { LoginComponent } from './login/login/login.component';
 import { CardBarbeariaHorizontalComponent } from './componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
 import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha/esqueceu-senha.component';
@@ -34,28 +35,34 @@ const routes: Routes = [
     component: LoadingComponent
   },
   {
-    path: 'cadastroEmailCelular',
-    component: CadastroEmailCelularComponent
-  },
-  {
-    path: 'cadastroCodigoConfirmacao',
-    component: CadastroCodigoConfirmacaoComponent
-  },
-  {
-    path: 'cadastroTipoConta',
-    component: CadastroTipoContaComponent
-  },
-  {
-    path: 'cadastroNomeSenha',
-    component: CadastroNomeSenhaComponent
-  },
-  {
-    path: 'cadastroDataNascimento',
-    component: CadastroDataNascimentoComponent
-  },
-  {
-    path: 'cadastroDadosBarbearia',
-    component: CadastroDadosBarbeariaComponent
+    path: 'cadastro',
+    children: [
+      {
+        path: 'email-celular',
+        component: CadastroEmailCelularComponent
+      },
+      {
+        path: 'codigo-confirmacao',
+        component: CadastroCodigoConfirmacaoComponent
+      },
+      {
+        path: 'tipo-conta',
+        component: CadastroTipoContaComponent
+      },
+      {
+        path: 'data-nascimento',
+        component: CadastroDataNascimentoComponent
+      },
+      {
+        path: 'info-cliente',
+        component: CadastroNomeSenhaComponent
+      },
+      {
+        path: 'info-barbearia',
+        component: CadastroDadosBarbeariaComponent
+      }
+
+    ]
   },
   {
     path: '**',

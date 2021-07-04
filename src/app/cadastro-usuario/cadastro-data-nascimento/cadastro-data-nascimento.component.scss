@@ -1,6 +1,7 @@
 .container {
   width: 100vw;
-  height: 60vh;
+  height: 100vh;
+  font-size: 0.9rem;
 
   form {
     display: flex;
@@ -8,38 +9,27 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 60%;
 
     .toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      width: 60%;
+      display: inherit;
+      align-items: inherit;
+      justify-content: inherit;
+      flex-direction: inherit;
+      width: 100%;
       height: 30%;
 
       h4 {
-        font-size: 1.0rem;
-        line-height: 16px;
-        line-height: 100%;
-        color: #F4B578;
+        font-size: 1.1rem;
+        word-wrap: normal;
+        color: var(--title-color);
         font-weight: 900;
       }
 
       label {
-        padding: 2%;
+        font-size: 0.8rem;
       }
 
-    }
-
-    .texto-envio {
-      text-align: center;
-      width: 60%;
-      font-size: 0.75rem;
-    }
-
-    .opcao-selecionada {
-      color:rgb(167, 165, 165);
     }
 
     .submit {
@@ -47,11 +37,17 @@
       flex-flow: column;
       align-items: center;
       text-align: center;
-      justify-content: space-around;
-      width: 80%;
+      justify-content: space-evenly;
+      width: 100%;
 
-      fdn-input-data {
-        width: 95%;
+      .input-data {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+
+        fdn-input-data {
+          width: 20%;
+        }
       }
 
       fdn-button {
@@ -59,6 +55,19 @@
         display: flex;
         height: 0%;
         align-self: center;
+      }
+
+      .textos {
+        width: 80%;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        font-size: 0.9rem;
+
+        label {
+          word-wrap: normal;
+          padding: 5% 0% 5% 0%;
+        }
       }
     }
   }

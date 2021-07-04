@@ -1,23 +1,30 @@
 <div class="container">
-  <form action="/cadastro-codigo-confirmacao" method="post">
+  <form action="#" method="post">
 
     <nav class="toggle">
       <h4>
         Adicione sua data de nascimento
       </h4>
 
-      <div>Isso não fará parte do seu perfil publico</div>
+      <label>Isso não fará parte do seu perfil publico</label>
     </nav>
     <section class="submit">
-      <fdn-input-data name="phone" class="phone" id="input-type" textoInterno="Codigo de Confirmação" type="date" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"></fdn-input-data>
-      <div>
-        Você precisa inserir sua data de nascimento
-      <br><br>
-      Use sua propria data de nascimento,
-      <br>
-      mesmo se essa for uma conta de empresa
+      <div class="input-data">
+        <fdn-input-data type="number" (keyup)="getDia($event.target.value)" textoInterno="Dia"></fdn-input-data>
+        <fdn-input-data type="number" (keyup)="getMes($event.target.value)" textoInterno="Mês"></fdn-input-data>
+        <fdn-input-data type="number" (keyup)="getAno($event.target.value)" textoInterno="Ano"></fdn-input-data>
       </div>
-        <fdn-button textoInterno="Avançar"></fdn-button>
+
+      <div class="textos">
+        <label for="">Você precisa inserir sua data de nascimento </label>
+        <label for="">
+          Use sua propria data de nascimento.
+          Caso sejá a conta de um empresa, informe a data da abertura do CNPJ.
+        </label>
+      </div>
+
+        <label hidden="{{valida()}}" class="textoErro">Data Invalida, por favor informe um valor valido!</label>
+        <fdn-button textoInterno="Avançar" (click)="valida()"></fdn-button>
    </section>
   </form>
 </div>
