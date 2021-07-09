@@ -1,7 +1,8 @@
-import { Endereco } from './../Models/Endereco';
-import { EnderecoService } from './../services/endereco.service/endereco.service';
+
 import { Component, OnInit } from '@angular/core';
 import { delay } from 'rxjs/operators';
+import { Endereco } from 'src/app/models/Endereco';
+import { EnderecoService } from 'src/app/services/cadastro-module/endereco.service';
 
 @Component({
   selector: 'fdn-cadastro-dados-barbearia',

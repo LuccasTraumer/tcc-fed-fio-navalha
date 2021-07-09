@@ -1,6 +1,6 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { CadastroServiceService } from '../services/cadastro-service.service';
 import { Observable, Subscription } from 'rxjs';
+import { CadastroServiceService } from 'src/app/services/cadastro-module/cadastro-service.service';
 
 @Component({
   selector: 'fdn-cadastro-data-nascimento',
