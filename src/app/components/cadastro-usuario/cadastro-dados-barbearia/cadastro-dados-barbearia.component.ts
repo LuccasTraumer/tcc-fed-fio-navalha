@@ -17,6 +17,7 @@ export class CadastroDadosBarbeariaComponent implements OnInit {
     this.service = new EnderecoService();
   }
 
+
   ngOnInit(): void {
   }
 

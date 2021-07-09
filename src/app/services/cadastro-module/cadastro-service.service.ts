@@ -17,6 +17,7 @@ export class CadastroServiceService {
       headers: new HttpHeaders({'Content-Type': 'application-json'})
     };
     this.http = new HttpClient(null);
+
   }
 
   public cadastroDataNascimento(data: Date): Observable<any> {

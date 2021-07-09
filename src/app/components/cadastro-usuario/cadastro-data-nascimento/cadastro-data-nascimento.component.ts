@@ -19,6 +19,7 @@ export class CadastroDataNascimentoComponent implements OnDestroy {
     this.cadastroService = new CadastroServiceService();
   }
 
+
   ngOnDestroy(): void {
     this.inscricaoServico.unsubscribe();
   }
