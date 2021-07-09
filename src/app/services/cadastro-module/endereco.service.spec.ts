@@ -7,9 +7,7 @@ describe('EnderecoService', () => {
   let service: EnderecoService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ]
-    });
+    TestBed.configureTestingModule({});
     service = TestBed.inject(EnderecoService);
   });
 
