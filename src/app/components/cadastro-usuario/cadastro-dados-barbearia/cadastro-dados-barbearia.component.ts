@@ -11,7 +11,9 @@ import { EnderecoService } from 'src/app/services/cadastro-module/endereco.servi
 })
 export class CadastroDadosBarbeariaComponent implements OnInit {
 
-  constructor(private service: EnderecoService) { }
+  private service: EnderecoService
+
+  constructor() { }
 
   ngOnInit(): void {
   }

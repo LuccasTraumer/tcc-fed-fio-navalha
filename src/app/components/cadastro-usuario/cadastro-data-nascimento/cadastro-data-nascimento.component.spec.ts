@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { CadastroServiceService } from 'src/app/services/cadastro-module/cadastro-service.service';
 
 import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento.component';
 
@@ -8,14 +9,15 @@ describe('CadastroDataNascimentoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CadastroDataNascimentoComponent ]
-    })
-    .compileComponents();
+      declarations: [ CadastroDataNascimentoComponent ],
+      providers: [ CadastroServiceService ]
+    }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CadastroDataNascimentoComponent);
     component = fixture.componentInstance;
+
     fixture.detectChanges();
   });
 
@@ -24,27 +26,27 @@ describe('CadastroDataNascimentoComponent', () => {
   });
 
   it('quando data valida deve retornar true', () => {
-    component.getDia(5);
-    component.getMes(7);
-    component.getAno(2021);
+    component.setDia(5);
+    component.setMes(7);
+    component.setAno(2021);
 
     component.valida();
     expect(component.valida()).toBeTruthy();
   });
 
   it('quando dia invalida deve retornar false', () => {
-    component.getDia(50);
-    component.getMes(7);
-    component.getAno(2021);
+    component.setDia(50);
+    component.setMes(7);
+    component.setAno(2021);
 
     component.valida();
     expect(component.valida()).toBeFalsy();
   });
 
   it('quando data invalida deve retornar false', () => {
-    component.getDia(50);
-    component.getMes(70);
-    component.getAno(20291);
+    component.setDia(50);
+    component.setMes(70);
+    component.setAno(20291);
 
     component.valida();
     expect(component.valida()).toBeFalsy();

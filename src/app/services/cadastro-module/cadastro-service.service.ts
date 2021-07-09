@@ -10,8 +10,9 @@ import { retry, catchError } from 'rxjs/operators';
 export class CadastroServiceService {
 
   private requestHeader;
+  private http: HttpClient
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.requestHeader = {
       headers: new HttpHeaders({'Content-Type': 'application-json'})
     };
@@ -29,10 +30,8 @@ export class CadastroServiceService {
   private handleError(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
-      // Erro ocorreu no lado do client
       errorMessage = error.error.message;
     } else {
-      // Erro ocorreu no lado do servidor
       errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
     }
     alert(errorMessage);

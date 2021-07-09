@@ -1,5 +1,5 @@
-import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { CadastroServiceService } from 'src/app/services/cadastro-module/cadastro-service.service';
 
 @Component({
@@ -12,10 +12,10 @@ export class CadastroDataNascimentoComponent implements OnDestroy {
   private dia: number;
   private mes: number;
   private ano: number;
-
+  private cadastroService: CadastroServiceService
   private inscricaoServico: Subscription;
 
-  constructor(private cadastroService: CadastroServiceService) { }
+  constructor() { }
 
   ngOnDestroy(): void {
     this.inscricaoServico.unsubscribe();

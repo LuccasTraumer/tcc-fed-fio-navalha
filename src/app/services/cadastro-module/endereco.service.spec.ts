@@ -1,3 +1,4 @@
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { TestBed } from '@angular/core/testing';
 
 import { EnderecoService } from './endereco.service';
@@ -6,7 +7,9 @@ describe('EnderecoService', () => {
   let service: EnderecoService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [ HttpClientTestingModule ]
+    });
     service = TestBed.inject(EnderecoService);
   });
 
