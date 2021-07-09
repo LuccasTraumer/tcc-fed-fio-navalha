@@ -1,6 +1,7 @@
-import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { CadastroTipoContaComponent } from './cadastro-tipo-conta/cadastro-tipo-conta.component';
 import { CadastroEmailCelularComponent } from './cadastro-email-celular/cadastro-email-celular.component';
@@ -9,7 +10,9 @@ import { UtilsModule } from '../utils/utils.module';
 import { CadastroNomeSenhaComponent } from './cadastro-nome-senha/cadastro-nome-senha.component';
 import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento/cadastro-data-nascimento.component';
 import { CadastroDadosBarbeariaComponent } from './cadastro-dados-barbearia/cadastro-dados-barbearia.component';
-
+import { CadastroServiceService } from './services/cadastro-service.service';
+import { EnderecoService } from './services/endereco.service/endereco.service';
+import { CadastroRoutingModule } from './cadastro.routing.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { CadastroDadosBarbeariaComponent } from './cadastro-dados-barbearia/cada
   imports: [
     CommonModule,
     UtilsModule,
-    HttpClientModule
+    HttpClientModule,
+    CadastroRoutingModule
   ],
   exports: [
     CadastroEmailCelularComponent,
@@ -33,6 +37,7 @@ import { CadastroDadosBarbeariaComponent } from './cadastro-dados-barbearia/cada
     CadastroDataNascimentoComponent,
     CadastroDadosBarbeariaComponent
   ],
+  providers: [CadastroServiceService, EnderecoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CadastroUsuarioModule { }

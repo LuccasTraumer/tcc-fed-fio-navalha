@@ -1,10 +1,9 @@
-import { EnderecoService } from './cadastro-usuario/services/endereco.service/endereco.service';
-import { CadastroUsuarioModule } from './cadastro-usuario/cadastro-usuario.module';
-import { CadastroCodigoConfirmacaoComponent } from './cadastro-usuario/cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { CadastroUsuarioModule } from './cadastro-usuario/cadastro-usuario.module';
 import { LoadingModule } from './loading/loading.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,8 +13,6 @@ import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './componentes/componentes.module';
 import { EsqueceuSenhaModule } from './esqueceu-senha/esqueceu-senha.module';
 import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.module';
-import { CadastroDadosBarbeariaComponent } from './cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component';
-import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -41,7 +38,7 @@ import { HttpClientModule } from '@angular/common/http';
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [EnderecoService],
+  providers: [],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

@@ -22,4 +22,5 @@ describe('CadastroDadosBarbeariaComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });

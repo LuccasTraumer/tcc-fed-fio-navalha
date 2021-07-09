@@ -22,4 +22,31 @@ describe('CadastroDataNascimentoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('quando data valida deve retornar true', () => {
+    component.getDia(5);
+    component.getMes(7);
+    component.getAno(2021);
+
+    component.valida();
+    expect(component.valida()).toBeTruthy();
+  });
+
+  it('quando dia invalida deve retornar false', () => {
+    component.getDia(50);
+    component.getMes(7);
+    component.getAno(2021);
+
+    component.valida();
+    expect(component.valida()).toBeFalsy();
+  });
+
+  it('quando data invalida deve retornar false', () => {
+    component.getDia(50);
+    component.getMes(70);
+    component.getAno(20291);
+
+    component.valida();
+    expect(component.valida()).toBeFalsy();
+  });
 });

@@ -28,15 +28,16 @@ export class CadastroDadosBarbeariaComponent implements OnInit {
   siafi: ''
  };
 
-  BuscarEndereco(CEP: string)
-  {
+  BuscarEndereco(CEP: string) {
     console.log(CEP);
+    if (CEP.length === 8) {
       this.service.getEndereco(CEP).pipe(delay(1500))
       .subscribe(endereco =>{
         this.endereco = endereco;
       }, err =>{
         console.log("Connection Failed")
       })
+    }
   }
 
 }

@@ -10,9 +10,9 @@
     </nav>
     <section class="submit">
       <div class="input-data">
-        <fdn-input-data type="number" (keyup)="getDia($event.target.value)" textoInterno="Dia"></fdn-input-data>
-        <fdn-input-data type="number" (keyup)="getMes($event.target.value)" textoInterno="Mês"></fdn-input-data>
-        <fdn-input-data type="number" (keyup)="getAno($event.target.value)" textoInterno="Ano"></fdn-input-data>
+        <fdn-input-data type="number" (keyup)="setDia($event.target.value)" textoInterno="Dia"></fdn-input-data>
+        <fdn-input-data type="number" (keyup)="setMes($event.target.value)" textoInterno="Mês"></fdn-input-data>
+        <fdn-input-data type="number" (keyup)="setAno($event.target.value)" textoInterno="Ano"></fdn-input-data>
       </div>
 
       <div class="textos">
@@ -24,7 +24,7 @@
       </div>
 
         <label hidden="{{valida()}}" class="textoErro">Data Invalida, por favor informe um valor valido!</label>
-        <fdn-button textoInterno="Avançar" (click)="valida()"></fdn-button>
+        <fdn-button textoInterno="Avançar" (click)="cadastrarData()"></fdn-button>
    </section>
   </form>
 </div>

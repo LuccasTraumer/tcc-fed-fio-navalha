@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha.component';
 import { UtilsModule } from '../utils/utils.module';
+import { EsqueceuRoutingModule } from './esqueceu.routing.module';
 
 
 
@@ -10,7 +11,8 @@ import { UtilsModule } from '../utils/utils.module';
   declarations: [EsqueceuSenhaComponent],
   imports: [
     CommonModule,
-    UtilsModule
+    UtilsModule,
+    EsqueceuRoutingModule
   ],
   exports: [EsqueceuSenhaComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

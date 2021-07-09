@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { ComponentesModule } from '../componentes/componentes.module';
 import { LoadingModule } from '../loading/loading.module';
+import { PaginaPrincipalRoutingModule } from './pagina-principal.routing.module';
 
 
 
@@ -12,7 +13,8 @@ import { LoadingModule } from '../loading/loading.module';
   imports: [
     CommonModule,
     ComponentesModule,
-    LoadingModule
+    LoadingModule,
+    PaginaPrincipalRoutingModule
   ],
   exports: [PaginaPrincipalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

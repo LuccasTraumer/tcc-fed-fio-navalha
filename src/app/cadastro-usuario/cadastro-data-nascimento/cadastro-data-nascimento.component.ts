@@ -1,17 +1,25 @@
-import { Component, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { CadastroServiceService } from '../services/cadastro-service.service';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'fdn-cadastro-data-nascimento',
   templateUrl: './cadastro-data-nascimento.component.html',
   styleUrls: ['./cadastro-data-nascimento.component.scss']
 })
-export class CadastroDataNascimentoComponent {
+export class CadastroDataNascimentoComponent implements OnDestroy {
 
   private dia: number;
   private mes: number;
   private ano: number;
 
-  constructor() { }
+  private inscricaoServico: Subscription;
+
+  constructor(private cadastroService: CadastroServiceService) { }
+
+  ngOnDestroy(): void {
+    this.inscricaoServico.unsubscribe();
+  }
 
   private bissexto(): boolean {
     if (this.ano % 400 == 0)
@@ -20,6 +28,15 @@ export class CadastroDataNascimentoComponent {
       return true;
 
     return false;
+  }
+
+  public cadastrarData() {
+    if(this.valida()) {
+      let data = new Date(this.dia, this.mes, this.ano);
+      this.inscricaoServico = this.cadastroService.cadastroDataNascimento(data).subscribe((status) => {
+          console.log(status);
+      });
+    }
   }
 
   public valida (): boolean {
@@ -41,32 +58,17 @@ export class CadastroDataNascimentoComponent {
       return true;
   }
 
-  getDia(dia) {
-    if(this.diaMesValido(dia))
-      this.dia = dia;
-    else
-      alert('Dia Invalido!');
+  setDia(dia: number) {
+    this.dia = dia;
   }
 
-  getMes(mes) {
-    if (this.diaMesValido(mes))
-      this.mes = mes;
-    else
-      alert('Mes Invalido!');
+  setMes(mes: number) {
+    this.mes = mes;
   }
 
-  getAno(ano) {
-    if (ano.length == 4)
-      this.ano = ano;
-    else if (ano.length > 4)
+  setAno(ano: number) {
+    if (ano > new Date().getFullYear())
       alert('Ano Invalido!');
-  }
-
-  private diaMesValido(value) {
-    if(value.length > 2) {
-      return false;
-    }
-    return true;
   }
 
 }
