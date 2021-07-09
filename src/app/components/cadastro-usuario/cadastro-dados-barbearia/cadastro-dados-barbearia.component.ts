@@ -13,7 +13,9 @@ export class CadastroDadosBarbeariaComponent implements OnInit {
 
   private service: EnderecoService
 
-  constructor() { }
+  constructor() {
+    this.service = new EnderecoService();
+  }
 
   ngOnInit(): void {
   }
