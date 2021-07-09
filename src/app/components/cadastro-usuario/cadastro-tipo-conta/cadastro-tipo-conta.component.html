@@ -1,0 +1,38 @@
+<div class="container">
+  <form action="/cadastro-codigo-confirmacao" method="post">
+
+    <nav class="toggle">
+      <h4>
+        Selecione o tipo de Conta
+      </h4>
+    </nav>
+    <section>
+      <div class="texto-envio">
+        Selecione que tipo de conta irá
+        utilizar na Plataforma.
+        Fique atento pois não poderá alterar.
+      </div>
+    </section>
+    <section>
+      <div [ngClass] = "opcaoSelecionada == 0 ? 'escolha-tipo-conta':''" (click)="opcaoSelecionada = 0">
+        <img class="tipo-conta"
+          src="https://raw.githubusercontent.com/LuccasTraumer/tcc-fed-fio-navalha/in-progress/src/assets/icons/beard-icon-white.png?token=ARGG43RHNOTYQSR6KN66QDLA4ZAM4"
+          alt="Cliente">
+        <br>
+        <label>Cliente</label>
+      </div>
+
+      <div [ngClass] = "opcaoSelecionada == 1 ? 'escolha-tipo-conta':''" (click)="opcaoSelecionada = 1">
+        <img class="tipo-conta"
+          src="https://raw.githubusercontent.com/LuccasTraumer/tcc-fed-fio-navalha/in-progress/src/assets/icons/barber-icon-white.png?token=ARGG43VQDJRIDTODNTA52X3A4ZAMM"
+          alt="Salão">
+        <br>
+        <label>Barbearia(s)</label>
+      </div>
+    </section>
+    <div class="submit">
+
+      <fdn-button textoInterno="Avançar"></fdn-button>
+    </div>
+  </form>
+</div>

@@ -8,9 +8,11 @@
   justify-content: center;
   align-items: center;
 
-  a {
+  input {
+    background-color: inherit;
+    border: none;
+    width: inherit;
     color: var(--font-color);
-    text-decoration: none;
     font-weight: 600;
   }
 }

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  srvTCC: 'http://localhost:8080/cadastro/data-nascimento',
+  API_CEP: 'https://cors.bridged.cc/https://viacep.com.br/ws/',
 };
 
 /*

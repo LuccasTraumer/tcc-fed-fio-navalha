@@ -1,32 +1,34 @@
-import { LoadingComponent } from './loading/loading/loading.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login/login.component';
-import { CardBarbeariaHorizontalComponent } from './componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
-import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha/esqueceu-senha.component';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal/pagina-principal.component';
+
+import { CardBarbeariaHorizontalComponent } from './components/componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: PaginaPrincipalComponent
+    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule)
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
-  // {
-  //   path: 'cards',
-  //   component: CardBarbeariaHorizontalComponent
-  // },
-  // {
-  //   path: 'esqueceu',
-  //   component: EsqueceuSenhaComponent
-  // },
-  // {
-  //   path: 'loading',
-  //   component: LoadingComponent
-  // },
+  {
+    path: 'login',
+    loadChildren: () => import('./components/login/login.module').then(module => module.LoginModule)
+  },
+  {
+    path: 'cards',
+    component: CardBarbeariaHorizontalComponent
+  },
+  {
+    path: 'esqueceu',
+    loadChildren: () => import('./components/esqueceu-senha/esqueceu-senha.module').then(module => module.EsqueceuSenhaModule)
+  },
+  {
+    path: 'loading',
+    loadChildren: () => import('./components/loading/loading.module').then(module => module.LoadingModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./components/cadastro-usuario/cadastro-usuario.module').then(module => module.CadastroUsuarioModule)
+  },
   {
     path: '**',
     redirectTo: ''

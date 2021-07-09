@@ -1,16 +1,18 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-import { LoadingModule } from './loading/loading.module';
+import { CadastroUsuarioModule } from './components/cadastro-usuario/cadastro-usuario.module';
+import { LoadingModule } from './components/loading/loading.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-import { LoginModule } from './login/login.module';
+import { LoginModule } from './components/login/login.module';
 import { UtilsModule } from './utils/utils.module';
-import { ComponentesModule } from './componentes/componentes.module';
-import { EsqueceuSenhaModule } from './esqueceu-senha/esqueceu-senha.module';
-import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.module';
+import { ComponentesModule } from './components/componentes/componentes.module';
+import { EsqueceuSenhaModule } from './components/esqueceu-senha/esqueceu-senha.module';
+import { PaginaPrincipalModule } from './components/pagina-principal/pagina-principal.module';
 
 
 
@@ -27,6 +29,8 @@ import { PaginaPrincipalModule } from './pagina-principal/pagina-principal.modul
     EsqueceuSenhaModule,
     PaginaPrincipalModule,
     LoadingModule,
+    HttpClientModule,
+    CadastroUsuarioModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

@@ -1,0 +1,61 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      height: 5%;
+
+      label {
+        padding: 2%;
+      }
+
+      hr {
+        width: 0%;
+        height: 80%;
+      }
+
+      a{
+        text-decoration: none;
+        border-radius: none;
+      }
+    }
+
+    .opcao-selecionada{
+      color:rgb(167, 165, 165);
+    }
+
+    hr {
+      width: 80%;
+    }
+
+    .submit {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 80%;
+      fdn-input-data {
+        width: 95%;
+      }
+
+      fdn-button {
+        width: 90%;
+        display: flex;
+        height: 0%;
+        align-self: center;
+      }
+    }
+  }
+}

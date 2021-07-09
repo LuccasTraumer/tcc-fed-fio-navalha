@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { InputDataComponent } from './input-data/input-data.component';
 import { ButtonComponent } from './button/button.component';
 
-
-
 @NgModule({
   declarations: [InputDataComponent, ButtonComponent],
   imports: [

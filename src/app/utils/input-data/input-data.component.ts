@@ -12,6 +12,12 @@ export class InputDataComponent implements OnInit {
   @Input()
   public textoInterno?;
 
+  @Input()
+  public valorInterno?;
+
+  @Input()
+  public disabled?;
+
   constructor() { }
 
   ngOnInit(): void {
