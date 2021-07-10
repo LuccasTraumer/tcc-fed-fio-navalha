@@ -12,6 +12,7 @@ import { CadastroDadosBarbeariaComponent } from './cadastro-dados-barbearia/cada
 import { CadastroRoutingModule } from './cadastro.routing.module';
 import { CadastroServiceService } from '../../services/cadastro-module/cadastro-service.service';
 import { EnderecoService } from '../../services/cadastro-module/endereco.service';
+import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro-dados-cliente.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EnderecoService } from '../../services/cadastro-module/endereco.service
     CadastroTipoContaComponent,
     CadastroNomeSenhaComponent,
     CadastroDataNascimentoComponent,
-    CadastroDadosBarbeariaComponent
+    CadastroDadosBarbeariaComponent,
+    CadastroDadosClienteComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +36,8 @@ import { EnderecoService } from '../../services/cadastro-module/endereco.service
     CadastroTipoContaComponent,
     CadastroNomeSenhaComponent,
     CadastroDataNascimentoComponent,
-    CadastroDadosBarbeariaComponent
+    CadastroDadosBarbeariaComponent,
+    CadastroDadosClienteComponent
   ],
   providers: [CadastroServiceService, EnderecoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
