@@ -16,6 +16,12 @@ export class InputDataComponent implements OnInit {
   public valorInterno?;
 
   @Input()
+  public maxLength?;
+
+  @Input()
+  public pattern?;
+
+  @Input()
   public disabled?;
 
   constructor() { }

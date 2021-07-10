@@ -34,7 +34,20 @@ export class CadastroDadosBarbeariaComponent implements OnInit {
   siafi: ''
  };
 
+<<<<<<< Updated upstream:src/app/components/cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component.ts
+<<<<<<< Updated upstream:src/app/components/cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component.ts
   BuscarEndereco(CEP: string) {
+=======
+=======
+>>>>>>> Stashed changes:src/app/cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component.ts
+  buscarEndereco(CEP: string)
+  {
+    if(CEP.length === 8)
+    {
+<<<<<<< Updated upstream:src/app/components/cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component.ts
+>>>>>>> Stashed changes:src/app/cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component.ts
+=======
+>>>>>>> Stashed changes:src/app/cadastro-usuario/cadastro-dados-barbearia/cadastro-dados-barbearia.component.ts
     console.log(CEP);
     if (CEP.length === 8) {
       this.service.getEndereco(CEP).pipe(delay(1500))
