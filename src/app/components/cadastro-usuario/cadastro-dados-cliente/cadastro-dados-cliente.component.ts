@@ -9,6 +9,7 @@ import { Endereco } from 'src/app/models/Endereco';
   templateUrl: './cadastro-dados-cliente.component.html',
   styleUrls: ['./cadastro-dados-cliente.component.scss']
 })
+
 export class CadastroDadosClienteComponent implements OnInit {
 
   constructor(private service: EnderecoService) { }
@@ -33,13 +34,13 @@ export class CadastroDadosClienteComponent implements OnInit {
   {
     if(CEP.length === 8)
     {
-    console.log(CEP);
       this.service.getEndereco(CEP).pipe(delay(1500))
       .subscribe(endereco =>{
         this.endereco = endereco;
       }, err =>{
         console.log("Connection Failed")
       })
+      console.log(this.endereco);
     }
   }
 }
