@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   srvTCC: 'http://localhost:8080/cadastro/data-nascimento',
-  API_CEP: 'https://cors.bridged.cc/https://viacep.com.br/ws/',
+  API_CEP: 'https://cors.bridged.cc/https://viacep.com.br/ws',
 };
 
 /*

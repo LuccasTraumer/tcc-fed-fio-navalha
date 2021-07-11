@@ -1,3 +1,4 @@
+import { ComponentesModule } from './../componentes/componentes.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,7 +35,8 @@ import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
     CommonModule,
     UtilsModule,
     HttpClientModule,
-    CadastroRoutingModule
+    CadastroRoutingModule,
+    ComponentesModule
   ],
   exports: [
     CadastroEmailCelularComponent,
