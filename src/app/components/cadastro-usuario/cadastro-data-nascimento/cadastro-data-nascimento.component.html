@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="#" method="post">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
     <nav class="toggle">
       <h4>
@@ -10,11 +10,12 @@
     </nav>
     <section class="submit">
       <div class="input-data">
-        <fdn-input-data type="number" (keyup)="setDia($event.target.value)" textoInterno="Dia"></fdn-input-data>
-        <fdn-input-data type="number" (keyup)="setMes($event.target.value)" textoInterno="Mês"></fdn-input-data>
-        <fdn-input-data type="number" (keyup)="setAno($event.target.value)" textoInterno="Ano"></fdn-input-data>
+        <input (keyup)="setDia($event.target.value)" type="number" formControlName="dia" class="input" placeholder="Dia">
+        <input (keyup)="setMes($event.target.value)" type="number" formControlName="mes" class="input" placeholder="Mês">
+        <input (keyup)="setAno($event.target.value)" type="number" formControlName="ano" class="input" placeholder="Ano">
       </div>
 
+      <label *ngIf="mostarMensagemErro" class="textoErro" >Data Invalida, por favor informe um valor valido!</label>
       <div class="textos">
         <label for="">Você precisa inserir sua data de nascimento </label>
         <label for="">
@@ -23,8 +24,7 @@
         </label>
       </div>
 
-        <label hidden="{{valida()}}" class="textoErro">Data Invalida, por favor informe um valor valido!</label>
-        <fdn-button textoInterno="Avançar" (click)="cadastrarData()"></fdn-button>
+        <fdn-button textoInterno="Avançar"></fdn-button>
    </section>
   </form>
 </div>

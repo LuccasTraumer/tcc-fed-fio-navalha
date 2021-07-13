@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'fdn-input-data',
   templateUrl: './input-data.component.html',
   styleUrls: ['./input-data.component.scss']
 })
-export class InputDataComponent implements OnInit {
+export class InputDataComponent {
   @Input()
   public type?;
 
@@ -19,8 +19,5 @@ export class InputDataComponent implements OnInit {
   public disabled?;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

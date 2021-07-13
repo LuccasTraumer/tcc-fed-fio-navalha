@@ -40,12 +40,17 @@
       justify-content: space-evenly;
       width: 100%;
 
+      .textoErro {
+        font-size: 1rem;
+      }
+
       .input-data {
         width: 80%;
         display: flex;
         justify-content: space-around;
 
-        fdn-input-data {
+        input {
+          text-align: center;
           width: 20%;
         }
       }

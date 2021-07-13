@@ -1,6 +1,5 @@
 <div class="container">
-  <form>
-    <!--action="/cadastro-email-celular  method="post""-->
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <nav class="toggle">
       <label class="opcao-selecionada" *ngIf="opcao == 0;" (click)="ChosePhone()">TELEFONE</label>
       <label *ngIf="opcao == 1" (click)="ChosePhone()">TELEFONE</label>
@@ -10,10 +9,10 @@
     </nav>
     <hr>
     <div class="submit">
-      <fdn-input-data name="phone" class="phone" id="input-type" textoInterno="{{textoInterno}}" type="text" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"></fdn-input-data>
+      <input class="phone" (keyup)="pegarInput($event.target.value)" placeholder="{{textoInterno}}" type="{{switchType}}"/>
+      <label class="textoErro" [hidden]="valido()">O {{switchType === 'number' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!</label>
       <fdn-button textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="EnviarCodigo()"></fdn-button>
     </div>
-
   </form>
 </div>
 

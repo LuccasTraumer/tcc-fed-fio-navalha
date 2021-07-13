@@ -1,5 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { delay } from 'rxjs/operators';
 import { Endereco } from 'src/app/models/Endereco';
 import { EnderecoService } from 'src/app/services/cadastro-module/endereco.service';
@@ -9,39 +10,34 @@ import { EnderecoService } from 'src/app/services/cadastro-module/endereco.servi
   templateUrl: './cadastro-dados-barbearia.component.html',
   styleUrls: ['./cadastro-dados-barbearia.component.scss']
 })
-export class CadastroDadosBarbeariaComponent implements OnInit {
+export class CadastroDadosBarbeariaComponent {
+  public cepValido: boolean = true;
+  public endereco: Endereco;
+  public formulario;
 
-  private service: EnderecoService
-
-  constructor() {
-    this.service = new EnderecoService();
+  constructor(private formBuilder: FormBuilder, private service: EnderecoService) {
+    this.formulario = this.formBuilder.group({
+      cep: ''
+    });
   }
 
 
-  ngOnInit(): void {
-  }
-
- endereco: Endereco = {
-  cep: '',
-  logradouro: '',
-  complemento: '',
-  bairro: '',
-  localidade: '',
-  uf: '',
-  ibge: '',
-  gia: '',
-  ddd: '',
-  siafi: ''
- };
-
-  BuscarEndereco(CEP: string) {
-    console.log(CEP);
+  async buscarEndereco (CEP: string) {
     if (CEP.length === 8) {
-      this.service.getEndereco(CEP).pipe(delay(1500))
-      .subscribe(endereco =>{
+      await this.service.getEndereco(CEP).pipe(delay(1500))
+      .subscribe(endereco => {
         this.endereco = endereco;
-      }, err =>{
-        console.log("Connection Failed")
+      }, err => {
+        this.cepValido = false;
+      });
+    }
+  }
+
+  onSubmit() {
+    if(this.endereco !== undefined || this.endereco !== null) {
+      console.log(this.endereco);
+      this.formulario = this.formBuilder.group({
+        cep: this.endereco
       })
     }
   }

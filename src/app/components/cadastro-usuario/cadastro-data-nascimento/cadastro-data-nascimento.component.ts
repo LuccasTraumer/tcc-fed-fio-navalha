@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CadastroServiceService } from 'src/app/services/cadastro-module/cadastro-service.service';
 
@@ -12,11 +13,18 @@ export class CadastroDataNascimentoComponent implements OnDestroy {
   private dia: number;
   private mes: number;
   private ano: number;
-  private cadastroService: CadastroServiceService
   private inscricaoServico: Subscription;
+  public formulario;
+  public mostarMensagemErro: boolean = false;
 
-  constructor() {
-    this.cadastroService = new CadastroServiceService();
+
+
+  constructor(private formBuilder: FormBuilder, private cadastroService: CadastroServiceService) {
+    this.formulario = this.formBuilder.group({
+      dia: '',
+      mes: '',
+      ano: ''
+    });
   }
 
 
@@ -61,6 +69,18 @@ export class CadastroDataNascimentoComponent implements OnDestroy {
       return true;
   }
 
+  onSubmit() {
+    if(this.valida()) {
+      this.formulario = this.formBuilder.group({
+        dia: this.dia,
+        mes: this.mes,
+        ano: this.ano
+      });
+    } else {
+      this.mostarMensagemErro = true;
+    }
+  }
+
   setDia(dia: number) {
     this.dia = dia;
   }
@@ -70,8 +90,6 @@ export class CadastroDataNascimentoComponent implements OnDestroy {
   }
 
   setAno(ano: number) {
-    if (ano > new Date().getFullYear())
-      alert('Ano Invalido!');
+    this.ano = ano;
   }
-
 }

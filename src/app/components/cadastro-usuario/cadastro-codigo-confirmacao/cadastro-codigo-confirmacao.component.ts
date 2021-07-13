@@ -1,17 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'fdn-cadastro-codigo-confirmacao',
   templateUrl: './cadastro-codigo-confirmacao.component.html',
   styleUrls: ['./cadastro-codigo-confirmacao.component.scss']
 })
-export class CadastroCodigoConfirmacaoComponent implements OnInit {
+export class CadastroCodigoConfirmacaoComponent {
 
-  @Input('opcao') opcaoEnvio: string;
+  private value: number;
+  public formulario;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private formBuilder: FormBuilder) {
+    this.formulario = this.formBuilder.group({
+      codigoConfirmacao: ''
+    });
   }
 
+  onSubmit() {
+    console.log(this.formulario.value);
+    console.log(this.value);
+    this.formulario.reset();
+  }
 }

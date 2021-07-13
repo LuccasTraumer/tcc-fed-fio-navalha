@@ -10,13 +10,11 @@ import { retry, catchError } from 'rxjs/operators';
 export class CadastroServiceService {
 
   private requestHeader;
-  private http: HttpClient;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.requestHeader = {
       headers: new HttpHeaders({'Content-Type': 'application-json'})
     };
-    this.http = new HttpClient(null);
   }
 
   public cadastroDataNascimento(data: Date): Observable<any> {

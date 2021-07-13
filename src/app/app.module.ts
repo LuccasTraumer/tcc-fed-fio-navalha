@@ -23,14 +23,9 @@ import { PaginaPrincipalModule } from './components/pagina-principal/pagina-prin
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule,
     UtilsModule,
     ComponentesModule,
-    EsqueceuSenhaModule,
-    PaginaPrincipalModule,
-    LoadingModule,
     HttpClientModule,
-    CadastroUsuarioModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

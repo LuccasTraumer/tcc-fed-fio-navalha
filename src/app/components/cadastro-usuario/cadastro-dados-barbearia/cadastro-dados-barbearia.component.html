@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="/cadastro-codigo-confirmacao" method="post">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
 
     <nav class="toggle">
       <h4>
@@ -14,16 +14,14 @@
       </div>
     </section>
     <section>
-      <fdn-input-data #campoInput (keyup)="BuscarEndereco($event.target.value)" name="phone" class="input-data" id="input-type" textoInterno="CEP" type="text" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"></fdn-input-data>
-      <fdn-input-data name="logradouro" class="input-data" id="input-type" textoInterno="Logradouro" type="text" valorInterno={{endereco.logradouro}} disabled="disabled"></fdn-input-data>
-      <fdn-input-data name="numero" class="input-data" id="input-type" textoInterno="Número" type="text"></fdn-input-data>
-      <fdn-input-data name="complemento" class="input-data" id="input-type" textoInterno="Complemento" type="text"></fdn-input-data>
-      <fdn-input-data name="bairro" class="input-data" id="input-type" textoInterno="Bairro" type="text" valorInterno={{endereco.bairro}} disabled="disabled"></fdn-input-data>
-      <fdn-input-data name="cidade" class="input-data" id="input-type" textoInterno="Cidade" type="text" valorInterno={{endereco.localidade}} disabled="disabled"></fdn-input-data>
-      <fdn-input-data name="uf" class="input-data" id="input-type" textoInterno="UF" type="text" valorInterno={{endereco.uf}} disabled="disabled" ></fdn-input-data>
+      <input (keyup)="buscarEndereco($event.target.value)" class="input-data input" placeholder="CEP" type="number" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}"/>
+      <input class="input-data input" placeholder="Número" type="number"/>
+      <input class="input-data input" id="input-type" placeholder="Complemento" type="text"/>
     </section>
-    <div class="submit">
 
+    <label class="warning" *ngIf="!cepValido">CEP informado é invalido, informe por favor um cep valido!</label>
+    {{cepValido}}
+    <div class="submit">
       <fdn-button textoInterno="Avançar"></fdn-button>
     </div>
   </form>

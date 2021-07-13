@@ -1,59 +1,96 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Cliente } from '../../../models/Cliente';
 
 @Component({
   selector: 'fdn-cadastro-email-celular',
   templateUrl: './cadastro-email-celular.component.html',
   styleUrls: ['./cadastro-email-celular.component.scss']
 })
-export class CadastroEmailCelularComponent implements OnInit {
+export class CadastroEmailCelularComponent {
 
-  constructor() { }
+  private primeiraVez: boolean = true;
+  public switchType: string = 'number';
+  public textoInterno: string = "Insira seu Telefone";
+  public opcao: number = 0;
+  private valorInput: string;
+  public formulario;
 
-  ngOnInit(): void {
+  private cliente: Cliente;
+
+  constructor(private formBuilder: FormBuilder, private routes: Router) {
+    this.formulario = this.formBuilder.group({
+      email: '',
+      celular: ''
+    });
+
+    this.cliente = new Cliente();
   }
 
-  public switchType: string;
-
-  public textoInterno: string = "Insira seu Telefone";
-  public inputType: string = " ";
-
-  public opcao: number = 0;
-
-  ChosePhone()
-  {
+  ChosePhone() {
     this.switchType = 'number'
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
-    console.log(this.opcao);
   }
 
-  ChoseEmail()
-  {
+  ChoseEmail() {
     this.switchType = 'email'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
     console.log(this.opcao);
   }
 
-  EnviarCodigo()
-  {
-    this.inputType = document.getElementById("input-type").nodeValue;
+  EnviarCodigo() {
     if(this.opcao == 0)
       alert("Código enviado para seu número");
     else
       alert("Código enviado para seu email")
   }
 
+  onSubmit() {
+    if(this.isCelular(this.valorInput)) {
+      this.formulario = this.formBuilder.group({
+        celular: this.valorInput,
+        email: ''
+      });
 
+      this.cliente.telefone = this.valorInput as unknown as number;
+    } else {
+      this.formulario = this.formBuilder.group({
+        celular: '',
+        email: this.valorInput
+      });
+      this.cliente.email = this.valorInput;
+    }
 
-/*
- * Masking input with 'VanillaMasker'
- */
-//input = document.querySelector("input");
+    // sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
+    console.log(this.routes.navigate(['codigo-confirmacao']));
+    // this.routes.navigate(['/codigo-confirmacao'])
+  }
 
-// Applying brazilian mask
-//VMasker(input).maskPattern(any:"(99) 99999-9999");
-//VMasker().maskPattern("(99) 9999-9999");
+  valido(): boolean {
+    if(this.valorInput.length > 7) {
+      this.primeiraVez = false;
+      return true;
+    }
 
+    if (this.primeiraVez)
+      return true;
 
+    if(!this.isCelular(this.valorInput) && this.valorInput.includes('@') && this.valorInput.includes('.')) {
+      return true;
+    } else if(this.isCelular(this.valorInput)) {
+      return true
+    }
+    return false;
+  }
+
+  pegarInput(evento) {
+    this.valorInput = evento;
+  }
+
+  private isCelular(valorInput: string): boolean {
+    return this.switchType === 'number' && this.valorInput.length == 11;
+  }
 }

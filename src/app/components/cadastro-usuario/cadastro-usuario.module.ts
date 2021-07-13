@@ -12,6 +12,7 @@ import { CadastroDadosBarbeariaComponent } from './cadastro-dados-barbearia/cada
 import { CadastroRoutingModule } from './cadastro.routing.module';
 import { CadastroServiceService } from '../../services/cadastro-module/cadastro-service.service';
 import { EnderecoService } from '../../services/cadastro-module/endereco.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EnderecoService } from '../../services/cadastro-module/endereco.service
     CommonModule,
     UtilsModule,
     HttpClientModule,
-    CadastroRoutingModule
+    CadastroRoutingModule,
+    ReactiveFormsModule
   ],
   exports: [
     CadastroEmailCelularComponent,
