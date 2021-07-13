@@ -14,8 +14,6 @@ import { ComponentesModule } from './components/componentes/componentes.module';
 import { EsqueceuSenhaModule } from './components/esqueceu-senha/esqueceu-senha.module';
 import { PaginaPrincipalModule } from './components/pagina-principal/pagina-principal.module';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,0 +1,94 @@
+.container {
+  width: 100vw;
+  height: 90vh;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      height: 5%;
+
+      h4 {
+        font-size: 0.9rem;
+        line-height: 16px;
+        line-height: 100%;
+        color: #F4B578;
+        font-weight: 900;
+      }
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      margin: 5px;
+      align-items: center;
+      justify-content: center;
+
+      .input-data {
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        margin: 10px;
+        width: 150%;
+      }
+
+      .escolha-tipo-conta {
+        color: #F4B578;
+        border: solid #F4B578;
+        border-radius: 20px;
+        font-weight: 900;
+      }
+
+      label {
+        padding: 2%;
+        display: flex;
+        margin-right: 10px;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      .tipo-conta {
+        width: 90%;
+        height: 100%;
+      }
+    }
+
+    .texto-envio {
+      text-align: center;
+      width: 60%;
+      font-size: 0.75rem;
+    }
+
+    .opcao-selecionada {
+      color:rgb(167, 165, 165);
+    }
+
+    .submit {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 80%;
+      fdn-input-data {
+        width: 95%;
+      }
+
+      fdn-button {
+        width: 90%;
+        display: flex;
+        height: 0%;
+        align-self: center;
+      }
+    }
+  }
+}

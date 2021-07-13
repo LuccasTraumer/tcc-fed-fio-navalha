@@ -16,6 +16,12 @@ export class InputDataComponent {
   public valorInterno?;
 
   @Input()
+  public maxLength?;
+
+  @Input()
+  public pattern?;
+
+  @Input()
   public disabled?;
 
   constructor() { }

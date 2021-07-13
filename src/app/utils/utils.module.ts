@@ -7,7 +7,7 @@ import { ButtonComponent } from './button/button.component';
 @NgModule({
   declarations: [InputDataComponent, ButtonComponent],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [InputDataComponent, ButtonComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

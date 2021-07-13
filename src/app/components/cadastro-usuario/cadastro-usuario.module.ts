@@ -1,3 +1,4 @@
+import { ComponentesModule } from './../componentes/componentes.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,6 +14,10 @@ import { CadastroRoutingModule } from './cadastro.routing.module';
 import { CadastroServiceService } from '../../services/cadastro-module/cadastro-service.service';
 import { EnderecoService } from '../../services/cadastro-module/endereco.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
+import { CadastroCnpjComponent } from './cadastro-cnpj/cadastro-cnpj.component';
+import { CadastroCpfComponent } from './cadastro-cpf/cadastro-cpf.component';
+import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro-dados-cliente.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +26,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     CadastroTipoContaComponent,
     CadastroNomeSenhaComponent,
     CadastroDataNascimentoComponent,
-    CadastroDadosBarbeariaComponent
+    CadastroDadosBarbeariaComponent,
+    CadastroDadosClienteComponent,
+    CadastroCpfComponent,
+    CadastroCnpjComponent,
+    CadastroFotoComponent
   ],
   imports: [
     CommonModule,
     UtilsModule,
     HttpClientModule,
     CadastroRoutingModule,
+    ComponentesModule,
     ReactiveFormsModule
   ],
   exports: [
@@ -36,7 +46,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     CadastroTipoContaComponent,
     CadastroNomeSenhaComponent,
     CadastroDataNascimentoComponent,
-    CadastroDadosBarbeariaComponent
+    CadastroDadosBarbeariaComponent,
+    CadastroDadosClienteComponent,
+    CadastroCpfComponent,
+    CadastroCnpjComponent,
+    CadastroFotoComponent
   ],
   providers: [CadastroServiceService, EnderecoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
