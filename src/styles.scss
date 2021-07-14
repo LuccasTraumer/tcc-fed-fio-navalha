@@ -40,3 +40,9 @@ input {
   color: var(--background-button);
   font-weight: 700;
 }
+
+.background-ft, .background-hr {
+  background: var(--input-color);
+  color: var(--background-color);
+}
+
