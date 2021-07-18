@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Cliente } from '../../../models/Cliente';
 
 @Component({
@@ -16,6 +17,7 @@ export class CadastroEmailCelularComponent {
   public opcao: number = 0;
   private valorInput: string;
   public formulario;
+  private valorComMascara: string;
 
   private cliente: Cliente;
 
@@ -86,11 +88,15 @@ export class CadastroEmailCelularComponent {
     return false;
   }
 
-  pegarInput(evento) {
+  pegarInput(evento: string) {
     this.valorInput = evento;
+
+    if(evento.length == 11) {
+      this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
+    }
   }
 
   private isCelular(valorInput: string): boolean {
-    return this.switchType === 'number' && this.valorInput.length == 11;
+    return this.switchType === 'number' && this.valorInput.length == 14;
   }
 }

@@ -1,7 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { delay } from 'rxjs/operators';
+
 import { Endereco } from 'src/app/models/Endereco';
 import { EnderecoService } from 'src/app/services/cadastro-module/endereco.service';
 
