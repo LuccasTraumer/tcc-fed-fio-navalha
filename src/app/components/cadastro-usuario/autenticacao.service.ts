@@ -6,11 +6,17 @@ import { Cliente } from 'src/app/models/Cliente';
 })
 export class AutenticacaoService {
 
+  private usuarioAutenticado: boolean = false;
   clienteAutenticado = new EventEmitter<boolean>();
 
   constructor() { }
 
   fazerLogin(cliente: Cliente) {
-    this.clienteAutenticado.emit(true);
+    this.usuarioAutenticado = true;
+    this.clienteAutenticado.emit(this.usuarioAutenticado);
+  }
+
+  usuarioEstaAutenticado(): boolean{
+    return this.usuarioAutenticado;
   }
 }

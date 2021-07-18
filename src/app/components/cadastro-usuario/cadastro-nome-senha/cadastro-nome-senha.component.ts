@@ -16,7 +16,6 @@ export class CadastroNomeSenhaComponent {
       nome: '',
       senha: ''
     });
-
   }
 
   onSubmit() {

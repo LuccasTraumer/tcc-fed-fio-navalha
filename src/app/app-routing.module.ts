@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CardBarbeariaHorizontalComponent } from './components/componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
+import { AuthGuard } from './guardas/auth.guard';
 
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule)
+    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -15,10 +17,11 @@ const routes: Routes = [
   },
   {
     path: 'cards',
-    component: CardBarbeariaHorizontalComponent
+    component: CardBarbeariaHorizontalComponent,
+    canActivate: [AuthGuard]
   },
   {
-    path: 'esqueceu',
+    path: 'esqueceu-senha',
     loadChildren: () => import('./components/esqueceu-senha/esqueceu-senha.module').then(module => module.EsqueceuSenhaModule)
   },
   {
