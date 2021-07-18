@@ -29,14 +29,12 @@ export class EsqueceuSenhaComponent {
     this.switchType = 'TELEFONE'
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
-    console.log(this.opcao);
   }
 
   choseEmail() {
     this.switchType = 'E-MAIL'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
-    console.log(this.opcao);
   }
 
 

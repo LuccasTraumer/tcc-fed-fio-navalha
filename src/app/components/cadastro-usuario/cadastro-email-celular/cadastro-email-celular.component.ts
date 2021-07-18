@@ -40,7 +40,6 @@ export class CadastroEmailCelularComponent {
     this.switchType = 'email'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
-    console.log(this.opcao);
   }
 
   public enviarCodigo(): void {
