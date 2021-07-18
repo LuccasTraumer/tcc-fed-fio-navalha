@@ -26,6 +26,9 @@ export class CadastroNomeSenhaComponent {
     let clienteJson = sessionStorage.getItem('cliente');
     let clieteJsonParseado = JSON.parse(clienteJson);
 
+    if(clieteJsonParseado === undefined)
+      this.routes.navigate(['cadastro']);
+
     clieteJsonParseado['nome'] = this.formulario.value['nome'];
     clieteJsonParseado['senha'] = this.formulario.value['senha'];
     console.log(clienteJson);

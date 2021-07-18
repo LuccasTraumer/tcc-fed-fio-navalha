@@ -21,10 +21,13 @@ export class CadastroTipoContaComponent {
     let clienteJson = sessionStorage.getItem('cliente');
     let clienteJsonParseado = JSON.parse(clienteJson);
 
+    if(clienteJsonParseado === undefined)
+      this.routes.navigate(['cadastro']);
+
     if(this.opcaoSelecionada == 0)
-    clienteJsonParseado['tipoCliente'] = 'clienteVarejo';
+      clienteJsonParseado['tipoCliente'] = 'clienteVarejo';
     else
-    clienteJsonParseado['tipoCliente'] = 'clienteBarbearia';
+      clienteJsonParseado['tipoCliente'] = 'clienteBarbearia';
 
     sessionStorage.setItem('cliente', JSON.stringify(clienteJsonParseado));
     this.routes.navigate(['cadastro/info-login']);

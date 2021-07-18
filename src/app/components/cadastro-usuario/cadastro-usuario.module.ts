@@ -40,18 +40,7 @@ import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro
     ComponentesModule,
     ReactiveFormsModule
   ],
-  exports: [
-    CadastroEmailCelularComponent,
-    CadastroCodigoConfirmacaoComponent,
-    CadastroTipoContaComponent,
-    CadastroNomeSenhaComponent,
-    CadastroDataNascimentoComponent,
-    CadastroDadosBarbeariaComponent,
-    CadastroDadosClienteComponent,
-    CadastroCpfComponent,
-    CadastroCnpjComponent,
-    CadastroFotoComponent
-  ],
+  exports: [],
   providers: [CadastroServiceService, EnderecoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

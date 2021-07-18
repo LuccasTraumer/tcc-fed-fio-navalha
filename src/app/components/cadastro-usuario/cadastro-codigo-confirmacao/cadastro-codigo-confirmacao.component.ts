@@ -19,6 +19,11 @@ export class CadastroCodigoConfirmacaoComponent {
   }
 
   onSubmit() {
-    this.routes.navigate(['cadastro/tipo-conta']);
+    let clienteJSON = sessionStorage.getItem('cliente');
+    let jsonParseado = JSON.parse(clienteJSON);
+    if(jsonParseado.telefone !== undefined || jsonParseado.email !== undefined)
+      this.routes.navigate(['cadastro/tipo-conta']);
+    else
+      this.routes.navigate(['cadastro']);
   }
 }
