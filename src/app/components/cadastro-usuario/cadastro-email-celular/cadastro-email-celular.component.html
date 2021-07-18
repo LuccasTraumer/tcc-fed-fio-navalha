@@ -2,16 +2,16 @@
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <nav class="toggle">
       <label class="opcao-selecionada" *ngIf="opcao == 0;" (click)="ChosePhone()">TELEFONE</label>
-      <label *ngIf="opcao == 1" (click)="ChosePhone()">TELEFONE</label>
+      <label *ngIf="opcao == 1" (click)="chosePhone()">TELEFONE</label>
       <hr>
       <label class="opcao-selecionada" *ngIf="opcao == 1;" (click)="ChoseEmail()">E-MAIL</label>
-      <label *ngIf="opcao == 0"  (click)="ChoseEmail()">E-MAIL</label>
+      <label *ngIf="opcao == 0"  (click)="choseEmail()">E-MAIL</label>
     </nav>
     <hr>
     <div class="submit">
       <input class="phone" (keyup)="pegarInput($event.target.value)" placeholder="{{textoInterno}}" type="{{switchType}}"/>
-      <label class="textoErro" [hidden]="valido()">O {{switchType === 'number' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!</label>
-      <fdn-button textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="EnviarCodigo()"></fdn-button>
+      <label class="textoErro" [hidden]="campoValido()">O {{switchType === 'number' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!</label>
+      <fdn-button textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="enviarCodigo()"></fdn-button>
     </div>
   </form>
 </div>

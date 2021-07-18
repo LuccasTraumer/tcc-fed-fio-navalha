@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class CadastroEmailCelularComponent {
   public switchType: string = 'number';
   public textoInterno: string = "Insira seu Telefone";
   public opcao: number = 0;
-  private valorInput: string;
+  private valorInput: string = "";
   public formulario;
   private valorComMascara: string;
 
@@ -30,34 +30,34 @@ export class CadastroEmailCelularComponent {
     this.cliente = new Cliente();
   }
 
-  ChosePhone() {
+  public chosePhone(): void {
     this.switchType = 'number'
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
   }
 
-  ChoseEmail() {
+  public choseEmail(): void {
     this.switchType = 'email'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
     console.log(this.opcao);
   }
 
-  EnviarCodigo() {
-    if(this.opcao == 0)
-      alert("Código enviado para seu número");
-    else
-      alert("Código enviado para seu email")
+  public enviarCodigo(): void {
+    // if(this.opcao == 0)
+    //   // alert("Código enviado para seu número");
+    // else
+    //   // alert("Código enviado para seu email")
   }
 
-  onSubmit() {
-    if(this.isCelular(this.valorInput)) {
+  public onSubmit(): void {
+    if(this.isCelular()) {
       this.formulario = this.formBuilder.group({
         celular: this.valorInput,
         email: ''
       });
 
-      this.cliente.telefone = this.valorInput as unknown as number;
+      this.cliente.telefone = this.valorInput;
     } else {
       this.formulario = this.formBuilder.group({
         celular: '',
@@ -66,13 +66,12 @@ export class CadastroEmailCelularComponent {
       this.cliente.email = this.valorInput;
     }
 
-    // sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
-    console.log(this.routes.navigate(['codigo-confirmacao']));
-    // this.routes.navigate(['/codigo-confirmacao'])
+    sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
+    this.routes.navigateByUrl('cadastro/codigo-confirmacao');
   }
 
-  valido(): boolean {
-    if(this.valorInput.length > 7) {
+  public campoValido(): boolean {
+    if(this.valorInput !== undefined && this.valorInput.length > 7) {
       this.primeiraVez = false;
       return true;
     }
@@ -80,15 +79,15 @@ export class CadastroEmailCelularComponent {
     if (this.primeiraVez)
       return true;
 
-    if(!this.isCelular(this.valorInput) && this.valorInput.includes('@') && this.valorInput.includes('.')) {
+    if(!this.isCelular() && this.valorInput.includes('@') && this.valorInput.includes('.')) {
       return true;
-    } else if(this.isCelular(this.valorInput)) {
+    } else if(this.isCelular()) {
       return true
     }
     return false;
   }
 
-  pegarInput(evento: string) {
+  public pegarInput(evento: string): void {
     this.valorInput = evento;
 
     if(evento.length == 11) {
@@ -96,7 +95,7 @@ export class CadastroEmailCelularComponent {
     }
   }
 
-  private isCelular(valorInput: string): boolean {
+  private isCelular(): boolean {
     return this.switchType === 'number' && this.valorInput.length == 14;
   }
 }
