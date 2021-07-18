@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/models/Cliente';
+import { AutenticacaoService } from '../autenticacao.service';
 
 @Component({
   selector: 'fdn-cadastro-foto',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroFotoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private autenticacaoService: AutenticacaoService) { }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    let cliente = new Cliente();
+    this.autenticacaoService.fazerLogin(cliente);
+  }
 }

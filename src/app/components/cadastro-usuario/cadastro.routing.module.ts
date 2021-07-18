@@ -14,6 +14,10 @@ import { CadastroTipoContaComponent } from "./cadastro-tipo-conta/cadastro-tipo-
 
 const cadastroRoutes = [
     {
+      path: '',
+      redirectTo: 'email-celular'
+    },
+    {
       path: 'email-celular',
       component: CadastroEmailCelularComponent
     },

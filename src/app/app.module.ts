@@ -3,16 +3,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-import { CadastroUsuarioModule } from './components/cadastro-usuario/cadastro-usuario.module';
-import { LoadingModule } from './components/loading/loading.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-import { LoginModule } from './components/login/login.module';
 import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './components/componentes/componentes.module';
-import { EsqueceuSenhaModule } from './components/esqueceu-senha/esqueceu-senha.module';
-import { PaginaPrincipalModule } from './components/pagina-principal/pagina-principal.module';
+import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +27,7 @@ import { PaginaPrincipalModule } from './components/pagina-principal/pagina-prin
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [],
+  providers: [AutenticacaoService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

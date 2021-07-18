@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="header background-hr">
+  <div *ngIf="exibirMenu" class="header background-hr">
     <a href="">
       <img src="../assets/icons/fdn-icon.png" alt="logo fio da navalha">
     </a>
@@ -14,7 +14,7 @@
 
   <router-outlet></router-outlet>
 
-  <div class="footer background-ft">
+  <div *ngIf="exibirMenu" class="footer background-ft">
     <a href="">
       <img src="../assets/icons/icones-free/home-icon-black.png" alt="icone home">
     </a>
