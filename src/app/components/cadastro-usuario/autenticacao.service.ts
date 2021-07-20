@@ -1,22 +1,33 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { environment } from './../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
 import { Cliente } from 'src/app/models/Cliente';
+import { Observable, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoService {
+export class AutenticacaoService implements OnDestroy{
 
   private usuarioAutenticado: boolean = false;
   clienteAutenticado = new EventEmitter<boolean>();
+  private header;
+  private inscricao: Subscription;
+  constructor(private http: HttpClient) { }
 
-  constructor() { }
-
-  fazerLogin(cliente: Cliente) {
-    this.usuarioAutenticado = true;
-    this.clienteAutenticado.emit(this.usuarioAutenticado);
+  ngOnDestroy(): void {
+    this.inscricao.unsubscribe();
   }
 
-  usuarioEstaAutenticado(): boolean{
+  fazerLogin(cliente: Cliente): Subscription {
+    this.usuarioAutenticado = true;
+    this.clienteAutenticado.emit(this.usuarioAutenticado);
+
+    this.inscricao = this.http.post(`${environment.srvTCC}`, cliente, this.header).subscribe();
+    return this.inscricao;
+  }
+
+  usuarioEstaAutenticado(): boolean {
     return this.usuarioAutenticado;
   }
 }
