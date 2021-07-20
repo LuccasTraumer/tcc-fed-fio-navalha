@@ -11,10 +11,12 @@ import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './components/componentes/componentes.module';
 import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
 import { AuthGuard } from './guardas/auth.guard';
+import { CadastroCpfCnpjComponent } from './components/cadastro-cpf-cnpj/cadastro-cpf-cnpj.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CadastroCpfCnpjComponent,
   ],
   imports: [
     BrowserModule,

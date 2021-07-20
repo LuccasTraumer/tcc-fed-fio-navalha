@@ -18,6 +18,7 @@ import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
 import { CadastroCnpjComponent } from './cadastro-cnpj/cadastro-cnpj.component';
 import { CadastroCpfComponent } from './cadastro-cpf/cadastro-cpf.component';
 import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro-dados-cliente.component';
+import { CadastroEnderecoComponent } from './cadastro-endereco/cadastro-endereco.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro
     CadastroDadosClienteComponent,
     CadastroCpfComponent,
     CadastroCnpjComponent,
-    CadastroFotoComponent
+    CadastroFotoComponent,
+    CadastroEnderecoComponent,
+    CadastroCnpjComponent
   ],
   imports: [
     CommonModule,

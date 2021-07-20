@@ -8,9 +8,11 @@ import { CadastroDadosBarbeariaComponent } from "./cadastro-dados-barbearia/cada
 import { CadastroDadosClienteComponent } from "./cadastro-dados-cliente/cadastro-dados-cliente.component";
 import { CadastroDataNascimentoComponent } from "./cadastro-data-nascimento/cadastro-data-nascimento.component";
 import { CadastroEmailCelularComponent } from "./cadastro-email-celular/cadastro-email-celular.component";
+import { CadastroEnderecoComponent } from "./cadastro-endereco/cadastro-endereco.component";
 import { CadastroFotoComponent } from "./cadastro-foto/cadastro-foto.component";
 import { CadastroNomeSenhaComponent } from "./cadastro-nome-senha/cadastro-nome-senha.component";
 import { CadastroTipoContaComponent } from "./cadastro-tipo-conta/cadastro-tipo-conta.component";
+import { CadastroCpfCnpjComponent } from '../cadastro-cpf-cnpj/cadastro-cpf-cnpj.component';
 
 const cadastroRoutes = [
     {
@@ -38,21 +40,21 @@ const cadastroRoutes = [
       component: CadastroNomeSenhaComponent
     },
     {
-      path: 'info-barbearia',
-      component: CadastroDadosBarbeariaComponent
+      path: 'endereco',
+      component: CadastroEnderecoComponent
     },
+    // {
+    //   path: 'info-cliente',
+    //   component: CadastroDadosClienteComponent
+    // },
     {
-      path: 'info-cliente',
-      component: CadastroDadosClienteComponent
+      path: 'dados-cliente',
+      component: CadastroCpfCnpjComponent
     },
-    {
-      path: 'cpf',
-      component: CadastroCpfComponent
-    },
-    {
-      path: 'cnpj',
-      component: CadastroCnpjComponent
-    },
+    // {
+    //   path: 'cnpj',
+    //   component: CadastroCnpjComponent
+    // },
     {
       path: 'foto',
       component: CadastroFotoComponent

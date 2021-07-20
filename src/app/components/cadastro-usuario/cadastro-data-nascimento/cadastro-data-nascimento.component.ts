@@ -2,34 +2,27 @@ import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { CadastroServiceService } from 'src/app/services/cadastro-module/cadastro-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fdn-cadastro-data-nascimento',
   templateUrl: './cadastro-data-nascimento.component.html',
   styleUrls: ['./cadastro-data-nascimento.component.scss']
 })
-export class CadastroDataNascimentoComponent implements OnDestroy {
+export class CadastroDataNascimentoComponent {
 
   private dia: number;
   private mes: number;
   private ano: number;
-  private inscricaoServico: Subscription;
   public formulario;
   public mostarMensagemErro: boolean = false;
 
-
-
-  constructor(private formBuilder: FormBuilder, private cadastroService: CadastroServiceService) {
+  constructor(private formBuilder: FormBuilder, private cadastroService: CadastroServiceService, private router: Router) {
     this.formulario = this.formBuilder.group({
       dia: '',
       mes: '',
       ano: ''
     });
-  }
-
-
-  ngOnDestroy(): void {
-    this.inscricaoServico.unsubscribe();
   }
 
   private bissexto(): boolean {
@@ -39,15 +32,6 @@ export class CadastroDataNascimentoComponent implements OnDestroy {
       return true;
 
     return false;
-  }
-
-  public cadastrarData() {
-    if(this.valida()) {
-      let data = new Date(this.dia, this.mes, this.ano);
-      this.inscricaoServico = this.cadastroService.cadastroDataNascimento(data).subscribe((status) => {
-          console.log(status);
-      });
-    }
   }
 
   public valida (): boolean {
@@ -70,12 +54,14 @@ export class CadastroDataNascimentoComponent implements OnDestroy {
   }
 
   onSubmit() {
+    let clienteJson = sessionStorage.getItem('cliente');
+    let clienteJsonParseado = JSON.parse(clienteJson);
+
     if(this.valida()) {
-      this.formulario = this.formBuilder.group({
-        dia: this.dia,
-        mes: this.mes,
-        ano: this.ano
-      });
+      clienteJsonParseado['dataNascimento'] = `${this.dia}-${this.mes}-${this.ano}`;
+      sessionStorage.setItem('cliente', JSON.stringify(clienteJsonParseado));
+      this.router.navigate(['cadastro/dados-cliente']);
+
     } else {
       this.mostarMensagemErro = true;
     }
