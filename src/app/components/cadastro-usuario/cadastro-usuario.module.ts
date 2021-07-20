@@ -1,7 +1,6 @@
 import { ComponentesModule } from './../componentes/componentes.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { CadastroTipoContaComponent } from './cadastro-tipo-conta/cadastro-tipo-conta.component';
@@ -18,6 +17,7 @@ import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
 import { CadastroCnpjComponent } from './cadastro-cnpj/cadastro-cnpj.component';
 import { CadastroCpfComponent } from './cadastro-cpf/cadastro-cpf.component';
 import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro-dados-cliente.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +30,12 @@ import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro
     CadastroDadosClienteComponent,
     CadastroCpfComponent,
     CadastroCnpjComponent,
-    CadastroFotoComponent
+    CadastroFotoComponent,
+    CadastroComponent
   ],
   imports: [
     CommonModule,
     UtilsModule,
-    HttpClientModule,
     CadastroRoutingModule,
     ComponentesModule,
     ReactiveFormsModule

@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 const paginaPrincipalRoutes = [
   {
-    path: '',
+    path: 'principal',
     component: PaginaPrincipalComponent
   }
 ]

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,9 @@ export class CadastroCodigoConfirmacaoComponent {
 
   public formulario;
 
-  constructor(private formBuilder: FormBuilder, private routes: Router) {
+  @Output() codigoConfimacaoCadastrado = new EventEmitter<boolean>();
+
+  constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
       codigoConfirmacao: ''
     });
@@ -20,9 +22,6 @@ export class CadastroCodigoConfirmacaoComponent {
   onSubmit() {
     let clienteJSON = sessionStorage.getItem('cliente');
     let jsonParseado = JSON.parse(clienteJSON);
-    if(jsonParseado.telefone !== undefined || jsonParseado.email !== undefined)
-      this.routes.navigate(['cadastro/tipo-conta']);
-    else
-      this.routes.navigate(['cadastro']);
+    this.codigoConfimacaoCadastrado.emit(true);
   }
 }

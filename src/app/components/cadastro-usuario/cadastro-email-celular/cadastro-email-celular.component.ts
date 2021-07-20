@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -18,6 +18,8 @@ export class CadastroEmailCelularComponent {
   private valorInput: string = "";
   public formulario;
   private valorComMascara: string;
+
+  @Output() emailCadastrado = new EventEmitter<Cliente>();
 
   private cliente: Cliente;
 
@@ -65,8 +67,7 @@ export class CadastroEmailCelularComponent {
       this.cliente.email = this.valorInput;
     }
 
-    sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
-    this.routes.navigate(['cadastro/codigo-confirmacao']);
+    this.emailCadastrado.emit(this.cliente);
   }
 
   public campoValido(): boolean {
