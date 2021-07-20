@@ -1,6 +1,15 @@
 <div class="container">
   <fdn-cadastro-email-celular *ngIf="emailCadastrado !== true" (emailCadastrado)="setEmail($event)"></fdn-cadastro-email-celular>
   <fdn-cadastro-codigo-confirmacao *ngIf="codigoConfirmacaoCadastrado !== true && emailCadastrado == true" (codigoConfimacaoCadastrado)="setCondigoConfirmacao($event)"></fdn-cadastro-codigo-confirmacao>
-  <!-- <fdn-cadastro-tipo-conta *ngIf="tipoContaCadastrado !== true && codigoConfirmacaoCadastrado == true" (tipoContaCadastrado)="setTipoConta($event)"></fdn-cadastro-tipo-conta> -->
-  <fdn-cadastro-nome-senha *ngIf="infoLoginCadastrado !== true && codigoConfirmacaoCadastrado == true" (infoLoginCadastrado)="setTipoConta($event)"></fdn-cadastro-nome-senha>
+  <fdn-cadastro-tipo-conta *ngIf="tipoContaCadastrado !== true && codigoConfirmacaoCadastrado == true" (tipoContaCadastrado)="setTipoConta($event)"></fdn-cadastro-tipo-conta>
+  <fdn-cadastro-nome-senha *ngIf="infoLoginCadastrado !== true && tipoContaCadastrado == true" (infoLoginCadastrado)="setInfoLogin($event)"></fdn-cadastro-nome-senha>
+  <div class="valores">
+    {{cliente.nome}}
+    {{cliente.tipoCliente}}
+    {{cliente.email}}
+    {{cliente.telefone}}
+    {{cliente.fotoPerfil}}
+    {{cliente.senha}}
+    {{cliente.dataNascimento}}
+  </div>
 </div>

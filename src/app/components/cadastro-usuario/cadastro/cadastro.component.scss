@@ -3,4 +3,9 @@
   width: 100vw;
   display: grid;
   align-self: center;
+
+  .valores {
+    display: flex;
+    flex-direction: column;
+  }
 }

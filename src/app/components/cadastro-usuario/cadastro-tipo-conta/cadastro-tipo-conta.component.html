@@ -1,5 +1,5 @@
 <div class="container">
-  <nav class="form">
+  <form formGroup="formulario" (ngSubmit)="onSubmit()">
 
     <nav class="toggle">
       <h4>
@@ -31,7 +31,7 @@
       </div>
     </section>
     <div class="submit">
-      <fdn-button (click)="onSubmit()" textoInterno="Avançar"></fdn-button>
+      <fdn-button textoInterno="Avançar"></fdn-button>
     </div>
-  </nav>
+  </form>
 </div>

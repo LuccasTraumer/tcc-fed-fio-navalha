@@ -8,7 +8,7 @@ import { Cliente } from '../../../models/Cliente';
 })
 export class CadastroComponent {
 
-  private cliente: Cliente;
+  public  cliente: Cliente;
 
   public emailCadastrado: boolean = false;
   public codigoConfirmacaoCadastrado: boolean = false;
@@ -41,6 +41,6 @@ export class CadastroComponent {
   setInfoLogin(cliente: Cliente): void {
     this.cliente.nome = cliente.nome;
     this.cliente.senha = cliente.senha;
-    console.log(cliente);
+    console.log(this.cliente);
   }
 }

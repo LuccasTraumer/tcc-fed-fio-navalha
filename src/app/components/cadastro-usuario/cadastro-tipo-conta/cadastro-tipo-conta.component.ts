@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
+import { FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -17,9 +18,14 @@ export class CadastroTipoContaComponent {
 
   @Output() tipoContaCadastrado = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+    this.formulario = this.formBuilder.group({
+      tipoCliente: ''
+    })
+  }
 
   onSubmit() {
+    console.log(this.opcaoSelecionada)
     if(this.opcaoSelecionada == 0) {
       this.tipoContaCadastrado.emit('clienteVarejo');
     }

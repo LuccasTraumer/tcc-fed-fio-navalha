@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 
 import { Cliente } from '../../../models/Cliente';
 
@@ -17,19 +16,16 @@ export class CadastroEmailCelularComponent {
   public opcao: number = 0;
   private valorInput: string = "";
   public formulario;
-  private valorComMascara: string;
+  public valorComMascara: string;
 
   @Output() emailCadastrado = new EventEmitter<Cliente>();
 
-  private cliente: Cliente;
 
-  constructor(private formBuilder: FormBuilder, private routes: Router) {
+  constructor(private formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
       email: '',
       celular: ''
     });
-
-    this.cliente = new Cliente();
   }
 
   public chosePhone(): void {
@@ -52,22 +48,23 @@ export class CadastroEmailCelularComponent {
   }
 
   public onSubmit(): void {
+    let cliente: Cliente = new Cliente();
     if(this.isCelular()) {
       this.formulario = this.formBuilder.group({
         celular: this.valorInput,
         email: ''
       });
 
-      this.cliente.telefone = this.valorInput;
+      cliente.telefone = this.valorInput;
     } else {
       this.formulario = this.formBuilder.group({
         celular: '',
         email: this.valorInput
       });
-      this.cliente.email = this.valorInput;
+      cliente.email = this.valorInput;
     }
 
-    this.emailCadastrado.emit(this.cliente);
+    this.emailCadastrado.emit(cliente);
   }
 
   public campoValido(): boolean {
@@ -92,6 +89,7 @@ export class CadastroEmailCelularComponent {
 
     if(evento.length == 11) {
       this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
+      this.valorComMascara = this.valorInput;
     }
   }
 

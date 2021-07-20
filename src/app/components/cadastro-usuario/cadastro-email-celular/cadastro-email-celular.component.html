@@ -9,7 +9,7 @@
     </nav>
     <hr>
     <div class="submit">
-      <input class="phone" (keyup)="pegarInput($event.target.value)" placeholder="{{textoInterno}}" type="{{switchType}}"/>
+      <input class="phone" (keyup)="pegarInput($event.target.value)" placeholder="{{valorComMascara == undefined ? textoInterno : valorComMascara}}" type="{{switchType}}"/>
       <label class="textoErro" [hidden]="campoValido()">O {{switchType === 'number' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!</label>
       <fdn-button textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="enviarCodigo()"></fdn-button>
     </div>
