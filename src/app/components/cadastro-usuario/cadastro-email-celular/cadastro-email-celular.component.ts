@@ -66,7 +66,7 @@ export class CadastroEmailCelularComponent {
     }
 
     sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
-    this.routes.navigateByUrl('cadastro/codigo-confirmacao');
+    this.routes.navigate(['cadastro/codigo-confirmacao']);
   }
 
   public campoValido(): boolean {

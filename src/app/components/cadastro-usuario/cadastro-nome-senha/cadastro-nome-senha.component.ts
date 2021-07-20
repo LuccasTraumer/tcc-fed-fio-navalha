@@ -18,7 +18,7 @@ export class CadastroNomeSenhaComponent {
     });
   }
 
-  onSubmit() {
+  public onSubmit(): void {
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
     // enquanto a navegação pelos componentes acontece, iremos mandando os dados um para o outro.
 
@@ -34,7 +34,8 @@ export class CadastroNomeSenhaComponent {
 
     sessionStorage.setItem('cliente', JSON.stringify(clieteJsonParseado));
 
-    // this.routes.navigate(['cadastro/data-nascimento']);
+    console.log(clieteJsonParseado)
+    this.routes.navigate(['cadastro/data-nascimento']);
   }
 
 }

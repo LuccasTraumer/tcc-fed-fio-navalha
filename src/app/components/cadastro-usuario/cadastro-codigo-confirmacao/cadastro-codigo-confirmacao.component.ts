@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class CadastroCodigoConfirmacaoComponent {
 
-  private value: number;
   public formulario;
 
   constructor(private formBuilder: FormBuilder, private routes: Router) {
