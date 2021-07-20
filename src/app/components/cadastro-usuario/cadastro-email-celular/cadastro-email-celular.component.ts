@@ -16,8 +16,9 @@ export class CadastroEmailCelularComponent {
   public opcao: number = 0;
   private valorInput: string;
   public formulario;
-
+  public isValido: boolean = false;
   private cliente: Cliente;
+  public valor: boolean = true;
 
   constructor(private formBuilder: FormBuilder, private routes: Router) {
     this.formulario = this.formBuilder.group({
@@ -28,13 +29,13 @@ export class CadastroEmailCelularComponent {
     this.cliente = new Cliente();
   }
 
-  ChosePhone() {
+  escolherTelefone() {
     this.switchType = 'number'
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
   }
 
-  ChoseEmail() {
+  escolherEmail() {
     this.switchType = 'email'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
@@ -65,8 +66,14 @@ export class CadastroEmailCelularComponent {
     }
 
     // sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
+    console.log("ONSUBMIT")
     console.log(this.routes.navigate(['codigo-confirmacao']));
-    // this.routes.navigate(['/codigo-confirmacao'])
+    this.routes.navigateByUrl('/cadastro/codigo-confirmacao');
+  }
+  isvalido(contato: string){
+    if(contato.length > 0)
+      this.isValido = true;
+    this.isValido = false;
   }
 
   valido(): boolean {

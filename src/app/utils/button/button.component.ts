@@ -5,15 +5,14 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss']
 })
-export class ButtonComponent implements OnInit {
+export class ButtonComponent {
   @Input()
-  textoInterno;
+  public textoInterno;
 
   @Input()
-  linkRedirect;
+  public disabled?;
+
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }

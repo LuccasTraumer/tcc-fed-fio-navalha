@@ -13,9 +13,9 @@
     </div>
 
     <div class="submit">
-      <input type="number" placeholder="Codigo de Confirmação" formControlName="codigoConfirmacao" class="phone input">
+      <input #codigo (keyup)="validadorCodigo($event.target.value)" type="text" placeholder="Codigo de Confirmação" formControlName="codigoConfirmacao" class="phone input" maxlength=8>
 
-      <fdn-button textoInterno="Avançar"></fdn-button>
+      <fdn-button [disabled]="!isCodigoValido?true:null" textoInterno="Avançar"></fdn-button>
     </div>
   </form>
 </div>

@@ -16,3 +16,11 @@
     font-weight: 600;
   }
 }
+
+  div[disabled]{
+    background-color: var(--background-button-disabled);
+  }
+  input[type="submit"]:disabled {
+    color: rgb(155, 152, 152);
+  }
+

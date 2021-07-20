@@ -2,6 +2,7 @@ import { environment } from './../../../../environments/environment.prod';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'fdn-cadastro-nome-senha',
@@ -11,9 +12,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CadastroNomeSenhaComponent {
 
   public formulario;
+  public senhaValida: boolean = false;
+  public mensagemErro: string = '';
   private httpOptions;
+  private nome: string = '';
+  private senha: string = '';
+  private senhaConfirmacao: string = '';
+  private tipoErro: number = 0;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
     this.formulario = this.formBuilder.group({
       nome: '',
       senha: ''
@@ -26,6 +33,51 @@ export class CadastroNomeSenhaComponent {
     };
   }
 
+  validarNome(nome: string) {
+    this.nome = nome.trim();
+    if(this.nome != '' && this.senha == this.senhaConfirmacao && this.senha != '') {
+      this.senhaValida = true;
+      return;
+    }
+    this.senhaValida = false;
+  }
+
+  validarSenha(senha: string) {
+    this.senha = senha;
+
+    if(senha.length < 8) {
+      this.tipoErro = -1;
+      this.senhaValida = false;
+      this.mensagemErro = 'A senha deve possuir no mínimo 8 caracteres'
+      return;
+    }
+
+    this.tipoErro = 0;
+    this.mensagemErro = '';
+
+    if(senha != this.senhaConfirmacao) {
+      this.validarSenhaConfirmacao(this.senhaConfirmacao);
+      return;
+    }
+
+    this.senhaValida = (this.nome != '')?true:false;
+  }
+
+  validarSenhaConfirmacao(senhaConfirmacao: string) {
+    this.senhaConfirmacao = senhaConfirmacao;
+
+    if(senhaConfirmacao != this.senha && this.senha != '' && this.tipoErro != -1) {
+      this.mensagemErro = 'Senha de confirmação diferente da senha inserida';
+      this.tipoErro = -2;
+      this.senhaValida = false;
+      return;
+    }
+    this.mensagemErro = '';
+    this.tipoErro = 0;
+
+    this.senhaValida = (this.nome != '')?true:false;
+  }
+
   onSubmit() {
     console.log(this.formulario.value);
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
@@ -34,6 +86,8 @@ export class CadastroNomeSenhaComponent {
     this.http.post(`${environment.srvTCC}/teste`, JSON.stringify(this.formulario.value), this.httpOptions).subscribe(() => {
 
     });
+
+    this.router.navigateByUrl("/cadastro/data-nascimento");
   }
 
 }

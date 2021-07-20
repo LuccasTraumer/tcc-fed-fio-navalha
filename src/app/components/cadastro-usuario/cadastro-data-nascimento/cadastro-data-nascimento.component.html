@@ -10,9 +10,9 @@
     </nav>
     <section class="submit">
       <div class="input-data">
-        <input (keyup)="setDia($event.target.value)" type="number" formControlName="dia" class="input" placeholder="Dia">
-        <input (keyup)="setMes($event.target.value)" type="number" formControlName="mes" class="input" placeholder="Mês">
-        <input (keyup)="setAno($event.target.value)" type="number" formControlName="ano" class="input" placeholder="Ano">
+        <input id="dia" (keyup)="setDia($event.target.value)" type="text" formControlName="dia" class="input" placeholder="Dia" maxlength="2">
+        <input id="mes" (keyup)="setMes($event.target.value)" type="text" formControlName="mes" class="input" placeholder="Mês">
+        <input id="ano" (keyup)="setAno($event.target.value)" type="text" formControlName="ano" class="input" placeholder="Ano" maxlength="4">
       </div>
 
       <label *ngIf="mostarMensagemErro" class="textoErro" >Data Invalida, por favor informe um valor valido!</label>
@@ -20,12 +20,29 @@
         <label for="">Você precisa inserir sua data de nascimento </label>
         <label for="">
           Use sua propria data de nascimento.
-          Caso sejá a conta de um empresa, informe a data da abertura do CNPJ.
+          Caso seja a conta de uma empresa, informe a data da abertura do CNPJ.
         </label>
       </div>
 
-        <fdn-button textoInterno="Avançar"></fdn-button>
+        <fdn-button textoInterno="Avançar" [disabled]="!dataValida?true:null"></fdn-button>
    </section>
   </form>
 </div>
 
+<script>
+function delay(callback, ms) {
+  var timer = 0;
+  return function() {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+}
+
+$('#ano').keyup(delay(function (e) {
+  console.log('Time elapsed!', this.value);
+}, 5000));
+
+</script>
