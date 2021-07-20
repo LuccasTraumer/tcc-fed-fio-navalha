@@ -43,18 +43,6 @@ const cadastroRoutes = [
       path: 'endereco',
       component: CadastroEnderecoComponent
     },
-    // {
-    //   path: 'info-cliente',
-    //   component: CadastroDadosClienteComponent
-    // },
-    {
-      path: 'dados-cliente',
-      component: CadastroCpfCnpjComponent
-    },
-    // {
-    //   path: 'cnpj',
-    //   component: CadastroCnpjComponent
-    // },
     {
       path: 'foto',
       component: CadastroFotoComponent
