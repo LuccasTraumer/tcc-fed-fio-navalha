@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'fdn-cadastro-tipo-conta',
@@ -15,7 +16,11 @@ export class CadastroTipoContaComponent {
   public readonly iconeClienteVarejoCadastro = ConstantesIcons.ICONE_BARBEARIA_CADASTRO_WHITE;
   public readonly iconeBarbeariaCadastro = ConstantesIcons.ICONE_CLIENTE_VAREJO_CADASTRO_WHITE;
 
-  constructor(private routes: Router) { }
+  constructor(private formBuilder: FormBuilder,private routes: Router) {
+    this.formulario = this.formBuilder.group({
+      tipoConta: ''
+    });
+  }
 
   onSubmit() {
     let clienteJson = sessionStorage.getItem('cliente');
