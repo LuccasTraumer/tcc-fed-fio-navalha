@@ -25,10 +25,15 @@
         width: 0%;
         height: 80%;
       }
+
+      a{
+        text-decoration: none;
+        border-radius: none;
+      }
     }
 
     .opcao-selecionada{
-      color:rgb(167, 165, 165);
+      color: var(--title-color);
     }
 
     hr {

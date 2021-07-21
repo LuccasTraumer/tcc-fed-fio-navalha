@@ -1,0 +1,16 @@
+<div class="container">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+
+    <nav class="toggle">
+      <h4>
+        Insira seu {{textoTipoCadastro}}
+      </h4>
+    </nav>
+
+    <div class="submit">
+      <input name="phone" class="phone " formControlName="value" placeholder="{{textoTipoCadastro}}" type="text">
+      <fdn-button textoInterno="Avançar"></fdn-button>
+    </div>
+  </form>
+</div>
+

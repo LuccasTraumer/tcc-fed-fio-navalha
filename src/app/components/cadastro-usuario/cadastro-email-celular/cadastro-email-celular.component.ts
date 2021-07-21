@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { Cliente } from '../../../models/Cliente';
 
 @Component({
@@ -14,9 +15,11 @@ export class CadastroEmailCelularComponent {
   public switchType: string = 'number';
   public textoInterno: string = "Insira seu Telefone";
   public opcao: number = 0;
-  private valorInput: string;
+  private valorInput: string = "";
   public formulario;
   public isValido: boolean = false;
+  private valorComMascara: string;
+
   private cliente: Cliente;
   public valor: boolean = true;
 
@@ -39,24 +42,23 @@ export class CadastroEmailCelularComponent {
     this.switchType = 'email'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
-    console.log(this.opcao);
   }
 
-  EnviarCodigo() {
-    if(this.opcao == 0)
-      alert("Código enviado para seu número");
-    else
-      alert("Código enviado para seu email")
+  public enviarCodigo(): void {
+    // if(this.opcao == 0)
+    //   // alert("Código enviado para seu número");
+    // else
+    //   // alert("Código enviado para seu email")
   }
 
-  onSubmit() {
-    if(this.isCelular(this.valorInput)) {
+  public onSubmit(): void {
+    if(this.isCelular()) {
       this.formulario = this.formBuilder.group({
         celular: this.valorInput,
         email: ''
       });
 
-      this.cliente.telefone = this.valorInput as unknown as number;
+      this.cliente.telefone = this.valorInput;
     } else {
       this.formulario = this.formBuilder.group({
         celular: '',
@@ -74,10 +76,12 @@ export class CadastroEmailCelularComponent {
     if(contato.length > 0)
       this.isValido = true;
     this.isValido = false;
+    sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
+    this.routes.navigate(['cadastro/codigo-confirmacao']);
   }
 
-  valido(): boolean {
-    if(this.valorInput.length > 7) {
+  public campoValido(): boolean {
+    if(this.valorInput !== undefined && this.valorInput.length > 7) {
       this.primeiraVez = false;
       return true;
     }
@@ -85,19 +89,23 @@ export class CadastroEmailCelularComponent {
     if (this.primeiraVez)
       return true;
 
-    if(!this.isCelular(this.valorInput) && this.valorInput.includes('@') && this.valorInput.includes('.')) {
+    if(!this.isCelular() && this.valorInput.includes('@') && this.valorInput.includes('.')) {
       return true;
-    } else if(this.isCelular(this.valorInput)) {
+    } else if(this.isCelular()) {
       return true
     }
     return false;
   }
 
-  pegarInput(evento) {
+  public pegarInput(evento: string): void {
     this.valorInput = evento;
+
+    if(evento.length == 11) {
+      this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
+    }
   }
 
-  private isCelular(valorInput: string): boolean {
-    return this.switchType === 'number' && this.valorInput.length == 11;
+  private isCelular(): boolean {
+    return this.switchType === 'number' && this.valorInput.length == 14;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -9,11 +9,10 @@ import { Router } from '@angular/router';
 })
 export class CadastroCodigoConfirmacaoComponent {
 
-  private value: number;
   public formulario;
   public isCodigoValido: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {
+  constructor(private formBuilder: FormBuilder, private routes: Router) {
     this.formulario = this.formBuilder.group({
       codigoConfirmacao: ''
     });
@@ -31,9 +30,11 @@ export class CadastroCodigoConfirmacaoComponent {
   }
 
   onSubmit() {
-    console.log(this.formulario.value);
-    console.log(this.value);
-    this.formulario.reset();
-    this.route.navigateByUrl("/cadastro/tipo-conta");
+    let clienteJSON = sessionStorage.getItem('cliente');
+    let jsonParseado = JSON.parse(clienteJSON);
+    if(jsonParseado.telefone !== undefined || jsonParseado.email !== undefined)
+      this.routes.navigate(['cadastro/tipo-conta']);
+    else
+      this.routes.navigate(['cadastro']);
   }
 }

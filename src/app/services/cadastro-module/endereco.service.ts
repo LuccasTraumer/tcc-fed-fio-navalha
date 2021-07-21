@@ -23,9 +23,8 @@ export class EnderecoService {
     );
   }
 
-  errorHandler(e: any) : Observable<Endereco> {
+  private errorHandler(e: any) : Observable<Endereco> {
     console.log(e);
     return EMPTY;
   }
-
 }

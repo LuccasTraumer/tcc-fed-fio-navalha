@@ -1,5 +1,4 @@
-import { environment } from './../../../../environments/environment.prod';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -21,16 +20,11 @@ export class CadastroNomeSenhaComponent {
   private tipoErro: number = 0;
 
   constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+
     this.formulario = this.formBuilder.group({
       nome: '',
       senha: ''
     });
-
-    this.httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
   }
 
   validarNome(nome: string) {
@@ -83,11 +77,20 @@ export class CadastroNomeSenhaComponent {
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
     // enquanto a navegação pelos componentes acontece, iremos mandando os dados um para o outro.
 
-    this.http.post(`${environment.srvTCC}/teste`, JSON.stringify(this.formulario.value), this.httpOptions).subscribe(() => {
+    let clienteJson = sessionStorage.getItem('cliente');
+    let clieteJsonParseado = JSON.parse(clienteJson);
 
-    });
+    if(clieteJsonParseado === undefined)
+      this.router.navigate(['cadastro']);
 
-    this.router.navigateByUrl("/cadastro/data-nascimento");
+    clieteJsonParseado['nome'] = this.formulario.value['nome'];
+    clieteJsonParseado['senha'] = this.formulario.value['senha'];
+    console.log(clienteJson);
+
+    sessionStorage.setItem('cliente', JSON.stringify(clieteJsonParseado));
+
+    console.log(clieteJsonParseado)
+    this.router.navigate(['cadastro/data-nascimento']);
   }
 
 }

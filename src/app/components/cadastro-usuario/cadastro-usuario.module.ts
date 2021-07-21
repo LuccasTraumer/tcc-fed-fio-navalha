@@ -9,15 +9,13 @@ import { CadastroEmailCelularComponent } from './cadastro-email-celular/cadastro
 import { UtilsModule } from '../../utils/utils.module';
 import { CadastroNomeSenhaComponent } from './cadastro-nome-senha/cadastro-nome-senha.component';
 import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento/cadastro-data-nascimento.component';
-import { CadastroDadosBarbeariaComponent } from './cadastro-dados-barbearia/cadastro-dados-barbearia.component';
 import { CadastroRoutingModule } from './cadastro.routing.module';
 import { CadastroServiceService } from '../../services/cadastro-module/cadastro-service.service';
 import { EnderecoService } from '../../services/cadastro-module/endereco.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
-import { CadastroCnpjComponent } from './cadastro-cnpj/cadastro-cnpj.component';
-import { CadastroCpfComponent } from './cadastro-cpf/cadastro-cpf.component';
-import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro-dados-cliente.component';
+import { CadastroEnderecoComponent } from './cadastro-endereco/cadastro-endereco.component';
+import { CadastroCpfCnpjComponent } from './cadastro-cpf-cnpj/cadastro-cpf-cnpj.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +24,9 @@ import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro
     CadastroTipoContaComponent,
     CadastroNomeSenhaComponent,
     CadastroDataNascimentoComponent,
-    CadastroDadosBarbeariaComponent,
-    CadastroDadosClienteComponent,
-    CadastroCpfComponent,
-    CadastroCnpjComponent,
-    CadastroFotoComponent
+    CadastroFotoComponent,
+    CadastroEnderecoComponent,
+    CadastroCpfCnpjComponent
   ],
   imports: [
     CommonModule,
@@ -40,18 +36,7 @@ import { CadastroDadosClienteComponent } from './cadastro-dados-cliente/cadastro
     ComponentesModule,
     ReactiveFormsModule
   ],
-  exports: [
-    CadastroEmailCelularComponent,
-    CadastroCodigoConfirmacaoComponent,
-    CadastroTipoContaComponent,
-    CadastroNomeSenhaComponent,
-    CadastroDataNascimentoComponent,
-    CadastroDadosBarbeariaComponent,
-    CadastroDadosClienteComponent,
-    CadastroCpfComponent,
-    CadastroCnpjComponent,
-    CadastroFotoComponent
-  ],
+  exports: [],
   providers: [CadastroServiceService, EnderecoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

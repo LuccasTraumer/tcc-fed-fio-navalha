@@ -1,7 +1,9 @@
 export class Cliente {
-  name: string;
-  email: string;
-  telefone: number;
+  nome: string;
+  email?: string;
+  telefone?: string;
   tipoCliente: string;
-  fotoPerfil: string;
+  fotoPerfil?: string;
+  senha: string;
+  dataNascimento: Date;
 }

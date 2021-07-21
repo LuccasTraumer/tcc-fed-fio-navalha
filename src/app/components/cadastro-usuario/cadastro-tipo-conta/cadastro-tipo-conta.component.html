@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="/cadastro-codigo-confirmacao" [formGroup]="formulario" method="post" (ngSubmit)="onSubmit()">
+  <form [formGroup]="formulario" class="form" (ngSubmit)="onSubmit()">
 
     <nav class="toggle">
       <h4>
@@ -16,7 +16,7 @@
     <section>
       <div [ngClass] = "opcaoSelecionada == 0 ? 'escolha-tipo-conta':''" (click)="escolherConta(0)">
         <img class="tipo-conta"
-          src="https://raw.githubusercontent.com/LuccasTraumer/tcc-fed-fio-navalha/in-progress/src/assets/icons/beard-icon-white.png?token=ARGG43U7H7EZZPQOAIV3CBLA7UH22"
+          src="{{iconeClienteVarejoCadastro}}"
           alt="Cliente">
         <br>
         <label>Cliente</label>
@@ -24,7 +24,7 @@
 
       <div [ngClass] = "opcaoSelecionada == 1 ? 'escolha-tipo-conta':''" (click)="escolherConta(1)">
         <img class="tipo-conta"
-          src="https://raw.githubusercontent.com/LuccasTraumer/tcc-fed-fio-navalha/in-progress/src/assets/icons/barber-icon-white.png?token=ARGG43VF3YWFR6LJ7AS6Y4TA7UHUA"
+          src="{{iconeBarbeariaCadastro}}"
           alt="Salão">
         <br>
         <label>Barbearia(s)</label>

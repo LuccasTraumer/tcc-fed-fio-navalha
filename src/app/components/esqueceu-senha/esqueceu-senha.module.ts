@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha.component';
 import { UtilsModule } from '../../utils/utils.module';
 import { EsqueceuRoutingModule } from './esqueceu.routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,9 +13,10 @@ import { EsqueceuRoutingModule } from './esqueceu.routing.module';
   imports: [
     CommonModule,
     UtilsModule,
-    EsqueceuRoutingModule
+    EsqueceuRoutingModule,
+    ReactiveFormsModule
   ],
-  exports: [EsqueceuSenhaComponent],
+  exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EsqueceuSenhaModule { }

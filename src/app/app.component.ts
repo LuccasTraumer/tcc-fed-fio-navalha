@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Cliente } from './models/Cliente';
 import { ClienteVarejo } from './models/ClienteVarejo';
+import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,12 @@ export class AppComponent {
 
   cliente: Cliente;
 
-  constructor() {
+  public exibirMenu: boolean = false;
+
+  constructor(private autenticacaoService: AutenticacaoService) {
     this.cliente = new ClienteVarejo();
     this.cliente.fotoPerfil = '../assets/icons/barbearia_icone_exemplo.jpg'
+
+    this.autenticacaoService.clienteAutenticado.subscribe(exibicao => this.exibirMenu = exibicao)
   }
 }

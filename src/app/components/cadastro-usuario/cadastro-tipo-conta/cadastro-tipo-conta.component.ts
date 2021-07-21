@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { Component } from '@angular/core';
+import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'fdn-cadastro-tipo-conta',
@@ -11,24 +12,36 @@ export class CadastroTipoContaComponent {
 
   public opcaoSelecionada: number;
   public isTipoContaValido: boolean = false;
+
+    escolherConta(tipoConta: number) {
+      this.isTipoContaValido = true;
+      this.opcaoSelecionada = tipoConta;
+      localStorage.setItem("tipo-conta", tipoConta.toString());
+    }
   public formulario;
 
-  constructor(private formBuilder: FormBuilder, private route: Router) {
+  public readonly iconeClienteVarejoCadastro = ConstantesIcons.ICONE_BARBEARIA_CADASTRO_WHITE;
+  public readonly iconeBarbeariaCadastro = ConstantesIcons.ICONE_CLIENTE_VAREJO_CADASTRO_WHITE;
+
+  constructor(private formBuilder: FormBuilder,private routes: Router) {
     this.formulario = this.formBuilder.group({
-      codigoConfirmacao: ''
+      tipoConta: ''
     });
   }
 
-  escolherConta(tipoConta: number) {
-    this.isTipoContaValido = true;
-    this.opcaoSelecionada = tipoConta;
-    localStorage.setItem("tipo-conta", tipoConta.toString());
-  }
-
   onSubmit() {
-    console.log(this.formulario.value);
-    //console.log(this.value);
-    this.formulario.reset();
-    this.route.navigateByUrl("/cadastro/info-login");
+    let clienteJson = sessionStorage.getItem('cliente');
+    let clienteJsonParseado = JSON.parse(clienteJson);
+
+    if(clienteJsonParseado === undefined)
+      this.routes.navigate(['cadastro']);
+
+    if(this.opcaoSelecionada == 0)
+      clienteJsonParseado['tipoCliente'] = 'clienteVarejo';
+    else
+      clienteJsonParseado['tipoCliente'] = 'clienteBarbearia';
+
+    sessionStorage.setItem('cliente', JSON.stringify(clienteJsonParseado));
+    this.routes.navigate(['cadastro/info-login']);
   }
 }

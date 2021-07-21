@@ -2,7 +2,7 @@ import { Cliente } from './Cliente';
 import { Corte } from './Corte';
 
 export class ClienteBarbearia extends Cliente {
-  agendaDisponivel: string;
+  agendaDisponivel: Date[];
   avaliacaoBarbearia: number;
   enderecosBarbearia: string[];
   especialidade: string;
@@ -10,7 +10,7 @@ export class ClienteBarbearia extends Cliente {
   precoMedio: number;
   descricao: string;
   mensalidade: number;
-  horarioDisponivel: Date;
+  horarioFuncionamento: Date[];
   servicosRealizados: Corte[];
   comentariosSobre: string[];
   tiposPlanos: string[];

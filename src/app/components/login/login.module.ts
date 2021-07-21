@@ -12,7 +12,7 @@ import { LoginRoutingModule } from './login.routing.module';
     UtilsModule,
     LoginRoutingModule
   ],
-  exports: [LoginComponent],
+  exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LoginModule { }
