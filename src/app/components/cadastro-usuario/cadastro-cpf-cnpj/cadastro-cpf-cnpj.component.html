@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="form">
+    <nav class="toggle">
+      <h4>
+        Insira seu {{textoTipoCadastro}}
+      </h4>
+    </nav>
+
+    <div class="submit">
+      <input name="phone" class="phone " (keyup)="validaInput($event.target.value)" formControlName="value" placeholder="{{textoTipoCadastro}}" type="text" maxlength="textoTipoCadastro === 'CPF' ? 11 : 14 ">
+      <label class="textoErro" [hidden]="tipoErro === 0"> {{textoTipoCadastro}} informado é invalido, por favor informe um {{textoTipoCadastro}} Valido!</label>
+      <fdn-button (click)="onSubmit()" [disabled]="!isDocumentoValido?true:null" textoInterno="Avançar"></fdn-button>
+    </div>
+  </div>
+</div>
+

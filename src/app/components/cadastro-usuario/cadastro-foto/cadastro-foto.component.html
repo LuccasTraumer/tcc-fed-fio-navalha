@@ -1,6 +1,5 @@
 <div class="container">
-  <form action="/cadastro-codigo-confirmacao" method="post">
-
+  <div class="form">
     <nav class="toggle">
       <h4>
         Foto de Perfil
@@ -18,9 +17,8 @@
 
     </section>
     <div class="submit">
-
-      <fdn-button textoInterno="Avançar"></fdn-button>
+      <fdn-button (click)="onSubmit()" textoInterno="Avançar"></fdn-button>
     </div>
-  </form>
+  </div>
 </div>
 <fdn-menu></fdn-menu>

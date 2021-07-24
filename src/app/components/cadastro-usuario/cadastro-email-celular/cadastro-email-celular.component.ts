@@ -1,7 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-
-import { Cliente } from '../../../models/Cliente';
 
 @Component({
   selector: 'fdn-cadastro-email-celular',
@@ -11,33 +8,35 @@ import { Cliente } from '../../../models/Cliente';
 export class CadastroEmailCelularComponent {
 
   private primeiraVez: boolean = true;
-  public switchType: string = 'number';
+  public switchType: string = 'numero';
   public textoInterno: string = "Insira seu Telefone";
-  public opcao: number = 0;
   private valorInput: string = "";
-  public formulario;
   public valorComMascara: string;
+  public opcao = 0;
 
-  @Output() emailCadastrado = new EventEmitter<Cliente>();
+  @Output() emailCadastrado = new EventEmitter<string>();
+  public isValido: boolean = false;
 
+  public valor: boolean = true;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.formulario = this.formBuilder.group({
-      email: '',
-      celular: ''
-    });
-  }
+  constructor() {}
 
-  public chosePhone(): void {
-    this.switchType = 'number'
+  escolherTelefone() {
+    let container = document.getElementById('text') as HTMLInputElement;
+    container.value = '';
+    this.isValido = false;
+    this.switchType = 'numero';
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
   }
 
-  public choseEmail(): void {
-    this.switchType = 'email'
+  escolherEmail() {
+    let container = document.getElementById('text') as HTMLInputElement;
+    container.value = '';
+    this.isValido = false;
+    this.switchType = 'email';
     this.opcao = 1;
-    this.textoInterno = "Insira seu E-mail"
+    this.textoInterno = "Insira seu E-mail";
   }
 
   public enviarCodigo(): void {
@@ -48,23 +47,7 @@ export class CadastroEmailCelularComponent {
   }
 
   public onSubmit(): void {
-    let cliente: Cliente = new Cliente();
-    if(this.isCelular()) {
-      this.formulario = this.formBuilder.group({
-        celular: this.valorInput,
-        email: ''
-      });
-
-      cliente.telefone = this.valorInput;
-    } else {
-      this.formulario = this.formBuilder.group({
-        celular: '',
-        email: this.valorInput
-      });
-      cliente.email = this.valorInput;
-    }
-
-    this.emailCadastrado.emit(cliente);
+    this.emailCadastrado.emit(`${this.switchType}: ${this.valorInput}`);
   }
 
   public campoValido(): boolean {
@@ -76,24 +59,46 @@ export class CadastroEmailCelularComponent {
     if (this.primeiraVez)
       return true;
 
-    if(!this.isCelular() && this.valorInput.includes('@') && this.valorInput.includes('.')) {
+    if(!this.validarNumero() && this.valorInput.includes('@') && this.valorInput.includes('.')) {
       return true;
-    } else if(this.isCelular()) {
+    } else if(this.validarNumero()) {
       return true
     }
     return false;
   }
 
-  public pegarInput(evento: string): void {
-    this.valorInput = evento;
+  validarNumero(){
+    let numbers: string = '0123456789';
+    let valor = this.valorInput.split('');
+    let container = document.getElementById('text') as HTMLInputElement;
 
-    if(evento.length == 11) {
-      this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
-      this.valorComMascara = this.valorInput;
+    for(let i = 0; i< valor.length; i++) {
+      if(!numbers.includes(valor[i]) || valor.length > 11){
+        let valor = container.value;
+        console.log(valor);
+        container.value = valor.substring(0, valor.length-1);
+        return false;
+      }
     }
+    return true;
   }
 
-  private isCelular(): boolean {
-    return this.switchType === 'number' && this.valorInput.length == 14;
+  public pegarInput(evento: string): void {
+    this.valorInput = evento;
+    if(this.switchType === 'numero') {
+      this.validarNumero();
+    }
+
+    if((evento.length == 11 || evento.length == 12) && this.switchType == 'numero') {
+      this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
+      this.isValido = true;
+
+      return;
+    }
+    if(evento.includes('@gmail.com') || evento.includes('@hotmail.com')) {
+      this.isValido = true;
+      return;
+    }
+    this.isValido = false;
   }
 }

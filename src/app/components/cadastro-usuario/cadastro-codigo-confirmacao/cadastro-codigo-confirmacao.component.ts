@@ -1,6 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'fdn-cadastro-codigo-confirmacao',
@@ -9,19 +7,24 @@ import { Router } from '@angular/router';
 })
 export class CadastroCodigoConfirmacaoComponent {
 
-  public formulario;
+  public isCodigoValido: boolean = false;
 
   @Output() codigoConfimacaoCadastrado = new EventEmitter<boolean>();
 
-  constructor(private formBuilder: FormBuilder) {
-    this.formulario = this.formBuilder.group({
-      codigoConfirmacao: ''
-    });
+  constructor() {}
+
+  validadorCodigo(codigo: string)
+  {
+    codigo = codigo.trim();
+
+    if(codigo == '' || codigo.length != 8) {
+      this.isCodigoValido = false;
+      return;
+    }
+    this.isCodigoValido = true;
   }
 
   onSubmit() {
-    let clienteJSON = sessionStorage.getItem('cliente');
-    let jsonParseado = JSON.parse(clienteJSON);
     this.codigoConfimacaoCadastrado.emit(true);
   }
 }

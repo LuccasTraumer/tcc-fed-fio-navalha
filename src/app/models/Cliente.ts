@@ -1,3 +1,4 @@
+import { Endereco } from './Endereco';
 export class Cliente {
   nome: string;
   email?: string;
@@ -6,4 +7,5 @@ export class Cliente {
   fotoPerfil?: string;
   senha: string;
   dataNascimento: Date;
+  endereco: Endereco;
 }

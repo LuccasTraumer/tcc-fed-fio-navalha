@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Cliente } from 'src/app/models/Cliente';
 import { AutenticacaoService } from '../autenticacao.service';
 
@@ -7,15 +9,13 @@ import { AutenticacaoService } from '../autenticacao.service';
   templateUrl: './cadastro-foto.component.html',
   styleUrls: ['./cadastro-foto.component.scss']
 })
-export class CadastroFotoComponent implements OnInit {
+export class CadastroFotoComponent {
 
-  constructor(private autenticacaoService: AutenticacaoService) { }
-
-  ngOnInit() {
-  }
+  @Input()
+  cliente: Cliente;
+  constructor(private autenticacaoService: AutenticacaoService, private http: HttpClient) { }
 
   onSubmit() {
-    let cliente = new Cliente();
-    this.autenticacaoService.fazerLogin(cliente);
+    this.autenticacaoService.fazerLogin(this.cliente);
   }
 }

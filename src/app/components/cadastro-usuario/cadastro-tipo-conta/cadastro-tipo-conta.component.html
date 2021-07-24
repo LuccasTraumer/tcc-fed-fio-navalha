@@ -1,6 +1,5 @@
 <div class="container">
-  <form formGroup="formulario" (ngSubmit)="onSubmit()">
-
+  <div class="form">
     <nav class="toggle">
       <h4>
         Selecione o tipo de Conta
@@ -14,7 +13,7 @@
       </div>
     </section>
     <section>
-      <div [ngClass] = "opcaoSelecionada == 0 ? 'escolha-tipo-conta':''" (click)="opcaoSelecionada = 0">
+      <div [ngClass] = "opcaoSelecionada == 0 ? 'escolha-tipo-conta':''" (click)="escolherConta(0)">
         <img class="tipo-conta"
           src="{{iconeClienteVarejoCadastro}}"
           alt="Cliente">
@@ -22,7 +21,7 @@
         <label>Cliente</label>
       </div>
 
-      <div [ngClass] = "opcaoSelecionada == 1 ? 'escolha-tipo-conta':''" (click)="opcaoSelecionada = 1">
+      <div [ngClass] = "opcaoSelecionada == 1 ? 'escolha-tipo-conta':''" (click)="escolherConta(1)">
         <img class="tipo-conta"
           src="{{iconeBarbeariaCadastro}}"
           alt="Salão">
@@ -31,7 +30,7 @@
       </div>
     </section>
     <div class="submit">
-      <fdn-button textoInterno="Avançar"></fdn-button>
+      <fdn-button (click)="onSubmit()" [disabled]="!isTipoContaValido?true:null" textoInterno="Avançar"></fdn-button>
     </div>
-  </form>
+  </div>
 </div>

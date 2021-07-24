@@ -2,6 +2,7 @@
 :root {
   --title-color: #F4B578;
   --background-button: #F99F31;
+  --background-button-disabled: #f1a951;
   --background-color: #363636;
   --font-color: #ffff;
   --input-color: #EDEAE3;
@@ -39,6 +40,7 @@ input {
 .textoErro {
   color: var(--background-button);
   font-weight: 700;
+  font-size: 3vw;
 }
 
 .background-ft, .background-hr {

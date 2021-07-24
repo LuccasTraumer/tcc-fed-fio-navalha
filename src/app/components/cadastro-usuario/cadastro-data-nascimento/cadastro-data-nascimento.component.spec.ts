@@ -26,27 +26,27 @@ describe('CadastroDataNascimentoComponent', () => {
   });
 
   it('quando data valida deve retornar true', () => {
-    component.setDia(5);
-    component.setMes(7);
-    component.setAno(2021);
+    component.setDia('5');
+    component.setMes('7');
+    component.setAno('2021');
 
     component.valida();
     expect(component.valida()).toBeTruthy();
   });
 
   it('quando dia invalida deve retornar false', () => {
-    component.setDia(50);
-    component.setMes(7);
-    component.setAno(2021);
+    component.setDia('50');
+    component.setMes('7');
+    component.setAno('2021');
 
     component.valida();
     expect(component.valida()).toBeFalsy();
   });
 
   it('quando data invalida deve retornar false', () => {
-    component.setDia(50);
-    component.setMes(70);
-    component.setAno(20291);
+    component.setDia('50');
+    component.setMes('70');
+    component.setAno('20291');
 
     component.valida();
     expect(component.valida()).toBeFalsy();
