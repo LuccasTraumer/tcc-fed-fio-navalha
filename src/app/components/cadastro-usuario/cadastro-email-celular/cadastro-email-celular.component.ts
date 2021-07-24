@@ -18,7 +18,6 @@ export class CadastroEmailCelularComponent {
   private valorInput: string = "";
   public formulario;
   public isValido: boolean = false;
-  private valorComMascara: string;
 
   private cliente: Cliente;
   public valor: boolean = true;
@@ -32,13 +31,20 @@ export class CadastroEmailCelularComponent {
     this.cliente = new Cliente();
   }
 
+  ngOnInit(){console.log(this.opcao)}
   escolherTelefone() {
-    this.switchType = 'number'
+    let container = document.getElementById('text') as HTMLInputElement;
+    container.value = '';
+    this.isValido = false;
+    this.switchType = 'text'
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
   }
 
   escolherEmail() {
+    let container = document.getElementById('text') as HTMLInputElement;
+    container.value = '';
+    this.isValido = false;
     this.switchType = 'email'
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail"
@@ -67,7 +73,7 @@ export class CadastroEmailCelularComponent {
       this.cliente.email = this.valorInput;
     }
 
-    // sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
+    sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
     console.log("ONSUBMIT")
     console.log(this.routes.navigate(['codigo-confirmacao']));
     this.routes.navigateByUrl('/cadastro/codigo-confirmacao');
@@ -75,6 +81,7 @@ export class CadastroEmailCelularComponent {
   isvalido(contato: string){
     if(contato.length > 0)
       this.isValido = true;
+
     this.isValido = false;
     sessionStorage.setItem('cliente', JSON.stringify(this.cliente));
     this.routes.navigate(['cadastro/codigo-confirmacao']);
@@ -97,12 +104,41 @@ export class CadastroEmailCelularComponent {
     return false;
   }
 
+  validaNumero(input: string){
+    let numbers: string = '0123456789';
+    let valor = input.split('');
+    let container = document.getElementById('text') as HTMLInputElement;
+
+    for(let i = 0; i< valor.length; i++) {
+      if(!numbers.includes(valor[i]) || valor.length > 11){
+        let valor = container.value;
+        console.log(valor);
+        container.value = valor.substring(0, valor.length-1);
+        return false;
+      }
+    }
+    return true;
+  }
+
   public pegarInput(evento: string): void {
     this.valorInput = evento;
-
-    if(evento.length == 11) {
-      this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
+    console.log(this.opcao)
+    if(this.opcao == 0) {
+      this.validaNumero(evento);
+      console.log(evento.length)
     }
+
+    if((evento.length == 11 || evento.length == 12) && this.opcao == 0) {
+      this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
+      this.isValido = true;
+      console.log("VALOR: "+this.valorInput);
+      return;
+    }
+    if(evento.includes('@gmail.com') || evento.includes('@hotmail.com')) {
+      this.isValido = true;
+      return;
+    }
+    this.isValido = false;
   }
 
   private isCelular(): boolean {
