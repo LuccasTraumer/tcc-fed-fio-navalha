@@ -1,5 +1,7 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { delay } from "rxjs/operators";
+import { ClienteBarbearia } from 'src/app/models/ClienteBarbearia';
 
 import { Endereco } from "src/app/models/Endereco";
 import { EnderecoService } from "src/app/services/cadastro-module/endereco.service";
@@ -10,13 +12,14 @@ import { EnderecoService } from "src/app/services/cadastro-module/endereco.servi
   styleUrls: ['./cadastro-endereco.component.scss']
 })
 
-export class CadastroEnderecoComponent {
+export class CadastroEnderecoComponent implements OnDestroy {
 
   public cepValido: boolean = true;
   public endereco: Endereco;
 
   public texto: string;
   public textoTitulo: string;
+  private inscricao: Subscription;
 
   @Input()
   tipoCliente: string;
@@ -26,10 +29,14 @@ export class CadastroEnderecoComponent {
 
 
   constructor(private service: EnderecoService) {
-    if(this.tipoCliente === 'clienteBarbearia')
+    this.endereco = new Endereco();
+    if(this.tipoCliente === ClienteBarbearia.name)
       this.isBarbearia();
     else
       this.isClienteVarejo();
+  }
+  ngOnDestroy(): void {
+    this.inscricao.unsubscribe();
   }
 
   isBarbearia(): void {
@@ -42,21 +49,16 @@ export class CadastroEnderecoComponent {
     this.textoTitulo = 'Informações Sobre seu Endereço';
   }
 
-  private async buscarEndereco (CEP: string) {
-    if (CEP.length === 8) {
-      await this.service.getEndereco(CEP).pipe(delay(1500))
-      .subscribe(endereco => {
-        this.endereco = endereco;
-      }, err => {
-        this.cepValido = false;
-      });
-    }
+  private async buscarEndereco (cep: string, numero: string, complemento: string) {
+    await (await this.service.getEndereco(cep)).subscribe((end) => {
+      this.endereco = end;
+      this.endereco.numeroResidencia = numero;
+      this.endereco.complemento = complemento;
+      this.enderecoCliente.emit(this.endereco);
+    });
   }
 
   onSubmit(cep: string, numero: string, complemento: string) {
-    console.log(cep);
-    // this.buscarEndereco(cep.value);
-
-    this.enderecoCliente.emit(this.endereco);
+    this.buscarEndereco(cep, numero, complemento);
   }
 }

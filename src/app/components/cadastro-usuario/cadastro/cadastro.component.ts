@@ -22,6 +22,7 @@ export class CadastroComponent {
   public dataNascimentoCadastrado: boolean = false;
   public cpfCnpjCadastrado: boolean = false;
   public enderecoCadastrado: boolean = false;
+  public fotoPerfilCadastrado: boolean = false;
 
   constructor(private router: Router, private cadastroService: CadastroServiceService) {
     this.cliente = new Cliente();
@@ -52,14 +53,26 @@ export class CadastroComponent {
   }
 
   setTipoConta(tipoConta: string): void {
+    let clienteGenerico = this.cliente;
     this.cliente.tipoCliente = tipoConta;
-    if (tipoConta == 'clienteVarejo')
+    if (tipoConta == ClienteVarejo.name) {
       this.cliente = new ClienteVarejo();
-    else
+      this.cliente.tipoCliente = ClienteVarejo.name;
+    }
+    else {
       this.cliente = new ClienteBarbearia();
+      this.cliente.tipoCliente = ClienteBarbearia.name;
+    }
+
+    if (clienteGenerico.telefone !== undefined)
+      this.cliente.telefone = clienteGenerico.telefone;
+    else
+      this.cliente.email = clienteGenerico.email;
+
     this.tipoContaCadastrado = true;
 
     console.log(`Setando tipoCliente: ${JSON.stringify(this.cliente)}`);
+    console.log(`Tipo da class do Objeto: ${this.cliente.constructor.name}`);
   }
 
   setInfoLogin(cliente: Cliente): void {
@@ -74,7 +87,6 @@ export class CadastroComponent {
     this.cliente.dataNascimento = date;
 
     this.dataNascimentoCadastrado = true;
-    console.log(`Setando data nascimento: ${JSON.stringify(this.cliente)}`);
   }
 
   setCpfCnpj(cpfCnpj: string) {
@@ -92,6 +104,7 @@ export class CadastroComponent {
     this.cliente.endereco = endereco;
 
     this.enderecoCadastrado = true;
+    console.log(endereco);
     console.log(`Setando endereco: ${JSON.stringify(this.cliente)}`);
   }
 
@@ -124,7 +137,7 @@ export class CadastroComponent {
   }
 
   exibirFoto(): boolean {
-    return this.cpfCnpjCadastrado == true;
+    return this.fotoPerfilCadastrado !== true && this.enderecoCadastrado == true;
   }
 
   onSubmit(): void {

@@ -13,7 +13,6 @@ import { Endereco } from 'src/app/models/Endereco';
 export class EnderecoService {
 
   private API_CEP = environment.API_CEP;
-
   constructor(private http: HttpClient) { }
 
   getEndereco(cep: string) : Observable<Endereco> {

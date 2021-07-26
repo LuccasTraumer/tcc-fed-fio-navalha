@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { ClienteVarejo } from 'src/app/models/ClienteVarejo';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
+import { ClienteBarbearia } from '../../../models/ClienteBarbearia';
 
 @Component({
   selector: 'fdn-cadastro-tipo-conta',
@@ -25,10 +27,10 @@ export class CadastroTipoContaComponent {
 
   onSubmit() {
     if(this.opcaoSelecionada == 0) {
-      this.tipoContaCadastrado.emit('clienteVarejo');
+      this.tipoContaCadastrado.emit(ClienteVarejo.name);
     }
     else {
-      this.tipoContaCadastrado.emit('clienteBarbearia');
+      this.tipoContaCadastrado.emit(ClienteBarbearia.name);
     }
   }
 }

@@ -1,11 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterContentInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { ClienteVarejo } from 'src/app/models/ClienteVarejo';
 
 @Component({
   selector: 'fdn-cadastro-cpf-cnpj',
   templateUrl: './cadastro-cpf-cnpj.component.html',
   styleUrls: ['./cadastro-cpf-cnpj.component.scss']
 })
-export class CadastroCpfCnpjComponent {
+export class CadastroCpfCnpjComponent implements OnChanges {
 
   public textoTipoCadastro: string = '';
   public valor: string;
@@ -13,17 +14,21 @@ export class CadastroCpfCnpjComponent {
   public tipoErro: number = 0;
 
   @Input()
-  tipoCliente: string;
+  tipoCliente: string = '';
 
   @Output()
   cpfCnpj = new EventEmitter<string>();
 
   constructor() {
+  }
 
-    if(this.tipoCliente === 'clienteVarejo')
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.tipoCliente.currentValue !== undefined) {
+      if(this.tipoCliente == ClienteVarejo.name)
       this.isClienteVarejo();
-    else
-      this.isBarbearia();
+      else
+        this.isBarbearia();
+    }
   }
 
   private validaNumero(input: string){

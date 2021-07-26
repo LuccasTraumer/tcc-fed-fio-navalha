@@ -9,4 +9,5 @@ export class Endereco {
     gia: string;
     ddd: string;
     siafi: string;
+    numeroResidencia: string;
 }

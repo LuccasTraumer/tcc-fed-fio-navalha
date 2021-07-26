@@ -78,7 +78,6 @@ export class CadastroDataNascimentoComponent {
     let container = document.getElementById('dia') as HTMLInputElement;
     if(diaValido) {
       this.dia = parseInt(dia);
-      console.log(dia);
       if(this.dia < 1 || this.dia > 31 && dia != '') {
         container.value = '31';
       }
@@ -91,7 +90,6 @@ export class CadastroDataNascimentoComponent {
     let container = document.getElementById('mes') as HTMLInputElement;
     if(mesValido) {
       this.mes = parseInt(mes);
-      console.log(mes);
       if(this.mes < 1 || this.mes > 12 && mes != '') {
         container.value = '12';
       }
@@ -104,7 +102,6 @@ export class CadastroDataNascimentoComponent {
     let container = document.getElementById('ano') as HTMLInputElement;
     if(anoValido && ano.length == 4) {
       this.ano = parseInt(ano);
-      console.log(ano);
       let anoAtual = (new Date).getFullYear();
       if(this.ano < 1920 || this.ano > anoAtual  && ano != '') {
         container.value = anoAtual.toString();

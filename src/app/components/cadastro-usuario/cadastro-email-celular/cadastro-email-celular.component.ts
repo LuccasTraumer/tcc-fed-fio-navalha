@@ -75,7 +75,6 @@ export class CadastroEmailCelularComponent {
     for(let i = 0; i< valor.length; i++) {
       if(!numbers.includes(valor[i]) || valor.length > 11){
         let valor = container.value;
-        console.log(valor);
         container.value = valor.substring(0, valor.length-1);
         return false;
       }

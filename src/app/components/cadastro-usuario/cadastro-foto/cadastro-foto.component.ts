@@ -13,6 +13,7 @@ export class CadastroFotoComponent {
 
   @Input()
   cliente: Cliente;
+
   constructor(private autenticacaoService: AutenticacaoService, private http: HttpClient) { }
 
   onSubmit() {
