@@ -12,7 +12,7 @@ import { AutenticacaoService } from '../autenticacao.service';
 export class CadastroFotoComponent {
 
   @Input()
-  cliente: Cliente;
+  public cliente: Cliente;
 
   constructor(private autenticacaoService: AutenticacaoService, private http: HttpClient) { }
 

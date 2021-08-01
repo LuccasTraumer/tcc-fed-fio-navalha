@@ -17,7 +17,6 @@
     </section>
 
     <label class="warning" *ngIf="!cepValido">CEP informado é invalido, informe por favor um cep valido!</label>
-    {{cepValido}}
     <div class="submit">
       <fdn-button (click)="onSubmit(cep.value, numero.value, complemento.value)" textoInterno="Avançar"></fdn-button>
     </div>
