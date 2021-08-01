@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   srvTCC: 'http://localhost:8080/',
-  API_CEP: 'https://viacep.com.br/ws/13092511/json/',
+  API_CEP: 'https://viacep.com.br/ws/',
 };
 
 /*

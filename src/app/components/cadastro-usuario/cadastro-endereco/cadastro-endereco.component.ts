@@ -1,8 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { delay } from "rxjs/operators";
-import { ClienteBarbearia } from 'src/app/models/ClienteBarbearia';
+import { Subscription } from 'rxjs';
 
+import { ClienteBarbearia } from 'src/app/models/ClienteBarbearia';
 import { Endereco } from "src/app/models/Endereco";
 import { EnderecoService } from "src/app/services/cadastro-module/endereco.service";
 
@@ -22,11 +21,10 @@ export class CadastroEnderecoComponent implements OnDestroy {
   private inscricao: Subscription;
 
   @Input()
-  tipoCliente: string;
+  public tipoCliente: string;
 
   @Output()
-  enderecoCliente = new EventEmitter<Endereco>();
-
+  public enderecoCliente = new EventEmitter<Endereco>();
 
   constructor(private service: EnderecoService) {
     this.endereco = new Endereco();
@@ -35,6 +33,7 @@ export class CadastroEnderecoComponent implements OnDestroy {
     else
       this.isClienteVarejo();
   }
+
   ngOnDestroy(): void {
     this.inscricao.unsubscribe();
   }
@@ -50,15 +49,17 @@ export class CadastroEnderecoComponent implements OnDestroy {
   }
 
   private async buscarEndereco (cep: string, numero: string, complemento: string) {
-    await (await this.service.getEndereco(cep)).subscribe((end) => {
+    return this.service.getEndereco(cep).subscribe((end: Endereco) => {
       this.endereco = end;
       this.endereco.numeroResidencia = numero;
       this.endereco.complemento = complemento;
       this.enderecoCliente.emit(this.endereco);
+    }, error => {
+      console.log(error)
     });
   }
 
-  onSubmit(cep: string, numero: string, complemento: string) {
-    this.buscarEndereco(cep, numero, complemento);
+  async onSubmit(cep: string, numero: string, complemento: string) {
+    await this.buscarEndereco(cep, numero, complemento);
   }
 }

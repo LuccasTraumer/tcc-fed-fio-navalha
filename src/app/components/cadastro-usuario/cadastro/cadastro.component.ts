@@ -133,7 +133,8 @@ export class CadastroComponent {
   }
 
   exibirEndereco(): boolean {
-    return this.enderecoCadastrado !== true && this.cpfCnpjCadastrado == true;
+    return true;
+    // return this.enderecoCadastrado !== true && this.cpfCnpjCadastrado == true;
   }
 
   exibirFoto(): boolean {
