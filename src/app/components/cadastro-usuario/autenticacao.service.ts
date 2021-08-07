@@ -11,7 +11,7 @@ export class AutenticacaoService implements OnDestroy{
 
   private usuarioAutenticado: boolean = false;
   clienteAutenticado = new EventEmitter<boolean>();
-  private header;
+  private header: any;
   private inscricao: Subscription;
   constructor(private http: HttpClient) { }
 

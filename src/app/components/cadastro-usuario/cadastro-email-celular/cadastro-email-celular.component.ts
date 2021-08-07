@@ -21,7 +21,6 @@ export class CadastroEmailCelularComponent {
 
   private cliente: Cliente;
   public valor: boolean = true;
-
   constructor(private formBuilder: FormBuilder, private routes: Router) {
     this.formulario = this.formBuilder.group({
       email: '',
@@ -31,7 +30,7 @@ export class CadastroEmailCelularComponent {
     this.cliente = new Cliente();
   }
 
-  ngOnInit(){console.log(this.opcao)}
+
   escolherTelefone() {
     let container = document.getElementById('text') as HTMLInputElement;
     container.value = '';

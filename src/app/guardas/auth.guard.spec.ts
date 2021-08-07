@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 describe('AuthGuardService', () => {
   let service: AuthGuard;
-  let autenticacaoServiceMock: AutenticacaoService = new AutenticacaoService();
+ // let autenticacaoServiceMock: AutenticacaoService = new AutenticacaoService();
   let routerMock: Router;
 
 
@@ -16,7 +16,7 @@ describe('AuthGuardService', () => {
       imports: [BrowserModule],
       providers: [AutenticacaoService, Router]
     });
-    service = new AuthGuard(autenticacaoServiceMock, routerMock);
+   // service = new AuthGuard(autenticacaoServiceMock, routerMock);
   });
 
   it('should be created', () => {

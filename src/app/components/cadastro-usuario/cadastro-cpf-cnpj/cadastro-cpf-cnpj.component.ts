@@ -15,7 +15,6 @@ export class CadastroCpfCnpjComponent {
   public isDocumentoValido: boolean = false;
   public tipoErro: number = 0;
 
-
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.formulario = this.formBuilder.group({
       cpf: '',
