@@ -27,6 +27,10 @@ export class AutenticacaoService implements OnDestroy{
     return this.inscricao;
   }
 
+  cadastrarUsuario(cliente: Cliente) {
+
+  }
+
   usuarioEstaAutenticado(): boolean {
     return this.usuarioAutenticado;
   }

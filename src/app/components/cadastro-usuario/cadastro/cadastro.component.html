@@ -1,4 +1,4 @@
-<form class="container">
+<div class="container">
   <fdn-cadastro-email-celular *ngIf="exibirCadastroEmailCelular()" (emailCadastrado)="setEmail($event)"></fdn-cadastro-email-celular>
   <fdn-cadastro-codigo-confirmacao *ngIf="exibirCodigoConfirmacao()" (codigoConfimacaoCadastrado)="setCondigoConfirmacao($event)"></fdn-cadastro-codigo-confirmacao>
   <fdn-cadastro-tipo-conta *ngIf="exibirTipoConta()" (tipoContaCadastrado)="setTipoConta($event)"></fdn-cadastro-tipo-conta>
@@ -7,4 +7,4 @@
   <fdn-cadastro-cpf-cnpj *ngIf="exibirCpfCnpj()" [tipoCliente]="getTipoCliente()" (cpfCnpj)="setCpfCnpj($event)"></fdn-cadastro-cpf-cnpj>
   <fdn-cadastro-endereco *ngIf="exibirEndereco()" (enderecoCliente)="setEndereco($event)"></fdn-cadastro-endereco>
   <fdn-cadastro-foto *ngIf="exibirFoto()" [cliente]="getCliente()"></fdn-cadastro-foto>
-</form>
+</div>

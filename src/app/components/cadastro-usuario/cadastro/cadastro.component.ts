@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { Cliente } from '../../../models/Cliente';
-import { Router } from '@angular/router';
-import { CadastroServiceService } from '../../../services/cadastro-module/cadastro-service.service';
 import { Endereco } from '../../../models/Endereco';
 import { ClienteBarbearia } from '../../../models/ClienteBarbearia';
 import { ClienteVarejo } from '../../../models/ClienteVarejo';
@@ -24,7 +22,7 @@ export class CadastroComponent {
   public enderecoCadastrado: boolean = false;
   public fotoPerfilCadastrado: boolean = false;
 
-  constructor(private router: Router, private cadastroService: CadastroServiceService) {
+  constructor() {
     this.cliente = new Cliente();
   }
 
@@ -42,14 +40,14 @@ export class CadastroComponent {
       this.cliente.telefone = chaveValor[1];
     } else
       this.cliente.email = chaveValor[1];
-    this.emailCadastrado = true;
 
-    console.log(`Setando email/celular: ${JSON.stringify(this.cliente)}`);
+    setInterval(() =>{
+      this.emailCadastrado = true;
+    }, 3000);
   }
 
   setCondigoConfirmacao(codigoCadastrado: boolean): void {
     this.codigoConfirmacaoCadastrado = codigoCadastrado;
-    console.log(`Setando codigo confirmcao: ${JSON.stringify(this.cliente)}`);
   }
 
   setTipoConta(tipoConta: string): void {
@@ -70,9 +68,6 @@ export class CadastroComponent {
       this.cliente.email = clienteGenerico.email;
 
     this.tipoContaCadastrado = true;
-
-    console.log(`Setando tipoCliente: ${JSON.stringify(this.cliente)}`);
-    console.log(`Tipo da class do Objeto: ${this.cliente.constructor.name}`);
   }
 
   setInfoLogin(cliente: Cliente): void {
@@ -80,7 +75,6 @@ export class CadastroComponent {
     this.cliente.senha = cliente.senha;
 
     this.infoLoginCadastrado = true;
-    console.log(`Setando Info Login: ${JSON.stringify(this.cliente)}`);
   }
 
   setDataNascimento(date: Date) {
@@ -96,16 +90,11 @@ export class CadastroComponent {
       this.cliente['cnpj'] = cpfCnpj;
 
     this.cpfCnpjCadastrado = true;
-
-    console.log(`Setando cpf/cnpj: ${JSON.stringify(this.cliente)}`);
   }
 
   setEndereco(endereco: Endereco) {
     this.cliente.endereco = endereco;
-
     this.enderecoCadastrado = true;
-    console.log(endereco);
-    console.log(`Setando endereco: ${JSON.stringify(this.cliente)}`);
   }
 
   exibirCadastroEmailCelular(): boolean {
@@ -133,17 +122,10 @@ export class CadastroComponent {
   }
 
   exibirEndereco(): boolean {
-    return true;
-    // return this.enderecoCadastrado !== true && this.cpfCnpjCadastrado == true;
+    return this.enderecoCadastrado !== true && this.cpfCnpjCadastrado == true;
   }
 
   exibirFoto(): boolean {
     return this.fotoPerfilCadastrado !== true && this.enderecoCadastrado == true;
-  }
-
-  onSubmit(): void {
-    this.cadastroService.cadastrarCliente(this.cliente);
-
-    this.router.navigate(['']);
   }
 }
