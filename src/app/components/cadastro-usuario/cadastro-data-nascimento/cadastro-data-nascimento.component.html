@@ -1,6 +1,5 @@
 <div class="container">
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-
+  <div class="form">
     <nav class="toggle">
       <h4>
         Adicione sua data de nascimento
@@ -24,7 +23,7 @@
         </label>
       </div>
 
-        <fdn-button textoInterno="Avançar" [disabled]="!dataValida?true:null"></fdn-button>
-   </section>
-  </form>
+        <fdn-button (click)="onSubmit()" textoInterno="Avançar" [disabled]="!dataValida?true:null"></fdn-button>
+    </section>
+  </div>
 </div>

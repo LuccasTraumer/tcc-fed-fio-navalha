@@ -1,6 +1,5 @@
 <div class="container">
-  <form action="/cadastro-codigo-confirmacao" method="post">
-
+  <div class="form">
     <nav class="toggle">
       <h4>
         Foto de Perfil
@@ -12,15 +11,14 @@
         nada melhor que uma boa foto de Perfil
       </div>
     </section>
-    <section id="perfil">
-      <img src="../../../../assets/images/foto-perfil-default.png" id="foto-perfil">
-      <img src="../../../../assets/icons/icon-camera.png" id="upload-foto">
+    <section class="perfil">
+      <input type="file" name="foto" accept=".png, .jpeg, .jpg">
+      <img src="{{icone_upload}}" class="foto-perfil" alt="foto de perfil">
+      <img src="{{icone_camera}}" class="upload-foto">
 
     </section>
     <div class="submit">
-
-      <fdn-button textoInterno="Avançar"></fdn-button>
+      <fdn-button (click)="onSubmit()" textoInterno="Avançar"></fdn-button>
     </div>
-  </form>
+  </div>
 </div>
-<fdn-menu></fdn-menu>

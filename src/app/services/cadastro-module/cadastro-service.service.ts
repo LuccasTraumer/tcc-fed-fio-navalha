@@ -2,6 +2,7 @@ import { Observable, throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
+import { Cliente } from 'src/app/models/Cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,13 @@ export class CadastroServiceService {
     );
 
     return null;
+  }
+
+  public cadastrarCliente(cliente: Cliente): void {
+    this.http.post(null, cliente).pipe(
+      retry(1),
+      catchError(this.handleError)
+    );
   }
 
   private handleError(error: HttpErrorResponse) {

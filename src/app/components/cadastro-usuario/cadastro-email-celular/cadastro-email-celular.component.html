@@ -1,18 +1,18 @@
 <div class="container">
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <nav class="toggle">
-      <label class="opcao-selecionada" *ngIf="opcao == 0;" (click)="escolherTelefone()">TELEFONE</label>
-      <label *ngIf="opcao == 1" (click)="escolherTelefone()">TELEFONE</label>
-      <hr>
-      <label class="opcao-selecionada" *ngIf="opcao == 1;" (click)="escolherEmail()">E-MAIL</label>
-      <label *ngIf="opcao == 0"  (click)="escolherEmail()">E-MAIL</label>
-    </nav>
+ <div class="form">
+  <nav class="toggle">
+    <label class="opcao-selecionada" *ngIf="opcao == 0;" (click)="escolherTelefone()">TELEFONE</label>
+    <label *ngIf="opcao == 1" (click)="escolherTelefone()">TELEFONE</label>
     <hr>
-    <div class="submit">
-      <input class="phone" id="text" (keyup)="pegarInput($event.target.value)" placeholder="{{textoInterno}}" type="{{switchType}}"/>
-      <label class="textoErro" [hidden]="campoValido()">O {{switchType === 'text' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!</label>
-      <fdn-button [disabled]="!isValido?true:null"  textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="enviarCodigo()"></fdn-button>
-    </div>
-  </form>
+    <label class="opcao-selecionada" *ngIf="opcao == 1;" (click)="escolherEmail()">E-MAIL</label>
+    <label *ngIf="opcao == 0"  (click)="escolherEmail()">E-MAIL</label>
+  </nav>
+  <hr>
+  <div class="submit">
+    <input class="phone" id="text" (keyup)="pegarInput($event.target.value)" placeholder="{{textoInterno}}" type="{{switchType}}"/>
+    <label class="textoErro" [hidden]="campoValido()">O {{switchType === 'numero' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'numero' ? 'Numero' : 'E-mail'}} Valido!</label>
+    <fdn-button (click)="onSubmit()" [disabled]="!isValido?true:null"  textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="enviarCodigo()"></fdn-button>
+  </div>
+ </div>
 </div>
 

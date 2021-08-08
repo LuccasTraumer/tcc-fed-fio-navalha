@@ -1,6 +1,5 @@
 <div class="container">
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-
+  <div class="form">
     <nav class="toggle">
       <h4>
         Inserir Codigo de Confirmação
@@ -15,8 +14,8 @@
     <div class="submit">
       <input #codigo (keyup)="validadorCodigo($event.target.value)" type="text" placeholder="Codigo de Confirmação" formControlName="codigoConfirmacao" class="phone input" maxlength=8>
 
-      <fdn-button [disabled]="!isCodigoValido?true:null" textoInterno="Avançar"></fdn-button>
+      <fdn-button (click)="onSubmit()" [disabled]="!isCodigoValido?true:null" textoInterno="Avançar"></fdn-button>
     </div>
-  </form>
+  </div>
 </div>
 

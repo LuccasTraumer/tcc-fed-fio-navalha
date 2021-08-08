@@ -1,9 +1,9 @@
-import { Component } from "@angular/core";
-import { FormBuilder } from "@angular/forms";
-import { delay } from "rxjs/operators";
+import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { ClienteBarbearia } from 'src/app/models/ClienteBarbearia';
 import { Endereco } from "src/app/models/Endereco";
 import { EnderecoService } from "src/app/services/cadastro-module/endereco.service";
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'fdn-cadastro-endereco',
@@ -11,29 +11,31 @@ import { Router } from '@angular/router';
   styleUrls: ['./cadastro-endereco.component.scss']
 })
 
-export class CadastroEnderecoComponent {
+export class CadastroEnderecoComponent implements OnDestroy {
 
   public cepValido: boolean = true;
   public endereco: Endereco;
-  public formulario;
 
   public texto: string;
   public textoTitulo: string;
+  private inscricao: Subscription;
 
-  constructor(private formBuilder: FormBuilder, private service: EnderecoService, private router: Router) {
-    this.formulario = this.formBuilder.group({
-      cep: '',
-      numero: '',
-      complemento: ''
-    });
+  @Input()
+  public tipoCliente: string;
 
-    let clienteJson = sessionStorage.getItem('cliente');
-    let clienteJsonParseado = JSON.parse(clienteJson);
+  @Output()
+  public enderecoCliente = new EventEmitter<Endereco>();
 
-    if(clienteJsonParseado['tipoCliente'] === 'clienteBarbearia')
+  constructor(private service: EnderecoService) {
+    this.endereco = new Endereco();
+    if(this.tipoCliente === ClienteBarbearia.name)
       this.isBarbearia();
     else
       this.isClienteVarejo();
+  }
+
+  ngOnDestroy(): void {
+    this.inscricao.unsubscribe();
   }
 
   isBarbearia(): void {
@@ -46,29 +48,18 @@ export class CadastroEnderecoComponent {
     this.textoTitulo = 'Informações Sobre seu Endereço';
   }
 
-  private async buscarEndereco (CEP: string) {
-    if (CEP.length === 8) {
-      await this.service.getEndereco(CEP).pipe(delay(1500))
-      .subscribe(endereco => {
-        this.endereco = endereco;
-      }, err => {
-        this.cepValido = false;
-      });
-    }
+  private async buscarEndereco (cep: string, numero: string, complemento: string) {
+    return this.service.getEndereco(cep).subscribe((end: Endereco) => {
+      this.endereco = end;
+      this.endereco.numeroResidencia = numero;
+      this.endereco.complemento = complemento;
+      this.enderecoCliente.emit(this.endereco);
+    }, error => {
+      console.log(error)
+    });
   }
 
-  onSubmit() {
-    let clienteJson = sessionStorage.getItem('cliente');
-    let clienteJsonParseado = JSON.parse(clienteJson);
-
-    console.log(this.endereco);
-    this.buscarEndereco(this.formulario.value['cep']);
-
-    clienteJsonParseado['cep'] = this.formulario.value['cep'];
-    clienteJsonParseado['numero'] = this.formulario.value['numero'];
-    clienteJsonParseado['complemento'] = this.formulario.value['complemento'];
-    sessionStorage.setItem('cliente', JSON.stringify(clienteJsonParseado));
-
-    this.router.navigate(['cadastro/foto']);
+  async onSubmit(cep: string, numero: string, complemento: string) {
+    await this.buscarEndereco(cep, numero, complemento);
   }
 }

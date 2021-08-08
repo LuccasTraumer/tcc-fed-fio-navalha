@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, Output, EventEmitter } from '@angular/core';
+
+import { Cliente } from '../../../models/Cliente';
 
 @Component({
   selector: 'fdn-cadastro-nome-senha',
@@ -10,22 +9,16 @@ import { Router } from '@angular/router';
 })
 export class CadastroNomeSenhaComponent {
 
-  public formulario;
   public senhaValida: boolean = false;
   public mensagemErro: string = '';
-  private httpOptions;
   private nome: string = '';
   private senha: string = '';
   private senhaConfirmacao: string = '';
   private tipoErro: number = 0;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {
+  @Output() infoLoginCadastrado = new EventEmitter<Cliente>();
 
-    this.formulario = this.formBuilder.group({
-      nome: '',
-      senha: ''
-    });
-  }
+  constructor() {}
 
   validarNome(nome: string) {
     this.nome = nome.trim();
@@ -72,25 +65,14 @@ export class CadastroNomeSenhaComponent {
     this.senhaValida = (this.nome != '')?true:false;
   }
 
-  onSubmit() {
-    console.log(this.formulario.value);
+  onSubmit(nome: string, senha: string) {
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
     // enquanto a navegação pelos componentes acontece, iremos mandando os dados um para o outro.
+    let cliente: Cliente = new Cliente();
+    cliente.senha = senha;
+    cliente.nome = nome;
 
-    let clienteJson = sessionStorage.getItem('cliente');
-    let clieteJsonParseado = JSON.parse(clienteJson);
-
-    if(clieteJsonParseado === undefined)
-      this.router.navigate(['cadastro']);
-
-    clieteJsonParseado['nome'] = this.formulario.value['nome'];
-    clieteJsonParseado['senha'] = this.formulario.value['senha'];
-    console.log(clienteJson);
-
-    sessionStorage.setItem('cliente', JSON.stringify(clieteJsonParseado));
-
-    console.log(clieteJsonParseado)
-    this.router.navigate(['cadastro/data-nascimento']);
+    this.infoLoginCadastrado.emit(cliente);
   }
 
 }

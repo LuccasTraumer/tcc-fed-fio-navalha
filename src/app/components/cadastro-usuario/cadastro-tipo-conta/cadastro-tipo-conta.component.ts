@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { ClienteVarejo } from 'src/app/models/ClienteVarejo';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
-import { Router } from '@angular/router';
-import { FormBuilder } from '@angular/forms';
+import { ClienteBarbearia } from '../../../models/ClienteBarbearia';
 
 @Component({
   selector: 'fdn-cadastro-tipo-conta',
@@ -13,35 +13,24 @@ export class CadastroTipoContaComponent {
   public opcaoSelecionada: number;
   public isTipoContaValido: boolean = false;
 
-    escolherConta(tipoConta: number) {
-      this.isTipoContaValido = true;
-      this.opcaoSelecionada = tipoConta;
-      localStorage.setItem("tipo-conta", tipoConta.toString());
-    }
-  public formulario;
-
   public readonly iconeClienteVarejoCadastro = ConstantesIcons.ICONE_BARBEARIA_CADASTRO_WHITE;
   public readonly iconeBarbeariaCadastro = ConstantesIcons.ICONE_CLIENTE_VAREJO_CADASTRO_WHITE;
 
-  constructor(private formBuilder: FormBuilder,private routes: Router) {
-    this.formulario = this.formBuilder.group({
-      tipoConta: ''
-    });
+  @Output() tipoContaCadastrado = new EventEmitter<string>();
+
+  constructor() {}
+
+  escolherConta(tipoConta: number) {
+    this.isTipoContaValido = true;
+    this.opcaoSelecionada = tipoConta;
   }
 
   onSubmit() {
-    let clienteJson = sessionStorage.getItem('cliente');
-    let clienteJsonParseado = JSON.parse(clienteJson);
-
-    if(clienteJsonParseado === undefined)
-      this.routes.navigate(['cadastro']);
-
-    if(this.opcaoSelecionada == 0)
-      clienteJsonParseado['tipoCliente'] = 'clienteVarejo';
-    else
-      clienteJsonParseado['tipoCliente'] = 'clienteBarbearia';
-
-    sessionStorage.setItem('cliente', JSON.stringify(clienteJsonParseado));
-    this.routes.navigate(['cadastro/info-login']);
+    if(this.opcaoSelecionada == 0) {
+      this.tipoContaCadastrado.emit(ClienteVarejo.name);
+    }
+    else {
+      this.tipoContaCadastrado.emit(ClienteBarbearia.name);
+    }
   }
 }

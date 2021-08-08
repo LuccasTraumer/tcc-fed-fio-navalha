@@ -1,6 +1,5 @@
 <div class="container">
-  <form [formGroup]="formulario" class="form" (ngSubmit)="onSubmit()">
-
+  <div class="form">
     <nav class="toggle">
       <h4>
         Selecione o tipo de Conta
@@ -31,7 +30,7 @@
       </div>
     </section>
     <div class="submit">
-      <fdn-button [disabled]="!isTipoContaValido?true:null" textoInterno="Avançar"></fdn-button>
+      <fdn-button (click)="onSubmit()" [disabled]="!isTipoContaValido?true:null" textoInterno="Avançar"></fdn-button>
     </div>
-  </form>
+  </div>
 </div>

@@ -2,7 +2,7 @@
   width: 100%;
   height: 80%;
 
-  form {
+  .form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,19 +47,21 @@
         font-size: 1.5rem;
       }
 
-      #foto-perfil{
+      .foto-perfil{
           border-radius: 80%;
           position: relative;
           left: 25px;
       }
-      #upload-foto{
+
+      .upload-foto{
         background: #f99F31;
         border-radius: 50%;
         position: relative;
         top: 80px;
         right: 40px;
       }
-      #perfil{
+
+      .perfil{
         align-items: center;
         text-align: center;
         justify-content: center;

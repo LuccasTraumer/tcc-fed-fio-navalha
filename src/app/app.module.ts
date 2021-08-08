@@ -28,7 +28,11 @@ import { AuthGuard } from './guardas/auth.guard';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0',
+    //   libraries: ['places']
+    // })
   ],
   providers: [AutenticacaoService, AuthGuard],
   bootstrap: [AppComponent],

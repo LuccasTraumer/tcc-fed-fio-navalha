@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Cliente } from 'src/app/models/Cliente';
 import { AutenticacaoService } from '../autenticacao.service';
-import { HttpClient } from '@angular/common/http';
+import { ConstantesIcons } from '../../../utils/constantes.icons';
 
 @Component({
   selector: 'fdn-cadastro-foto',
@@ -10,23 +12,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CadastroFotoComponent {
 
+  @Input()
+  public cliente: Cliente;
+
+  public icone_upload = ConstantesIcons.ICONE_UPLOAD_FOTO_PERFIL;
+  public icone_camera = ConstantesIcons.ICONE_CAMERA_UPLOAD_FOTO_PERFIL;
+
   constructor(private autenticacaoService: AutenticacaoService, private http: HttpClient) { }
 
   onSubmit() {
-    let clienteJson = sessionStorage.getItem('cliente');
-    let clienteJsonParseado = JSON.parse(clienteJson);
-
-
-    let cliente = new Cliente();
-    cliente.fotoPerfil = 'linkFotoPerfil';
-
-    cliente.dataNascimento = clienteJsonParseado['dataNascimento'];
-    cliente.email = clienteJsonParseado['email'];
-    cliente.nome = clienteJsonParseado['nome'];
-    cliente.senha = clienteJsonParseado['senha'];
-    cliente.telefone = clienteJsonParseado['telefone'];
-    cliente.tipoCliente = clienteJsonParseado['tipoCliente'];
-
-    this.autenticacaoService.fazerLogin(cliente);
+    this.autenticacaoService.cadastrarUsuario(this.cliente);
   }
 }

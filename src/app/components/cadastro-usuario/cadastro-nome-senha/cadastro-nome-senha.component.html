@@ -1,6 +1,5 @@
 <div class="container">
-  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-
+  <div class="form">
     <nav class="toggle">
       <h4>
         Insira nome e senha
@@ -13,19 +12,13 @@
       </div>
     </section>
     <section>
-      <!--
-
-        <input formControlName="nome" class="input-data" placeholder="Nome" type="text" maxlength="30" (keyup)="validarNome($event.target.value)">
-        <input formControlName="senha" class="input-data" placeholder="Senha" type="password" minlength="8" maxlength="20" (keyup)="validarSenha($event.target.value)">
-        <input class="input-data" placeholder="Confirmar Senha" type="password" minlength="8" maxlength="20" (keyup)="validarSenhaConfirmacao($event.target.value)">
-      -->
-      <input formControlName="nome" class="input-data" placeholder="Nome" type="text" maxlength="30" (keyup)="validarNome($event.target.value)">
-      <input formControlName="senha" class="input-data" autocomplete="off" placeholder="Senha" type="password" minlength="8" maxlength="20" (keyup)="validarSenha($event.target.value)">
-      <input class="input-data" placeholder="Confirmar Senha" autocomplete="off" type="password" minlength="8" maxlength="20" (keyup)="validarSenhaConfirmacao($event.target.value)">
+      <input #nome class="input-data" placeholder="Nome" type="text" maxlength="30" (keyup)="validarNome($event.target.value)">
+      <input #senha class="input-data" autocomplete="off" placeholder="Senha" type="password" minlength="8" maxlength="20" (keyup)="validarSenha($event.target.value)">
+      <input #confirmacaoSenha class="input-data" placeholder="Confirmar Senha" autocomplete="off" type="password" minlength="8" maxlength="20" (keyup)="validarSenhaConfirmacao($event.target.value)">
     </section>
     <div class="submit">
       <label class="textoErro" [hidden]="senhaValida">{{mensagemErro}}</label>
-      <fdn-button [disabled]="!senhaValida?true:null" textoInterno="Avançar"></fdn-button>
+      <fdn-button (click)="onSubmit(nome.value, senha.value)" [disabled]="!senhaValida?true:null" textoInterno="Avançar"></fdn-button>
     </div>
-  </form>
+  </div>
 </div>

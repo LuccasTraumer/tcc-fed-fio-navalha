@@ -1,8 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
-import { CadastroServiceService } from 'src/app/services/cadastro-module/cadastro-service.service';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'fdn-cadastro-data-nascimento',
@@ -14,18 +10,13 @@ export class CadastroDataNascimentoComponent {
   private dia: number = 0;
   private mes: number = 0;
   private ano: number = 0;
-  private inscricaoServico: Subscription;
-  public formulario;
   public mostarMensagemErro: boolean = false;
   public dataValida: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.formulario = this.formBuilder.group({
-      dia: '',
-      mes: '',
-      ano: ''
-    });
-  }
+  @Output()
+  dataNascimento = new EventEmitter<Date>();
+
+  constructor() {}
 
   private bissexto(): boolean {
     if (this.ano % 400 == 0)
@@ -62,14 +53,8 @@ export class CadastroDataNascimentoComponent {
   }
 
   onSubmit() {
-    let clienteJson = sessionStorage.getItem('cliente');
-    let clienteJsonParseado = JSON.parse(clienteJson);
-
     if(this.valida()) {
-      clienteJsonParseado['dataNascimento'] = `${this.dia}-${this.mes}-${this.ano}`;
-      sessionStorage.setItem('cliente', JSON.stringify(clienteJsonParseado));
-      this.router.navigate(['cadastro/dados-cliente']);
-
+      this.dataNascimento.emit(new Date(this.ano ,this.mes -1, this.dia));
     } else {
       this.mostarMensagemErro = true;
     }
@@ -93,7 +78,6 @@ export class CadastroDataNascimentoComponent {
     let container = document.getElementById('dia') as HTMLInputElement;
     if(diaValido) {
       this.dia = parseInt(dia);
-      console.log(dia);
       if(this.dia < 1 || this.dia > 31 && dia != '') {
         container.value = '31';
       }
@@ -106,7 +90,6 @@ export class CadastroDataNascimentoComponent {
     let container = document.getElementById('mes') as HTMLInputElement;
     if(mesValido) {
       this.mes = parseInt(mes);
-      console.log(mes);
       if(this.mes < 1 || this.mes > 12 && mes != '') {
         container.value = '12';
       }
@@ -119,7 +102,6 @@ export class CadastroDataNascimentoComponent {
     let container = document.getElementById('ano') as HTMLInputElement;
     if(anoValido && ano.length == 4) {
       this.ano = parseInt(ano);
-      console.log(ano);
       let anoAtual = (new Date).getFullYear();
       if(this.ano < 1920 || this.ano > anoAtual  && ano != '') {
         container.value = anoAtual.toString();

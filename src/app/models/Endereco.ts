@@ -6,7 +6,6 @@ export class Endereco {
     localidade: string;
     uf: string;
     ibge: string;
-    gia: string;
     ddd: string;
-    siafi: string;
+    numeroResidencia: string;
 }
