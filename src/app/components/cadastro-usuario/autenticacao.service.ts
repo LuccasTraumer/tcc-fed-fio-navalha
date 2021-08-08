@@ -23,6 +23,7 @@ export class AutenticacaoService implements OnDestroy{
     this.usuarioAutenticado = true;
     this.clienteAutenticado.emit(this.usuarioAutenticado);
 
+    //TODO: Fazer comunicação com o SRV e este retornar uma sessão para o usuario.
     this.inscricao = this.http.post(`${environment.srvTCC}`, cliente, this.header).subscribe();
     return this.inscricao;
   }
