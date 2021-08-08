@@ -6,7 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { UtilsModule } from 'src/app/utils/utils.module';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao.component';
 
-fdescribe('CadastroCodigoConfirmacaoComponent', () => {
+describe('CadastroCodigoConfirmacaoComponent', () => {
   let component: CadastroCodigoConfirmacaoComponent;
   let fixture: ComponentFixture<CadastroCodigoConfirmacaoComponent>;
   let forms: FormBuilder;
