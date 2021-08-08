@@ -25,20 +25,20 @@ describe('CadastroTipoContaComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('Componente Criado com Sucesso', () => {
+  it('Componente Criado com Sucesso', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('Quando nenhuma conta está selecionada isTipoContaValido deve ser false', () => {
+  it('Quando nenhuma conta está selecionada isTipoContaValido deve ser false', () => {
     expect(component.isTipoContaValido).toBeFalsy();
   });
 
-  fit('Quando conta tipo clienteVarejo for selecionada isTipoContaValido deve ser true', () => {
+  it('Quando conta tipo clienteVarejo for selecionada isTipoContaValido deve ser true', () => {
     component.escolherConta(0);
     expect(component.isTipoContaValido).toBeTruthy();
   });
 
-  fit('Quando conta tipo clienteBarbearia for selecionada isTipoContaValido deve ser true', () => {
+  it('Quando conta tipo clienteBarbearia for selecionada isTipoContaValido deve ser true', () => {
     component.escolherConta(1);
     expect(component.isTipoContaValido).toBeTruthy();
   });

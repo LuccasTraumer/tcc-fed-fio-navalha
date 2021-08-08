@@ -19,7 +19,7 @@ export class CadastroDataNascimentoComponent {
   public mostarMensagemErro: boolean = false;
   public dataValida: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private cadastroService: CadastroServiceService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private router: Router) {
     this.formulario = this.formBuilder.group({
       dia: '',
       mes: '',
