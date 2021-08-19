@@ -54,7 +54,7 @@ const cadastroRoutes = [
     // },
     {
       path: '',
-      component: CadastroFotoComponent
+      component: CadastroComponent
     }
 ];
 
