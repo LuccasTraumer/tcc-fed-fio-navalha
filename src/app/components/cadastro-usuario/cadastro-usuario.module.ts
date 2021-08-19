@@ -37,7 +37,7 @@ import { CadastroCpfCnpjComponent } from './cadastro-cpf-cnpj/cadastro-cpf-cnpj.
     ComponentesModule,
   ],
   exports: [],
-  providers: [CadastroServiceService, EnderecoService],
+  providers: [CadastroServiceService, EnderecoService, FileReader],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CadastroUsuarioModule { }

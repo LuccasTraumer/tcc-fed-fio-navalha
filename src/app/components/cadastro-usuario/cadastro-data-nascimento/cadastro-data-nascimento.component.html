@@ -10,7 +10,7 @@
     <section class="submit">
       <div class="input-data">
         <input id="dia" (keyup)="setDia($event.target.value)" type="text" formControlName="dia" class="input" placeholder="Dia" maxlength="2">
-        <input id="mes" (keyup)="setMes($event.target.value)" type="text" formControlName="mes" class="input" placeholder="Mês">
+        <input id="mes" (keyup)="setMes($event.target.value)" type="text" formControlName="mes" class="input" placeholder="Mês" maxlength="2">
         <input id="ano" (keyup)="setAno($event.target.value)" type="text" formControlName="ano" class="input" placeholder="Ano" maxlength="4">
       </div>
 
@@ -22,7 +22,7 @@
           Caso seja a conta de uma empresa, informe a data da abertura do CNPJ.
         </label>
       </div>
-
+      <label class="textoErro" [hidden]="deMaior">Necessário ser maior de 18 anos!</label>
         <fdn-button (click)="onSubmit()" textoInterno="Avançar" [disabled]="!dataValida?true:null"></fdn-button>
     </section>
   </div>

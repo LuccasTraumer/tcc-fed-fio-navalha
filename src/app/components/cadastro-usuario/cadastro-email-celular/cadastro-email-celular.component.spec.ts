@@ -37,10 +37,12 @@ describe('CadastroEmailCelularComponent', () => {
     component.pegarInput('19981117162');
     expect(component.isValido).toBeTruthy();
   });
+
   it('quando Telefone for invalido propriedade isValido deve ser False', () => {
     component.pegarInput('1998111');
     expect(component.isValido).toBeFalsy();
   });
+
   it('quando Telefone for invalido propriedade isValido deve ser False', () => {
     component.pegarInput('199811171626262');
     expect(component.isValido).toBeFalsy();
@@ -57,6 +59,7 @@ describe('CadastroEmailCelularComponent', () => {
   });
 
   it('quando Email for invalido propriedade isValido deve ser False', () => {
+    component.escolherEmail();
     component.pegarInput('emailinvalido123');
     expect(component.isValido).toBeFalsy();
   });

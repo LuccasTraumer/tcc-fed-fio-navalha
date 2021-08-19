@@ -16,8 +16,8 @@ describe('CadastroDataNascimentoComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CadastroDataNascimentoComponent ],
-      imports: [ReactiveFormsModule, UtilsModule, RouterTestingModule],
-      providers: [{fornecer: FormBuilder, useValue: formBuilder}, HttpClient],
+      imports: [UtilsModule, RouterTestingModule],
+      providers: [],
     }).compileComponents();
   });
 
@@ -28,11 +28,11 @@ describe('CadastroDataNascimentoComponent', () => {
     fixture.detectChanges();
   });
 
-  fit('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  fit('quando data valida deve retornar true', () => {
+  it('quando data valida deve retornar true', () => {
     component.setDia('5');
     component.setMes('7');
     component.setAno('2010');
@@ -41,7 +41,7 @@ describe('CadastroDataNascimentoComponent', () => {
     expect(component.valida()).toBeTruthy();
   });
 
- fit('quando dia invalida deve retornar false', () => {
+ it('quando dia invalida deve retornar false', () => {
     component.setDia('50');
     component.setMes('7');
     component.setAno('2021');
@@ -50,7 +50,7 @@ describe('CadastroDataNascimentoComponent', () => {
     expect(component.valida()).toBeFalsy();
   });
 
-  fit('quando data invalida deve retornar false', () => {
+  it('quando data invalida deve retornar false', () => {
     component.setDia('50');
     component.setMes('70');
     component.setAno('20291');

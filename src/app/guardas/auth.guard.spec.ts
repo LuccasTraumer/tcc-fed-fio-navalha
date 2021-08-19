@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { AutenticacaoService } from '../components/cadastro-usuario/autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('AuthGuardService', () => {
   let service: AuthGuard;
@@ -14,8 +15,9 @@ describe('AuthGuardService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [BrowserModule],
-      providers: [AutenticacaoService, Router]
+providers: [AutenticacaoService, Router, HttpClient, HttpHandler, Function]
     });
+    service = TestBed.inject(AuthGuard);
    // service = new AuthGuard(autenticacaoServiceMock, routerMock);
   });
 

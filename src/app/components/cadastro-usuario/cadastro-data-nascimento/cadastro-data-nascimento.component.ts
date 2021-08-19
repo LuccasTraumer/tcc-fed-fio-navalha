@@ -12,6 +12,7 @@ export class CadastroDataNascimentoComponent {
   private ano: number = 0;
   public mostarMensagemErro: boolean = false;
   public dataValida: boolean = false;
+  public deMaior: boolean = true;
 
   @Output()
   dataNascimento = new EventEmitter<Date>();
@@ -45,11 +46,32 @@ export class CadastroDataNascimentoComponent {
       if (this.mes == 2 && !this.bissexto() && this.dia > 28)
           return false;
 
-      if(this.ano <= 1920 || this.ano >= (new Date()).getFullYear())
+      if(!this.isMaiorDeIdade()) {
+        this.deMaior = false;
+        return false;
+      }
+
+      if(this.dia == 0)
           return false;
 
+      if(this.mes == 0)
+          return false;
+
+      if(this.ano == 0)
+          return false;
+
+      this.deMaior = true;
       this.dataValida = true;
       return true;
+  }
+
+  private isMaiorDeIdade(): boolean {
+    const now = new Date(); // Data de hoje
+    const past = new Date(this.ano, this.mes, this.dia); // Outra data no passado
+    const diff = Math.abs(now.getTime() - past.getTime()); // Subtrai uma data pela outra
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24)); // Divide o total pelo total de milisegundos correspondentes a 1 dia. (1000 milisegundos = 1 segundo).
+    let isDemaior: boolean = days >= 6570?true:false;
+    return isDemaior;
   }
 
   onSubmit() {
@@ -76,36 +98,56 @@ export class CadastroDataNascimentoComponent {
   setDia(dia: string) {
     let diaValido = this.validaNumero(dia, 'dia');
     let container = document.getElementById('dia') as HTMLInputElement;
-    if(diaValido) {
-      this.dia = parseInt(dia);
-      if(this.dia < 1 || this.dia > 31 && dia != '') {
-        container.value = '31';
+    if(dia.trim() == ''){
+      this.dia = 0;
+    }
+    else {
+      if(diaValido) {
+
+        this.dia = parseInt(dia);
+        if(this.dia < 1 || this.dia > 31 && dia != '') {
+          container.value = '31';
+          this.dia = 31;
+        }
       }
     }
-    this.valida();
+      this.valida();
   }
 
   setMes(mes: string) {
     let mesValido = this.validaNumero(mes, 'mes');
     let container = document.getElementById('mes') as HTMLInputElement;
-    if(mesValido) {
-      this.mes = parseInt(mes);
-      if(this.mes < 1 || this.mes > 12 && mes != '') {
-        container.value = '12';
+
+    if(mes.trim() == '') {
+      this.mes = 0;
+    }
+    else {
+      if(mesValido) {
+        this.mes = parseInt(mes);
+        if(this.mes < 1 || this.mes > 12 && mes != '') {
+          container.value = '12';
+          this.mes = 12;
+        }
       }
     }
-    this.valida();
+      this.valida();
   }
 
   setAno(ano: string) {
     let anoValido = this.validaNumero(ano, 'ano');
     let container = document.getElementById('ano') as HTMLInputElement;
-    if(anoValido && ano.length == 4) {
-      this.ano = parseInt(ano);
-      let anoAtual = (new Date).getFullYear();
-      if(this.ano < 1920 || this.ano > anoAtual  && ano != '') {
-        container.value = anoAtual.toString();
-        this.ano = anoAtual;
+    if(ano.length < 4) {
+      this.ano = 0;
+    }
+    else {
+      if(ano.length == 4) {
+        this.ano = parseInt(ano);
+        let anoAtual = (new Date).getFullYear();
+        if(this.ano < (anoAtual - 100)  || this.ano > anoAtual) {
+          container.value = '';
+          this.ano = 0;
+          return;
+        }
       }
     }
     this.valida();
