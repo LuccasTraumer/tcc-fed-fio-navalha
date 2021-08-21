@@ -6,11 +6,6 @@ import { CardBarbeariaHorizontalComponent } from './components/componentes/card-
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
-    // canActivate: [AuthGuard]
-  },
-  {
     path: 'login',
     loadChildren: () => import('./components/login/login.module').then(module => module.LoginModule)
   },
@@ -37,13 +32,25 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   {
+    path: 'home',
+    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
+    // canActivate: [AuthGuard]
+    // can load
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
-    redirectTo: ''
+    redirectTo: '',
+    // canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

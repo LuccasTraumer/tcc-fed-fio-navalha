@@ -19,6 +19,6 @@ export class AppComponent {
     this.cliente = new ClienteVarejo();
     this.cliente.fotoPerfil = '../assets/icons/barbearia_icone_exemplo.jpg'
 
-    this.autenticacaoService.clienteAutenticado.subscribe(exibicao => this.exibirMenu = exibicao)
+    this.autenticacaoService.clienteAutenticado.subscribe((exibicao : any) => this.exibirMenu = exibicao)
   }
 }
