@@ -11,9 +11,9 @@ export class CadastroNomeSenhaComponent {
 
   public senhaValida: boolean = false;
   public mensagemErro: string = '';
-  private nome: string = '';
-  private senha: string = '';
-  private senhaConfirmacao: string = '';
+  public nome: string = '';
+  public senha: string = '';
+  public senhaConfirmacao: string = '';
   private tipoErro: number = 0;
 
   @Output() infoLoginCadastrado = new EventEmitter<Cliente>();
@@ -62,7 +62,9 @@ export class CadastroNomeSenhaComponent {
     this.mensagemErro = '';
     this.tipoErro = 0;
 
-    this.senhaValida = (this.nome != '')?true:false;
+    this.senhaValida = (this.nome != '' && this.senha.length == 8)?true:false;
+    this.mensagemErro = (this.senha.length != 8)?'A senha deve possuir no mínimo 8 caracteres':'';
+    this.mensagemErro = (this.nome.trim() == '')?'Nome é obrigatório':this.mensagemErro;
   }
 
   onSubmit(nome: string, senha: string) {

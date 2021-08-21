@@ -6,6 +6,11 @@ import { CardBarbeariaHorizontalComponent } from './components/componentes/card-
 
 const routes: Routes = [
   {
+    path: 'principal',
+    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
+    // canActivate: [AuthGuard]
+  },
+  {
     path: 'login',
     loadChildren: () => import('./components/login/login.module').then(module => module.LoginModule)
   },

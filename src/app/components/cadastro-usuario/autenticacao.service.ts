@@ -29,7 +29,6 @@ export class AutenticacaoService implements OnDestroy{
   }
 
   cadastrarUsuario(cliente: Cliente) {
-
   }
 
   usuarioEstaAutenticado(): boolean {
