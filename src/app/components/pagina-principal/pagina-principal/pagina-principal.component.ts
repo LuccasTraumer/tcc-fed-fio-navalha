@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pagina-principal.component.scss']
 })
 export class PaginaPrincipalComponent implements OnInit {
+
   title: string = 'AGM project';
   latitude: number;
   longitude: number;

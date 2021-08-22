@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { CardBarbeariaHorizontalComponent } from './components/componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
-import { AuthGuard } from './guardas/auth.guard';
 
 
 const routes: Routes = [
   {
     path: 'principal',
     loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'login',
@@ -18,7 +17,7 @@ const routes: Routes = [
   {
     path: 'cards',
     component: CardBarbeariaHorizontalComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'esqueceu-senha',
@@ -33,13 +32,30 @@ const routes: Routes = [
     loadChildren: () => import('./components/cadastro-usuario/cadastro-usuario.module').then(module => module.CadastroUsuarioModule)
   },
   {
+    path: 'teste',
+    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
+    // canActivate: [AuthGuard]
+    // can load
+  },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
-    redirectTo: ''
+    redirectTo: '',
+    // canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
