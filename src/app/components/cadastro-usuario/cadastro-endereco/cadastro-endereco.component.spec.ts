@@ -1,21 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+import { EnderecoService } from 'src/app/services/cadastro-module/endereco.service';
 import { UtilsModule } from 'src/app/utils/utils.module';
 import { CadastroEnderecoComponent } from './cadastro-endereco.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('CadastroEnderecoComponent', () => {
   let component: CadastroEnderecoComponent;
   let fixture: ComponentFixture<CadastroEnderecoComponent>;
-  let FormBuilder: FormBuilder;
-  let router: Router;
+
 
   beforeEach(()=>{
     TestBed.configureTestingModule({
       declarations: [ CadastroEnderecoComponent ],
       imports: [UtilsModule],
-      providers: []
+      providers: [EnderecoService, HttpClient, HttpHandler]
     })
     .compileComponents();
   });
@@ -26,7 +25,7 @@ describe('CadastroEnderecoComponent', () => {
     fixture.detectChanges();
   });
 
- it('should create', async() => {
+ it('Componente Criado', async() => {
     fixture.detectChanges();
     await fixture.whenStable().then(() => {
         expect(component).toBeTruthy();

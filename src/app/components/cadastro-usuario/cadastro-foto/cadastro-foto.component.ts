@@ -20,6 +20,7 @@ export class CadastroFotoComponent {
   public tamanhoFotoPermitido: number = 100000;
   public icone_upload = ConstantesIcons.ICONE_UPLOAD_FOTO_PERFIL;
   public icone_camera = ConstantesIcons.ICONE_CAMERA_UPLOAD_FOTO_PERFIL;
+
   constructor(private autenticacaoService: AutenticacaoService, private fileReader: FileReader) {
     this.fotoValida = true;
     console.log(this.fotoValida)
@@ -27,13 +28,12 @@ export class CadastroFotoComponent {
 
 UploadFoto(file: any) {
   console.log(file);
-  if(file.target.files && file.target.files[0]) {
+  if(file.target?.files && file.target?.files[0]) {
     let possivelFoto = file.target.files[0];
     let tamanhoFoto = possivelFoto.size;
 
     this.foto = this.isTamanhoFotoValido(tamanhoFoto)?possivelFoto:null;
-
-    if(this.foto == null) {
+    if(!this.foto) {
       this.fotoValida = false;
       return;
     }
@@ -41,7 +41,7 @@ UploadFoto(file: any) {
     this.fotoValida = true;
     this.fileReader.readAsDataURL(this.foto);
     this.fileReader.onloadend = ()=>{this.foto = this.fileReader.result}
-}
+  }
 
 }
 private isTamanhoFotoValido(tamanho: number): boolean {

@@ -28,14 +28,14 @@ describe('CadastroDataNascimentoComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('Componente Criado com Sucesso', () => {
     expect(component).toBeTruthy();
   });
 
   it('quando data valida deve retornar true', () => {
     component.setDia('5');
     component.setMes('7');
-    component.setAno('2010');
+    component.setAno('2001');
 
     component.valida();
     expect(component.valida()).toBeTruthy();

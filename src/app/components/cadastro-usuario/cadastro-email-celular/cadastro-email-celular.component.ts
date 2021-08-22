@@ -72,7 +72,6 @@ export class CadastroEmailCelularComponent {
   public pegarInput(evento: string): void {
     this.valorInput = evento;
     this.primeiraVez = false;
-
     if(this.switchType === 'number' && evento.length > 11) {
       let container = document.getElementById('text') as HTMLInputElement;
       container.value = evento.substring(0, 11);

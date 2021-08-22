@@ -1,27 +1,35 @@
-import { TestBed } from '@angular/core/testing';
+import { getTestBed, TestBed } from '@angular/core/testing';
 
 import { AuthGuard } from './auth.guard';
 import { AutenticacaoService } from '../components/cadastro-usuario/autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { HttpClient, HttpHandler } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AuthGuardService', () => {
   let service: AuthGuard;
- // let autenticacaoServiceMock: AutenticacaoService = new AutenticacaoService();
   let routerMock: Router;
-
+  let mockHttp: HttpTestingController;
+  let injector: TestBed;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [BrowserModule],
-providers: [AutenticacaoService, Router, HttpClient, HttpHandler, Function]
+      imports: [BrowserModule, HttpClientTestingModule, RouterTestingModule],
+      providers:
+      [
+        { provide: AutenticacaoService,
+          useValue: { usuarioEstaAutenticado: () => true }
+        }
+      ]
     });
-    service = TestBed.inject(AuthGuard);
-   // service = new AuthGuard(autenticacaoServiceMock, routerMock);
+    injector = getTestBed();
+    service = injector.inject(AuthGuard);
+    mockHttp = injector.inject(HttpTestingController);
   });
 
-  it('should be created', () => {
+  it('Componente Criado com Sucesso', () => {
     expect(service).toBeTruthy();
   });
+
 });

@@ -18,7 +18,6 @@ describe('CadastroFotoComponent', () => {
       declarations: [ CadastroFotoComponent ],
       imports: [UtilsModule],
       providers: [FileReader, AutenticacaoService, HttpClient, HttpHandler],
-      //providers: [FileReader]
     })
     .compileComponents();
 
@@ -35,20 +34,18 @@ describe('CadastroFotoComponent', () => {
   });
 
   it('Quando tamanho da Foto é valido Propriedade fotoValida deve ser True', () => {
-    let blob = new Blob([""], { type: 'text/html' });
-    let event = new Event("div");
-    Object.defineProperty(blob, 'size', {value: 100000, writable: false});
-    blob["name"] = "filename";
-    let fotoMock = <File>blob;
-    console.log(fotoMock);
-    component.UploadFoto(fotoMock);
-    expect(component).toBeTruthy();
+    const mockFile = new File ([''], 'filename', {type: 'image / png'});
+    Object.defineProperty(mockFile, 'size', {value: 100000, writable: false});
+    const mockEvt = {target: {files: [mockFile]}};
+    component.UploadFoto(mockEvt);
+    expect(component.fotoValida).toBeTrue();
   });
 
   it('Quando tamanho da Foto é Invalido Propriedade fotoValida deve ser False', () => {
-    let fotoMock = new File([""], "filename");
-    Object.defineProperty(fotoMock, 'size', {value: 100001, writable: false});
-    component.UploadFoto(fotoMock);
-    expect(component).toBeFalsy();
+    const mockFile = new File ([''], 'filename', {type: 'image / png'});
+    Object.defineProperty(mockFile, 'size', {value: 100001, writable: false});
+    const mockEvt = {target: {files: [mockFile]}};
+    component.UploadFoto(mockEvt);
+    expect(component.fotoValida).toBeFalse();
   });
 });

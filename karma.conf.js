@@ -57,7 +57,7 @@ module.exports = function (config) {
     colors: true,
     logLevel: config.LOG_DISABLE,
     autoWatch: true,
-    browsers: ["ChromeHeadless"],
+    browsers: ["Chrome"],// ["ChromeHeadless"]
     customLaunchers: {
       ChromeHeadless: {
         base: 'Chrome',
@@ -69,6 +69,7 @@ module.exports = function (config) {
         ],
       }
     },
-    singleRun: true,
+    singleRun: false,
+    //singleRun: true
   });
 };
