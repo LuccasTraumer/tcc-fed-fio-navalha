@@ -1,7 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'fdn-esqueceu-senha',
