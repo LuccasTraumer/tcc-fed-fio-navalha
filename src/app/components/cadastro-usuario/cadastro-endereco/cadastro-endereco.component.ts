@@ -13,9 +13,11 @@ import { EnderecoService } from "src/app/services/cadastro-module/endereco.servi
 
 export class CadastroEnderecoComponent implements OnDestroy {
 
-  public cepValido: boolean = true;
+  public cepValido: boolean = false;
+  public numeroValido: boolean = false;
   public endereco: Endereco;
-
+  public cep: number = null;
+  public numero: number = null;
   public texto: string;
   public textoTitulo: string;
   private inscricao: Subscription;
@@ -34,18 +36,44 @@ export class CadastroEnderecoComponent implements OnDestroy {
       this.isClienteVarejo();
   }
 
+  public validaCep(cep: number) {
+    if(cep.toString().length > 8){
+      this.cep = parseInt(this.cep.toString().substring(0,8));
+    }
+
+    if(this.cep.toString().length == 8)
+    {
+      this.cepValido = true;
+      return;
+    }
+    this.cepValido = false;
+  }
+
+  public validaNumero(numero: number) {
+    if(numero.toString().length > 7){
+      this.numero = parseInt(this.numero.toString().substring(0,7));
+    }
+
+    if(this.numero != null)
+    {
+      this.numeroValido = true;
+      return;
+    }
+    this.numeroValido = false;
+  }
+
   ngOnDestroy(): void {
     this.inscricao.unsubscribe();
   }
 
-  isBarbearia(): void {
+  public isBarbearia(): void {
     this.texto = 'Para que seus clientes encontrem você com mais facilidade precisamos de alguns dados';
-    this.textoTitulo = 'Informações Sobre o Salão';
+    this.textoTitulo = 'Informe Endereço';
   }
 
-  isClienteVarejo() {
+  public isClienteVarejo() {
     this.texto = 'Para que você possa encontrar um salão próximo a sua casa';
-    this.textoTitulo = 'Informações Sobre seu Endereço';
+    this.textoTitulo = 'Informe Endereço';
   }
 
   private async buscarEndereco (cep: string, numero: string, complemento: string) {

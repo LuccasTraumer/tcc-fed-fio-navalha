@@ -35,6 +35,7 @@ UploadFoto(file: any) {
     this.foto = this.isTamanhoFotoValido(tamanhoFoto)?possivelFoto:null;
     if(!this.foto) {
       this.fotoValida = false;
+      this.foto = this.icone_upload;
       return;
     }
 

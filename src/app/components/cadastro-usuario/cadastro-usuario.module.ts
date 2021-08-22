@@ -11,7 +11,7 @@ import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento/cada
 import { CadastroRoutingModule } from './cadastro.routing.module';
 import { CadastroServiceService } from '../../services/cadastro-module/cadastro-service.service';
 import { EnderecoService } from '../../services/cadastro-module/endereco.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CadastroEnderecoComponent } from './cadastro-endereco/cadastro-endereco.component';
@@ -35,6 +35,7 @@ import { CadastroCpfCnpjComponent } from './cadastro-cpf-cnpj/cadastro-cpf-cnpj.
     UtilsModule,
     CadastroRoutingModule,
     ComponentesModule,
+    FormsModule
   ],
   exports: [],
   providers: [CadastroServiceService, EnderecoService, FileReader],
