@@ -16,9 +16,9 @@ describe('CadastroCpfCnpjComponent', () => {
   beforeEach(async () => {
     sessionStorage.setItem('cliente', JSON.stringify('clienteBarbearia'));
     await TestBed.configureTestingModule({
-      declarations: [ CadastroCpfCnpjComponent,  ],
-      imports: [ReactiveFormsModule, UtilsModule, RouterTestingModule],
-      providers: [{fornecer: FormBuilder, useValue: formBuilder}],
+      declarations: [ CadastroCpfCnpjComponent  ],
+      imports: [UtilsModule, RouterTestingModule],
+      providers: [],
     })
     .compileComponents();
   });
@@ -34,5 +34,18 @@ describe('CadastroCpfCnpjComponent', () => {
    await fixture.whenStable().then(() => {
         expect(component).toBeTruthy();
     });
+  });
+
+  it('Quando CPF invalido isDocumentoValido deve ser falso', async() => {
+        component.textoTipoCadastro = 'CPF';
+        component.validaInput('38036385000')
+        expect(component.isDocumentoValido).toBeFalsy();
+  });
+
+  it('Quando CPF valido isDocumentoValido deve ser true', async() => {
+      component.textoTipoCadastro = 'CPF';
+      component.validaInput('38036385007')
+      expect(component.isDocumentoValido).toBeTruthy();
 });
+
 });

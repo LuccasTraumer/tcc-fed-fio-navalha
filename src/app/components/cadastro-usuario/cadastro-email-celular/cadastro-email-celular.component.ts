@@ -7,8 +7,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class CadastroEmailCelularComponent {
 
-  private primeiraVez: boolean = true;
-  public switchType: string = 'numero';
+  public primeiraVez: boolean = true;
+  public switchType: string = 'number';
   public textoInterno: string = "Insira seu Telefone";
   private valorInput: string = "";
   public valorComMascara: string;
@@ -25,7 +25,8 @@ export class CadastroEmailCelularComponent {
     let container = document.getElementById('text') as HTMLInputElement;
     container.value = '';
     this.isValido = false;
-    this.switchType = 'numero';
+    this.primeiraVez = true;
+    this.switchType = 'number';
     this.opcao = 0;
     this.textoInterno = "Insira seu Telefone"
   }
@@ -34,6 +35,7 @@ export class CadastroEmailCelularComponent {
     let container = document.getElementById('text') as HTMLInputElement;
     container.value = '';
     this.isValido = false;
+    this.primeiraVez = true;
     this.switchType = 'email';
     this.opcao = 1;
     this.textoInterno = "Insira seu E-mail";
@@ -59,39 +61,27 @@ export class CadastroEmailCelularComponent {
     if (this.primeiraVez)
       return true;
 
-    if(!this.validarNumero() && this.valorInput.includes('@') && this.valorInput.includes('.')) {
+    if(this.valorInput.includes('@') && this.valorInput.includes('.'))
       return true;
-    } else if(this.validarNumero()) {
-      return true
-    }
+
     return false;
   }
 
-  validarNumero(){
-    let numbers: string = '0123456789';
-    let valor = this.valorInput.split('');
-    let container = document.getElementById('text') as HTMLInputElement;
 
-    for(let i = 0; i< valor.length; i++) {
-      if(!numbers.includes(valor[i]) || valor.length > 11){
-        let valor = container.value;
-        container.value = valor.substring(0, valor.length-1);
-        return false;
-      }
-    }
-    return true;
-  }
 
   public pegarInput(evento: string): void {
     this.valorInput = evento;
-    if(this.switchType === 'numero') {
-      this.validarNumero();
+    this.primeiraVez = false;
+    if(this.switchType === 'number' && evento.length > 11) {
+      let container = document.getElementById('text') as HTMLInputElement;
+      container.value = evento.substring(0, 11);
+      this.isValido = true;
+      return;
     }
 
-    if((evento.length == 11 || evento.length == 12) && this.switchType == 'numero') {
+    if((evento.length == 11) && this.switchType == 'number') {
       this.valorInput = `(${evento.substring(0,2)})${evento.substring(2,7)}-${evento.substring(7,11)}`;
       this.isValido = true;
-
       return;
     }
     if(evento.includes('@gmail.com') || evento.includes('@hotmail.com')) {

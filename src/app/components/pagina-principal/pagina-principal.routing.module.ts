@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { RouterModule } from '@angular/router';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 const paginaPrincipalRoutes = [
   {
-    path: '',
+    path: 'explorar',
     component: PaginaPrincipalComponent
   }
 ]
 
 @NgModule({
-  imports: [RouterModule.forChild(paginaPrincipalRoutes)],
+  imports: [
+    RouterModule.forChild(paginaPrincipalRoutes),
+
+  ],
   exports: [RouterModule]
 })
 export class PaginaPrincipalRoutingModule { }

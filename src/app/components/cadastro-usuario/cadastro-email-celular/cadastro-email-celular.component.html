@@ -10,7 +10,7 @@
   <hr>
   <div class="submit">
     <input class="phone" id="text" (keyup)="pegarInput($event.target.value)" placeholder="{{textoInterno}}" type="{{switchType}}"/>
-    <label class="textoErro" [hidden]="campoValido()">O {{switchType === 'numero' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'numero' ? 'Numero' : 'E-mail'}} Valido!</label>
+    <label class="textoErro" [hidden]="(primeiraVez) || (isValido)">O {{switchType === 'number' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!</label>
     <fdn-button (click)="onSubmit()" [disabled]="!isValido?true:null"  textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="enviarCodigo()"></fdn-button>
   </div>
  </div>

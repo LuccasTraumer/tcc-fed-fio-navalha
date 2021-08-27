@@ -28,6 +28,7 @@
 
     section {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
 
@@ -37,28 +38,36 @@
         padding: 0px;
         margin: 10px;
       }
+      .divErro{
+        width: 100%;
+        min-width: 100%;
+      }
+      // .textoErro{
+      //   background-color: red;
+      //   font-size: 3vw;
+      // }
 
       label {
-        padding: 2%;
         display: flex;
-        margin-right: 10px;
         align-items: center;
         justify-content: center;
         font-size: 1.5rem;
       }
 
       .foto-perfil{
-          border-radius: 80%;
-          position: relative;
-          left: 25px;
-      }
+        border-radius: 100px;
+        //position: relative;
+        //left: 25px;
+        height: 25vh;
+        width: 70vw;
+        }
 
-      .upload-foto{
-        background: #f99F31;
-        border-radius: 50%;
-        position: relative;
-        top: 80px;
-        right: 40px;
+        .fotoMaisCamera{
+          .upload-foto{
+            background: #f99F31;
+            border-radius: 50%;
+            position: absolute;
+          }
       }
 
       .perfil{

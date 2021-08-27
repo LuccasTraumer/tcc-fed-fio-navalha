@@ -11,14 +11,15 @@ describe('CadastroCodigoConfirmacaoComponent', () => {
   let fixture: ComponentFixture<CadastroCodigoConfirmacaoComponent>;
   let forms: FormBuilder;
   let router: Router;
-  const formBuilder: FormBuilder = new FormBuilder ();
+  //const formBuilder: FormBuilder = new FormBuilder ();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CadastroCodigoConfirmacaoComponent ],
-      imports: [ReactiveFormsModule, UtilsModule, RouterTestingModule],
-      providers: [{fornecer: FormBuilder, useValue: formBuilder}],
-    })
+      imports: [UtilsModule, RouterTestingModule],
+    //  providers: [{fornecer: FormBuilder, useValue: formBuilder}],
+      providers: []
+  })
     .compileComponents();
   });
 
