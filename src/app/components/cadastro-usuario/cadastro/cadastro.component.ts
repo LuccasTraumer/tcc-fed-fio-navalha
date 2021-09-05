@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Cliente } from '../../../models/Cliente';
-import { Endereco } from '../../../models/Endereco';
-import { ClienteBarbearia } from '../../../models/ClienteBarbearia';
-import { ClienteVarejo } from '../../../models/ClienteVarejo';
+import { Usuario } from '../../../models/usuario';
+import { Endereco } from '../../../models/endereco';
+import { Barbearia } from '../../../models/barbearia';
+import { Cliente } from '../../../models/cliente';
 
 @Component({
   selector: 'fdn-cadastro',
@@ -11,7 +11,7 @@ import { ClienteVarejo } from '../../../models/ClienteVarejo';
 })
 export class CadastroComponent {
 
-  private cliente: Cliente;
+  private cliente: Usuario;
 
   public emailCadastrado: boolean = false;
   public codigoConfirmacaoCadastrado: boolean = false;
@@ -23,14 +23,14 @@ export class CadastroComponent {
   public fotoPerfilCadastrado: boolean = false;
 
   constructor() {
-    this.cliente = new Cliente();
+    this.cliente = new Usuario();
   }
 
   getTipoCliente(): string {
     return this.cliente.tipoCliente;
   }
 
-  getCliente(): Cliente {
+  getCliente(): Usuario {
     return this.cliente;
   }
 
@@ -53,13 +53,13 @@ export class CadastroComponent {
   setTipoConta(tipoConta: string): void {
     let clienteGenerico = this.cliente;
     this.cliente.tipoCliente = tipoConta;
-    if (tipoConta == ClienteVarejo.name) {
-      this.cliente = new ClienteVarejo();
-      this.cliente.tipoCliente = ClienteVarejo.name;
+    if (tipoConta == Cliente.name) {
+      this.cliente = new Cliente();
+      this.cliente.tipoCliente = Cliente.name;
     }
     else {
-      this.cliente = new ClienteBarbearia();
-      this.cliente.tipoCliente = ClienteBarbearia.name;
+      this.cliente = new Barbearia();
+      this.cliente.tipoCliente = Barbearia.name;
     }
 
     if (clienteGenerico.telefone !== undefined)
@@ -70,7 +70,7 @@ export class CadastroComponent {
     this.tipoContaCadastrado = true;
   }
 
-  setInfoLogin(cliente: Cliente): void {
+  setInfoLogin(cliente: Usuario): void {
     this.cliente.nome = cliente.nome;
     this.cliente.senha = cliente.senha;
 
@@ -84,7 +84,7 @@ export class CadastroComponent {
   }
 
   setCpfCnpj(cpfCnpj: string) {
-    if (this.cliente.constructor.name == ClienteVarejo.name)
+    if (this.cliente.constructor.name == Cliente.name)
       this.cliente['cpf'] = cpfCnpj;
     else
       this.cliente['cnpj'] = cpfCnpj;

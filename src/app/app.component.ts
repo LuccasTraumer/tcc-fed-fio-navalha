@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Cliente } from './models/Cliente';
-import { ClienteVarejo } from './models/ClienteVarejo';
+import { Usuario } from './models/usuario';
+import { Cliente } from './models/cliente';
 import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
 
 @Component({
@@ -11,12 +11,12 @@ import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.
 export class AppComponent {
   title = 'tcc-fed-fio-navalha';
 
-  cliente: Cliente;
+  cliente: Usuario;
 
   public exibirMenu: boolean = true;
 
   constructor(private autenticacaoService: AutenticacaoService) {
-    this.cliente = new ClienteVarejo();
+    this.cliente = new Cliente();
     this.cliente.fotoPerfil = '../assets/icons/barbearia_icone_exemplo.jpg'
 
     this.autenticacaoService.clienteAutenticado.subscribe((exibicao : any) => this.exibirMenu = exibicao)

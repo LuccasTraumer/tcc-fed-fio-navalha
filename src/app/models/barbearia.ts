@@ -1,7 +1,7 @@
-import { Cliente } from './Cliente';
-import { Corte } from './Corte';
+import { Usuario } from './usuario';
+import { Corte } from './corte';
 
-export class ClienteBarbearia extends Cliente {
+export class Barbearia extends Usuario {
   agendaDisponivel: Date[];
   avaliacaoBarbearia: number;
   enderecosBarbearia: string[];

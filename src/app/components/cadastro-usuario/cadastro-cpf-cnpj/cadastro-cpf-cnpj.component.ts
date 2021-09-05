@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, AfterContentInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
-import { ClienteVarejo } from 'src/app/models/ClienteVarejo';
+import { Cliente } from 'src/app/models/cliente';
 
 @Component({
   selector: 'fdn-cadastro-cpf-cnpj',
@@ -24,7 +24,7 @@ export class CadastroCpfCnpjComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.tipoCliente.currentValue !== undefined) {
-      if(this.tipoCliente == ClienteVarejo.name)
+      if(this.tipoCliente == Cliente.name)
       this.isClienteVarejo();
       else
         this.isBarbearia();

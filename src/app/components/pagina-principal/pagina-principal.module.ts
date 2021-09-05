@@ -13,7 +13,8 @@ import { PaginaPrincipalRoutingModule } from './pagina-principal.routing.module'
   declarations: [PaginaPrincipalComponent],
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: process.env.API_KEY,
+      // apiKey: process.env.API_KEY,
+      apiKey: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0',
     }),
     CommonModule,
     ComponentesModule,

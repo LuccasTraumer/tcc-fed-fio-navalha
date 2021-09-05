@@ -1,11 +1,12 @@
-import { Endereco } from './Endereco';
-export class Cliente {
-  nome: string;
-  email?: string;
-  telefone?: string;
-  tipoCliente: string;
-  fotoPerfil?: string;
-  senha: string;
-  dataNascimento: Date;
-  endereco: Endereco;
+import { Usuario } from "./Cliente";
+import { ClienteBarbearia } from './ClienteBarbearia';
+import { Corte } from "./corte";
+
+export class Cliente extends Usuario {
+  saldoCarteira: number;
+  notaCliente: number;
+  listaBarbeariasFavoritas: ClienteBarbearia[];
+  comentarios: string[];
+  reputacao: number;
+  listaServicoConsumidos: Corte[];
 }
