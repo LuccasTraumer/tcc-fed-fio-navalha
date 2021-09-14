@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanDeactivate, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CadastroDeactivate } from '../models/CadastroDeactive.interface';
+import { CadastroDeactivate } from '../models/cadastro-deactive.interface';
 
 
 @Injectable()

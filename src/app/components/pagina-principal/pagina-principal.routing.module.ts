@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { HomeBarbeariaComponent } from './home-barbearia/home-barbearia.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
-const paginaPrincipalRoutes = [
+const mainRoutes = [
   {
     path: 'home-barbearia',
     component: HomeBarbeariaComponent
@@ -11,14 +11,15 @@ const paginaPrincipalRoutes = [
   {
     path: 'explorar',
     component: PaginaPrincipalComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
-]
+];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(paginaPrincipalRoutes),
-
-  ],
+  imports: [RouterModule.forChild(mainRoutes)],
   exports: [RouterModule]
 })
 export class PaginaPrincipalRoutingModule { }

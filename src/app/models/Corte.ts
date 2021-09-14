@@ -1,9 +1,10 @@
-import { ClienteVarejo } from './ClienteVarejo';
-import { ClienteBarbearia } from './ClienteBarbearia';
+import { Cliente } from './cliente';
+import { Barbearia } from './barbearia';
 
 export class Corte {
-  consumidor: ClienteVarejo;
-  prestadorServico: ClienteBarbearia;
+  consumidor: Cliente;
+  prestadorServico: Barbearia;
+  dataCorte: Date;
   inicioCorte: Date;
   fimCorte: Date;
   valorCorte: number;

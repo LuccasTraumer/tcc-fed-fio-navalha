@@ -1,7 +1,7 @@
-import { ComponentesModule } from './../componentes/componentes.module';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { ComponentesModule } from './../componentes/componentes.module';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { CadastroTipoContaComponent } from './cadastro-tipo-conta/cadastro-tipo-conta.component';
 import { CadastroEmailCelularComponent } from './cadastro-email-celular/cadastro-email-celular.component';
@@ -11,7 +11,7 @@ import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento/cada
 import { CadastroRoutingModule } from './cadastro.routing.module';
 import { CadastroServiceService } from '../../services/cadastro-module/cadastro-service.service';
 import { EnderecoService } from '../../services/cadastro-module/endereco.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { CadastroFotoComponent } from './cadastro-foto/cadastro-foto.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { CadastroEnderecoComponent } from './cadastro-endereco/cadastro-endereco.component';

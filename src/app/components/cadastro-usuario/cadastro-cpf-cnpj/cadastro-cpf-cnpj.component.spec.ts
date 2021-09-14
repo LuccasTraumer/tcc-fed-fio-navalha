@@ -14,7 +14,7 @@ describe('CadastroCpfCnpjComponent', () => {
   const formBuilder: FormBuilder = new FormBuilder ();
 
   beforeEach(async () => {
-    sessionStorage.setItem('cliente', JSON.stringify('clienteBarbearia'));
+    sessionStorage.setItem('cliente', JSON.stringify('Barbearia'));
     await TestBed.configureTestingModule({
       declarations: [ CadastroCpfCnpjComponent  ],
       imports: [UtilsModule, RouterTestingModule],

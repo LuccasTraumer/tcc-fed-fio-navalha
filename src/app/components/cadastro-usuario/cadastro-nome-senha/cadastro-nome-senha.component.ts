@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import { Cliente } from '../../../models/Cliente';
+import { Usuario } from '../../../models/usuario';
 
 @Component({
   selector: 'fdn-cadastro-nome-senha',
@@ -16,7 +16,7 @@ export class CadastroNomeSenhaComponent {
   public senhaConfirmacao: string = '';
   private tipoErro: number = 0;
 
-  @Output() infoLoginCadastrado = new EventEmitter<Cliente>();
+  @Output() infoLoginCadastrado = new EventEmitter<Usuario>();
 
   constructor() {}
 
@@ -70,7 +70,7 @@ export class CadastroNomeSenhaComponent {
   onSubmit(nome: string, senha: string) {
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
     // enquanto a navegação pelos componentes acontece, iremos mandando os dados um para o outro.
-    let cliente: Cliente = new Cliente();
+    let cliente: Usuario = new Usuario();
     cliente.senha = senha;
     cliente.nome = nome;
 

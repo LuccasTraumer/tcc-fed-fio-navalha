@@ -1,6 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-//import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule } from '@agm/core';
 
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 import { ComponentesModule } from '../componentes/componentes.module';
@@ -12,6 +12,10 @@ import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [PaginaPrincipalComponent, HomeBarbeariaComponent],
   imports: [
+    AgmCoreModule.forRoot({
+      // apiKey: process.env.API_KEY,
+      apiKey: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0',
+    }),
     CommonModule,
     ComponentesModule,
     LoadingModule,
@@ -24,4 +28,4 @@ import { MatCardModule } from '@angular/material/card';
   exports: [PaginaPrincipalComponent, HomeBarbeariaComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class PaginaPrincipalModule { }
+export class PaginaPrincipalModule {}
