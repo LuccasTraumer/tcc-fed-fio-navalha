@@ -1,0 +1,33 @@
+<nav class="container">
+  <!-- <img src="{{ICONE_BARBEAIRIA}}" alt="icone barbearia" srcset=""> -->
+  <section class="informacoes">
+    <aside class="aside-foto">
+      <img src="{{fotoPerfil()}}" alt="" class=".foto-perfil">
+    </aside>
+    <div class="coluna">
+
+      <header>
+        {{nomeSolicitante()}}
+      </header>
+
+      <section class="detalhes">
+        <div>
+          {{ servico() }}
+        </div>
+        <div>
+          {{ valorServico() }}
+        </div>
+        <div>
+          {{ dataServico() }}
+        </div>
+        <div>
+          {{ horarioServico() }}
+        </div>
+      </section>
+    </div>
+    <aside class="aprovacao">
+      <img src="{{ ICONE_APROVACAO_PEDIDO }}" alt="" class="icone" (click)="cancelarPedido()">
+      <img src="{{ ICONE_CANCELAMENTO_PEDIDO }}" alt="" class="icone" (click)="aprovarPedido()">
+    </aside>
+  </section>
+</nav>

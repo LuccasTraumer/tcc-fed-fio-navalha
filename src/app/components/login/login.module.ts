@@ -4,15 +4,18 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { UtilsModule } from '../../utils/utils.module';
 import { LoginRoutingModule } from './login.routing.module';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [LoginComponent],
   imports: [
     CommonModule,
     UtilsModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    FormsModule,
   ],
   exports: [],
+  providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class LoginModule { }

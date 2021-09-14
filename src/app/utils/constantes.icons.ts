@@ -5,4 +5,7 @@ export class ConstantesIcons {
   public static readonly ICONE_CLIENTE_VAREJO_CADASTRO_WHITE = environmentExternalLinks.ICONE_CLIENTE_VAREJO_CADASTRO_WHITE;
   public static readonly ICONE_UPLOAD_FOTO_PERFIL = environmentExternalLinks.ICONE_UPLOAD_FOTO_PERFIL;
   public static readonly ICONE_CAMERA_UPLOAD_FOTO_PERFIL = environmentExternalLinks.ICONE_CAMERA_UPLOAD_FOTO_PERFIL;
+  public static readonly ICONE_SETA_PRA_BAIXO = environmentExternalLinks.ICONE_SETA_PRA_BAIXO;
+  public static readonly ICONE_APROVACAO_PEDIDO = environmentExternalLinks.ICONE_CANCELAMENTO_PEDIDO
+  public static readonly ICONE_CANCELAMENTO_PEDIDO = environmentExternalLinks.ICONE_APROVACAO_PEDIDO
 }
