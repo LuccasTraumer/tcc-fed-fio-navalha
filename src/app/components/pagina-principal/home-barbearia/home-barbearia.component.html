@@ -1,0 +1,34 @@
+<div class="container">
+
+  <section class="primeiro"  >
+    <div class="cabecalho">
+      Pedidos
+      <button   (click)="slider(1)"><img src="{{setaIcone}}" [class.rotate]="!isPedidosExibido" class="icon"></button>
+    </div>
+    <div class="conteudo"  [class.slide-in]="isPedidosExibido" [class.slide-out]="!isPedidosExibido">
+      <mat-card>ssps</mat-card>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+
+    </div>
+  </section>
+  <section><div class="cabecalho">
+    Agendamentos
+    <button (click)="slider(2)"><img src="{{setaIcone}}" [class.rotate]="!isAgendamentosExibido" class="icon"></button>
+  </div>
+  <div class="conteudo agendamentos" [class.slide-in]="isAgendamentosExibido" [class.slide-out]="!isAgendamentosExibido">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed soluta, officiis totam voluptate nisi quod illum asperiores magnam quaerat nesciunt, accusantium doloribus quo, dolore praesentium sequi. Non illum unde, nesciunt ipsum culpa, maxime veritatis iusto necessitatibus nobis qui ullam esse vitae est suscipit labore voluptatum! Reprehenderit exercitationem autem alias doloribus.
+
+  </div>
+</section>
+
+</div>
+
