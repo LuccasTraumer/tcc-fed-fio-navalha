@@ -1,8 +1,8 @@
 import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { ClienteBarbearia } from 'src/app/models/ClienteBarbearia';
-import { Endereco } from "src/app/models/Endereco";
+import { Barbearia } from 'src/app/models/barbearia';
+import { Endereco } from "src/app/models/endereco";
 import { EnderecoService } from "src/app/services/cadastro-module/endereco.service";
 
 @Component({
@@ -30,7 +30,7 @@ export class CadastroEnderecoComponent implements OnDestroy {
 
   constructor(private service: EnderecoService) {
     this.endereco = new Endereco();
-    if(this.tipoCliente === ClienteBarbearia.name)
+    if(this.tipoCliente === Barbearia.name)
       this.isBarbearia();
     else
       this.isClienteVarejo();

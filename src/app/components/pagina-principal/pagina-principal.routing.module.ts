@@ -2,18 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
-const paginaPrincipalRoutes = [
+const mainRoutes = [
   {
-    path: 'explorar',
+    path: 'home',
     component: PaginaPrincipalComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'home'
   }
-]
+];
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(paginaPrincipalRoutes),
-
-  ],
+  imports: [RouterModule.forChild(mainRoutes)],
   exports: [RouterModule]
 })
 export class PaginaPrincipalRoutingModule { }

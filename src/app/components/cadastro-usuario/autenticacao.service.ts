@@ -1,7 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
-import { Cliente } from 'src/app/models/Cliente';
+import { Usuario } from 'src/app/models/usuario';
 import { Observable, Subscription } from 'rxjs';
 
 @Injectable({
@@ -19,7 +19,7 @@ export class AutenticacaoService implements OnDestroy{
     this.inscricao.unsubscribe();
   }
 
-  fazerLogin(cliente: Cliente): Subscription {
+  fazerLogin(cliente: Usuario): Subscription {
     this.usuarioAutenticado = true;
     this.clienteAutenticado.emit(this.usuarioAutenticado);
 
@@ -28,7 +28,7 @@ export class AutenticacaoService implements OnDestroy{
     return this.inscricao;
   }
 
-  cadastrarUsuario(cliente: Cliente) {
+  cadastrarUsuario(cliente: Usuario) {
   }
 
   usuarioEstaAutenticado(): boolean {

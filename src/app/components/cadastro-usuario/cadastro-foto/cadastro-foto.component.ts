@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Cliente } from 'src/app/models/Cliente';
+import { Usuario } from 'src/app/models/usuario';
 import { AutenticacaoService } from '../autenticacao.service';
 import { ConstantesIcons } from '../../../utils/constantes.icons';
 
@@ -13,7 +13,7 @@ import { ConstantesIcons } from '../../../utils/constantes.icons';
 export class CadastroFotoComponent {
 
   @Input()
-  public cliente: Cliente;
+  public cliente: Usuario;
   public foto: any;
   public fotoValida: boolean = true;
   public valido = true;
