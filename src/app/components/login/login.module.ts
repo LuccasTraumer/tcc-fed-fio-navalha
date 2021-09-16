@@ -14,7 +14,7 @@ import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginRoutingModule,
     FormsModule,
   ],
-  exports: [],
+  exports: [LoginComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

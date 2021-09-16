@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-import { Usuario } from '../../../models/usuario';
+import { Usuario } from '../../../models/Usuario';
 
 @Component({
   selector: 'fdn-cadastro-nome-senha',
