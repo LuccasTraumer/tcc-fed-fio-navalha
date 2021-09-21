@@ -1,4 +1,11 @@
+import { Endereco } from './endereco';
 export class Usuario {
-  email: string
-  senha: string
+  nome: string;
+  email?: string;
+  telefone?: string;
+  tipoCliente: string;
+  fotoPerfil?: string;
+  senha: string;
+  dataNascimento: Date;
+  endereco: Endereco;
 }
