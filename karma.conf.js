@@ -69,7 +69,7 @@ module.exports = function (config) {
         ],
       }
     },
-    singleRun: false,
-    //singleRun: true
+    //singleRun: false,
+    singleRun: true
   });
 };

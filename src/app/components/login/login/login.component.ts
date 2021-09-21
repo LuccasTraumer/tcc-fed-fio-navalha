@@ -3,7 +3,7 @@ import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from '../../cadastro-usuario/autenticacao.service';
-import { Usuario } from './../../../models/Usuario';
+import { Usuario } from '../../../models/Usuario';
 
 @Component({
   selector: 'fdn-login',
@@ -22,10 +22,10 @@ export class LoginComponent {
     //private autenticacaoService: AutenticacaoService
     )
     {
-    this.formulario = {
-      email: '',
-      senha: ''
-    };
+    // this.formulario = {
+    //   email: '',
+    //   senha: ''
+    // };
   }
 
   onSubmita(): void{

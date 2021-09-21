@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Usuario } from './models/usuario';
+import { Usuario } from './models/Usuario';
 import { Cliente } from './models/cliente';
 import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
 

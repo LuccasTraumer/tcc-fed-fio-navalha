@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Usuario } from '../../../models/usuario';
+import { Usuario } from '../../../models/Usuario';
 import { Endereco } from '../../../models/endereco';
 import { Barbearia } from '../../../models/barbearia';
 import { Cliente } from '../../../models/cliente';

@@ -6,8 +6,8 @@ export const environment = {
   production: false,
 
   srvTCC: 'http://localhost:8080/',
-  API_CEP: process.env.CEP_SERVICE,
-  // API_CEP: 'https://viacep.com.br/ws/',
+  //API_CEP: process.env.CEP_SERVICE,
+  API_CEP: 'https://viacep.com.br/ws/',
 };
 
 /*

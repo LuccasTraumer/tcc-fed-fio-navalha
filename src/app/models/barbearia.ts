@@ -1,4 +1,4 @@
-import { Usuario } from './usuario';
+import { Usuario } from './Usuario';
 import { Corte } from './corte';
 
 export class Barbearia extends Usuario {
