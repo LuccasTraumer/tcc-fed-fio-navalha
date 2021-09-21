@@ -1,4 +1,5 @@
 import { Endereco } from './endereco';
+
 export class Usuario {
   nome: string;
   email?: string;
