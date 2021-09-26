@@ -1,3 +1,4 @@
+import { PerfilModule } from './components/perfil/perfil/perfil.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -27,6 +28,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/cadastro-usuario/cadastro-usuario.module').then(module => module.CadastroUsuarioModule)
   },
   {
+    path: 'perfil',
+    loadChildren: () => import('./components/perfil/perfil/perfil.module').then(module => module.PerfilModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
     // canActivate: [AuthGuard]
@@ -34,12 +39,12 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'login',
     // canActivate: [AuthGuard]
   }
 ];

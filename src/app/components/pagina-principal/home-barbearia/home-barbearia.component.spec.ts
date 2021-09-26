@@ -1,20 +1,20 @@
-import 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { InputDataComponent } from './input-data.component';
 
-describe('InputDataComponent', () => {
-  let component: InputDataComponent;
-  let fixture: ComponentFixture<InputDataComponent>;
+import { HomeBarbeariaComponent } from './home-barbearia.component';
+
+describe('HomeBarbeariaComponent', () => {
+  let component: HomeBarbeariaComponent;
+  let fixture: ComponentFixture<HomeBarbeariaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputDataComponent ]
+      declarations: [ HomeBarbeariaComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputDataComponent);
+    fixture = TestBed.createComponent(HomeBarbeariaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

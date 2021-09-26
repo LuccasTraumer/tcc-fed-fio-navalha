@@ -1,20 +1,20 @@
-import 'jasmine';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { InputDataComponent } from './input-data.component';
 
-describe('InputDataComponent', () => {
-  let component: InputDataComponent;
-  let fixture: ComponentFixture<InputDataComponent>;
+import { CardPedidoCorteComponent } from './card-pedido-corte.component';
+
+describe('CardPedidoCorteComponent', () => {
+  let component: CardPedidoCorteComponent;
+  let fixture: ComponentFixture<CardPedidoCorteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InputDataComponent ]
+      declarations: [ CardPedidoCorteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputDataComponent);
+    fixture = TestBed.createComponent(CardPedidoCorteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

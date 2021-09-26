@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Usuario } from 'src/app/models/usuario';
+import { Usuario } from 'src/app/models/Usuario';
 import { AutenticacaoService } from '../autenticacao.service';
 import { ConstantesIcons } from '../../../utils/constantes.icons';
 

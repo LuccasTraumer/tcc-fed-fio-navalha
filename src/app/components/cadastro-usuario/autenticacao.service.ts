@@ -1,7 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
-import { Usuario } from 'src/app/models/usuario';
+import { Usuario } from 'src/app/models/Usuario';
 import { Observable, Subscription } from 'rxjs';
 
 @Injectable({

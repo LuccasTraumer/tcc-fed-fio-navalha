@@ -11,13 +11,14 @@ import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './components/componentes/componentes.module';
 import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
 import { AuthGuard } from './guardas/auth.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     UtilsModule,
     ComponentesModule,
@@ -28,7 +29,8 @@ import { AuthGuard } from './guardas/auth.guard';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [AutenticacaoService, AuthGuard],
   bootstrap: [AppComponent],

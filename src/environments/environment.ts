@@ -5,9 +5,12 @@
 export const environment = {
   production: false,
 
-  srvTCC: process.env.SRV_FIO_DA_NAVALHA,
-  API_CEP: process.env.CEP_SERVICE,
+  // srvTCC: process.env.SRV_FIO_DA_NAVALHA,
+  // API_CEP: process.env.CEP_SERVICE,
   // API_CEP: 'https://viacep.com.br/ws/',
+  srvTCC: 'http://localhost:8080/',
+  //API_CEP: process.env.CEP_SERVICE,
+  API_CEP: 'https://viacep.com.br/ws/',
 };
 
 /*

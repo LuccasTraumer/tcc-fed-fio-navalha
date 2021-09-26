@@ -14,4 +14,5 @@ const loandingRoutes = [
   imports: [RouterModule.forChild(loandingRoutes)],
   exports: [RouterModule]
 })
+
 export class LoandingRoutingModule { }
