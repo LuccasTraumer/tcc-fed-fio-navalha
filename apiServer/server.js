@@ -5,11 +5,29 @@ const path = require('path');
 const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
+
 
 const app = express();
+const SECRET = '';
 
 app.set('trust proxy', 1);
+app.use(
+  cookieSession({
+    name: 'cookieSession',
+    keys: ['key1'],
+    secret: SECRET,
+    maxAge: new Date(Date.now() + 864e5),
+    httpOnly: true,
+    secure: false
+  })
+);
+
+app.use(cookieParser());
 app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: false, limit: '50mb' }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // CORS Config
 const portApi = 8443;
@@ -48,7 +66,6 @@ function readFolders(folderName) {
 }
 
 // catch 404
-
 app.use((req, res) => {
   res.status(404);
   res.json({
