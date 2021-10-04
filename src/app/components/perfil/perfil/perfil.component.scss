@@ -1,0 +1,95 @@
+.container{
+  padding-top: 1rem;
+  margin: auto;
+  width: 80%;
+}
+
+.foto-perfil{
+  border-radius: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+  height: 30vh;
+  width: 30vh;
+}
+.container {
+  width: 100%;
+  height: 80%;
+
+  nav{
+    margin-top: 0;
+  }
+
+  #text{
+    border-radius: 5px;
+    padding: 10px;
+    background: rgb(27, 27, 27);
+    width: 250px;
+    font-size: 12px;
+  }
+
+  .user {
+    h1{
+      text-align: center;
+    }
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60%;
+      height: 5%;
+
+      label {
+        padding: 2%;
+      }
+
+      hr {
+        width: 0%;
+        height: 80%;
+      }
+
+      a{
+        text-decoration: none;
+        border-radius: none;
+      }
+    }
+
+    .opcao-selecionada{
+      color: var(--title-color);
+    }
+
+    hr {
+      width: 80%;
+    }
+
+    .submit {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 80%;
+      fdn-input-data {
+        width: 95%;
+      }
+
+      fdn-button {
+        width: 90%;
+        display: flex;
+        height: 0%;
+        align-self: center;
+      }
+    }
+  }
+}
+
