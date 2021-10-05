@@ -1,0 +1,27 @@
+{
+  "name": "apiserver",
+  "version": "1.0.0",
+  "description": "MOCK SERVER",
+  "author": {
+    "name": "Fio da Navalha",
+    "created by": "Lucas Jesus"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dummy-json": "^3.0.4",
+    "express": "~4.16.1",
+    "http-errors": "^1.8.0",
+    "http-status-codes": "^2.1.4",
+    "lodash": "^4.17.21",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.12"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "etapaOrigem": [
+
+  ],
+  "domains": [
+    {
+      "path": "/tcc-srv-fio-navalha/cadastrar-cliente",
+      "method": "POST",
+      "response": "201",
+      "payload": "./fixtures/cadastro-cliente"
+    }
+  ]
+}
