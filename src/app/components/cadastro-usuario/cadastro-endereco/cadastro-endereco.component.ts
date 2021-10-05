@@ -16,7 +16,7 @@ export class CadastroEnderecoComponent implements OnDestroy {
   public cepValido: boolean = false;
   public numeroValido: boolean = false;
   public endereco: Endereco;
-  public cep: number = null;
+  public cep: String = "";
   public numero: number = null;
   public texto: string;
   public textoTitulo: string;
@@ -36,13 +36,38 @@ export class CadastroEnderecoComponent implements OnDestroy {
       this.isClienteVarejo();
   }
 
-  public validaCep(cep: number) {
-    if(cep.toString().length > 8){
-      this.cep = parseInt(this.cep.toString().substring(0,8));
-    }
-
-    if(this.cep.toString().length == 8)
+  private apenasNumeros(valor: string) {
+    let valorTrincado = valor.trim();
+    let numeros = "0123456789";
+    for(let i = 0; i < valor.length; i++)
     {
+      if(!numeros.includes(valorTrincado[i]))
+      {
+        this.cep = "";
+        return false;
+      }
+    }
+    return true;
+  }
+
+  public async validaCep(cep: string) {
+
+    if(!this.apenasNumeros(cep))
+    {
+      return;
+    }
+    if(cep.length < 8)
+      this.resetaEndereco();
+
+    if(cep.length == 8)
+    {
+      await this.buscarEndereco(cep);
+      if(this.endereco.erro || this.endereco.erro == undefined) {
+        console.log(this.endereco.erro);
+        this.resetaEndereco();
+        this.cepValido = true;
+        return;
+      }
       this.cepValido = true;
       return;
     }
@@ -63,7 +88,7 @@ export class CadastroEnderecoComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.inscricao.unsubscribe();
+   // this.inscricao.unsubscribe();
   }
 
   public isBarbearia(): void {
@@ -76,18 +101,35 @@ export class CadastroEnderecoComponent implements OnDestroy {
     this.textoTitulo = 'Informe Endereço';
   }
 
-  private async buscarEndereco (cep: string, numero: string, complemento: string) {
+  private async buscarEndereco (cep: string) {
     return this.service.getEndereco(cep).subscribe((end: Endereco) => {
-      this.endereco = end;
-      this.endereco.numeroResidencia = numero;
-      this.endereco.complemento = complemento;
-      this.enderecoCliente.emit(this.endereco);
+      this.endereco.erro = end.erro ? true : false;
+      this.endereco = !end.erro ? end : this.endereco;
     }, error => {
+      this.resetaEndereco();
       console.log(error)
     });
   }
 
-  async onSubmit(cep: string, numero: string, complemento: string) {
-    await this.buscarEndereco(cep, numero, complemento);
+  private resetaEndereco()
+  {
+      this.endereco.logradouro = "";
+      this.endereco.cep = "";
+      this.endereco.bairro = "";
+      this.endereco.ddd = "";
+      this.endereco.ibge = "";
+      this.endereco.localidade = "";
+      this.endereco.uf = "";
+      this.endereco.erro = false;
+  }
+
+  private emitirValor(numero: string, complemento: string) {
+      this.endereco.numeroResidencia = numero;
+      this.endereco.complemento = complemento;
+      this.enderecoCliente.emit(this.endereco);
+  }
+
+  onSubmit(numero: string, complemento: string) {
+    this.emitirValor(numero, complemento);
   }
 }

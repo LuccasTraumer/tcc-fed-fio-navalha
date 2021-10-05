@@ -13,7 +13,7 @@ export class AppComponent {
 
   cliente: Usuario;
 
-  public exibirMenu: boolean = true;
+  public exibirMenu: boolean = true;//MENU
 
   constructor(private autenticacaoService: AutenticacaoService) {
     this.cliente = new Cliente();

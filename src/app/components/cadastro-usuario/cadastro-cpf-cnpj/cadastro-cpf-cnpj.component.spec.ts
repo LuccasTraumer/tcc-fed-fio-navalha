@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 describe('CadastroCpfCnpjComponent', () => {
   let component: CadastroCpfCnpjComponent;
   let fixture: ComponentFixture<CadastroCpfCnpjComponent>;
-  let forms: FormBuilder;
-  let router: Router;
-  const formBuilder: FormBuilder = new FormBuilder ();
+
 
   beforeEach(async () => {
     sessionStorage.setItem('cliente', JSON.stringify('Barbearia'));

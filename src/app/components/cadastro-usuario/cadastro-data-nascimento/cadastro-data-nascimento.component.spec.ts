@@ -10,7 +10,7 @@ import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento.comp
 describe('CadastroDataNascimentoComponent', () => {
   let component: CadastroDataNascimentoComponent;
   let fixture: ComponentFixture<CadastroDataNascimentoComponent>;
-  const formBuilder: FormBuilder = new FormBuilder ();
+  //const formBuilder: FormBuilder = new FormBuilder ();
  // const httpClient: HttpClient = new HttpClient ();
 
   beforeEach(async () => {

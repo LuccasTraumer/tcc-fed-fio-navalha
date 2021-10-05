@@ -17,6 +17,7 @@
       <input #confirmacaoSenha class="input-data" placeholder="Confirmar Senha" autocomplete="off" type="password" minlength="8" maxlength="20" (keyup)="validarSenhaConfirmacao($event.target.value)">
     </section>
     <div class="submit">
+      {{cliente2.nome}}
       <label class="textoErro" [hidden]="senhaValida">{{mensagemErro}}</label>
       <fdn-button (click)="onSubmit(nome.value, senha.value)" [disabled]="!senhaValida?true:null" textoInterno="Avançar"></fdn-button>
     </div>

@@ -33,14 +33,14 @@ describe('CadastroEnderecoComponent', () => {
   });
 
   it('Quando Cep invalido propriedade cepValido deve ser false', () =>{
-        component.cep = 1234567;
-        component.validaCep(1234567);
+        component.cep = "1234567";
+        component.validaCep("1234567");
         expect(component.cepValido).toBeFalse();
   });
 
   it('Quando Cep valido propriedade cepValido deve ser true', () => {
-    component.cep = 12345678;
-    component.validaCep(12345678);
+    component.cep = "12345678";
+    component.validaCep("12345678");
     expect(component.cepValido).toBeTrue();
 });
 
