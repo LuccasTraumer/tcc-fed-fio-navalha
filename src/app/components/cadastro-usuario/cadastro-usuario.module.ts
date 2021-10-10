@@ -31,11 +31,11 @@ import { CadastroCpfCnpjComponent } from './cadastro-cpf-cnpj/cadastro-cpf-cnpj.
     CadastroCpfCnpjComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     UtilsModule,
     CadastroRoutingModule,
     ComponentesModule,
-    FormsModule
   ],
   exports: [],
   providers: [CadastroServiceService, EnderecoService, FileReader],

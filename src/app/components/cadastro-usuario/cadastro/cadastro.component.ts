@@ -3,7 +3,6 @@ import { Usuario } from '../../../models/Usuario';
 import { Endereco } from '../../../models/endereco';
 import { Barbearia } from '../../../models/barbearia';
 import { Cliente } from '../../../models/cliente';
-import { CadastroServiceService } from '../services/cadastro-service.service';
 
 @Component({
   selector: 'fdn-cadastro',
@@ -13,7 +12,6 @@ import { CadastroServiceService } from '../services/cadastro-service.service';
 export class CadastroComponent {
 
   private cliente: Usuario;
-
   public emailCadastrado: boolean = false;
   public codigoConfirmacaoCadastrado: boolean = false;
   public tipoContaCadastrado: boolean = false;
@@ -22,7 +20,7 @@ export class CadastroComponent {
   public cpfCnpjCadastrado: boolean = false;
   public enderecoCadastrado: boolean = false;
   public fotoPerfilCadastrado: boolean = false;
-
+  public contador = 0;
   constructor() {
     this.cliente = new Usuario();
   }
@@ -100,34 +98,53 @@ export class CadastroComponent {
   }
 
   exibirCadastroEmailCelular(): boolean {
+    // console.log("EMAIL");
     return this.emailCadastrado !== true;
   }
 
   exibirCodigoConfirmacao(): boolean {
+    // console.log("CODIGO");
     return this.codigoConfirmacaoCadastrado !== true && this.emailCadastrado == true;
   }
 
   exibirTipoConta(): boolean {
+    // console.log("TIPO");
     return this.tipoContaCadastrado !== true && this.codigoConfirmacaoCadastrado == true;
   }
 
   exibirCadastroNome(): boolean {
+    // console.log("NOME");
     return this.infoLoginCadastrado !== true && this.tipoContaCadastrado == true;
   }
 
   exibirDataNascimento(): boolean {
+    // console.log("DATA");
     return this.dataNascimentoCadastrado !== true && this.infoLoginCadastrado == true;
   }
 
   exibirCpfCnpj(): boolean {
+    // console.log("DOCUMENTO");
     return this.cpfCnpjCadastrado !== true && this.dataNascimentoCadastrado == true;
   }
 
   exibirEndereco(): boolean {
+    // console.log("ENDEREÇO");
     return this.enderecoCadastrado !== true && this.cpfCnpjCadastrado == true;
   }
 
   exibirFoto(): boolean {
+
+    if(this.cliente.fotoPerfil != null){
+      this.contador += 1;
+      if(this.contador == 1)
+      console.log(this.cliente);
+    }
     return this.fotoPerfilCadastrado !== true && this.enderecoCadastrado == true;
+  }
+
+  onMudouValor(event) {
+    console.log("AAAAAAAAAAA");
+    console.log(event);
+
   }
 }

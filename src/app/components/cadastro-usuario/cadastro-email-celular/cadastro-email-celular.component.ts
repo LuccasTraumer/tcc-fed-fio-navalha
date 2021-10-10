@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'fdn-cadastro-email-celular',
@@ -16,10 +17,14 @@ export class CadastroEmailCelularComponent {
 
   @Output() emailCadastrado = new EventEmitter<string>();
   public isValido: boolean = false;
-
+  public formUsuario;
   public valor: boolean = true;
 
-  constructor() {}
+  constructor() {
+    this.formUsuario = new FormGroup({
+      codigo: new FormControl()
+    });
+  }
 
   escolherTelefone() {
     let container = document.getElementById('text') as HTMLInputElement;

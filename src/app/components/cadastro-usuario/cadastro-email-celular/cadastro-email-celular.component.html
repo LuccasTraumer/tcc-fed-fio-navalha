@@ -8,10 +8,24 @@
     <label *ngIf="opcao == 0"  (click)="escolherEmail()">E-MAIL</label>
   </nav>
   <hr>
-  <div class="submit">
-    <input class="phone" id="text" (keyup)="pegarInput($event.target.value)" placeholder="{{textoInterno}}" type="{{switchType}}"/>
-    <label class="textoErro" [hidden]="(primeiraVez) || (isValido)">O {{switchType === 'number' ? 'Numero' : 'E-mail'}} informado é invalido, por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!</label>
-    <fdn-button (click)="onSubmit()" [disabled]="!isValido ? true : null"  textoInterno="Avançar" linkRedirect="cadastroCodigoConfirmacao" (click)="enviarCodigo()"></fdn-button>
+  <div class="submit" >
+    <input
+      class="phone"
+      id="text"
+      (keyup)="pegarInput($event.target.value)"
+      placeholder="{{textoInterno}}" type="{{switchType}}"
+    />
+    <label
+      class="textoErro"
+      [hidden]="(primeiraVez) || (isValido)">O {{switchType === 'number' ? 'Numero' : 'E-mail'}} informado é invalido, <br>por favor informe um {{switchType === 'number' ? 'Numero' : 'E-mail'}} Valido!
+    </label>
+    <fdn-button
+      (click)="onSubmit()"
+      [disabled]="!isValido ? true : null"
+      textoInterno="Avançar"
+      linkRedirect="cadastroCodigoConfirmacao"
+      (click)="enviarCodigo()">
+    </fdn-button>
   </div>
  </div>
 </div>

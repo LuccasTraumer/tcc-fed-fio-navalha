@@ -15,7 +15,7 @@ export class CadastroNomeSenhaComponent {
   public senha: string = '';
   public senhaConfirmacao: string = '';
   private tipoErro: number = 0;
-
+  public cliente2: Usuario = new Usuario();
   @Output() infoLoginCadastrado = new EventEmitter<Usuario>();
 
   constructor() {}
