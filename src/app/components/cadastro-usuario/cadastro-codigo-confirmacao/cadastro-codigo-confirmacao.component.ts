@@ -11,7 +11,9 @@ export class CadastroCodigoConfirmacaoComponent {
 
   @Output() codigoConfimacaoCadastrado = new EventEmitter<boolean>();
 
-  constructor() {}
+  constructor() {
+
+  }
 
   validadorCodigo(codigo: string)
   {

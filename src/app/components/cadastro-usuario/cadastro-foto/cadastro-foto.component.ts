@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 import { Usuario } from 'src/app/models/Usuario';
-import { AutenticacaoService } from '../autenticacao.service';
+import { AutenticacaoService } from '../services/autenticacao.service';
 import { ConstantesIcons } from '../../../utils/constantes.icons';
 
 @Component({
@@ -26,31 +25,31 @@ export class CadastroFotoComponent {
     console.log(this.fotoValida)
   }
 
-UploadFoto(file: any) {
-  console.log(file);
-  if(file.target?.files && file.target?.files[0]) {
-    let possivelFoto = file.target.files[0];
-    let tamanhoFoto = possivelFoto.size;
+  UploadFoto(file: any) {
+    console.log(file);
+    if(file.target?.files && file.target?.files[0]) {
+      let possivelFoto = file.target.files[0];
+      let tamanhoFoto = possivelFoto.size;
 
-    this.foto = this.isTamanhoFotoValido(tamanhoFoto)?possivelFoto:null;
-    if(!this.foto) {
-      this.fotoValida = false;
-      this.foto = this.icone_upload;
-      return;
+      this.foto = this.isTamanhoFotoValido(tamanhoFoto)?possivelFoto:null;
+      if(!this.foto) {
+        this.fotoValida = false;
+        this.foto = this.icone_upload;
+        return;
+      }
+
+      this.fotoValida = true;
+      this.fileReader.readAsDataURL(this.foto);
+      this.fileReader.onloadend = ()=>{this.foto = this.fileReader.result}
     }
 
-    this.fotoValida = true;
-    this.fileReader.readAsDataURL(this.foto);
-    this.fileReader.onloadend = ()=>{this.foto = this.fileReader.result}
   }
+  private isTamanhoFotoValido(tamanho: number): boolean {
+    if(tamanho > this.tamanhoFotoPermitido)
+      return false;
 
-}
-private isTamanhoFotoValido(tamanho: number): boolean {
-  if(tamanho > this.tamanhoFotoPermitido)
-    return false;
-
-  return true;
-}
+    return true;
+  }
 
   onSubmit() {
     this.autenticacaoService.cadastrarUsuario(this.cliente);

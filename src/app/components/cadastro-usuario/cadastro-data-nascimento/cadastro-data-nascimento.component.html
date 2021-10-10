@@ -9,9 +9,9 @@
     </nav>
     <section class="submit">
       <div class="input-data">
-        <input id="dia" (keyup)="setDia($event.target.value)" type="text" formControlName="dia" class="input" placeholder="Dia" maxlength="2">
-        <input id="mes" (keyup)="setMes($event.target.value)" type="text" formControlName="mes" class="input" placeholder="Mês" maxlength="2">
-        <input id="ano" (keyup)="setAno($event.target.value)" type="text" formControlName="ano" class="input" placeholder="Ano" maxlength="4">
+        <input id="dia" (keyup)="setDia($event.target.value)" type="text" class="input" placeholder="Dia" maxlength="2">
+        <input id="mes" (keyup)="setMes($event.target.value)" type="text" class="input" placeholder="Mês" maxlength="2">
+        <input id="ano" (keyup)="setAno($event.target.value)" type="text" class="input" placeholder="Ano" maxlength="4">
       </div>
 
       <label *ngIf="mostarMensagemErro" class="textoErro" >Data Invalida, por favor informe um valor valido!</label>

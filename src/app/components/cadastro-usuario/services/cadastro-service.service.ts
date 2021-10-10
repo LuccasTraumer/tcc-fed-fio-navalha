@@ -1,8 +1,10 @@
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
-import { Usuario } from 'src/app/models/Usuario';
+import { environment } from '../../../../environments/environment';
+import { Barbearia } from '../../../models/barbearia';
+import { Cliente } from '../../../models/Cliente';
 
 @Injectable({
   providedIn: 'root'
@@ -18,20 +20,18 @@ export class CadastroServiceService {
     };
   }
 
-  public cadastroDataNascimento(data: Date): Observable<any> {
-    this.http.post(null, data).pipe(
-      retry(1),
-      catchError(this.handleError)
-    );
-
-    return null;
+  public async cadastrarCliente(cliente: Cliente) {
+    console.log(`${environment.srvTCC}/cadastro/cliente`, cliente);
+    console.log(this.http.post(`${environment.srvTCC}/cadastro/cliente`, cliente).subscribe(response => {
+      console.log(response);
+    }, erro => this.handleError(erro)));
   }
 
-  public cadastrarCliente(cliente: Usuario): void {
-    this.http.post(null, cliente).pipe(
-      retry(1),
-      catchError(this.handleError)
-    );
+  public async cadastrarBarbearia(barbearia: Barbearia) {
+    this.http.post(`${environment.srvTCC}/cadastro/barbearia`, barbearia).subscribe(response => {
+      console.log(response);
+      return response;
+    }, erro => this.handleError(erro));
   }
 
   private handleError(error: HttpErrorResponse) {

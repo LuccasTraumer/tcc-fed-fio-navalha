@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { Barbearia } from 'src/app/models/barbearia';
 import { Endereco } from "src/app/models/endereco";
-import { EnderecoService } from "src/app/services/cadastro-module/endereco.service";
+import { EnderecoService } from "src/app/components/cadastro-usuario/services/endereco.service";
 
 @Component({
   selector: 'fdn-cadastro-endereco',

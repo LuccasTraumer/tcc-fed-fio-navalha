@@ -2,7 +2,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { EnderecoService } from './endereco.service';
-import { Endereco } from '../../models/endereco';
+import { Endereco } from '../../../models/endereco';
 import { of } from 'rxjs';
 
 describe('EnderecoService', () => {

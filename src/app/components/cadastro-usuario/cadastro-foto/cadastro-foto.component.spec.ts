@@ -5,7 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { CadastroFotoComponent } from './cadastro-foto.component';
 import { UtilsModule } from 'src/app/utils/utils.module';
-import { AutenticacaoService } from '../autenticacao.service';
+import { AutenticacaoService } from '../services/autenticacao.service';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('CadastroFotoComponent', () => {

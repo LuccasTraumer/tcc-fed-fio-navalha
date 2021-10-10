@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AutenticacaoService } from '../../cadastro-usuario/autenticacao.service';
+import { AutenticacaoService } from '../../cadastro-usuario/services/autenticacao.service';
 import { Usuario } from '../../../models/Usuario';
 
 @Component({

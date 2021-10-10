@@ -1,19 +1,24 @@
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
 import { Usuario } from 'src/app/models/Usuario';
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
+import { CadastroServiceService } from './cadastro-service.service';
+import { Cliente } from 'src/app/models/cliente';
+import { Barbearia } from '../../../models/barbearia';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoService implements OnDestroy{
+export class AutenticacaoService implements OnDestroy {
 
   private usuarioAutenticado: boolean = false;
   clienteAutenticado = new EventEmitter<boolean>();
   private header: any;
   private inscricao: Subscription;
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private cadastroService: CadastroServiceService) { }
 
   ngOnDestroy(): void {
     this.inscricao.unsubscribe();
@@ -28,7 +33,12 @@ export class AutenticacaoService implements OnDestroy{
     return this.inscricao;
   }
 
-  cadastrarUsuario(cliente: Usuario) {
+  async cadastrarUsuario(cliente: Usuario) {
+    if(cliente.tipoCliente == Cliente.name ) {
+      return this.cadastroService.cadastrarCliente(cliente as Cliente);
+    } else if (cliente.tipoCliente == Barbearia.name) {
+      return this.cadastroService.cadastrarBarbearia(cliente as Barbearia);
+    }
   }
 
   usuarioEstaAutenticado(): boolean {

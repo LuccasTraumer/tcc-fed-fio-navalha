@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EnderecoService } from 'src/app/services/cadastro-module/endereco.service';
+import { EnderecoService } from 'src/app/components/cadastro-usuario/services/endereco.service';
 import { UtilsModule } from 'src/app/utils/utils.module';
 import { CadastroEnderecoComponent } from './cadastro-endereco.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';

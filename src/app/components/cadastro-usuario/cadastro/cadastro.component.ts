@@ -3,6 +3,7 @@ import { Usuario } from '../../../models/Usuario';
 import { Endereco } from '../../../models/endereco';
 import { Barbearia } from '../../../models/barbearia';
 import { Cliente } from '../../../models/cliente';
+import { CadastroServiceService } from '../services/cadastro-service.service';
 
 @Component({
   selector: 'fdn-cadastro',
@@ -34,14 +35,15 @@ export class CadastroComponent {
     return this.cliente;
   }
 
-  setEmail(cpfCnpj: string): void {
+  setNumeroEmail(cpfCnpj: string): void {
+    console.log(cpfCnpj)
     let chaveValor = cpfCnpj.split(':');
     if (chaveValor[0] == 'numero') {
       this.cliente.telefone = chaveValor[1];
     } else
       this.cliente.email = chaveValor[1];
 
-    setInterval(() =>{
+    setInterval(() => {
       this.emailCadastrado = true;
     }, 3000);
   }

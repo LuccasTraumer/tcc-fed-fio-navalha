@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Usuario } from './models/Usuario';
 import { Cliente } from './models/cliente';
-import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
+import { AutenticacaoService } from './components/cadastro-usuario/services/autenticacao.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,6 @@ export class AppComponent {
     this.cliente.fotoPerfil = '../assets/icons/barbearia_icone_exemplo.jpg'
 
     this.autenticacaoService.clienteAutenticado.subscribe((exibicao : any) => this.exibirMenu = exibicao)
+    console.log(`${environment.srvTCC}/cadastro/cliente`);
   }
 }

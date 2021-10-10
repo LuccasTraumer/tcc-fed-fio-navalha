@@ -9,7 +9,7 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { UtilsModule } from './utils/utils.module';
 import { ComponentesModule } from './components/componentes/componentes.module';
-import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
+import { AutenticacaoService } from './components/cadastro-usuario/services/autenticacao.service';
 import { AuthGuard } from './guardas/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

@@ -1,6 +1,6 @@
-const responseModel = require('../helpers/responseModel');
+const responseModel = require('../../helpers/responseModel.js');
 const dummyJson = require('dummy-json');
-const dummyJsonHelpers = require('../helpers/dummy-json-helpers');
+const dummyJsonHelpers = require('../../helpers/dummy-json-helpers');
 
 module.exports = (app, endpoint) => {
     app.post(endpoint + '/', (req, res) => {
@@ -8,7 +8,7 @@ module.exports = (app, endpoint) => {
             {{#repeat 4}}
             {
                 "nome":"{{titulo}}"
-                
+
             }
             {{/repeat}}
         ]`;

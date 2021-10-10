@@ -67,8 +67,6 @@ export class CadastroEmailCelularComponent {
     return false;
   }
 
-
-
   public pegarInput(evento: string): void {
     this.valorInput = evento;
     this.primeiraVez = false;

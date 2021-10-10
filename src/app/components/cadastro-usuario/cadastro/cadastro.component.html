@@ -1,5 +1,5 @@
 <div class="container">
-  <fdn-cadastro-email-celular *ngIf="exibirCadastroEmailCelular()" (emailCadastrado)="setEmail($event)"></fdn-cadastro-email-celular>
+  <fdn-cadastro-email-celular *ngIf="exibirCadastroEmailCelular()" (emailCadastrado)="setNumeroEmail($event)"></fdn-cadastro-email-celular>
   <fdn-cadastro-codigo-confirmacao *ngIf="exibirCodigoConfirmacao()" (codigoConfimacaoCadastrado)="setCondigoConfirmacao($event)"></fdn-cadastro-codigo-confirmacao>
   <fdn-cadastro-tipo-conta *ngIf="exibirTipoConta()" (tipoContaCadastrado)="setTipoConta($event)"></fdn-cadastro-tipo-conta>
   <fdn-cadastro-nome-senha *ngIf="exibirCadastroNome()" (infoLoginCadastrado)="setInfoLogin($event)"></fdn-cadastro-nome-senha>
