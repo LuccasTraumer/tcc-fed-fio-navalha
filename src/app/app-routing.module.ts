@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./components/perfil/perfil/perfil.module').then(module => module.PerfilModule)
   },
   {
+    path: 'search',
+    loadChildren: () => import('./components/search/search.module').then(module => module.SearchModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
     // canActivate: [AuthGuard]
