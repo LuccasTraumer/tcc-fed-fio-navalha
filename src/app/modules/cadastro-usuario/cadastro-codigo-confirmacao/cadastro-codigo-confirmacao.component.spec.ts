@@ -1,9 +1,8 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { UtilsModule } from 'src/app/utils/utils.module';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao.component';
 
 describe('CadastroCodigoConfirmacaoComponent', () => {
@@ -11,13 +10,11 @@ describe('CadastroCodigoConfirmacaoComponent', () => {
   let fixture: ComponentFixture<CadastroCodigoConfirmacaoComponent>;
   let forms: FormBuilder;
   let router: Router;
-  //const formBuilder: FormBuilder = new FormBuilder ();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CadastroCodigoConfirmacaoComponent ],
-      imports: [UtilsModule, RouterTestingModule],
-    //  providers: [{fornecer: FormBuilder, useValue: formBuilder}],
+      imports: [RouterTestingModule],
       providers: []
   })
     .compileComponents();

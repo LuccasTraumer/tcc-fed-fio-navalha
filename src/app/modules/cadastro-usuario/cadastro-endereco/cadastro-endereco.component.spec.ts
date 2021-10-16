@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EnderecoService } from 'src/app/modules/cadastro-usuario/services/endereco.service';
-import { UtilsModule } from 'src/app/utils/utils.module';
 import { CadastroEnderecoComponent } from './cadastro-endereco.component';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
@@ -13,7 +12,7 @@ describe('CadastroEnderecoComponent', () => {
   beforeEach(()=>{
     TestBed.configureTestingModule({
       declarations: [ CadastroEnderecoComponent ],
-      imports: [UtilsModule],
+      imports: [],
       providers: [EnderecoService, HttpClient, HttpHandler]
     })
     .compileComponents();

@@ -2,7 +2,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha.component';
-import { UtilsModule } from '../../utils/utils.module';
 import { EsqueceuRoutingModule } from './esqueceu.routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -12,7 +11,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [EsqueceuSenhaComponent],
   imports: [
     CommonModule,
-    UtilsModule,
     EsqueceuRoutingModule,
     ReactiveFormsModule
   ],

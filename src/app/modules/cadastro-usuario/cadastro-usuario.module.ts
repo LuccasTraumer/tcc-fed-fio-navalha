@@ -5,7 +5,6 @@ import { SharedModule } from '../shared/shared.module';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { CadastroTipoContaComponent } from './cadastro-tipo-conta/cadastro-tipo-conta.component';
 import { CadastroEmailCelularComponent } from './cadastro-email-celular/cadastro-email-celular.component';
-import { UtilsModule } from '../../utils/utils.module';
 import { CadastroNomeSenhaComponent } from './cadastro-nome-senha/cadastro-nome-senha.component';
 import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento/cadastro-data-nascimento.component';
 import { CadastroRoutingModule } from './cadastro.routing.module';
@@ -33,7 +32,6 @@ import { CadastroCpfCnpjComponent } from './cadastro-cpf-cnpj/cadastro-cpf-cnpj.
   imports: [
     FormsModule,
     CommonModule,
-    UtilsModule,
     CadastroRoutingModule,
     SharedModule,
   ],

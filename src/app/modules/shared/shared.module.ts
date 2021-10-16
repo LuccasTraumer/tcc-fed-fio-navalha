@@ -6,6 +6,8 @@ import { CardBarbeariaVerticalComponent } from './card-barbearia-vertical/card-b
 import { MenuComponent } from './menu/menu.component';
 import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.component';
 import {InputBuscaComponent} from "./input-busca/input-busca.component";
+import {ButtonComponent} from "./button/button.component";
+import {InputDataComponent} from "./input-data/input-data.component";
 
 
 
@@ -15,7 +17,9 @@ import {InputBuscaComponent} from "./input-busca/input-busca.component";
     CardBarbeariaVerticalComponent,
     CardPedidoCorteComponent,
     MenuComponent,
-    InputBuscaComponent
+    InputBuscaComponent,
+    ButtonComponent,
+    InputDataComponent
   ],
   imports: [
     CommonModule
@@ -25,7 +29,9 @@ import {InputBuscaComponent} from "./input-busca/input-busca.component";
     CardBarbeariaVerticalComponent,
     CardPedidoCorteComponent,
     MenuComponent,
-    InputBuscaComponent
+    InputBuscaComponent,
+    ButtonComponent,
+    InputDataComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

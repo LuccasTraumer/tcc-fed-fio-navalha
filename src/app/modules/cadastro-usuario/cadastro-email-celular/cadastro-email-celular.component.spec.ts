@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CadastroEmailCelularComponent } from './cadastro-email-celular.component';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UtilsModule } from 'src/app/utils/utils.module';
 
 describe('CadastroEmailCelularComponent', () => {
   let component: CadastroEmailCelularComponent;
@@ -14,7 +13,7 @@ describe('CadastroEmailCelularComponent', () => {
   beforeEach(()=>{
     TestBed.configureTestingModule({
       declarations: [ CadastroEmailCelularComponent ],
-      imports: [UtilsModule],
+      imports: [],
       providers: []
     })
     .compileComponents();

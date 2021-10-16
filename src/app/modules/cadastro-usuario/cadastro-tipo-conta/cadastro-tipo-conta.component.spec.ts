@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { UtilsModule } from 'src/app/utils/utils.module';
 
 import { CadastroTipoContaComponent } from './cadastro-tipo-conta.component';
 
@@ -13,7 +12,7 @@ describe('CadastroTipoContaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CadastroTipoContaComponent ],
-      imports: [ReactiveFormsModule, UtilsModule, RouterTestingModule],
+      imports: [ReactiveFormsModule, RouterTestingModule],
       providers: [{fornecer: FormBuilder, useValue: formBuilder}],
     })
     .compileComponents();

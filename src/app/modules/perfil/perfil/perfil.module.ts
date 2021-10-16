@@ -3,14 +3,12 @@ import { CommonModule } from '@angular/common';
 
 import { PerfilComponent } from './../perfil.component';
 import { PerfilRoutingModule } from './perfil.routing.module';
-import { UtilsModule } from 'src/app/utils/utils.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [PerfilComponent],
   imports: [
     CommonModule,
-    UtilsModule,
     PerfilRoutingModule,
     ReactiveFormsModule
   ],

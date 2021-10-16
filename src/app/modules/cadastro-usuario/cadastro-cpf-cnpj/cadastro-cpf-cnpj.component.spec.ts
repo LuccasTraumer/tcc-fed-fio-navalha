@@ -1,10 +1,6 @@
-//import {} from 'jasmine';
-import { ComponentFixture, TestBed, async } from '@angular/core/testing'; //Sintaxe Jest
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { UtilsModule } from 'src/app/utils/utils.module';
+import { ComponentFixture, TestBed } from '@angular/core/testing'; //Sintaxe Jest
 import { RouterTestingModule } from '@angular/router/testing';
 import { CadastroCpfCnpjComponent } from './cadastro-cpf-cnpj.component';
-import { Router } from '@angular/router';
 
 describe('CadastroCpfCnpjComponent', () => {
   let component: CadastroCpfCnpjComponent;
@@ -15,7 +11,7 @@ describe('CadastroCpfCnpjComponent', () => {
     sessionStorage.setItem('cliente', JSON.stringify('Barbearia'));
     await TestBed.configureTestingModule({
       declarations: [ CadastroCpfCnpjComponent  ],
-      imports: [UtilsModule, RouterTestingModule],
+      imports: [RouterTestingModule],
       providers: [],
     })
     .compileComponents();

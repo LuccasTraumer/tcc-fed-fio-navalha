@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { UtilsModule } from 'src/app/utils/utils.module';
 
 import { CadastroNomeSenhaComponent } from './cadastro-nome-senha.component';
 
@@ -10,7 +9,7 @@ describe('CadastroNomeSenhaComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CadastroNomeSenhaComponent ],
-      imports: [UtilsModule]
+      imports: []
     })
     .compileComponents();
   });
