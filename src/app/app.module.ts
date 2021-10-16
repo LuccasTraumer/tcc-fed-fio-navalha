@@ -8,8 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { UtilsModule } from './utils/utils.module';
-import { ComponentesModule } from './components/componentes/componentes.module';
-import { AutenticacaoService } from './components/cadastro-usuario/services/autenticacao.service';
+import { SharedModule } from './modules/shared/shared.module';
+import { AutenticacaoService } from './modules/cadastro-usuario/services/autenticacao.service';
 import { AuthGuard } from './guardas/auth.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
@@ -23,7 +23,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
   BrowserModule,
     AppRoutingModule,
     UtilsModule,
-    ComponentesModule,
+    SharedModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Usuario } from './models/Usuario';
 import { Cliente } from './models/cliente';
-import { AutenticacaoService } from './components/cadastro-usuario/services/autenticacao.service';
+import { AutenticacaoService } from './modules/cadastro-usuario/services/autenticacao.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

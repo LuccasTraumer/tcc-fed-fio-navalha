@@ -8,4 +8,6 @@ export class ConstantesIcons {
   public static readonly ICONE_SETA_PRA_BAIXO = environmentExternalLinks.ICONE_SETA_PRA_BAIXO;
   public static readonly ICONE_APROVACAO_PEDIDO = environmentExternalLinks.ICONE_CANCELAMENTO_PEDIDO
   public static readonly ICONE_CANCELAMENTO_PEDIDO = environmentExternalLinks.ICONE_APROVACAO_PEDIDO
+  public static readonly ICONE_SEARCH_WHITE = environmentExternalLinks.ICONE_SEARCH_WHITE;
+  public static readonly BARBEARIA_FOTO = environmentExternalLinks.FOTO_BARBEARIA;
 }

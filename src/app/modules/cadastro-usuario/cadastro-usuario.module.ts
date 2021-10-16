@@ -1,7 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ComponentesModule } from './../componentes/componentes.module';
+import { SharedModule } from '../shared/shared.module';
 import { CadastroCodigoConfirmacaoComponent } from './cadastro-codigo-confirmacao/cadastro-codigo-confirmacao.component';
 import { CadastroTipoContaComponent } from './cadastro-tipo-conta/cadastro-tipo-conta.component';
 import { CadastroEmailCelularComponent } from './cadastro-email-celular/cadastro-email-celular.component';
@@ -35,7 +35,7 @@ import { CadastroCpfCnpjComponent } from './cadastro-cpf-cnpj/cadastro-cpf-cnpj.
     CommonModule,
     UtilsModule,
     CadastroRoutingModule,
-    ComponentesModule,
+    SharedModule,
   ],
   exports: [],
   providers: [CadastroServiceService, EnderecoService, FileReader],

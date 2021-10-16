@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantesIcons } from '../../../utils/constantes.icons';
 
 @Component({
   selector: 'app-input-busca',
@@ -12,4 +13,7 @@ export class InputBuscaComponent implements OnInit {
   ngOnInit() {
   }
 
+  getIcon() {
+    return ConstantesIcons.ICONE_SEARCH_WHITE;
+  }
 }

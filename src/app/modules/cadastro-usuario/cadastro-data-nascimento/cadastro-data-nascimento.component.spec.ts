@@ -2,7 +2,7 @@ import { HttpClient, HttpHandler } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { CadastroServiceService } from 'src/app/components/cadastro-usuario/services/cadastro-service.service';
+import { CadastroServiceService } from 'src/app/modules/cadastro-usuario/services/cadastro-service.service';
 import { UtilsModule } from 'src/app/utils/utils.module';
 
 import { CadastroDataNascimentoComponent } from './cadastro-data-nascimento.component';

@@ -7,5 +7,7 @@ export const environmentExternalLinks = {
   ICONE_CAMERA_UPLOAD_FOTO_PERFIL: '../assets/icons/icon-camera.png',
   ICONE_SETA_PRA_BAIXO: '../assets/icons/seta-para-baixo.png',
   ICONE_CANCELAMENTO_PEDIDO: '../assets/icons/cancel-icon.png',
-  ICONE_APROVACAO_PEDIDO: '../assets/icons/aprove-icon.png'
+  ICONE_APROVACAO_PEDIDO: '../assets/icons/aprove-icon.png',
+  ICONE_SEARCH_WHITE: '../assets/icons/icones-free/search-icon-white.png',
+  FOTO_BARBEARIA: '../assets/icons/icones-free/barbearia_icone_exemplo.jpg'
 };

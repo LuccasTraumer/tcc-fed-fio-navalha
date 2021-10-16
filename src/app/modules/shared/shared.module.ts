@@ -5,6 +5,7 @@ import { CardBarbeariaHorizontalComponent } from './card-barbearia-horizontal/ca
 import { CardBarbeariaVerticalComponent } from './card-barbearia-vertical/card-barbearia-vertical.component';
 import { MenuComponent } from './menu/menu.component';
 import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.component';
+import {InputBuscaComponent} from "./input-busca/input-busca.component";
 
 
 
@@ -13,7 +14,8 @@ import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.
     CardBarbeariaHorizontalComponent,
     CardBarbeariaVerticalComponent,
     CardPedidoCorteComponent,
-    MenuComponent
+    MenuComponent,
+    InputBuscaComponent
   ],
   imports: [
     CommonModule
@@ -22,8 +24,9 @@ import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.
     CardBarbeariaHorizontalComponent,
     CardBarbeariaVerticalComponent,
     CardPedidoCorteComponent,
-    MenuComponent
+    MenuComponent,
+    InputBuscaComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ComponentesModule { }
+export class SharedModule { }

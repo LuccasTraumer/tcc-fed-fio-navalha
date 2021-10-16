@@ -69,7 +69,7 @@ export class CadastroNomeSenhaComponent {
 
   onSubmit(nome: string, senha: string) {
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
-    // enquanto a navegação pelos componentes acontece, iremos mandando os dados um para o outro.
+    // enquanto a navegação pelos shared acontece, iremos mandando os dados um para o outro.
     let cliente: Usuario = new Usuario();
     cliente.senha = senha;
     cliente.nome = nome;
