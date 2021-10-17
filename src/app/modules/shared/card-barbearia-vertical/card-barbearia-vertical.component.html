@@ -3,7 +3,7 @@
     <img src="{{ barbearia.fotoPerfil }}" alt="">
   </header>
   <hr>
-  <label>{{ barbearia.nome }}</label>
+  <label class="title">{{ barbearia.nome }}</label>
 
   <div class="conteudo">
     <div class="linha-1">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="linha-2">
-      <label class="tempo-medio"> {{ barbearia.tempoMedio }}</label>
+      <label class="tempo-medio"> {{ barbearia.tempoMedio }} - {{ barbearia.tempoMedio + 10 }} min</label>
     </div>
     <div class="linha-3">
       <label class="especialidade"> {{ barbearia.especialidade }}</label>
