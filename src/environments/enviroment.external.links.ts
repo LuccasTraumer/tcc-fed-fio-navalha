@@ -9,5 +9,8 @@ export const environmentExternalLinks = {
   ICONE_CANCELAMENTO_PEDIDO: '../assets/icons/cancel-icon.png',
   ICONE_APROVACAO_PEDIDO: '../assets/icons/aprove-icon.png',
   ICONE_SEARCH_WHITE: '../assets/icons/icones-free/search-icon-white.png',
-  FOTO_BARBEARIA: '../assets/icons/icones-free/barbearia_icone_exemplo.jpg'
+  FOTO_BARBEARIA: '../assets/icons/icones-free/barbearia_icone_exemplo.jpg',
+  ICONE_FAVORITO_VAZIA: '../assets/icons/icones-free/star-empty.svg',
+  ICONE_FAVORITO_METADE: '../assets/icons/icones-free/star-half-fill.svg',
+  ICONE_FAVORITO_PREENCHIDA: '../assets/icons/icones-free/star-complete-fill.svg',
 };

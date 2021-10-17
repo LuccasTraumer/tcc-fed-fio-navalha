@@ -10,4 +10,8 @@ export class ConstantesIcons {
   public static readonly ICONE_CANCELAMENTO_PEDIDO = environmentExternalLinks.ICONE_APROVACAO_PEDIDO
   public static readonly ICONE_SEARCH_WHITE = environmentExternalLinks.ICONE_SEARCH_WHITE;
   public static readonly BARBEARIA_FOTO = environmentExternalLinks.FOTO_BARBEARIA;
+  public static readonly ICONE_FAVORITO_VAZIA = environmentExternalLinks.ICONE_FAVORITO_VAZIA;
+  public static readonly ICONE_FAVORITO_METADE = environmentExternalLinks.ICONE_FAVORITO_METADE;
+  public static readonly ICONE_FAVORITO_PREENCHIDA = environmentExternalLinks.ICONE_FAVORITO_PREENCHIDA;
+
 }

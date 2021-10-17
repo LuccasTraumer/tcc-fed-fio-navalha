@@ -11,6 +11,8 @@ export class CardBarbeariaVerticalComponent implements OnInit {
 
   // @Input()
   barbearia: Barbearia;
+
+
   constructor() {
     this.barbearia = new Barbearia();
     this.barbearia.fotoPerfil = ConstantesIcons.BARBEARIA_FOTO;
@@ -25,5 +27,15 @@ export class CardBarbeariaVerticalComponent implements OnInit {
 
   calcularDistanciaBarbearia() {
     return '10KM';
+  }
+
+  pegarImagemAvaliacao(): string {
+    if (this.barbearia.avaliacaoBarbearia < 2) {
+      return ConstantesIcons.ICONE_FAVORITO_VAZIA;
+    } else if(this.barbearia.avaliacaoBarbearia >  2 && this.barbearia.avaliacaoBarbearia < 4) {
+      return ConstantesIcons.ICONE_FAVORITO_METADE;
+    } else {
+      return ConstantesIcons.ICONE_FAVORITO_PREENCHIDA;
+    }
   }
 }
