@@ -31,11 +31,11 @@ export class CardBarbeariaVerticalComponent implements OnInit {
 
   pegarImagemAvaliacao(): string {
     if (this.barbearia.avaliacaoBarbearia < 2) {
-      return ConstantesIcons.ICONE_FAVORITO_VAZIA;
+      return ConstantesIcons.ICONE_AVALIACAO_VAZIA;
     } else if(this.barbearia.avaliacaoBarbearia >  2 && this.barbearia.avaliacaoBarbearia < 4) {
-      return ConstantesIcons.ICONE_FAVORITO_METADE;
+      return ConstantesIcons.ICONE_AVALIACAO_METADE;
     } else {
-      return ConstantesIcons.ICONE_FAVORITO_PREENCHIDA;
+      return ConstantesIcons.ICONE_AVALIACAO_PREENCHIDA;
     }
   }
 }

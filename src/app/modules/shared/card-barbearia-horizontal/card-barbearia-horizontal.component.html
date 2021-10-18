@@ -1,33 +1,35 @@
 <nav class="container">
-  <img src="{{ICONE_BARBEAIRIA}}" alt="icone barbearia" srcset="">
+  <div class="foto-perfil">
+    <img src="{{ barbearia.fotoPerfil }}" alt="icone barbearia" srcset="">
+  </div>
   <section class="informacoes">
     <header>
-      {{nomeBarbearia()}}
+      {{ barbearia.nome }}
     </header>
 
     <section class="sub-container">
       <div class="avaliacao">
-        <img src="{{AVALIACAO_ICON}}" alt="icone avaliacao" srcset="">
-        <label for="">{{avaliacaoBarbearia()}}</label>
+        <img src="{{ AVALIACAO_ICON }}" alt="icone avaliacao" srcset="">
+        <label>{{ barbearia.avaliacaoBarbearia }}</label>
       </div>
 
       <div class="especialidade">
-        {{especialidadeBarbearia()}}
+        {{ barbearia.especialidade }}
       </div>
 
       <div class="distancia">
         <div class="ponto"></div>
-        <label for="">{{distanciaBarbearia()}} KM</label>
+        <label>{{ distanciaBarbearia() }} KM</label>
       </div>
 
       <img class="isfavorito" src="{{FAVORITO_ICON}}" alt="icone favorito">
 
       <section class="tempo-medio">
-        <label for="">{{tempoMedio()}}-{{margemAtraso()}} min</label>
+        <label>{{ barbearia.tempoMedio }}-{{margemAtraso()}} min</label>
       </section>
 
       <section class="preco-medio">
-        <label for="">{{precoMedio() | currency: 'BRL'}}</label>
+        <label>{{ barbearia.precoMedio | currency: 'BRL' }}</label>
       </section>
     </section>
   </section>

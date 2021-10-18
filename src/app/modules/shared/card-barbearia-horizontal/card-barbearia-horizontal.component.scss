@@ -8,11 +8,15 @@
   color: var(--background-color);
   background-color: var(--input-color);
 
-  img {
-    padding: 5%;
-    max-width: 25%;
+  .foto-perfil {
     width: 20%;
-    border-radius: 50%;
+    align-items: center;
+    padding: 2% 5%;
+
+    img {
+      max-width: 80%;
+      border-radius: 50%;
+    }
   }
 
   .informacoes {

@@ -13,5 +13,10 @@
     </fdn-combobox-filtro>
   </div>
 
-  Lista de Barbearias a partir dos filtros.
+  <div class="resultado">
+    <fdn-card-barbearia-horizontal
+      *ngFor="let barbearia of listaBarbearia;"
+      [barbearia]="barbearia">
+    </fdn-card-barbearia-horizontal>
+  </div>
 </div>

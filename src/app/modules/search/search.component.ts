@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Barbearia} from "../../models/barbearia";
+import {ConstantesIcons} from "../../utils/constantes.icons";
 
 @Component({
   selector: 'app-search',
@@ -25,7 +27,22 @@ export class SearchComponent implements OnInit {
     // },
   ];
 
-  constructor() { }
+  listaBarbearia = [];
+
+  constructor() {
+    const barbearia = new Barbearia();
+    barbearia.nome = 'Roni Barbearia';
+    barbearia.fotoPerfil = ConstantesIcons.BARBEARIA_FOTO;
+    barbearia.avaliacaoBarbearia = 4.5;
+    barbearia.especialidade = 'Black Power';
+    barbearia.precoMedio = 50.0;
+    barbearia.tempoMedio = 25;
+
+    this.listaBarbearia.push(barbearia);
+    this.listaBarbearia.push(barbearia);
+    this.listaBarbearia.push(barbearia);
+    this.listaBarbearia.push(barbearia);
+  }
 
   ngOnInit() {
   }

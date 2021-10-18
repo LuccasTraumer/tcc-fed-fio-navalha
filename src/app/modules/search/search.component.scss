@@ -8,6 +8,11 @@
     flex-flow: row wrap;
     padding: 3.5%;
   }
+
+  .resultado {
+    display: grid;
+    margin: 5%;
+  }
 }
 
 .container > * {

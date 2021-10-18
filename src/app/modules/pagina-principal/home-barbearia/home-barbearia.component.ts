@@ -22,7 +22,7 @@ import { ConstantesIcons } from 'src/app/utils/constantes.icons';
   ],
 })
 export class HomeBarbeariaComponent implements OnInit {
- public setaIcone = ConstantesIcons.ICONE_SETA_PRA_BAIXO;
+ public setaIcone = ConstantesIcons.ICONE_SETA_PRA_BAIXO_BLACK;
  public isPedidosExibido: boolean = true;
  public isAgendamentosExibido: boolean = true;
  constructor() { }
