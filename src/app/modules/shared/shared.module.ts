@@ -8,6 +8,7 @@ import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.
 import {InputBuscaComponent} from "./input-busca/input-busca.component";
 import {ButtonComponent} from "./button/button.component";
 import {InputDataComponent} from "./input-data/input-data.component";
+import { ComboboxFiltroComponent } from './combobox-filtro/combobox-filtro.component';
 
 
 
@@ -19,7 +20,8 @@ import {InputDataComponent} from "./input-data/input-data.component";
     MenuComponent,
     InputBuscaComponent,
     ButtonComponent,
-    InputDataComponent
+    InputDataComponent,
+    ComboboxFiltroComponent
   ],
   imports: [
     CommonModule
@@ -31,7 +33,8 @@ import {InputDataComponent} from "./input-data/input-data.component";
     MenuComponent,
     InputBuscaComponent,
     ButtonComponent,
-    InputDataComponent
+    InputDataComponent,
+    ComboboxFiltroComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

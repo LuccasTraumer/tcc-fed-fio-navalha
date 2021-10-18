@@ -1,18 +1,17 @@
-<app-input-busca></app-input-busca>
+<div class="container">
+  <app-input-busca></app-input-busca>
 
+  Historico de Barbearias
+  <div class="historico">
+    <fdn-card-barbearia-vertical></fdn-card-barbearia-vertical>
+  </div>
 
-Historico de Barbearias
-<div class="historico">
-  <fdn-card-barbearia-vertical></fdn-card-barbearia-vertical>
+  <div class="filtros">
+    <fdn-combobox-filtro
+      *ngFor="let filtro of listaFiltros;"
+      [filtro]="filtro">
+    </fdn-combobox-filtro>
+  </div>
+
+  Lista de Barbearias a partir dos filtros.
 </div>
-
-<!--TODO: Lista de Barbearias já visitadas.-->
-TODO: Lista de Barbearias já visitadas.
-
-
-Filtros
-    ComboBox: Preco
-    ComboBox: Distancia
-    ComboBox: Avaliação
-
-Lista de Barbearias a partir dos filtros.
