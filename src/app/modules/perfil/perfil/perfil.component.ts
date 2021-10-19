@@ -1,3 +1,4 @@
+import { Perfil } from './../../../models/Perfil';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -11,7 +12,7 @@ export class PerfilComponent {
   public switchType: string = 'number';
   public valorComMascara: string;
   public opcao = 0;
-
+  public perfil = new Perfil();
 
   public isValido: boolean = false;
 
@@ -21,14 +22,14 @@ export class PerfilComponent {
 
   escolherPerfil() {
     /*let container = document.getElementById('text') as HTMLDivElement;*/
-    let cep = '1000-000'
-    let nome = 'teste'
-    let rua = 'qualquer'
-    let numeroCasa = 777
-    let bairro = 'jardim joselina'
-    let email = 'seila@gmail.com'
-    let number = 19983191943
-    let container = document.getElementById('text').innerHTML = "Endereço<br> cep: "+cep+"<br> rua: "+rua+", "+numeroCasa+"<br> bairro: "+bairro+" <hr> Contato<br> Tel: "+number +"<br> email: "+email+""
+    this.perfil.nome = 'Pedro'
+    this.perfil.tel = 9999999999
+    this.perfil.ddd = 19
+    this.perfil.rua = 'Alberto belintani'
+    this.perfil.numeroRua = 133
+    this.perfil.email = 'pedrocandido@gmail.com'
+    this.perfil.bairro = 'Jardim Colonial'
+    //let container = document.getElementById('text').innerHTML = "Endereço<br> cep: "+cep+"<br> rua: "+rua+", "+numeroCasa+"<br> bairro: "+bairro+" <hr> Contato<br> Tel: "+number +"<br> email: "+email+""
     this.isValido = false;
     this.primeiraVez = true;
     this.switchType = 'number';
@@ -39,7 +40,7 @@ export class PerfilComponent {
     let container = document.getElementById('text') as HTMLDivElement;
     let modo = 'to do'
     let idioma = 'to do'
-    container.innerHTML = "Modo escuro: "+modo+"<br> idioma: "+idioma+"";
+    //container.innerHTML = "Modo escuro: "+modo+"<br> idioma: "+idioma+"";
     this.isValido = false;
     this.primeiraVez = true;
     this.switchType = 'email';

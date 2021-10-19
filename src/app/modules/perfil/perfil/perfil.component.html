@@ -5,15 +5,24 @@
       <div class="container">
         <div class="form">
           <nav class="toggle">
-            <label class="opcao-selecionada" *ngIf="opcao == 0;" (click)="escolherTelefone()">Perfil</label>
+            <label class="opcao-selecionada" *ngIf="opcao == 0;" (click)="escolherPerfil()">Perfil</label>
             <label *ngIf="opcao == 1" (click)="escolherPerfil()">Perfil</label>
             <hr>
-            <label class="opcao-selecionada" *ngIf="opcao == 1;" (click)="escolherEmail()">Configurações</label>
+            <label class="opcao-selecionada" *ngIf="opcao == 1;" (click)="escolherConfiguracao()">Configurações</label>
             <label *ngIf="opcao == 0"  (click)="escolherConfiguracao()">Configurações</label>
           </nav>
           <hr>
-        <div class="phone" id="text">
-
+        <div *ngIf="opcao == 0" class="phone" id="text">
+          <h1>Perfil</h1>
+          <p>
+            Nome: {{perfil.nome}}<br>
+            Email: {{perfil.email}}<br>
+            Telefone: ({{perfil.ddd}}){{perfil.tel}}<br>
+            Endereço: {{perfil.rua}}, {{perfil.numeroRua}}<br>
+            Bairro: {{perfil.bairro}}
+          </p>
+        </div>
+        <div *ngIf="opcao == 1" class="phone" id="text">
         </div>
   </div>
 </div>
