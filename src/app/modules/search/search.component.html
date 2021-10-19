@@ -1,0 +1,22 @@
+<div class="container">
+  <app-input-busca></app-input-busca>
+
+  Historico de Barbearias
+  <div class="historico">
+    <fdn-card-barbearia-vertical></fdn-card-barbearia-vertical>
+  </div>
+
+  <div class="filtros">
+    <fdn-combobox-filtro
+      *ngFor="let filtro of listaFiltros;"
+      [filtro]="filtro">
+    </fdn-combobox-filtro>
+  </div>
+
+  <div class="resultado">
+    <fdn-card-barbearia-horizontal
+      *ngFor="let barbearia of listaBarbearia;"
+      [barbearia]="barbearia">
+    </fdn-card-barbearia-horizontal>
+  </div>
+</div>

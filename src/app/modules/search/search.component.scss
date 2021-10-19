@@ -1,0 +1,20 @@
+.container {
+  width: 100vw;
+  padding: 5% 0%;
+
+  .filtros {
+    background-color: var(--input-color);
+    display: flex;
+    flex-flow: row wrap;
+    padding: 3.5%;
+  }
+
+  .resultado {
+    display: grid;
+    margin: 5%;
+  }
+}
+
+.container > * {
+  margin: 10% 0;
+}

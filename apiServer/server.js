@@ -60,6 +60,7 @@ function readFolders(folderName) {
     if(stat.isDirectory()) {
       readFolders(fullName);
     } else if(file.toLowerCase().indexOf('.js') !== -1) {
+      console.log('Aqui', endPoint.normalize(fullName, '.js'));
       require('./' + fullName)(app, endPoint.normalize(fullName, '.js'));
     }
   });

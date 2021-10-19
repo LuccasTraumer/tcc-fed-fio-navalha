@@ -2,16 +2,13 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-import { UtilsModule } from './utils/utils.module';
-import { ComponentesModule } from './components/componentes/componentes.module';
-import { AutenticacaoService } from './components/cadastro-usuario/autenticacao.service';
+import { SharedModule } from './modules/shared/shared.module';
+import { AutenticacaoService } from './modules/cadastro-usuario/services/autenticacao.service';
 import { AuthGuard } from './guardas/auth.guard';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,17 +17,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
   BrowserModule,
     AppRoutingModule,
-    UtilsModule,
-    ComponentesModule,
+    SharedModule,
     HttpClientModule,
-    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    BrowserAnimationsModule
+    //BrowserAnimationsModule,
+   // CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [AutenticacaoService, AuthGuard],
   bootstrap: [AppComponent],

@@ -1,14 +1,14 @@
-import { PerfilModule } from './components/perfil/perfil/perfil.module';
+import { PerfilModule } from './modules/perfil/perfil/perfil.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CardBarbeariaHorizontalComponent } from './components/componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
+import { CardBarbeariaHorizontalComponent } from './modules/shared/card-barbearia-horizontal/card-barbearia-horizontal.component';
 
 
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./components/login/login.module').then(module => module.LoginModule)
+    loadChildren: () => import('./modules/login/login.module').then(module => module.LoginModule)
   },
   {
     path: 'cards',
@@ -17,23 +17,27 @@ const routes: Routes = [
   },
   {
     path: 'esqueceu-senha',
-    loadChildren: () => import('./components/esqueceu-senha/esqueceu-senha.module').then(module => module.EsqueceuSenhaModule)
+    loadChildren: () => import('./modules/esqueceu-senha/esqueceu-senha.module').then(module => module.EsqueceuSenhaModule)
   },
   {
     path: 'loading',
-    loadChildren: () => import('./components/loading/loading.module').then(module => module.LoadingModule)
+    loadChildren: () => import('./modules/loading/loading.module').then(module => module.LoadingModule)
   },
   {
     path: 'cadastro',
-    loadChildren: () => import('./components/cadastro-usuario/cadastro-usuario.module').then(module => module.CadastroUsuarioModule)
+    loadChildren: () => import('./modules/cadastro-usuario/cadastro-usuario.module').then(module => module.CadastroUsuarioModule)
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./components/perfil/perfil/perfil.module').then(module => module.PerfilModule)
+    loadChildren: () => import('./modules/perfil/perfil/perfil.module').then(module => module.PerfilModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./modules/search/search.module').then(module => module.SearchModule)
   },
   {
     path: '',
-    loadChildren: () => import('./components/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
+    loadChildren: () => import('./modules/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
     // canActivate: [AuthGuard]
     // can load
   },
@@ -53,4 +57,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class  AppRoutingModule { }
