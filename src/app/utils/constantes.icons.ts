@@ -24,8 +24,4 @@ export class ConstantesIcons {
   public static readonly ICONE_AVALIACAO_VAZIA = environmentExternalLinks.ICONE_AVALIACAO_VAZIA;
   public static readonly ICONE_AVALIACAO_METADE = environmentExternalLinks.ICONE_AVALIACAO_METADE;
   public static readonly ICONE_AVALIACAO_PREENCHIDA = environmentExternalLinks.ICONE_AVALIACAO_PREENCHIDA;
-
-
-
-
 }
