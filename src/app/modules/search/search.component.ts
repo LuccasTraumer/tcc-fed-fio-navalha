@@ -8,6 +8,7 @@ import {ConstantesIcons} from "../../utils/constantes.icons";
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  foiEfetuadaBusca: boolean;
 
   listaFiltros = [
     {
@@ -42,6 +43,14 @@ export class SearchComponent implements OnInit {
     this.listaBarbearia.push(barbearia);
     this.listaBarbearia.push(barbearia);
     this.listaBarbearia.push(barbearia);
+  }
+
+  setListaBarbearias(barbearias: Barbearia[]) {
+    this.listaBarbearia = barbearias;
+  }
+
+  setBuscaEfetuada(buscaFeita: boolean) {
+    this.foiEfetuadaBusca = buscaFeita;
   }
 
   ngOnInit() {

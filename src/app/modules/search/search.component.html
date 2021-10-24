@@ -1,9 +1,17 @@
 <div class="container">
-  <app-input-busca></app-input-busca>
+  <app-input-busca
+    (listaBusca)="setListaBarbearias($event)"
+    (valorBuscaPreenchido)="setBuscaEfetuada($event)"
+  ></app-input-busca>
 
-  Historico de Barbearias
-  <div class="historico">
-    <fdn-card-barbearia-vertical></fdn-card-barbearia-vertical>
+  <div class="historico" *ngIf="!foiEfetuadaBusca">
+    <label>Historico de Barbearias</label>
+    <div class="cards">
+      <fdn-card-barbearia-vertical
+        *ngFor="let barbearia of listaBarbearia;"
+        [barbearia]="barbearia">
+      </fdn-card-barbearia-vertical>
+    </div>
   </div>
 
   <div class="filtros">
@@ -13,7 +21,7 @@
     </fdn-combobox-filtro>
   </div>
 
-  <div class="resultado">
+  <div class="resultado" *ngIf="!foiEfetuadaBusca">
     <fdn-card-barbearia-horizontal
       *ngFor="let barbearia of listaBarbearia;"
       [barbearia]="barbearia">

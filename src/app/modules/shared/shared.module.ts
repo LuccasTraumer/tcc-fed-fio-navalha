@@ -9,6 +9,7 @@ import {InputBuscaComponent} from "./input-busca/input-busca.component";
 import {ButtonComponent} from "./button/button.component";
 import {InputDataComponent} from "./input-data/input-data.component";
 import { ComboboxFiltroComponent } from './combobox-filtro/combobox-filtro.component';
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -23,9 +24,10 @@ import { ComboboxFiltroComponent } from './combobox-filtro/combobox-filtro.compo
     InputDataComponent,
     ComboboxFiltroComponent
   ],
-  imports: [
-    CommonModule
-  ],
+    imports: [
+        CommonModule,
+        FormsModule
+    ],
   exports: [
     CardBarbeariaHorizontalComponent,
     CardBarbeariaVerticalComponent,

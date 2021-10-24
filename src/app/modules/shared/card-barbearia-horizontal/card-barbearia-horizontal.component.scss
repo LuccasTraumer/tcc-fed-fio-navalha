@@ -2,13 +2,15 @@
   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  height: 80%;
+  height: 100%;
   align-self: center;
-  border-radius: 5px;
+  border-radius: 10px;
   color: var(--background-color);
   background-color: var(--input-color);
+  padding-bottom: 2%;
 
   .foto-perfil {
+    display: inherit;
     width: 20%;
     align-items: center;
     padding: 2% 5%;
@@ -32,49 +34,64 @@
     }
 
     .sub-container {
-      width: 100%;
+      display: grid;
+      width: 90%;
       height: 80%;
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-      align-items: center;
-      text-align: start;
 
-      .avaliacao {
-        display: flex;
+      .linha-1 {
+        display: inherit;
+        grid-template-columns: 2fr 2fr 2fr;
+        justify-content: space-around;
         align-items: center;
-        max-width: 15%;
 
-        img {
-          width: 100%;
+
+        .avaliacao {
+          display: flex;
+          align-items: center;
+          max-width: 15%;
+
+          img {
+            width: 1.2rem;
+            padding: 3%;
+          }
+
+          label {
+            color: var(--background-button);
+            font-weight: 600;
+          }
+        }
+
+        .distancia {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 25%;
+
+          .ponto {
+            background-color: var(--background-color);
+            height: 1.5vw;
+            width: 1.5vw;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .linha-2 {
+        display: inherit;
+        align-items: center;
+        justify-content: end;
+
+        .isfavorito {
+          width: 5vw;
+          height: 5vw;
           padding: 3%;
         }
-
-        label {
-          color: var(--background-button);
-          font-weight: 600;
-        }
       }
 
-      .distancia {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 25%;
-
-        .ponto {
-          background-color: var(--background-color);
-          height: 1.5vw;
-          width: 1.5vw;
-          border-radius: 50%;
-        }
-
-      }
-
-      .isfavorito {
-        width: 5vw;
-        height: 5vw;
-        padding: 3%;
+      .linha-3 {
+        display: inherit;
+        justify-content: space-between;
+        grid-template-columns: 1fr 1fr;
       }
     }
   }

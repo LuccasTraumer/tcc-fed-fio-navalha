@@ -2,13 +2,14 @@ import {Component, Input} from '@angular/core';
 
 import { ConstantesIcons } from "../../../utils/constantes.icons";
 import {Barbearia} from "../../../models/barbearia";
+import {Card} from "../models/card";
 
 @Component({
   selector: 'fdn-card-barbearia-horizontal',
   templateUrl: './card-barbearia-horizontal.component.html',
   styleUrls: ['./card-barbearia-horizontal.component.scss']
 })
-export class CardBarbeariaHorizontalComponent {
+export class CardBarbeariaHorizontalComponent implements Card {
 
   @Input()
   barbearia: Barbearia;
@@ -27,5 +28,17 @@ export class CardBarbeariaHorizontalComponent {
 
   public margemAtraso(): number {
     return this.barbearia.tempoMedio + this._margemAtraso;
+  }
+
+  public irBarbearia() {
+    console.log('Vou para barbearia');
+  }
+
+  public avaliarBarbearia() {
+    console.log('Vou avaliar a barbearia');
+  }
+
+  public favoritarBarbearia() {
+    console.log('Vou favoritar barbearia');
   }
 }

@@ -1,7 +1,10 @@
 <div class="container">
   <input
     type="text"
-    placeholder="Procure por um Salão...">
+    placeholder="Procure por um Salão..."
+    #valorBusca
+    (keyup.enter)="buscarBarbearia(valorBusca.value)"
+    >
   <img
     src="{{getIcon()}}"
     alt="Icone de Busca">

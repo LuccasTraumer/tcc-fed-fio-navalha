@@ -1,5 +1,5 @@
 <div class="container">
-  <header>
+  <header (click)="irBarbearia()">
     <img src="{{ barbearia.fotoPerfil }}" alt="">
   </header>
   <hr>
@@ -7,7 +7,7 @@
 
   <div class="conteudo">
     <div class="linha-1">
-      <div class="avaliacao">
+      <div class="avaliacao" (click)="avaliarBarbearia()">
         <img
           src="{{ pegarImagemAvaliacao() }}"
           alt="Icone de Avaliacao">

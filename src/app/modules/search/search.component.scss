@@ -2,6 +2,23 @@
   width: 100vw;
   padding: 5% 0%;
 
+  .historico {
+    height: 25vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 0% 5%;
+
+    .cards {
+      display: inherit;
+      flex-flow: row;
+    }
+
+    fdn-card-barbearia-vertical {
+      padding: 3%;
+    }
+  }
+
   .filtros {
     background-color: var(--input-color);
     display: flex;
@@ -12,6 +29,10 @@
   .resultado {
     display: grid;
     margin: 5%;
+
+    fdn-card-barbearia-horizontal {
+      margin-bottom: 3%;
+    }
   }
 }
 
