@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="form">
+    <nav class="toggle">
+      <h4>
+        Foto de Perfil
+      </h4>
+    </nav>
+    <section>
+      <div class="texto-envio">
+        Para ser mais facil saber quem você é,
+        nada melhor que uma boa foto de Perfil
+      </div>
+    </section>
+    <section class="perfil">
+      <div class="fotoMaisCamera">
+      <img *ngIf="foto == null" src="{{icone_upload}}" class="foto-perfil" alt="foto de perfil">
+      <img *ngIf="foto != null" src="{{foto}}" class="foto-perfil" alt="foto de perfil">
+      <label for="input-foto"><img src="{{icone_camera}}" class="upload-foto"></label>
+      </div>
+      <input hidden id="input-foto" type="file" name="foto" accept=".png, .jpeg, .jpg" (change)="UploadFoto($event)">
+      <br>
+      <div [hidden]="fotoValida" class="divErro">
+        <label class="textoErro" >Tamanho permitido é {{tamanhoFotoPermitido/1000}}Kb </label>
+      </div>
+    </section>
+    <div class="submit">
+      <fdn-button (click)="onSubmit()" textoInterno="Avançar"></fdn-button>
+    </div>
+  </div>
+</div>

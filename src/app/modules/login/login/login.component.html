@@ -1,0 +1,33 @@
+<nav class="container">
+  <img src="{{ background }}" class="background-Image" >
+  <article class="logo">
+    <img src="{{pathImage}}" alt="logo" srcset="">
+  </article>
+
+  <!-- <form formGroup="formulario" (ngSubmit)="onSubmit()"> -->
+    <form>
+    <article class="informacoes">
+      <section class="container-informacoes">
+        <section class="email">
+          <label for="">Email</label>
+          <input [(ngModel)]="formulario.email" type="email" name="usuario">
+
+        </section>
+
+        <section class="senha">
+          <label for="">Senha</label>
+          <input [(ngModel)]="formulario.senha" type="password" name="senha">
+          <!-- <input [(ngModel)]="formulario.senha" type="password" formControlName="senha"> -->
+        </section>
+
+        <a (click)="esqueceuSenha()" id="esqueceu-senha">Esqueceu a senha?</a>
+
+        <fdn-button textoInterno="Entrar" (click)="onSubmita()"></fdn-button>
+        <div class="div-cadastrar">
+          Não tem conta?
+          <a (click)="cadastrarConta()" id="cadastre-se"> <span>Cadastre-se</span></a>
+        </div>
+      </section>
+    </article>
+    </form>
+</nav>

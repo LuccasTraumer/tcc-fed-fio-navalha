@@ -1,7 +1,10 @@
+@import "./assets/css-reset.scss";
+
 /* You can add global styles to this file, and also import other style files */
 :root {
   --title-color: #F4B578;
   --background-button: #F99F31;
+  --background-button-disabled: #f1a951;
   --background-color: #363636;
   --font-color: #ffff;
   --input-color: #EDEAE3;
@@ -21,4 +24,32 @@ body {
   font-family: 'Roboto', sans-serif;
   padding: 0%;
   margin: 0%;
+  scroll-behavior: smooth;
 }
+
+input {
+  height: 4vh;
+  border-radius: 5px;
+  border: none;
+  background: var(--input-color);
+  color: var(--background-color);
+  font-weight: 600;
+  width: 100%;
+
+  padding: 2%;
+}
+
+.textoErro {
+  color: var(--background-button);
+ // font-weight: 700;
+  font-size: 5vw;
+}
+
+.background-ft, .background-hr {
+  background: var(--input-color);
+  color: var(--background-color);
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

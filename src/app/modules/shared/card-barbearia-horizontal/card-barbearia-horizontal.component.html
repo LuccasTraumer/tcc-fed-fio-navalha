@@ -1,0 +1,42 @@
+<nav class="container">
+  <div class="foto-perfil" (click)="irBarbearia()">
+    <img src="{{ barbearia.fotoPerfil }}" alt="icone barbearia" srcset="">
+  </div>
+  <section class="informacoes">
+    <header>
+      {{ barbearia.nome }}
+    </header>
+
+    <div class="sub-container">
+      <div class="linha-1">
+        <div class="avaliacao" (click)="avaliarBarbearia()">
+          <img src="{{ AVALIACAO_ICON }}" alt="icone avaliacao" srcset="">
+          <label>{{ barbearia.avaliacaoBarbearia }}</label>
+        </div>
+
+        <div class="especialidade">
+          {{ barbearia.especialidade }}
+        </div>
+
+        <div class="distancia">
+          <div class="ponto"></div>
+          <label>{{ distanciaBarbearia() }} KM</label>
+        </div>
+      </div>
+
+      <div class="linha-2">
+        <img (click)="favoritarBarbearia()" class="isfavorito" src="{{FAVORITO_ICON}}" alt="icone favorito">
+      </div>
+
+      <div class="linha-3">
+        <section class="tempo-medio">
+          <label>{{ barbearia.tempoMedio }}-{{margemAtraso()}} min</label>
+        </section>
+
+        <section class="preco-medio">
+          <label>{{ barbearia.precoMedio | currency: 'BRL' }}</label>
+        </section>
+      </div>
+    </div>
+  </section>
+</nav>
