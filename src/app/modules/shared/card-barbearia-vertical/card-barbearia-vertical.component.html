@@ -1,0 +1,39 @@
+<div class="container">
+  <header (click)="irBarbearia()">
+    <img src="{{ barbearia.fotoPerfil }}" alt="">
+  </header>
+  <hr>
+  <label class="title">{{ barbearia.nome }}</label>
+
+  <div class="conteudo">
+    <div class="linha-1">
+      <div class="avaliacao" (click)="avaliarBarbearia()">
+        <img
+          src="{{ pegarImagemAvaliacao() }}"
+          alt="Icone de Avaliacao">
+        <label
+          class="avaliacao">
+          {{ barbearia.avaliacaoBarbearia }}
+        </label>
+      </div>
+
+      <div class="distancia">
+        <div class="circulo"></div>
+
+        <label class="distancia">
+          {{ calcularDistanciaBarbearia() }}
+        </label>
+      </div>
+    </div>
+    <div class="linha-2">
+      <label
+        class="tempo-medio">
+        {{ barbearia.tempoMedio }} - {{ barbearia.tempoMedio + 10 }} min
+      </label>
+    </div>
+    <div class="linha-3">
+      <label class="especialidade"> {{ barbearia.especialidade }}</label>
+    </div>
+  </div>
+
+</div>

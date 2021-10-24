@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="form">
+    <nav class="toggle">
+      <h4>
+        Selecione o tipo de Conta
+      </h4>
+    </nav>
+    <section>
+      <div class="texto-envio">
+        Selecione que tipo de conta irá
+        utilizar na Plataforma.
+        Fique atento pois não poderá alterar.
+      </div>
+    </section>
+    <section>
+      <div [ngClass] = "opcaoSelecionada == 0 ? 'escolha-tipo-conta':''" (click)="escolherConta(0)">
+        <img class="tipo-conta"
+          src="{{iconeClienteVarejoCadastro}}"
+          alt="Cliente">
+        <br>
+        <label>Cliente</label>
+      </div>
+
+      <div [ngClass] = "opcaoSelecionada == 1 ? 'escolha-tipo-conta':''" (click)="escolherConta(1)">
+        <img class="tipo-conta"
+          src="{{iconeBarbeariaCadastro}}"
+          alt="Salão">
+        <br>
+        <label>Barbearia(s)</label>
+      </div>
+    </section>
+    <div class="submit">
+      <fdn-button (click)="onSubmit()" [disabled]="!isTipoContaValido?true:null" textoInterno="Avançar"></fdn-button>
+    </div>
+  </div>
+</div>

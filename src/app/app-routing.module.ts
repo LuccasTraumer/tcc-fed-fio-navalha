@@ -1,40 +1,60 @@
-import { LoadingComponent } from './loading/loading/loading.component';
+import { PerfilModule } from './modules/perfil/perfil/perfil.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login/login.component';
-import { CardBarbeariaHorizontalComponent } from './componentes/card-barbearia-horizontal/card-barbearia-horizontal.component';
-import { EsqueceuSenhaComponent } from './esqueceu-senha/esqueceu-senha/esqueceu-senha.component';
-import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal/pagina-principal.component';
+
+import { CardBarbeariaHorizontalComponent } from './modules/shared/card-barbearia-horizontal/card-barbearia-horizontal.component';
+
 
 const routes: Routes = [
   {
-    path: '',
-    component: PaginaPrincipalComponent
+    path: 'login',
+    loadChildren: () => import('./modules/login/login.module').then(module => module.LoginModule)
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
-  // {
-  //   path: 'cards',
-  //   component: CardBarbeariaHorizontalComponent
-  // },
-  // {
-  //   path: 'esqueceu',
-  //   component: EsqueceuSenhaComponent
-  // },
-  // {
-  //   path: 'loading',
-  //   component: LoadingComponent
-  // },
+  {
+    path: 'cards',
+    component: CardBarbeariaHorizontalComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: 'esqueceu-senha',
+    loadChildren: () => import('./modules/esqueceu-senha/esqueceu-senha.module').then(module => module.EsqueceuSenhaModule)
+  },
+  {
+    path: 'loading',
+    loadChildren: () => import('./modules/loading/loading.module').then(module => module.LoadingModule)
+  },
+  {
+    path: 'cadastro',
+    loadChildren: () => import('./modules/cadastro-usuario/cadastro-usuario.module').then(module => module.CadastroUsuarioModule)
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./modules/perfil/perfil/perfil.module').then(module => module.PerfilModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./modules/search/search.module').then(module => module.SearchModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./modules/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
+    // canActivate: [AuthGuard]
+    // can load
+  },
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'login',
+    // canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class  AppRoutingModule { }
