@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="form">
+    <nav class="toggle">
+      <h4>
+        {{textoTitulo}}
+      </h4>
+    </nav>
+    <section>
+      <div class="texto-envio">
+          {{texto}}
+      </div>
+    </section>
+    <section>
+      <input #cepInput class="input-data input" placeholder="CEP" type="number" [(ngModel)]="cep" (keyup)="validaCep(cepInput.value)" maxlength="8" type="text"/>
+      <input #numeroInput class="input-data input" placeholder="Número" type="number" [(ngModel)]="numero" (keyup)="validaNumero(numeroInput.value)"/>
+      <input #complemento class="input-data input" id="input-type" placeholder="Complemento" type="text"/>
+      <input class="input-data input" id="input-type" placeholder="Logradouro" type="text" [(value)]="endereco.logradouro"  disabled/>
+      <input class="input-data input" id="input-type" placeholder="Bairro" type="text" [(value)]="endereco.bairro"  disabled/>
+      <input class="input-data input" id="input-type" placeholder="Cidade" type="text" [(value)]="endereco.localidade"  disabled/>
+      <input class="input-data input" id="input-type" placeholder="Estado" type="text" [(value)]="endereco.uf"  disabled/>
+
+    </section>
+    <div class="submit">
+      <fdn-button (click)="onSubmit(numeroInput.value, complemento.value)" [disabled]="!(cepValido && numeroValido) || (endereco.erro)?true:null" textoInterno="Avançar"></fdn-button>
+    </div>
+  </div>
+</div>

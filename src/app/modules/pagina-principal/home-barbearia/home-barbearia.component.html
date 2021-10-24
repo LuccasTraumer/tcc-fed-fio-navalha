@@ -1,0 +1,57 @@
+<div class="container">
+
+  <section class="primeiro"  >
+    <div class="cabecalho">
+      Pedidos
+      <button   (click)="slider(1)"><img src="{{setaIcone}}" [class.rotate]="!isPedidosExibido" class="icon"></button>
+    </div>
+    <div class="conteudo"  [class.slide-in]="isPedidosExibido" [class.slide-out]="!isPedidosExibido">
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+      <fdn-card-pedido-corte></fdn-card-pedido-corte>
+
+    </div>
+  </section>
+  <section class="agendamentos">
+    <div class="cabecalho">
+    Agendamentos
+    <button (click)="slider(2)"><img src="{{setaIcone}}" [class.rotate]="!isAgendamentosExibido" class="icon"></button>
+    </div>
+
+  <div class="conteudo-agendamentos" [class.slide-in]="isAgendamentosExibido" [class.slide-out]="!isAgendamentosExibido">
+    <mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
+    </mwl-demo-utils-calendar-header>
+    <div class="data-atual">{{ data | date: 'dd/MM/yyyy' }}</div>
+    <div [ngSwitch]="view" class="calendario">
+      <mwl-calendar-month-view
+        *ngSwitchCase="'month'"
+        [viewDate]="viewDate"
+        [events]="events"
+      >
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view
+        *ngSwitchCase="'week'"
+        [viewDate]="viewDate"
+        [events]="events"
+      >
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view
+        *ngSwitchCase="'day'"
+        [viewDate]="viewDate"
+        [events]="events"
+      >
+      </mwl-calendar-day-view>
+    </div>
+
+  </div>
+</section>
+
+</div>
+

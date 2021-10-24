@@ -1,0 +1,11 @@
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  align-self: center;
+
+  .valores {
+    display: flex;
+    flex-direction: column;
+  }
+}

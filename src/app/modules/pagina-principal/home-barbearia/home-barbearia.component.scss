@@ -1,0 +1,122 @@
+.container{
+
+  section {
+    display: flex;
+    flex-direction: column;
+    color: black;
+
+  }
+  button {
+    align-items: flex-end;
+    float: right;
+    clear: both;
+    border: none;
+    background-color: inherit;
+  }
+  .icon {
+    width: 20px;
+    clear: both;
+  }
+
+  .cabecalho {
+    background-color: #EDEAE3;
+    padding: 8px;
+  }
+  .conteudo{
+    margin-bottom: 20px;
+    color: black;
+    background-color: #edeae3e7;
+    max-height: 300px;
+    overflow: auto;
+  }
+
+  .primeiro {
+    margin-top: 20px;
+  }
+  .agendamentos {
+    min-height: 5vh;
+    max-height: 20px;
+   // max-width: 200px;
+  }
+
+  .conteudo-agendamentos{
+    background-color: #edeae3e7;
+    height: 50px;
+    min-height: 322px;
+    max-height: 50px;
+    margin-bottom: 30px;
+    overflow: auto;
+
+    .data-atual{
+      color: rgb(255, 166, 1);
+      font-size: 40px;
+      font-weight: 600;
+      border: solid 1px;
+      padding: 5px;
+      border-radius: 10px;
+      width: max-content;
+      display: flex;
+      justify-content: center;
+      margin: auto;
+      margin-top: 25px;
+    }
+  }
+    .calendario {
+     margin-top: 25px;
+    }
+
+
+
+  .slider {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+
+  .slide-in {
+    animation: slide-in 0.5s forwards;
+    animation-delay: 2s;
+    -webkit-animation: slide-in 0.5s forwards;
+  }
+
+  .slide-out {
+    animation: slide-out 0.5s forwards;
+    animation-delay: 2s;
+    -webkit-animation: slide-out 0.5s forwards;
+  }
+
+  @keyframes slide-in {
+    100% { transform: translateX(0%);
+    }
+  }
+
+@-webkit-keyframes slide-in {
+  100% { -webkit-transform: translateX(0%);min-height: 200px; }
+}
+
+@keyframes slide-out {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%);max-height: 10px; }
+}
+
+@-webkit-keyframes slide-out {
+  0% { -webkit-transform: translateX(0%); }
+  100% { -webkit-transform: translateX(-100%); }
+}
+
+
+//RODAR
+.rotate{
+  -webkit-animation:spin 0.5s linear;
+  -moz-animation:spin 0.5s linear;
+  animation:spin 0.5s linear;
+  transform: rotate(90deg) translateY(-100%);
+}
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(90deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(90deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(90deg); transform:rotate(90deg); } }
+
+}
