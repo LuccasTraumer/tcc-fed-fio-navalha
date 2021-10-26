@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'fdn-cadastro-codigo-confirmacao',
@@ -7,17 +6,12 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./cadastro-codigo-confirmacao.component.scss']
 })
 export class CadastroCodigoConfirmacaoComponent {
-
   public isCodigoValido: boolean = false;
-  public formCodigo;
   @Output() codigoConfimacaoCadastrado = new EventEmitter<boolean>();
 
-  constructor() {
+  constructor() { }
 
-  }
-
-  validadorCodigo(codigo: string)
-  {
+  validadorCodigo(codigo: string) {
     codigo = codigo.trim();
 
     if(codigo == '' || codigo.length != 8) {
