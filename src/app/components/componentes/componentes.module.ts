@@ -5,6 +5,8 @@ import { CardBarbeariaHorizontalComponent } from './card-barbearia-horizontal/ca
 import { CardBarbeariaVerticalComponent } from './card-barbearia-vertical/card-barbearia-vertical.component';
 import { MenuComponent } from './menu/menu.component';
 import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.component';
+import { CardBarbeariaVisitadaComponent } from './card-barbearia-visitada/card-barbearia-visitada.component';
+import { CardHorarioAgendadoComponent } from './card-horario-agendado/card-horario-agendado.component';
 
 
 
@@ -13,6 +15,8 @@ import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.
     CardBarbeariaHorizontalComponent,
     CardBarbeariaVerticalComponent,
     CardPedidoCorteComponent,
+    CardBarbeariaVisitadaComponent,
+    CardHorarioAgendadoComponent,
     MenuComponent
   ],
   imports: [
@@ -22,6 +26,8 @@ import { CardPedidoCorteComponent } from './card-pedido-corte/card-pedido-corte.
     CardBarbeariaHorizontalComponent,
     CardBarbeariaVerticalComponent,
     CardPedidoCorteComponent,
+    CardBarbeariaVisitadaComponent,
+    CardHorarioAgendadoComponent,
     MenuComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

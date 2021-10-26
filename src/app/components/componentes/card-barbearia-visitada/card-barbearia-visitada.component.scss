@@ -1,0 +1,31 @@
+.container {
+
+  display: flex;
+  flex-flow: row wrap;
+  width: 5rem;
+  height: 8rem;
+  align-self: center;
+  border-radius: 5px;
+  margin: 5px;
+  color: var(--background-color);
+  background-color: var(--input-color);
+
+  section {
+    align-items: center;
+  }
+
+  .texto {
+    align-items: center;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  img {
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    max-width: 60%;
+    width: 60%;
+    border-radius: 50%;
+  }
+}

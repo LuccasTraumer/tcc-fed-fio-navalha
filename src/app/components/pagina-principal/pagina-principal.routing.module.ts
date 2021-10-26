@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomeBarbeariaComponent } from './home-barbearia/home-barbearia.component';
+import { HomeClienteComponent } from './home-cliente/home-cliente.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 const mainRoutes = [
   {
     path: 'home-barbearia',
     component: HomeBarbeariaComponent
+  },
+  {
+    path: 'home-cliente',
+    component: HomeClienteComponent
   },
   {
     path: 'explorar',

@@ -10,9 +10,10 @@ import { HomeBarbeariaComponent } from './home-barbearia/home-barbearia.componen
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeClienteComponent } from './home-cliente/home-cliente.component';
 
 @NgModule({
-  declarations: [PaginaPrincipalComponent, HomeBarbeariaComponent],
+  declarations: [PaginaPrincipalComponent, HomeBarbeariaComponent, HomeClienteComponent],
   imports: [
   AgmCoreModule.forRoot({
       // apiKey: process.env.API_KEY,
@@ -31,7 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     //   apiKey: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0',
     // }),
   ],
-  exports: [PaginaPrincipalComponent, HomeBarbeariaComponent],
+  exports: [PaginaPrincipalComponent, HomeBarbeariaComponent, HomeClienteComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PaginaPrincipalModule {}

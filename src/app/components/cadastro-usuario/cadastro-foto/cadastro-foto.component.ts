@@ -18,7 +18,7 @@ export class CadastroFotoComponent {
   public foto: any;
   public fotoValida: boolean = true;
   public valido = true;
-  public tamanhoFotoPermitido: number = 100000;
+  public tamanhoFotoPermitido: number = 300000;
   public icone_upload = ConstantesIcons.ICONE_UPLOAD_FOTO_PERFIL;
   public icone_camera = ConstantesIcons.ICONE_CAMERA_UPLOAD_FOTO_PERFIL;
   @Output()

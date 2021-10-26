@@ -10,8 +10,10 @@
   .header {
     position: relative;
 
+
     img {
       border-radius: 50%;
+      align-items: flex-start;
     }
   }
 
@@ -21,6 +23,7 @@
   }
 
   .header, .footer {
+
     height: 5vh;
     width: 100%;
     padding: 2%;
