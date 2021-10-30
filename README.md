@@ -1,3 +1,5 @@
+[![application](https://github.com/LuccasTraumer/tcc-fed-fio-navalha/actions/workflows/application.yml/badge.svg?branch=main)](https://github.com/LuccasTraumer/tcc-fed-fio-navalha/actions/workflows/application.yml)
+
 # TccFedFioNavalha
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.

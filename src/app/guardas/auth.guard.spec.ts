@@ -1,7 +1,7 @@
 import { getTestBed, TestBed } from '@angular/core/testing';
 
 import { AuthGuard } from './auth.guard';
-import { AutenticacaoService } from '../components/cadastro-usuario/autenticacao.service';
+import { AutenticacaoService } from '../modules/cadastro-usuario/services/autenticacao.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
