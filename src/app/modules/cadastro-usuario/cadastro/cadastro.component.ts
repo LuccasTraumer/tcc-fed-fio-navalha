@@ -3,6 +3,7 @@ import { Usuario } from '../../../models/Usuario';
 import { Endereco } from '../../../models/endereco';
 import { Barbearia } from '../../../models/barbearia';
 import { Cliente } from '../../../models/cliente';
+import {CadastroServiceService} from "../services/cadastro-service.service";
 
 @Component({
   selector: 'fdn-cadastro',
@@ -10,7 +11,6 @@ import { Cliente } from '../../../models/cliente';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent {
-
   private cliente: Usuario;
   public emailCadastrado: boolean = false;
   public codigoConfirmacaoCadastrado: boolean = false;
@@ -21,7 +21,8 @@ export class CadastroComponent {
   public enderecoCadastrado: boolean = false;
   public fotoPerfilCadastrado: boolean = false;
   public contador = 0;
-  constructor() {
+
+  constructor(private cadastroService: CadastroServiceService) {
     this.cliente = new Usuario();
   }
 
@@ -98,42 +99,34 @@ export class CadastroComponent {
   }
 
   exibirCadastroEmailCelular(): boolean {
-    // console.log("EMAIL");
     return this.emailCadastrado !== true;
   }
 
   exibirCodigoConfirmacao(): boolean {
-    // console.log("CODIGO");
     return this.codigoConfirmacaoCadastrado !== true && this.emailCadastrado == true;
   }
 
   exibirTipoConta(): boolean {
-    // console.log("TIPO");
     return this.tipoContaCadastrado !== true && this.codigoConfirmacaoCadastrado == true;
   }
 
   exibirCadastroNome(): boolean {
-    // console.log("NOME");
     return this.infoLoginCadastrado !== true && this.tipoContaCadastrado == true;
   }
 
   exibirDataNascimento(): boolean {
-    // console.log("DATA");
     return this.dataNascimentoCadastrado !== true && this.infoLoginCadastrado == true;
   }
 
   exibirCpfCnpj(): boolean {
-    // console.log("DOCUMENTO");
     return this.cpfCnpjCadastrado !== true && this.dataNascimentoCadastrado == true;
   }
 
   exibirEndereco(): boolean {
-    // console.log("ENDEREÇO");
     return this.enderecoCadastrado !== true && this.cpfCnpjCadastrado == true;
   }
 
   exibirFoto(): boolean {
-
     if(this.cliente.fotoPerfil != null){
       this.contador += 1;
       if(this.contador == 1)
@@ -145,6 +138,24 @@ export class CadastroComponent {
   onMudouValor(event) {
     console.log("AAAAAAAAAAA");
     console.log(event);
+  }
 
+  cadastrarUsuario(cliente: Usuario) {
+    if(cliente.tipoCliente == Cliente.name) {
+      this.cadastroService.cadastrarCliente(cliente as Cliente).then(response => {
+        window.location.href = '/login';
+      }, erro => {
+        window.location.href = '/error';
+        console.error(erro);
+      });
+    } else if (cliente.tipoCliente == Barbearia.name) {
+      return this.cadastroService.cadastrarBarbearia(cliente as Barbearia)
+        .then(reponse => {
+          window.location.href = '/login';
+        }).catch(erro => {
+          console.error(erro);
+          window.location.href = '/error';
+        });
+    }
   }
 }

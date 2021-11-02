@@ -14,10 +14,7 @@
       <input #cepInput class="input-data input" placeholder="CEP" type="number" [(ngModel)]="cep" (keyup)="validaCep(cepInput.value)" maxlength="8" type="text"/>
       <input #numeroInput class="input-data input" placeholder="Número" type="number" [(ngModel)]="numero" (keyup)="validaNumero(numeroInput.value)"/>
       <input #complemento class="input-data input" id="input-type" placeholder="Complemento" type="text"/>
-      <input class="input-data input" id="input-type" placeholder="Logradouro" type="text" [(value)]="endereco.logradouro"  disabled/>
-      <input class="input-data input" id="input-type" placeholder="Bairro" type="text" [(value)]="endereco.bairro"  disabled/>
-      <input class="input-data input" id="input-type" placeholder="Cidade" type="text" [(value)]="endereco.localidade"  disabled/>
-      <input class="input-data input" id="input-type" placeholder="Estado" type="text" [(value)]="endereco.uf"  disabled/>
+
 
     </section>
     <div class="submit">

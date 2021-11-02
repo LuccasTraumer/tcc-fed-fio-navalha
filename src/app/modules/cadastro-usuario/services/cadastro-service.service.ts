@@ -1,4 +1,4 @@
-import { throwError } from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { retry, catchError } from 'rxjs/operators';
@@ -21,10 +21,7 @@ export class CadastroServiceService {
   }
 
   public async cadastrarCliente(cliente: Cliente) {
-    console.log(`${environment.srvTCC}/cadastro/cliente`, cliente);
-    console.log(this.http.post(`${environment.srvTCC}/cadastro/cliente`, cliente).subscribe(response => {
-      console.log(response);
-    }, erro => this.handleError(erro)));
+    return this.http.post<Cliente>(`${environment.srvTCC}/cadastro/cliente`, cliente);
   }
 
   public async cadastrarBarbearia(barbearia: Barbearia) {

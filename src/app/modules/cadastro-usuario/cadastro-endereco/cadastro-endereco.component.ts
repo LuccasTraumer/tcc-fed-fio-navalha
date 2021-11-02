@@ -107,12 +107,11 @@ export class CadastroEnderecoComponent implements OnDestroy {
       this.endereco = !end.erro ? end : this.endereco;
     }, error => {
       this.resetaEndereco();
-      console.log(error)
+      console.error(error)
     });
   }
 
-  private resetaEndereco()
-  {
+  private resetaEndereco() {
       this.endereco.logradouro = "";
       this.endereco.cep = "";
       this.endereco.bairro = "";

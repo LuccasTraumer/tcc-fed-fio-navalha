@@ -34,8 +34,8 @@ export class AutenticacaoService implements OnDestroy {
   }
 
   async cadastrarUsuario(cliente: Usuario) {
-    if(cliente.tipoCliente == Cliente.name ) {
-      return this.cadastroService.cadastrarCliente(cliente as Cliente);
+    if(cliente.tipoCliente == Cliente.name) {
+      this.cadastroService.cadastrarCliente(cliente as Cliente)
     } else if (cliente.tipoCliente == Barbearia.name) {
       return this.cadastroService.cadastrarBarbearia(cliente as Barbearia);
     }

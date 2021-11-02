@@ -42,7 +42,6 @@ export const environment = {
   API_CEP: '${process.env.CEP_SERVICE}'
 };
 
-module.exports = environment;
 `;
 
 writeFileUsingFS(targetPath, environmentFileContent); // appending data into the target file

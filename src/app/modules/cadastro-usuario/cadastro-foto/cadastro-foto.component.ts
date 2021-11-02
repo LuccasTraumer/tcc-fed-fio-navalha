@@ -1,5 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
-import * as EventEmitter from 'events';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { Usuario } from 'src/app/models/Usuario';
 import { AutenticacaoService } from '../services/autenticacao.service';
@@ -11,24 +10,24 @@ import { ConstantesIcons } from '../../../utils/constantes.icons';
   styleUrls: ['./cadastro-foto.component.scss']
 })
 export class CadastroFotoComponent {
-
   @Input()
   public cliente: Usuario;
+
   public foto: any;
   public fotoValida: boolean = true;
   public valido = true;
   public tamanhoFotoPermitido: number = 300000;
   public icone_upload = ConstantesIcons.ICONE_UPLOAD_FOTO_PERFIL;
   public icone_camera = ConstantesIcons.ICONE_CAMERA_UPLOAD_FOTO_PERFIL;
+
   @Output()
-  enviar = new EventEmitter();
+  enviarDados = new EventEmitter<Usuario>();
+
   constructor(private autenticacaoService: AutenticacaoService, private fileReader: FileReader) {
     this.fotoValida = true;
-    //console.log(this.fotoValida)
   }
 
   UploadFoto(file: any) {
-    //console.log(file);
     if(file.target?.files && file.target?.files[0]) {
       let possivelFoto = file.target.files[0];
       let tamanhoFoto = possivelFoto.size;
@@ -55,7 +54,6 @@ export class CadastroFotoComponent {
   }
 
   onSubmit() {
-    this.enviar.emit("A");
-    this.autenticacaoService.cadastrarUsuario(this.cliente);
+    this.enviarDados.emit(this.cliente);
   }
 }
