@@ -135,24 +135,21 @@ export class CadastroComponent {
     return this.fotoPerfilCadastrado !== true && this.enderecoCadastrado == true;
   }
 
-  onMudouValor(event) {
-    console.log("AAAAAAAAAAA");
-    console.log(event);
-  }
-
   cadastrarUsuario(cliente: Usuario) {
     if(cliente.tipoCliente == Cliente.name) {
-      this.cadastroService.cadastrarCliente(cliente as Cliente).then(response => {
+      this.cadastroService.cadastrarCliente(cliente as Cliente).subscribe(response => {
         window.location.href = '/login';
+        alert("Usuario Cadastrado com Sucesso!");
       }, erro => {
         window.location.href = '/error';
         console.error(erro);
       });
     } else if (cliente.tipoCliente == Barbearia.name) {
-      return this.cadastroService.cadastrarBarbearia(cliente as Barbearia)
-        .then(reponse => {
+      this.cadastroService.cadastrarBarbearia(cliente as Barbearia)
+        .subscribe(reponse => {
           window.location.href = '/login';
-        }).catch(erro => {
+          alert("Usuario Cadastrado com Sucesso!");
+        }, erro => {
           console.error(erro);
           window.location.href = '/error';
         });

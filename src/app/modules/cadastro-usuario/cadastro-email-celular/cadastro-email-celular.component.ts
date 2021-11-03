@@ -47,10 +47,10 @@ export class CadastroEmailCelularComponent {
   }
 
   public enviarCodigo(): void {
-    // if(this.opcao == 0)
-    //   // alert("Código enviado para seu número");
-    // else
-    //   // alert("Código enviado para seu email")
+    if(this.opcao == 0)
+      alert("Código enviado para seu número");
+    else
+      alert("Código enviado para seu email")
   }
 
   public onSubmit(): void {
