@@ -30,7 +30,6 @@ import { LoginModule } from '../login/login.module';
   imports: [
     CommonModule,
     FormsModule,
-    LoginModule,
 
   ],
   exports: [
