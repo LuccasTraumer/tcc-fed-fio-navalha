@@ -1,20 +1,13 @@
-import { PerfilModule } from './modules/perfil/perfil/perfil.module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CardBarbeariaHorizontalComponent } from './modules/shared/card-barbearia-horizontal/card-barbearia-horizontal.component';
-import { LoginComponent } from './modules/login/login/login.component';
+import {AuthGuard} from "./guardas/auth.guard";
 
 
 const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./modules/login/login.module').then(module => module.LoginModule)
-  },
-  {
-    path: 'cards',
-    component: CardBarbeariaHorizontalComponent,
-    // canActivate: [AuthGuard]
   },
   {
     path: 'esqueceu-senha',
@@ -38,20 +31,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    //component: LoginComponent,
-    loadChildren: () => import('./modules/pagina-principal/pagina-principal.module').then(module => module.PaginaPrincipalModule),
-    // canActivate: [AuthGuard]
-    // can load
+    loadChildren: () => import('./modules/pagina-principal/pagina-principal.module')
+      .then(module => module.PaginaPrincipalModule),
   },
-  // {
-  //   path: '',
-  //   redirectTo: 'login',
-  //   pathMatch: 'full'
-  // },
   {
     path: '**',
     redirectTo: 'login',
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   }
 ];
 

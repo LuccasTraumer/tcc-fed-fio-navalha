@@ -24,13 +24,12 @@ export class AutenticacaoService implements OnDestroy {
     this.inscricao.unsubscribe();
   }
 
-  fazerLogin(cliente: Usuario): Subscription {
+  fazerLogin(cliente: Usuario) {
     this.usuarioAutenticado = true;
     this.clienteAutenticado.emit(this.usuarioAutenticado);
 
     //TODO: Fazer comunicação com o SRV e este retornar uma sessão para o usuario.
-    this.inscricao = this.http.post(`${environment.srvTCC}`, cliente, this.header).subscribe();
-    return this.inscricao;
+    return this.http.post(`${environment.srvTCC}/login`, cliente, this.header);
   }
 
   async cadastrarUsuario(cliente: Usuario) {

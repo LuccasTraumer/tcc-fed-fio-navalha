@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
-import { FormBuilder } from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticacaoService } from '../../cadastro-usuario/services/autenticacao.service';
 import { Usuario } from '../../../models/Usuario';
@@ -10,29 +10,36 @@ import { Usuario } from '../../../models/Usuario';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent {
-
-  public formulario = new Usuario();
+export class LoginComponent implements OnInit {
+  public formulario: FormGroup;
   public pathImage = ConstantesIcons.LOGO_ICON_PNG;
   public background: string = "../../../assets/images/barber-image-pentes.jpg";
 
   constructor(
-    //private formBuilder: FormBuilder,
     private router: Router,
-    //private autenticacaoService: AutenticacaoService
+    private formBuilder: FormBuilder,
+    private autenticacaoService: AutenticacaoService
     )
     {
-    // this.formulario = {
-    //   email: '',
-    //   senha: ''
-    // };
   }
 
-  onSubmita(): void{
+  ngOnInit(): void {
+    this.formulario = this.formBuilder.group({
+      email: [null, [Validators.required]],
+      senha: [null, [Validators.required, Validators.minLength(8)]],
+    })
+  }
+
+  onSubmit(): void{
+    let usuario = new Usuario();
+    usuario.senha = this.formBuilder.control("senha").value;
+    usuario.email = this.formBuilder.control("email").value;
+    this.autenticacaoService.fazerLogin(usuario)
+      .subscribe(response => {
+
+        },
+          error => {});
     console.log(this.formulario);
-    //if(this.formulario.email == 'admin' && this.formulario.senha == '123') {
-      this.router.navigate(['/home-barbearia']);
-    //}
   }
 
   cadastrarConta(): void {
@@ -41,5 +48,19 @@ export class LoginComponent {
 
   esqueceuSenha(): void {
     this.router.navigate(['/esqueceu-senha']);
+  }
+
+  aplicaCssErro(campo: string) {
+    return {
+      'has-error': this.verificaValidTouched(campo),
+      'has-feedback': this.verificaValidTouched(campo)
+    };
+  }
+
+  verificaValidTouched(campo: string) {
+    return (
+      !this.formulario.get(campo).valid &&
+      (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
+    );
   }
 }

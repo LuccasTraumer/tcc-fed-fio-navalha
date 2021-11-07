@@ -18,6 +18,11 @@ const mainRoutes = [
     component: PaginaPrincipalComponent
   },
   {
+    path: '',
+    redirectTo: 'explorar',
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }

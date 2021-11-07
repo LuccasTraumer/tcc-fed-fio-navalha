@@ -4,25 +4,23 @@
     <img src="{{pathImage}}" alt="logo" srcset="">
   </article>
 
-  <!-- <form formGroup="formulario" (ngSubmit)="onSubmit()"> -->
-    <form>
+    <form [formGroup]="formulario">
     <article class="informacoes">
       <section class="container-informacoes">
         <section class="email">
-          <label for="">Login</label>
-          <input [(ngModel)]="formulario.email" type="email" name="usuario">
+          <label>Email ou Numero Telefone</label>
+          <input [ngClass]="aplicaCssErro('login')" formControlName="email" type="text" name="usuario">
 
         </section>
 
         <section class="senha">
-          <label for="">Senha</label>
-          <input [(ngModel)]="formulario.senha" type="password" name="senha">
-          <!-- <input [(ngModel)]="formulario.senha" type="password" formControlName="senha"> -->
+          <label>Senha</label>
+          <input [ngClass]="aplicaCssErro('senha')" formControlName="senha" type="password" name="senha">
         </section>
 
         <a (click)="esqueceuSenha()" id="esqueceu-senha">Esqueceu a senha?</a>
 
-        <fdn-button textoInterno="Entrar" (click)="onSubmita()"></fdn-button>
+        <fdn-button textoInterno="Entrar" (click)="onSubmit()"></fdn-button>
         <div class="div-cadastrar">
           Não tem conta?
           <a (click)="cadastrarConta()" id="cadastre-se"> <span>Cadastre-se</span></a>
