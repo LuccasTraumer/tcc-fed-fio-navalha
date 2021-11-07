@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import {Md5} from 'ts-md5/dist/md5';
 
 import { Usuario } from '../../../models/Usuario';
 
@@ -71,7 +72,7 @@ export class CadastroNomeSenhaComponent {
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
     // enquanto a navegação pelos shared acontece, iremos mandando os dados um para o outro.
     let cliente: Usuario = new Usuario();
-    cliente.senha = senha;
+    cliente.senha = Md5.hashStr(senha);
     cliente.nome = nome;
 
     this.infoLoginCadastrado.emit(cliente);

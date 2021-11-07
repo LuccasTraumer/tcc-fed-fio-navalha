@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import {Md5} from 'ts-md5/dist/md5';
 import { AutenticacaoService } from '../../cadastro-usuario/services/autenticacao.service';
 import { Usuario } from '../../../models/Usuario';
 
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit(): void{
     let usuario = new Usuario();
-    usuario.senha = this.formBuilder.control("senha").value;
+    usuario.senha = Md5.hashStr(this.formBuilder.control("senha").value);
     usuario.email = this.formBuilder.control("email").value;
     this.autenticacaoService.fazerLogin(usuario)
       .subscribe(response => {
