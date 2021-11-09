@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import {Usuario} from "./models/Usuario";
 import {AutenticacaoService} from "./modules/cadastro-usuario/services/autenticacao.service";
@@ -17,7 +18,8 @@ export class AppComponent {
   public exibirMenu: boolean = true;//MENU
 
   constructor(
-    private autenticacaoService: AutenticacaoService
+    private autenticacaoService: AutenticacaoService,
+    private router: Router
   ) {
     this.cliente = new Cliente();
     this.cliente.fotoPerfil = '../assets/icons/barbearia_icone_exemplo.jpg'
@@ -28,6 +30,8 @@ export class AppComponent {
 
   public buscarBarbearia() {
     console.log('Cheguei')
-    window.location.href = '#/search'
+    //TODO: Remover Comentario e Verificar se o router funciona
+    //window.location.href = '#/search';
+    this.router.navigate(['#/search']);
   }
 }
