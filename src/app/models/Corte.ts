@@ -1,5 +1,5 @@
 import { Cliente } from './cliente';
-import { Barbearia } from './barbearia';
+import {Barbearia} from "./barbearia";
 
 export class Corte {
   consumidor: Cliente;

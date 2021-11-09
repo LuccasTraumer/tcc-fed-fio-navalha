@@ -2,10 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
 import { Usuario } from 'src/app/models/Usuario';
 import { Subscription } from 'rxjs';
-import { CadastroServiceService } from './cadastro-service.service';
 import { Cliente } from 'src/app/models/cliente';
 import { Barbearia } from '../../../models/barbearia';
 import { environment } from 'src/environments/environment';
+import {CadastroServiceService} from "./cadastro-service.service";
 
 @Injectable({
   providedIn: 'root'

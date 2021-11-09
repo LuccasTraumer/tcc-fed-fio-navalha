@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
-import { Usuario } from './models/Usuario';
-import { Cliente } from './models/cliente';
-import { AutenticacaoService } from './modules/cadastro-usuario/services/autenticacao.service';
 import { environment } from 'src/environments/environment';
-import {HttpClient} from "@angular/common/http";
+import {Usuario} from "./models/Usuario";
+import {AutenticacaoService} from "./modules/cadastro-usuario/services/autenticacao.service";
+import {Cliente} from "./models/Cliente";
 
 @Component({
   selector: 'app-root',

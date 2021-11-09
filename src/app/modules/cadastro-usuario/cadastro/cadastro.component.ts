@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Usuario } from '../../../models/Usuario';
-import { Endereco } from '../../../models/endereco';
-import { Barbearia } from '../../../models/barbearia';
-import { Cliente } from '../../../models/cliente';
+
 import {CadastroServiceService} from "../services/cadastro-service.service";
+import {Endereco} from "../../../models/Endereco";
+import {Cliente} from "../../../models/Cliente";
+import {Barbearia} from "../../../models/barbearia";
+import {Usuario} from "../../../models/Usuario";
 
 @Component({
   selector: 'fdn-cadastro',
