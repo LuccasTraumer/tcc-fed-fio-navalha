@@ -8,7 +8,7 @@ Adotamos este Banco pois seria mais facil de iniciar o projeto mas para um MVP 2
 Este Projeto está sendo Desenvolvido com o framework Frontend Angular 2.x, pois para proximas entregas disponibilizar a versão desktop.
 Angular foi escolhido por ser um Framework com uma comunidade imensa com muito conteudo para se estudar e debater sobre. E também pois não precisariamos desenvolver 3 apĺicações diferentes (Desktop, IOS e ANdroid), por isso adotamos uma SPA para agilizar no desenvolvimento e para termos um menor retrabalho possivel.
 
-Utilizamos o Gitflow para nos orientar no Versionamento de Codigo e Deployamos com a Vercel. <a target="https://tcc-fed-fio-navalha-pcajw0lw5-luccastraumer.vercel.app/#/">Acesse Aqui</a>: 
+Utilizamos o Gitflow para nos orientar no Versionamento de Codigo e Deployamos com a Vercel. <a target="https://tcc-fed-fio-navalha-pcajw0lw5-luccastraumer.vercel.app/#/"> Acesse Aqui </a>: 
 
 Pagina de Login (MVP 1):
 <p float="left">
