@@ -1,7 +1,11 @@
 ## Fio da Navalha
-Repositorio que irá conter todo o código-fonte do microservico que será consumido no Projeto: Fio da Navalha
+Repositorio que irá conter todo o código-fonte do frontend que será exibido no Projeto: Fio da Navalha
 
-Este serviço irá aplicar toda a regra de negocio necessaria para os endpoint que serão consumidos pelo Frontend.
+Este serviço irá exibir todas as Paginas para os usuarios, sendo que os dados serão consumidos do microservico <a target="https://github.com/LuccasTraumer/tcc-srv-fio-navalha">Backend</a>. Este que foi também desenvolvido e implementado pelos mesmos desenvovedores, utilizando a Linguagem Java na sua versão 11 com o Framework Spring Boot e como MVP 1 para utilizamos o um Banco de Dados Não Relacional (NoSQL).
+Adotamos este Banco pois seria mais facil de iniciar o projeto mas para um MVP 2 iremos mudar para um Banco Relacional que possivelmente será o SQL Server. Entendendo o negocio como um todo ter relacionamento entre as entidades faz mas sentido.
+
+Pagina de Login (MVP 1):
+
 
 ***Pensado, Implementado e testado por:***
 
