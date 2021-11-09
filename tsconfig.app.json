@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "outDir": "./out-tsc/app",
     "types": [
+      "googlemaps",
       "node"
     ]
   },

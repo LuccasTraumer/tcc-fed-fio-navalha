@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Barbearia } from 'src/app/models/barbearia';
-import { Endereco } from "src/app/models/endereco";
-import { EnderecoService } from "src/app/modules/cadastro-usuario/services/endereco.service";
+import {Endereco} from "../../../models/Endereco";
+import {Barbearia} from "../../../models/barbearia";
+import {EnderecoService} from "../services/endereco.service";
 
 @Component({
   selector: 'fdn-cadastro-endereco',
