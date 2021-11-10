@@ -15,7 +15,7 @@ export class AppComponent {
 
   cliente: Usuario;
 
-  public exibirMenu: boolean = true;//MENU
+  public exibirMenu: boolean = true;
 
   constructor(
     private autenticacaoService: AutenticacaoService,
