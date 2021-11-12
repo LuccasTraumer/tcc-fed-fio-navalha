@@ -20,7 +20,7 @@ Entao não temos medo de errar em Produção, pois caso aconteça um erro, basta
 
 Desenvolvemos nos baseando nas <a target="https://angular.io/guide/lazy-loading-ngmodules"> boas praticas da comunidade Angular </a> e também nos basenado um dos livros mais conhecido no mundo do desenvolvimento de software que é o <a target="https://balta.io/blog/clean-code">Clean Code </a>.
 
-Pré-desenvolvimento utilizamos o <a target="https://www.figma.com/"> Figma </a> para o desenvolvimento do Layout inicial.
+Pré-desenvolvimento utilizamos o [Figma](https://www.figma.com/) para o desenvolvimento do Layout inicial.
 
 
 FERRAMENTAS |
