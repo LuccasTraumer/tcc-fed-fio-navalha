@@ -48,6 +48,7 @@ Utilizamos o Gitflow para nos orientar no Versionamento de Codigo e Deployamos c
     - JUnit 5
     - Mockito
     - Postman
+    - JWT Token
 
   ### Qualidade:
   - Para Qualidade de Codigo, utilizamos o Jest como framework de teste para o frontend na cobertura dos testes unitarios.
