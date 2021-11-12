@@ -12,14 +12,28 @@ Angular foi escolhido por ser um Framework com uma comunidade imensa com muito c
 
 Utilizamos o Gitflow para nos orientar no Versionamento de Codigo e Deployamos com a Vercel. <a target="https://tcc-fed-fio-navalha-pcajw0lw5-luccastraumer.vercel.app/#/"> Acesse Aqui </a>:
 
-- ### Linguagens e Frameworks:
-- #### **COMUM:**
-  - Github
-  - Git
-  - Figma
-  - Discord
-  - Google Cloud Plataform
+- ### Ferramentas Utilizadas no Desenvolvimento do Projeto:
+Sobre as Ferramentas utilizadas no Projetos tentamos, centralizar para que não houvesse muitas "falhas" por não sabermos onde está, coisas necessaria.
+Por exemplo utilizamos o Github para centralizar todas parte de Controle de Codigo(CSV) mas também o utilizamos uma das features recentes da plataforma para o desenvolvimento Agil com boards kanban, sendo assim podemos linkar nossos cards com o projeto que vai ser desenvolvido este card. E também com esse modelo utilizamos ao criarmos Pull Request(PR) ele automaticamente linka quais cards estão sendo incluidos em uma determinada branch(ramificação).
+Outra feature "recente" disponibilizada é a de Integração Continua(CI) e Entrega Continua(CD), onde no Github Actions configuramos para que em determinada branch, ele execute o build do projeto, execute os testes e caso estes dois passos ocorrerem com sucesso, irá acontecer o deploy da aplicação na Vercel, com isso conseguimos ver nosso projeto no ar rapidamente.
+Entao não temos medo de errar em Produção, pois caso aconteça um erro, basta voltarmos uma versão no Git ou subir um corretiva o quanto antes.
 
+Desenvolvemos nos baseando nas <a target="https://angular.io/guide/lazy-loading-ngmodules"> boas praticas da comunidade Angular </a> e também nos basenado um dos livros mais conhecido no mundo do desenvolvimento de software que é o <a target="https://balta.io/blog/clean-code">Clean Code </a>.
+
+Pré-desenvolvimento utilizamos o <a target="https://www.figma.com/"> Figma </a> para o desenvolvimento do Layout inicial.
+
+
+FERRAMENTAS |
+-------------
+- <a target="https://github.com/LuccasTraumer/tcc-fed-fio-navalha/actions"> Github Actions </a> (Automatização do CI e CD) |
+- <a target="https://github.com/users/LuccasTraumer/projects/1"> Github Projects </a> (Kanban) |
+- <a target="https://www.figma.com/"> Figma </a> |
+- <a target="https://discord.com/" Discord </a> |
+- <a target="https://cloud.google.com/"> Google Cloud Plataform </a> |
+- Github |
+- Git |
+
+- ### Linguagens e Frameworks:
 - #### **FRONTEND:**
   - Angular 2.x
   - Typescript 4.0.1
