@@ -25,13 +25,13 @@ Pré-desenvolvimento utilizamos o [Figma](https://www.figma.com/) para o desenvo
 
 FERRAMENTAS | LINK |
 ---------------------
-- Github Actions (Automatização do CI e CD) | https://github.com/LuccasTraumer/tcc-fed-fio-navalha/actions |
-- Github Projects(Kanban) | https://github.com/users/LuccasTraumer/projects/1  |
-- Figma | https://www.figma.com/ |
-- Discord | https://discord.com/ |
-- Google Cloud Plataform | https://cloud.google.com/ |
-- Github |
-- Git |
+ Github Actions (Automatização do CI e CD) | https://github.com/LuccasTraumer/tcc-fed-fio-navalha/actions |
+ Github Projects(Kanban) | https://github.com/users/LuccasTraumer/projects/1  |
+ Figma | https://www.figma.com/ |
+ Discord | https://discord.com/ |
+ Google Cloud Plataform | https://cloud.google.com/ |
+ Github |
+ Git |
 
 - ### Linguagens e Frameworks:
 - #### **FRONTEND:**
