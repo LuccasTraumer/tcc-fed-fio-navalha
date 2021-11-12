@@ -3,14 +3,14 @@ Repositorio que irá conter todo o código-fonte do frontend que será exibido n
 
 
 ## Sobre:
-Este serviço irá exibir todas as Paginas para os usuarios, sendo que os dados serão consumidos do microservico <a target="https://github.com/LuccasTraumer/tcc-srv-fio-navalha">Backend</a>. Este que foi também desenvolvido e implementado pelos mesmos desenvovedores, utilizando a Linguagem Java na sua versão 11 com o Framework Spring Boot e como MVP 1 para utilizamos o um Banco de Dados Não Relacional (NoSQL).
+Este serviço irá exibir todas as Paginas para os usuarios, sendo que os dados serão consumidos do microservico [Backend](https://github.com/LuccasTraumer/tcc-srv-fio-navalha). Este que foi também desenvolvido e implementado pelos mesmos desenvovedores, utilizando a Linguagem Java na sua versão 11 com o Framework Spring Boot e como MVP 1 para utilizamos o um Banco de Dados Não Relacional (NoSQL).
 Adotamos este Banco pois seria mais facil de iniciar o projeto mas para um MVP 2 iremos mudar para um Banco Relacional que possivelmente será o SQL Server. Entendendo o negocio como um todo ter relacionamento entre as entidades faz mas sentido.
 
 ## Ferramentas e Linguagens:
 Este Projeto está sendo Desenvolvido com o framework Frontend Angular 2.x, pois para proximas entregas disponibilizar a versão desktop.
 Angular foi escolhido por ser um Framework com uma comunidade imensa com muito conteudo para se estudar e debater sobre. E também pois não precisariamos desenvolver 3 apĺicações diferentes (Desktop, IOS e Android), por isso adotamos uma SPA para agilizar no desenvolvimento e para termos um menor retrabalho possivel.
 
-Utilizamos o Gitflow para nos orientar no Versionamento de Codigo e Deployamos com a Vercel. <a target="https://tcc-fed-fio-navalha-pcajw0lw5-luccastraumer.vercel.app/#/"> Acesse Aqui </a>:
+Utilizamos o Gitflow para nos orientar no Versionamento de Codigo e Deployamos com a Vercel. [Acesse Aqui](https://tcc-fed-fio-navalha-pcajw0lw5-luccastraumer.vercel.app/#/):
 
 - ### Ferramentas Utilizadas no Desenvolvimento do Projeto:
 Sobre as Ferramentas utilizadas no Projetos tentamos, centralizar para que não houvesse muitas "falhas" por não sabermos onde está, coisas necessaria.
@@ -18,18 +18,18 @@ Por exemplo utilizamos o Github para centralizar todas parte de Controle de Codi
 Outra feature "recente" disponibilizada é a de Integração Continua(CI) e Entrega Continua(CD), onde no Github Actions configuramos para que em determinada branch, ele execute o build do projeto, execute os testes e caso estes dois passos ocorrerem com sucesso, irá acontecer o deploy da aplicação na Vercel, com isso conseguimos ver nosso projeto no ar rapidamente.
 Entao não temos medo de errar em Produção, pois caso aconteça um erro, basta voltarmos uma versão no Git ou subir um corretiva o quanto antes.
 
-Desenvolvemos nos baseando nas <a target="https://angular.io/guide/lazy-loading-ngmodules"> boas praticas da comunidade Angular </a> e também nos basenado um dos livros mais conhecido no mundo do desenvolvimento de software que é o <a target="https://balta.io/blog/clean-code">Clean Code </a>.
+Desenvolvemos nos baseando nas [boas praticas da comunidade Angular](https://angular.io/guide/lazy-loading-ngmodules) e também nos basenado um dos livros mais conhecido no mundo do desenvolvimento de software que é o [Clean Code](https://balta.io/blog/clean-code).
 
 Pré-desenvolvimento utilizamos o [Figma](https://www.figma.com/) para o desenvolvimento do Layout inicial.
 
 
 FERRAMENTAS |
 -------------
-- <a target="https://github.com/LuccasTraumer/tcc-fed-fio-navalha/actions"> Github Actions </a> (Automatização do CI e CD) |
-- <a target="https://github.com/users/LuccasTraumer/projects/1"> Github Projects </a> (Kanban) |
-- <a target="https://www.figma.com/"> Figma </a> |
-- <a target="https://discord.com/" Discord </a> |
-- <a target="https://cloud.google.com/"> Google Cloud Plataform </a> |
+- [Github Actions](https://github.com/LuccasTraumer/tcc-fed-fio-navalha/actions) (Automatização do CI e CD) |
+- [Github Projects](https://github.com/users/LuccasTraumer/projects/1) (Kanban) |
+- [Figma](https://www.figma.com/) |
+- [Discord](https://discord.com/) |
+- [ Google Cloud Plataform ](https://cloud.google.com/)|
 - Github |
 - Git |
 
