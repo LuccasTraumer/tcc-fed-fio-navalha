@@ -13,7 +13,7 @@
     position: absolute;
     width: inherit;
     height: inherit;
-    z-index: 0;
+    z-index: -1;
     filter: blur(6px);
   }
 
@@ -23,7 +23,7 @@
   }
 
   .logo {
-    padding: 25vh 0% 5vh 0%;
+    padding: 15vh 0% 5vh 0%;
     display: flex;
     justify-content: center;
 
@@ -70,7 +70,18 @@
         font-weight: 600;
       }
 
+      .mensagem-error {
+        display: flex;
+        flex-direction: column;
+        padding-top: 5%;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+      }
+
       fdn-button {
+        padding-top: 3vh;
+        padding-bottom: 5%;
         width: 80%;
         height: 10%;
         padding-left: 3%;

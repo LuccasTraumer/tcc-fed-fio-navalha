@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Barbearia} from "../../models/barbearia";
-import {ConstantesIcons} from "../../utils/constantes.icons";
+import {Barbearia} from "../../../models/barbearia";
+import {ConstantesIcons} from "../../../utils/constantes.icons";
 
 @Component({
   selector: 'app-search',

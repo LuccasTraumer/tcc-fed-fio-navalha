@@ -8,8 +8,8 @@
     <article class="informacoes">
       <section class="container-informacoes">
         <section class="email">
-          <label>Email ou Numero Telefone</label>
-          <input [ngClass]="aplicaCssErro('login')" formControlName="email" type="text" name="usuario">
+          <label>Email</label>
+          <input [ngClass]="aplicaCssErro('email')" formControlName="email" type="text" name="email">
 
         </section>
 
@@ -20,7 +20,12 @@
 
         <a (click)="esqueceuSenha()" id="esqueceu-senha">Esqueceu a senha?</a>
 
+        <div *ngIf="mostrarMensagem" class="mensagem-error">
+          <label class="has-error"> Dados Invalidos!</label>
+        </div>
+
         <fdn-button textoInterno="Entrar" (click)="onSubmit()"></fdn-button>
+
         <div class="div-cadastrar">
           Não tem conta?
           <a (click)="cadastrarConta()" id="cadastre-se"> <span>Cadastre-se</span></a>

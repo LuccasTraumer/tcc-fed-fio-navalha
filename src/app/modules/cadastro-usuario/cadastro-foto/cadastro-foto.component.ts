@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import { Usuario } from 'src/app/models/Usuario';
-import { AutenticacaoService } from '../services/autenticacao.service';
 import { ConstantesIcons } from '../../../utils/constantes.icons';
 
 @Component({
@@ -23,7 +22,7 @@ export class CadastroFotoComponent {
   @Output()
   enviarDados = new EventEmitter<Usuario>();
 
-  constructor(private autenticacaoService: AutenticacaoService, private fileReader: FileReader) {
+  constructor(private fileReader: FileReader) {
     this.fotoValida = true;
   }
 

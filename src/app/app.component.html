@@ -15,16 +15,16 @@
   <router-outlet></router-outlet>
 
   <div *ngIf="exibirMenu" class="footer background-ft">
-    <a href="">
+    <a (click)="irParaHome()">
       <img src="../assets/icons/icones-free/home-icon-black.png" alt="icone home">
     </a>
-    <a href="">
+    <a (click)="irParaMaps()">
       <img src="../assets/icons/icones-free/bussola-icon-black.png" alt="icone explorar">
     </a>
     <a (click)="buscarBarbearia()">
-      <img src="../assets//icons/icones-free/search-icon-black.png" alt="icone buscar">
+      <img src="../assets/icons/icones-free/search-icon-black.png" alt="icone buscar">
     </a>
-    <a href="">
+    <a (click)="irParaPerfil()">
       <img src="../assets/icons/icones-free/user-icon-black.png" alt="icone perfil">
     </a>
   </div>

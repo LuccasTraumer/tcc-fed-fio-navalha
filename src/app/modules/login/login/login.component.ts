@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {Md5} from 'ts-md5/dist/md5';
 import { AutenticacaoService } from '../../cadastro-usuario/services/autenticacao.service';
 import { Usuario } from '../../../models/Usuario';
+import {Cliente} from "../../../models/Cliente";
+import {Barbearia} from "../../../models/barbearia";
 
 @Component({
   selector: 'fdn-login',
@@ -15,32 +16,41 @@ export class LoginComponent implements OnInit {
   public formulario: FormGroup;
   public pathImage = ConstantesIcons.LOGO_ICON_PNG;
   public background: string = "../../../assets/images/barber-image-pentes.jpg";
+  public mostrarMensagem: boolean = false;
 
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private autenticacaoService: AutenticacaoService
-    )
-    {
-  }
+  ) { }
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
       email: [null, [Validators.required]],
       senha: [null, [Validators.required, Validators.minLength(8)]],
-    })
+    });
   }
 
   onSubmit(): void{
     let usuario = new Usuario();
-    usuario.senha = Md5.hashStr(this.formBuilder.control("senha").value);
-    usuario.email = this.formBuilder.control("email").value;
-    this.autenticacaoService.fazerLogin(usuario)
-      .subscribe(response => {
+    usuario.senha = this.formulario.controls["senha"].value;
+    usuario.email = this.formulario.controls["email"].value;
 
-        },
-          error => {});
-    console.log(this.formulario);
+    this.autenticacaoService.fazerLogin(usuario)
+      .pipe()
+      .subscribe((response: any) => {
+        sessionStorage.setItem('jwtUser', JSON.stringify(response.body));
+        this.autenticacaoService.setUsuarioAutenticado(LoginComponent.prototype, true);
+        const tipoCliente = response.body.tipoCliente.split('.')[4];
+        console.log(tipoCliente !== undefined);
+        if(tipoCliente !== undefined && (tipoCliente === Cliente.name || tipoCliente === Barbearia.name)) {
+          this.router.navigate([`/home-${tipoCliente.toLocaleLowerCase()}`]);
+        }
+        },error => {
+          console.error('Erro ao tentar efetuar Login do Cliente {}.', usuario.email);
+          this.mostrarMensagem = true;
+        }
+      );
   }
 
   cadastrarConta(): void {
@@ -60,6 +70,7 @@ export class LoginComponent implements OnInit {
 
   verificaValidTouched(campo: string) {
     return (
+      this.formulario.get(campo) != undefined &&
       !this.formulario.get(campo).valid &&
       (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
     );

@@ -1,7 +1,5 @@
-import {Observable, throwError} from 'rxjs';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import {retry, catchError, take} from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Barbearia } from '../../../models/barbearia';
 import { Cliente } from '../../../models/Cliente';
 import { environment } from 'src/environments/environment';
@@ -21,24 +19,10 @@ export class CadastroServiceService {
   }
 
   public cadastrarCliente(cliente: Cliente) {
-    const retorno = this.http.post<Cliente>(`${environment.srvTCC}/cadastro/cliente`, cliente);
-    console.log(cliente);
-    return retorno;
+    return  this.http.post<Cliente>(`${environment.srvTCC}/cadastro/cliente`, cliente);
   }
 
   public cadastrarBarbearia(barbearia: Barbearia) {
     return this.http.post<Barbearia>(`${environment.srvTCC}/cadastro/barbearia`, barbearia);
-  }
-
-  private handleError(error: HttpErrorResponse) {
-    let errorMessage = '';
-    if (error.error instanceof ErrorEvent) {
-      errorMessage = error.error.message;
-    } else {
-      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
-    }
-    alert(errorMessage);
-    console.log(errorMessage);
-    return throwError(errorMessage);
   }
 }

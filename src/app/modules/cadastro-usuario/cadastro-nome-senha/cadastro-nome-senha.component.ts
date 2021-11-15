@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import {Md5} from 'ts-md5/dist/md5';
 
 import { Usuario } from '../../../models/Usuario';
 
@@ -64,15 +63,15 @@ export class CadastroNomeSenhaComponent {
     this.tipoErro = 0;
 
     this.senhaValida = (this.nome != '' && this.senha.length == 8)?true:false;
-    this.mensagemErro = (this.senha.length != 8)?'A senha deve possuir no mínimo 8 caracteres':'';
-    this.mensagemErro = (this.nome.trim() == '')?'Nome é obrigatório':this.mensagemErro;
+    this.mensagemErro = (this.senha.length != 8) ? 'A senha deve possuir no mínimo 8 caracteres' : '';
+    this.mensagemErro = (this.nome.trim() == '') ? 'Nome é obrigatório' : this.mensagemErro;
   }
 
   onSubmit(nome: string, senha: string) {
     // Em cada componente que precise de validação, fazer a request e validar o campo necessario mas só enviar os dados para cadastro no ultimo form
     // enquanto a navegação pelos shared acontece, iremos mandando os dados um para o outro.
     let cliente: Usuario = new Usuario();
-    cliente.senha = Md5.hashStr(senha);
+    cliente.senha = senha;
     cliente.nome = nome;
 
     this.infoLoginCadastrado.emit(cliente);

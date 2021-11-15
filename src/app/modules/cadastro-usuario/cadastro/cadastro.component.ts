@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import {CadastroServiceService} from "../services/cadastro-service.service";
 import {Endereco} from "../../../models/Endereco";
 import {Cliente} from "../../../models/Cliente";
 import {Barbearia} from "../../../models/barbearia";
 import {Usuario} from "../../../models/Usuario";
+import {AutenticacaoService} from "../services/autenticacao.service";
 
 @Component({
   selector: 'fdn-cadastro',
@@ -25,8 +25,8 @@ export class CadastroComponent {
   public contador = 0;
 
   constructor(
-    private cadastroService: CadastroServiceService,
-    private router: Router
+    private router: Router,
+    private autenticacaoService: AutenticacaoService
   ) {
     this.cliente = new Usuario();
   }
@@ -141,26 +141,12 @@ export class CadastroComponent {
   }
 
   cadastrarUsuario(cliente: Usuario) {
-    if(cliente.tipoCliente == Cliente.name) {
-      this.cadastroService.cadastrarCliente(cliente as Cliente).subscribe(response => {
-        //TODO: Remover Comentario e verificar roteamento
-        //window.location.href = '/login';
+    this.autenticacaoService.cadastrarUsuario(cliente)
+      .subscribe((response) => {
         this.router.navigate(['/login']);
-        alert("Usuario Cadastrado com Sucesso!");
-      }, erro => {
-        //window.location.href = '/error';
-        this.router.navigate(['/error']);
-        console.error(erro);
+      }, error => {
+        this.router.navigate(['error']);
+        console.error(error);
       });
-    } else if (cliente.tipoCliente == Barbearia.name) {
-      this.cadastroService.cadastrarBarbearia(cliente as Barbearia)
-        .subscribe(reponse => {
-          window.location.href = '/login';
-          alert("Usuario Cadastrado com Sucesso!");
-        }, erro => {
-          console.error(erro);
-          window.location.href = '/error';
-        });
-    }
   }
 }

@@ -16,6 +16,7 @@ export class AppComponent {
   cliente: Usuario;
 
   public exibirMenu: boolean = true;
+  protected usuarioAutenticado: boolean;
 
   constructor(
     private autenticacaoService: AutenticacaoService,
@@ -24,14 +25,38 @@ export class AppComponent {
     this.cliente = new Cliente();
     this.cliente.fotoPerfil = '../assets/icons/barbearia_icone_exemplo.jpg'
 
-    this.autenticacaoService.clienteAutenticado.subscribe((exibicao : any) => this.exibirMenu = exibicao)
+    this.autenticacaoService.clienteAutenticado
+      .subscribe((exibicao : any) => {
+        this.exibirMenu = exibicao;
+        this.usuarioAutenticado = this.autenticacaoService.usuarioEstaAutenticado();
+      });
+
     console.log(`${environment.srvTCC}/cadastro/cliente`);
   }
 
   public buscarBarbearia() {
-    console.log('Cheguei')
     //TODO: Remover Comentario e Verificar se o router funciona
-    //window.location.href = '#/search';
-    this.router.navigate(['#/search']);
+    this.router.navigate(['/search']);
+  }
+
+  public irParaHome() {
+    if(this.autenticacaoService.usuarioEstaAutenticado() && this.cliente.tipoCliente === 'cliente')
+      this.router.navigate(['home-cliente']);
+    else if (this.autenticacaoService.usuarioEstaAutenticado() && this.cliente.tipoCliente === 'barbearia')
+      this.router.navigate(['home-barbearia']);
+    else
+      this.router.navigate(['']);
+  }
+
+  public irParaMaps() {
+    if (this.usuarioAutenticado)
+      this.router.navigate(['/search/maps']);
+  }
+
+  public irParaPerfil() {
+    if (this.usuarioAutenticado)
+      this.router.navigate(['#/perfil']);
+    else
+      this.router.navigate(['#/login']);
   }
 }
