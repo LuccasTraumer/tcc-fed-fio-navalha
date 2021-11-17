@@ -4,7 +4,7 @@
     (valorBuscaPreenchido)="setBuscaEfetuada($event)"
   ></app-input-busca>
 
-  <div class="historico" *ngIf="!foiEfetuadaBusca">
+  <div class="carrossel historico" *ngIf="!foiEfetuadaBusca">
     <label>Historico de Barbearias</label>
     <div class="cards">
       <fdn-card-barbearia-vertical
@@ -21,7 +21,7 @@
     </fdn-combobox-filtro>
   </div>
 
-  <div class="resultado" *ngIf="!foiEfetuadaBusca">
+  <div class="carrossel resultado" *ngIf="!foiEfetuadaBusca">
     <fdn-card-barbearia-horizontal
       *ngFor="let barbearia of listaBarbearia;"
       [barbearia]="barbearia">
