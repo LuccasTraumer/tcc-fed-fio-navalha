@@ -7,6 +7,10 @@
   overflow: hidden;
   position: absolute;
 
+  .layout-desktop {
+    visibility: hidden;
+  }
+
   .header {
     position: relative;
 
@@ -49,6 +53,17 @@
 
     .bottom-text {
       font-family: 'Meie Script', cursive;
+    }
+  }
+}
+
+* {
+  @media only screen and (min-width: 426px) {
+    visibility: visible;
+    background: var(--background-color);
+
+    .layout-desktop {
+
     }
   }
 }

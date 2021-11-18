@@ -1,7 +1,7 @@
 .container {
   width: 100vw;
   padding: 5% 0%;
-  
+
   .carrossel {
       display: flex;
       overflow: scroll;
@@ -14,7 +14,6 @@
     padding: 0% 5%;
 
     .cards {
-      display: inherit;
       flex-flow: row;
       flex-direction: row;
     }
@@ -31,14 +30,21 @@
     padding: 3.5%;
   }
 
-  .resultado {
-    display: flex;
-    flex-direction: column;
+  .buscados {
     height: 100vh;
-    margin: 5%;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 0% 5%;
 
-    fdn-card-barbearia-horizontal {
-      margin-bottom: 3%;
+    .resultado {
+      display: inherit;
+      flex-direction: column;
+      height: 100vh;
+      margin: 5%;
+
+      fdn-card-barbearia-horizontal {
+        margin-bottom: 5%;
+      }
     }
   }
 }

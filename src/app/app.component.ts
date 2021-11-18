@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import {Usuario} from "./models/Usuario";
@@ -10,7 +10,7 @@ import {Cliente} from "./models/Cliente";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy{
   title = 'tcc-fed-fio-navalha';
 
   cliente: Usuario;
@@ -58,5 +58,9 @@ export class AppComponent {
       this.router.navigate(['#/perfil']);
     else
       this.router.navigate(['#/login']);
+  }
+
+  ngOnDestroy(): void {
+    sessionStorage.clear();
   }
 }
