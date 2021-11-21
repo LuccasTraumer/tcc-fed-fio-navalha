@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { HomeClienteComponent } from 'src/app/components/pagina-principal/home-cliente/home-cliente.component';
+import { HomeClienteComponent } from 'src/app/modules/pagina-principal/home-cliente/home-cliente.component';
 import { HomeBarbeariaComponent } from './home-barbearia/home-barbearia.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 

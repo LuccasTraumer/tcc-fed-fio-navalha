@@ -1,3 +1,21 @@
-<p>
-  card-barbearia-favorita works!
-</p>
+<nav class="container">
+  <div class="foto-perfil">
+    <img src="../../../../assets/images/barbearia.jpg">
+  </div>
+
+  <section class="informacoes">
+    <h3>{{ barbearia.nome }}</h3>
+    <div class="dados-linha1">
+      <img src="../../../../assets/icons/star-complete-fill.svg" class="icon">
+      <span class="avaliacao"> {{ barbearia.avaliacaoBarbearia  }}</span>
+      <span class="distancia">• {{ distancia }}Km</span>
+
+      <span class="favoritar"> <img src=" {{ iconeFavoritar }}" (click)="Favoritar()"> </span>
+    </div>
+
+    <div class="dados-linha2">
+      <span class="tempo"> {{ tempo }} Min </span>
+      <span class="valor"> R$ {{ valor }} </span>
+    </div>
+  </section>
+</nav>
