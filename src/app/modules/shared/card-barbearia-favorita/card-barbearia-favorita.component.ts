@@ -30,6 +30,7 @@ export class CardBarbeariaFavoritaComponent implements OnInit {
     fotoPerfil: null,
     telefone: null
   };
+  @Input() fotoPerfil: String;
   @Input() distancia: Number = 0;
   @Input() tempo: Number = 0;
   @Input() valor: Number = 0;
@@ -39,7 +40,6 @@ export class CardBarbeariaFavoritaComponent implements OnInit {
 
   public Favoritar(): void {
     this.favorito = !this.favorito;
-    console.log(this.favorito);
     if(this.favorito)
       this.iconeFavoritar = "../../../../assets/icons/black-hearth.png";
     else

@@ -1,7 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { addDays, addHours, startOfDay } from 'date-fns';
+import { Barbearia } from 'src/app/models/barbearia';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
+import { BarbeariaService } from './../../../services/barbearia.service';
+import { BarbeariasResponseMock } from './../../../utils/interfaces/BarbeariasResponseMock';
 
 @Component({
   selector: 'fdn-home-cliente',
@@ -23,63 +26,51 @@ import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 })
 export class HomeClienteComponent implements OnInit {
 
- public setaIcone = ConstantesIcons.ICONE_SETA_PRA_BAIXO_BLACK;
- public isPedidosExibido: boolean = true;
- public isAgendamentosExibido: boolean = true;
- constructor() { }
+  public setaIcone = ConstantesIcons.ICONE_SETA_PRA_BAIXO_BLACK;
+  public isPedidosExibido: boolean = true;
+  public isAgendamentosExibido: boolean = true;
+  public barbearias: BarbeariasResponseMock;
+  public fotosBase: String = "../../../../assets/images/Barbearias/";
+  public barbeariasFotos: String[] = [
+    this.fotosBase + "barbeariaPerfil1.jpg",
+    this.fotosBase + "barbeariaPerfil2.jpg",
+    this.fotosBase + "barbeariaPerfil3.jpg",
+    this.fotosBase + "barbeariaPerfil4.jpg",
+    this.fotosBase + "barbeariaPerfil5.jpg",
+    this.fotosBase + "barbeariaPerfil6.jpg",
+    this.fotosBase + "barbeariaPerfil7.jpg",
+    this.fotosBase + "barbeariaPerfil8.jpg",
+    this.fotosBase + "barbeariaPerfil9.jpg",
+    this.fotosBase + "barbeariaPerfil10.jpg",
+
+  ];
+
+  public tempo: Number[] = [10, 20, 25, 15, 20, 30, 8, 15, 11, 12];
+  public valor: Number[] = [50, 40, 20, 35, 25, 45, 20, 40, 15, 15];
+  public distancia: Number[] = [5.4, 8.2, 9.3, 7.4, 5.5, 9, 1.7, 4.1, 2.5, 2.7];
+
+  constructor(private barbeariaService: BarbeariaService) { }
 
   ngOnInit(): void {
+    this.retornaBarbearias();
   }
 
   slider(container: number) {
-    if(container == 1)
+    if (container == 1)
       this.isPedidosExibido = !this.isPedidosExibido;
     else
       this.isAgendamentosExibido = !this.isAgendamentosExibido;
   }
 
-  //calendario
-  view: CalendarView = CalendarView.Day;
+  private retornaBarbearias(): void {
+    this.barbeariaService.RetornaListaBarbearias().subscribe((barbearias: BarbeariasResponseMock) => {
+      this.barbearias = barbearias;
+      console.log(this.barbearias[0]);
+    });
+  }
 
-  viewDate: Date = new Date();
-  data: Date = new Date();
 
-  events: CalendarEvent[] = [
-    {
-      start: startOfDay(new Date()),
-      title: 'An event',
-     // color: colors.yellow,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'Another event',
-      //color: colors.blue,
-    },
-    {
-      start: addDays(addHours(startOfDay(new Date()), 2), 2),
-      end: addDays(new Date(), 2),
-      title: 'And another',
-      //color: colors.red,
-    },
-  ];
 
 }
 
 
-/*
-export const colors: any = {
-  red: {
-    primary: '#ad2121',
-    secondary: '#FAE3E3',
-  },
-  blue: {
-    primary: '#1e90ff',
-    secondary: '#D1E8FF',
-  },
-  yellow: {
-    primary: '#e3bc08',
-    secondary: '#FDF1BA',
-  },
-};
-*/

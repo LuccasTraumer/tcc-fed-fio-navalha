@@ -5,9 +5,6 @@
     </div>
     <div class="horarios-agendados">
       <fdn-card-horario-agendado></fdn-card-horario-agendado>
-      <fdn-card-horario-agendado></fdn-card-horario-agendado>
-      <fdn-card-horario-agendado></fdn-card-horario-agendado>
-      <fdn-card-horario-agendado></fdn-card-horario-agendado>
     </div>
   </section>
   <section>
@@ -34,19 +31,13 @@
   <section class="barbearias-favoritas">
     <div class="barbearias-favoritas">
       <fdn-card-barbearia-favorita
-      [barbearia.nome] = "'Teste1'"
-      [tempo]=50
+      *ngFor="let item of barbearias; let i = index"
+      [barbearia]="barbearias[i]"
+      [fotoPerfil]="barbeariasFotos[i]"
+      [tempo]="tempo[i]"
+      [valor]="valor[i]"
+      [distancia]="distancia[i]"
       ></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-      <fdn-card-barbearia-favorita></fdn-card-barbearia-favorita>
-
     </div>
   </section>
 </div>
