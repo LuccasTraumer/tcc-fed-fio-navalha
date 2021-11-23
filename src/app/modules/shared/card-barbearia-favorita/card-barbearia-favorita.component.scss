@@ -23,6 +23,7 @@
 
   .informacoes {
     padding-top: 2%;
+    width: 60%;
 
     h3 {
       font-weight: 700;
@@ -32,11 +33,17 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      width: 100%;
+      justify-content: space-between;
 
       .avaliacao {
         color: orange;
         margin-top: 15px;
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-bottom: 15px;
+        }
       }
 
       .distancia {
@@ -46,7 +53,7 @@
       }
 
       .favoritar {
-        background-color: aqua;
+        margin-bottom: 10px;
         img {
           max-width: 35px;
         }
@@ -57,6 +64,8 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: space-between;
+
 
       .tempo {
         margin-top: 10px;

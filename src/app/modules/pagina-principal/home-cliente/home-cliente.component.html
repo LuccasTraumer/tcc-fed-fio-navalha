@@ -4,7 +4,9 @@
       Horarios Agendados
     </div>
     <div class="horarios-agendados">
-      <fdn-card-horario-agendado></fdn-card-horario-agendado>
+      <fdn-card-horario-agendado
+      [fotoBarbearia]="barbeariasFotos[8]"
+      ></fdn-card-horario-agendado>
     </div>
   </section>
   <section>
@@ -12,17 +14,12 @@
       Barbearias Visitadas
     </div>
     <div class="barbearias-visitadas">
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
-      <fdn-card-barbearia-visitada></fdn-card-barbearia-visitada>
+      <fdn-card-barbearia-visitada
+      *ngFor="let item of barbearias; let i = index"
+      [barbearia]="barbearias[i]"
+      [fotoBarbearia]="barbeariasFotos[i]"
+      ></fdn-card-barbearia-visitada>
+
     </div>
   </section>
   <div class="titulo-central">
