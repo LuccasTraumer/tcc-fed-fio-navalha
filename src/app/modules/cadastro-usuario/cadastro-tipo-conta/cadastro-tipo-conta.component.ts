@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Cliente } from 'src/app/models/cliente';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
-import { Barbearia } from '../../../models/barbearia';
+import {Cliente} from "../../../models/Cliente";
+import {Barbearia} from "../../../models/barbearia";
 
 @Component({
   selector: 'fdn-cadastro-tipo-conta',

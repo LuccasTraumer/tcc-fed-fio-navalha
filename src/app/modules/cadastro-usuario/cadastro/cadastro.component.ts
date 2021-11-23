@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
-import { Usuario } from '../../../models/Usuario';
-import { Endereco } from '../../../models/endereco';
-import { Barbearia } from '../../../models/barbearia';
-import { Cliente } from '../../../models/cliente';
+import { Router } from '@angular/router';
+
 import {CadastroServiceService} from "../services/cadastro-service.service";
+import {Endereco} from "../../../models/Endereco";
+import {Cliente} from "../../../models/Cliente";
+import {Barbearia} from "../../../models/barbearia";
+import {Usuario} from "../../../models/Usuario";
 
 @Component({
   selector: 'fdn-cadastro',
@@ -22,7 +24,10 @@ export class CadastroComponent {
   public fotoPerfilCadastrado: boolean = false;
   public contador = 0;
 
-  constructor(private cadastroService: CadastroServiceService) {
+  constructor(
+    private cadastroService: CadastroServiceService,
+    private router: Router
+  ) {
     this.cliente = new Usuario();
   }
 
@@ -138,10 +143,13 @@ export class CadastroComponent {
   cadastrarUsuario(cliente: Usuario) {
     if(cliente.tipoCliente == Cliente.name) {
       this.cadastroService.cadastrarCliente(cliente as Cliente).subscribe(response => {
-        window.location.href = '/login';
+        //TODO: Remover Comentario e verificar roteamento
+        //window.location.href = '/login';
+        this.router.navigate(['/login']);
         alert("Usuario Cadastrado com Sucesso!");
       }, erro => {
-        window.location.href = '/error';
+        //window.location.href = '/error';
+        this.router.navigate(['/error']);
         console.error(erro);
       });
     } else if (cliente.tipoCliente == Barbearia.name) {

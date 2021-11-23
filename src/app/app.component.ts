@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Usuario } from './models/Usuario';
-import { Cliente } from './models/cliente';
-import { AutenticacaoService } from './modules/cadastro-usuario/services/autenticacao.service';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import {HttpClient} from "@angular/common/http";
+import {Usuario} from "./models/Usuario";
+import {AutenticacaoService} from "./modules/cadastro-usuario/services/autenticacao.service";
+import {Cliente} from "./models/Cliente";
 
 @Component({
   selector: 'app-root',
@@ -15,10 +15,11 @@ export class AppComponent {
 
   cliente: Usuario;
 
-  public exibirMenu: boolean = true;//MENU
+  public exibirMenu: boolean = true;
 
   constructor(
-    private autenticacaoService: AutenticacaoService
+    private autenticacaoService: AutenticacaoService,
+    private router: Router
   ) {
     this.cliente = new Cliente();
     this.cliente.fotoPerfil = '../assets/icons/barbearia_icone_exemplo.jpg'
@@ -29,6 +30,8 @@ export class AppComponent {
 
   public buscarBarbearia() {
     console.log('Cheguei')
-    window.location.href = '#/search'
+    //TODO: Remover Comentario e Verificar se o router funciona
+    //window.location.href = '#/search';
+    this.router.navigate(['#/search']);
   }
 }

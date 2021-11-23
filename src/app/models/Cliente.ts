@@ -1,6 +1,6 @@
 
-import { Corte } from "./corte";
 import { Usuario } from "./Usuario";
+import {Corte} from "./Corte";
 
 export class Cliente extends Usuario {
   saldoCarteira: number;

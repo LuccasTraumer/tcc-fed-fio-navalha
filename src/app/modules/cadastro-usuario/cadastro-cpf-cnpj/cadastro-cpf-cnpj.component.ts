@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, AfterContentInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
-import { Cliente } from 'src/app/models/cliente';
+import {Cliente} from "../../../models/Cliente";
 
 @Component({
   selector: 'fdn-cadastro-cpf-cnpj',

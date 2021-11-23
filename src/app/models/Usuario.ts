@@ -1,4 +1,4 @@
-import { Endereco } from './endereco';
+import { Endereco } from "./Endereco";
 
 export class Usuario {
   nome: string;

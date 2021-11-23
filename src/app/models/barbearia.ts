@@ -1,5 +1,5 @@
-import { Usuario } from './Usuario';
-import { Corte } from './corte';
+import {Corte} from "./Corte";
+import {Usuario} from "./Usuario";
 
 export class Barbearia extends Usuario {
   agendaDisponivel: Date[];
