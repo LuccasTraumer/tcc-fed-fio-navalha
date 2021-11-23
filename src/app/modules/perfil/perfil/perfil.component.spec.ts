@@ -27,7 +27,6 @@ describe('PerfilComponent', () => {
 */
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { UtilsModule } from 'src/app/utils/utils.module';
 
 
 describe('PerfilComponent', () => {
@@ -38,7 +37,7 @@ describe('PerfilComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ PerfilComponent ],
-      imports: [ReactiveFormsModule, UtilsModule, RouterTestingModule],
+      imports: [ReactiveFormsModule, RouterTestingModule],
       providers: [{fornecer: FormBuilder, useValue: formBuilder}],
     })
     .compileComponents();

@@ -1,5 +1,4 @@
 .container {
-
   //display: flex;
   flex-flow: row wrap;
   width: 7rem;
@@ -14,26 +13,29 @@
     align-items: center;
   }
 
-  .texto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9rem;
-    padding-bottom: 10px;
-
-  }
-  .bloco1{
+  .bloco1 {
     padding-top: 5px;
     width: 100%;
     border-bottom: 2px solid black;
     margin: auto;
-  }
+    justify-content: center;
 
-  img {
-    padding-bottom: 15px;
-    max-width: 50%;
-    width: 50%;
-    border-radius: 50%;
+    .texto {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.9rem;
+      padding-bottom: 3px;
+    }
+
+
+      img {
+        margin-left: 17px;
+        max-width: 70%;
+        border-radius: 50%;
+        justify-content: center;
+      }
+
   }
 
   .data {
@@ -47,7 +49,7 @@
   }
 
   .distancia {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     padding-bottom: 10px;
   }
 

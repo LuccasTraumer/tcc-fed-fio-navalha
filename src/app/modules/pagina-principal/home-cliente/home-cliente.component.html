@@ -1,0 +1,41 @@
+<div class="container">
+  <section>
+    <div class="topico">
+      Horarios Agendados
+    </div>
+    <div class="horarios-agendados">
+      <fdn-card-horario-agendado
+      [fotoBarbearia]="barbeariasFotos[8]"
+      ></fdn-card-horario-agendado>
+    </div>
+  </section>
+  <section>
+    <div class="topico">
+      Barbearias Visitadas
+    </div>
+    <div class="barbearias-visitadas">
+      <fdn-card-barbearia-visitada
+      *ngFor="let item of barbearias; let i = index"
+      [barbearia]="barbearias[i]"
+      [fotoBarbearia]="barbeariasFotos[i]"
+      ></fdn-card-barbearia-visitada>
+
+    </div>
+  </section>
+  <div class="titulo-central">
+    Barbearias Favoritas
+  </div>
+  <section class="barbearias-favoritas">
+    <div class="barbearias-favoritas">
+      <fdn-card-barbearia-favorita
+      *ngFor="let item of barbearias; let i = index"
+      [barbearia]="barbearias[i]"
+      [fotoPerfil]="barbeariasFotos[i]"
+      [tempo]="tempo[i]"
+      [valor]="valor[i]"
+      [distancia]="distancia[i]"
+      ></fdn-card-barbearia-favorita>
+    </div>
+  </section>
+</div>
+
