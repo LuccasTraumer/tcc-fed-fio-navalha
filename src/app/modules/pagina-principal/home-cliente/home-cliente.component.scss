@@ -21,6 +21,8 @@
       overflow-x: scroll;
     }
 
+
+
   }
   .titulo-central {
     color: black;
@@ -141,4 +143,8 @@
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(90deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(90deg); transform:rotate(90deg); } }
 
+}
+.barbearias-favoritas {
+  overflow: auto;
+  max-height: 230px;
 }

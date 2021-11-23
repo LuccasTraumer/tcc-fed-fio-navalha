@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Barbearia } from 'src/app/models/barbearia';
 
 @Component({
   selector: 'fdn-card-barbearia-visitada',
@@ -11,5 +12,10 @@ export class CardBarbeariaVisitadaComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() barbearia: Barbearia;
+
+  @Input() fotoBarbearia: String;
+
 
 }

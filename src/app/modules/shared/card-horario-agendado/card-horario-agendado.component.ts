@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'fdn-card-horario-agendado',
@@ -11,5 +11,7 @@ export class CardHorarioAgendadoComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  @Input() fotoBarbearia: String;
 
 }
