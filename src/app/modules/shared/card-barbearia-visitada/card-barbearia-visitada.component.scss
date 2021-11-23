@@ -1,5 +1,4 @@
 .container {
-
   display: flex;
   flex-flow: row wrap;
   width: 5rem;
@@ -12,12 +11,38 @@
 
   section {
     align-items: center;
+    min-width: 80%;
+
+
+    img {
+      min-width: 60%;
+    }
+  }
+
+  .avaliacao {
+    color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-width: 100%;
+    margin-right: 3px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+    img {
+      width: 15px;
+    }
   }
 
   .texto {
     align-items: center;
     font-size: 0.9rem;
     width: 100%;
+
+    p {
+      text-align: center;
+    }
   }
 
   img {
