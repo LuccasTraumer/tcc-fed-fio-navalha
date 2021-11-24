@@ -11,7 +11,7 @@ import {Observable, Subscription} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticacaoService implements OnDestroy {
+export class AutenticacaoService {
 
   private usuarioAutenticado: boolean = true;
   clienteAutenticado = new EventEmitter<boolean>();
@@ -26,11 +26,7 @@ export class AutenticacaoService implements OnDestroy {
     }
   }
 
-  ngOnDestroy(): void {
-  }
-
   fazerLogin(cliente: Usuario) {
-    //TODO: Fazer comunicação com o SRV e este retornar uma sessão para o usuario.
     return this.http.post(`${environment.srvTCC}/login`, cliente, this.options);
   }
 
@@ -43,11 +39,15 @@ export class AutenticacaoService implements OnDestroy {
   }
 
   usuarioEstaAutenticado(): boolean {
-    return this.usuarioAutenticado;
+    return this.usuarioAutenticado && this.jwtUserIsNull();
   }
 
   setUsuarioAutenticado(classe: LoginComponent, usuarioAutenticado: boolean) {
-    if (classe === LoginComponent.prototype)
+    if (classe === LoginComponent.prototype && this.jwtUserIsNull())
       this.usuarioAutenticado = usuarioAutenticado;
+  }
+
+  private jwtUserIsNull() {
+    return sessionStorage.getItem('jwtUser') !== null;
   }
 }

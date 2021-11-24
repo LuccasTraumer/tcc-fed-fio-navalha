@@ -8,11 +8,17 @@ import { PaginaPrincipalRoutingModule } from './pagina-principal.routing.module'
 import { HomeBarbeariaComponent } from './home-barbearia/home-barbearia.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { HomeClienteComponent } from 'src/app/modules/pagina-principal/home-cliente/home-cliente.component';
+import {AgmCoreModule} from "@agm/core";
 
 @NgModule({
-  declarations: [PaginaPrincipalComponent, HomeBarbeariaComponent, PaginaPrincipalComponent],
+  declarations: [PaginaPrincipalComponent, HomeBarbeariaComponent, PaginaPrincipalComponent, HomeClienteComponent],
   imports: [
+  AgmCoreModule.forRoot({
+      // apiKey: process.env.API_KEY,
+      apiKey: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0',
+    }),
     CommonModule,
     SharedModule,
     LoadingModule,
@@ -23,7 +29,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
    // BrowserAnimationsModule,
   ],
-  exports: [PaginaPrincipalComponent, HomeBarbeariaComponent, PaginaPrincipalComponent],
+  exports: [PaginaPrincipalComponent, HomeBarbeariaComponent, PaginaPrincipalComponent, HomeClienteComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PaginaPrincipalModule {}

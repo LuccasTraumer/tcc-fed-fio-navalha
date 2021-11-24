@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         const tipoCliente = response.body.tipoCliente.split('.')[4];
         console.log(tipoCliente !== undefined);
         if(tipoCliente !== undefined && (tipoCliente === Cliente.name || tipoCliente === Barbearia.name)) {
+          this.autenticacaoService.setUsuarioAutenticado(LoginComponent.prototype, true);
           this.router.navigate([`/home-${tipoCliente.toLocaleLowerCase()}`]);
         }
         },error => {

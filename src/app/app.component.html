@@ -1,13 +1,13 @@
 <div class="container">
-  <div *ngIf="exibirMenu" class="header background-hr">
-    <a href="">
+  <div *ngIf="exibirMenu" class="header background-hr" (click)="irParaHome()">
+    <a href="#">
       <img src="../assets/icons/fdn-icon.png" alt="logo fio da navalha">
     </a>
-    <a href="">
+    <a href="#">
       <label class="top-text">Fio da</label>
       <label class="bottom-text">navalha</label>
     </a>
-    <a href="">
+    <a href="#">
       <img src="{{cliente.fotoPerfil}}" alt="foto de perfil">
     </a>
   </div>

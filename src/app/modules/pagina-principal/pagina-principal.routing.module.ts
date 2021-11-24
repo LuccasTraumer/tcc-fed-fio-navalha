@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomeBarbeariaComponent } from './home-barbearia/home-barbearia.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import {HomeClienteComponent} from "./home-cliente/home-cliente.component";
 
 const mainRoutes = [
   {
@@ -10,7 +11,7 @@ const mainRoutes = [
   },
   {
     path: 'home-cliente',
-    component: PaginaPrincipalComponent
+    component: HomeClienteComponent
   },
   {
     path: 'explorar',

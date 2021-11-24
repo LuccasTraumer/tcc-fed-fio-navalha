@@ -30,20 +30,18 @@ export class AppComponent implements OnDestroy{
         this.exibirMenu = exibicao;
         this.usuarioAutenticado = this.autenticacaoService.usuarioEstaAutenticado();
       });
-
-    console.log(`${environment.srvTCC}/cadastro/cliente`);
   }
 
   public buscarBarbearia() {
-    //TODO: Remover Comentario e Verificar se o router funciona
     this.router.navigate(['/search']);
   }
 
   public irParaHome() {
-    if(this.autenticacaoService.usuarioEstaAutenticado() && this.cliente.tipoCliente === 'cliente')
-      this.router.navigate(['home-cliente']);
-    else if (this.autenticacaoService.usuarioEstaAutenticado() && this.cliente.tipoCliente === 'barbearia')
-      this.router.navigate(['home-barbearia']);
+    const jwtUser = sessionStorage.getItem('jwtUser');
+    if(this.autenticacaoService.usuarioEstaAutenticado() && jwtUser.toLocaleLowerCase().includes('cliente'))
+      this.router.navigate(['/home-cliente']);
+    else if (this.autenticacaoService.usuarioEstaAutenticado() && jwtUser.toLocaleLowerCase().includes('barbearia'))
+      this.router.navigate(['/home-barbearia']);
     else
       this.router.navigate(['']);
   }
@@ -54,10 +52,10 @@ export class AppComponent implements OnDestroy{
   }
 
   public irParaPerfil() {
-    if (this.usuarioAutenticado)
-      this.router.navigate(['#/perfil']);
+    if (this.autenticacaoService.usuarioEstaAutenticado())
+      this.router.navigate(['/perfil']);
     else
-      this.router.navigate(['#/login']);
+      this.router.navigate(['/login']);
   }
 
   ngOnDestroy(): void {
