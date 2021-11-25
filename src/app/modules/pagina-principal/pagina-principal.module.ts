@@ -27,6 +27,7 @@ import { HomeClienteComponent } from 'src/app/modules/pagina-principal/home-clie
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+
    // BrowserAnimationsModule,
     // AgmCoreModule.forRoot({
     //   apiKey: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0',

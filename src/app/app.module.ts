@@ -11,6 +11,7 @@ import { AuthGuard } from './guardas/auth.guard';
 import { environment } from 'src/environments/environment';
 import { LoginComponent } from './modules/login/login/login.component';
 import { LoginModule } from './modules/login/login.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { LoginModule } from './modules/login/login.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
     HttpClientModule,

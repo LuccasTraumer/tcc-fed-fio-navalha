@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { addDays, addHours, startOfDay } from 'date-fns';
+import { interval, Observable, of } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 
 @Component({
@@ -25,9 +27,14 @@ export class HomeBarbeariaComponent implements OnInit {
  public setaIcone = ConstantesIcons.ICONE_SETA_PRA_BAIXO_BLACK;
  public isPedidosExibido: boolean = true;
  public isAgendamentosExibido: boolean = true;
- constructor() { }
+ public dataHoraAtual: any = new Date();
+
+ constructor() {
+
+ }
 
   ngOnInit(): void {
+    this.dataHoraAtual = this.retornaDataHoraAtual();
   }
 
   slider(container: number) {
@@ -35,6 +42,13 @@ export class HomeBarbeariaComponent implements OnInit {
       this.isPedidosExibido = !this.isPedidosExibido;
     else
       this.isAgendamentosExibido = !this.isAgendamentosExibido;
+  }
+
+
+  retornaDataHoraAtual() : Observable<Date> {
+    return interval(1000).pipe(
+      mergeMap(() => of(new Date()))
+    )
   }
 
   //calendario
@@ -45,23 +59,36 @@ export class HomeBarbeariaComponent implements OnInit {
 
   events: CalendarEvent[] = [
     {
-      start: startOfDay(new Date()),
-      title: 'An event',
-     // color: colors.yellow,
-    },
-    {
-      start: addHours(startOfDay(new Date()), 2),
-      end: new Date(),
-      title: 'Another event',
+      title: 'Pedro Henrique',
+      start: addHours(startOfDay(new Date()), 3),
+      id: 1,
       //color: colors.blue,
     },
     {
-      start: addDays(addHours(startOfDay(new Date()), 2), 2),
-      end: addDays(new Date(), 2),
-      title: 'And another',
-      //color: colors.red,
+      title: 'Cristiano Ronaldo',
+      start: addHours(startOfDay(new Date()), 6),
+      id: 2,
+      //color: colors.blue,
+    },
+    {
+      title: 'Lionel Messi',
+      start: addHours(startOfDay(new Date()), 10),
+      id: 3,
+      //color: colors.blue,
+    },
+    {
+      title: 'Elon Musk',
+      start: addHours(startOfDay(new Date()), 15),
+      id: 4,
+      //color: colors.blue,
     },
   ];
+
+
+  public eventoClicado(event: any) {
+    console.log(event);
+
+  }
 
 }
 
