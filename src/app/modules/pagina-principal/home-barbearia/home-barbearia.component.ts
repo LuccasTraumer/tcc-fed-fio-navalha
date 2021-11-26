@@ -3,7 +3,9 @@ import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { addDays, addHours, startOfDay } from 'date-fns';
 import { interval, Observable, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { AgendamentoService } from 'src/app/services/Agendamento/Agendamento.service';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
+import { AgendamentosResponseMock } from 'src/app/utils/interfaces/AgendamentosResponseMock c';
 
 @Component({
   selector: 'fdn-home-barbearia',
@@ -28,12 +30,29 @@ export class HomeBarbeariaComponent implements OnInit {
  public isPedidosExibido: boolean = true;
  public isAgendamentosExibido: boolean = true;
  public dataHoraAtual: any = new Date();
+ public agendamentos: AgendamentosResponseMock;
 
- constructor() {
+ public fotosBase: String = "../../../../assets/images/Pessoas/";
+ public fotosPessoas: String[] = [
+   this.fotosBase + "pessoaPerfil1.jpg",
+   this.fotosBase + "pessoaPerfil2.jpg",
+   this.fotosBase + "pessoaPerfil3.jpg",
+   this.fotosBase + "pessoaPerfil4.jpg",
+   this.fotosBase + "pessoaPerfil5.jpg",
+   this.fotosBase + "pessoaPerfil6.jpg",
+   this.fotosBase + "pessoaPerfil7.jpg",
+   this.fotosBase + "pessoaPerfil8.jpg",
+   this.fotosBase + "pessoaPerfil9.jpg",
+   this.fotosBase + "pessoaPerfil10.jpg",
+
+ ];
+
+ constructor(private agendamentoService: AgendamentoService) {
 
  }
 
   ngOnInit(): void {
+    this.retornaAgendamentos();
     this.dataHoraAtual = this.retornaDataHoraAtual();
   }
 
@@ -83,6 +102,14 @@ export class HomeBarbeariaComponent implements OnInit {
       //color: colors.blue,
     },
   ];
+
+  private retornaAgendamentos(): void {
+    this.agendamentoService.RetornaListaAgendamentos().subscribe((agendamentos: AgendamentosResponseMock) => {
+      this.agendamentos = agendamentos;
+      console.log(this.agendamentos[0]);
+    });
+  }
+
 
 
   public eventoClicado(event: any) {

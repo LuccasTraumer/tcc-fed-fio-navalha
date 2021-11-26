@@ -2,26 +2,26 @@
   <!-- <img src="{{ICONE_BARBEAIRIA}}" alt="icone barbearia" srcset=""> -->
   <section class="informacoes">
     <aside class="aside-foto">
-      <img src="{{fotoPerfil()}}" alt="" class=".foto-perfil">
+      <img src="{{retornaFotoPerfil()}}" alt="" class=".foto-perfil">
     </aside>
     <div class="coluna">
 
       <header>
-        {{nomeSolicitante()}}
+        {{retornaNomeSolicitante()}}
       </header>
 
       <section class="detalhes">
         <div>
-          {{ servico() }}
+          {{ retornaTipoServico() }}
         </div>
         <div>
-          {{ valorServico() }}
+          {{ retornaValorServico() }}
         </div>
         <div>
-          {{ dataServico() }}
+          {{ retornaDataServico() }}
         </div>
         <div>
-          {{ horarioServico() }}
+          {{ retornaHorarioServico() }}
         </div>
       </section>
     </div>
