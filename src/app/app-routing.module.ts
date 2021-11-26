@@ -30,6 +30,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/search/search.module').then(module => module.SearchModule)
   },
   {
+    path: 'detalhes',
+    loadChildren: () => import('./modules/detalhes-barbearia/detalhes-barbearia.routing.module').then(module => module.DetalhesBarbeariaRoutingModule)
+  },
+  {
     path: '',
     loadChildren: () => import('./modules/pagina-principal/pagina-principal.module')
       .then(module => module.PaginaPrincipalModule),
