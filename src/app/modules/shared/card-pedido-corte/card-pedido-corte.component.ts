@@ -11,6 +11,7 @@ export class CardPedidoCorteComponent implements OnInit {
 
   public ICONE_APROVACAO_PEDIDO = ConstantesIcons.ICONE_APROVACAO_PEDIDO;
   public ICONE_CANCELAMENTO_PEDIDO = ConstantesIcons.ICONE_CANCELAMENTO_PEDIDO;
+  public pedidoAtivo: boolean = true;
   @Input() agendamento: Agendamento;
   @Input() fotoPerfil: String;
 
@@ -49,10 +50,14 @@ export class CardPedidoCorteComponent implements OnInit {
   }
 
   cancelarPedido() {
-
+    setTimeout(()=>{
+      this.pedidoAtivo = false;
+    },100);
   }
 
   aprovarPedido() {
-
+    setTimeout(()=>{
+      this.pedidoAtivo = false;
+    },100);
   }
 }

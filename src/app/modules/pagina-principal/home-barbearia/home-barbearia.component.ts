@@ -3,6 +3,7 @@ import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { addDays, addHours, startOfDay } from 'date-fns';
 import { interval, Observable, of } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
+import { Agendamento } from 'src/app/models/agendamento';
 import { AgendamentoService } from 'src/app/services/Agendamento/Agendamento.service';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import { AgendamentosResponseMock } from 'src/app/utils/interfaces/AgendamentosResponseMock c';
@@ -40,7 +41,7 @@ export class HomeBarbeariaComponent implements OnInit {
    this.fotosBase + "pessoaPerfil4.jpg",
    this.fotosBase + "pessoaPerfil5.jpg",
    this.fotosBase + "pessoaPerfil6.jpg",
-   this.fotosBase + "pessoaPerfil7.jpg",
+   this.fotosBase + "pessoaPerfil7.png",
    this.fotosBase + "pessoaPerfil8.jpg",
    this.fotosBase + "pessoaPerfil9.jpg",
    this.fotosBase + "pessoaPerfil10.jpg",
@@ -114,7 +115,6 @@ export class HomeBarbeariaComponent implements OnInit {
 
   public eventoClicado(event: any) {
     console.log(event);
-
   }
 
 }

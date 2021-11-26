@@ -34,7 +34,7 @@
   }
   .agendamentos {
     min-height: 5vh;
-    max-height: 20px;
+    max-height: 100px;
     // max-width: 200px;
 
     h1 {
@@ -55,9 +55,9 @@
 
   .conteudo-agendamentos {
     background-color: #edeae3e7;
-    height: 50px;
+    height:100px;
     min-height: 322px;
-    max-height: 50px;
+    max-height: 100px;
     margin-bottom: 30px;
     overflow: auto;
 
@@ -91,6 +91,15 @@
     animation: slide-in 0.5s forwards;
     animation-delay: 2s;
     -webkit-animation: slide-in 0.5s forwards;
+
+  }
+
+  .aumenta-campo-agendamentos {
+    min-height: 530px;
+  }
+
+  .diminui-campo-agendamentos {
+    min-height: 240px;
   }
 
   .slide-out {

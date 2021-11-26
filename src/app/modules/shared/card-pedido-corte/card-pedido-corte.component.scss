@@ -32,7 +32,7 @@
       margin-right: 4px;
       max-width: min-content;
       img {
-        margin-top: 25px;
+        margin-top: 15px;
         width: 100%;
         border-radius: 100%;
       }
@@ -59,6 +59,15 @@
     }
   }
   .icone {
-    width: 50px;
+    width: 40px;
   }
+
+  .icone:hover {
+    opacity: 50%;
+  }
+
+  icone:focus {
+    opacity: 50%;
+  }
+
 }

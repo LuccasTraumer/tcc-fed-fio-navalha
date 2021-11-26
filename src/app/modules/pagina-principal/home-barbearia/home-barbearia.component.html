@@ -3,7 +3,7 @@
   <section class="primeiro">
     <div class="cabecalho">
       Pedidos
-      <button (click)="slider(1)"><img src="{{setaIcone}}" [class.rotate]="!isPedidosExibido" class="icon"></button>
+      <button (click)="slider(1)"><img src="{{ setaIcone }}" [class.rotate]="!isPedidosExibido" class="icon"></button>
     </div>
     <div class="conteudo" [class.slide-in]="isPedidosExibido" [class.slide-out]="!isPedidosExibido">
       <fdn-card-pedido-corte
@@ -26,8 +26,9 @@
       <h1>Informações Cliente</h1>
       <p>
         Nome: <br>
-        Idade: <br>
-        Serviço: <br>
+        Servico: <br>
+        Data: <br>
+        Hora: <br>
         Valor: <br>
       </p>
 
@@ -36,8 +37,8 @@
       </div>
 
     </modal>
-    <div class="conteudo-agendamentos" [class.slide-in]="isAgendamentosExibido"
-      [class.slide-out]="!isAgendamentosExibido">
+    <div class="conteudo-agendamentos" [class.slide-in]="isAgendamentosExibido" [class.aumenta-campo-agendamentos]="!isPedidosExibido"
+      [class.slide-out]="!isAgendamentosExibido" [class.diminui-campo-agendamentos]="isPedidosExibido">
       <mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
       </mwl-demo-utils-calendar-header>
 
