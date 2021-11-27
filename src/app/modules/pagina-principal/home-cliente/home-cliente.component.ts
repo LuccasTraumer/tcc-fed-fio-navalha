@@ -2,8 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
 import { CalendarEvent, CalendarView } from 'angular-calendar';
 import { addDays, addHours, startOfDay } from 'date-fns';
 import { Barbearia } from 'src/app/models/barbearia';
+import { BarbeariaService } from 'src/app/services/Barbearia/barbearia.service';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
-import { BarbeariaService } from './../../../services/barbearia.service';
 import { BarbeariasResponseMock } from './../../../utils/interfaces/BarbeariasResponseMock';
 
 @Component({

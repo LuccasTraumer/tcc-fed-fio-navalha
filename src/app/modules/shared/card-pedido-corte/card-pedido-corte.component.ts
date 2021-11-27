@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Agendamento } from 'src/app/models/agendamento';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 
 @Component({
@@ -7,49 +8,56 @@ import { ConstantesIcons } from 'src/app/utils/constantes.icons';
   styleUrls: ['./card-pedido-corte.component.scss']
 })
 export class CardPedidoCorteComponent implements OnInit {
-  private _nomeSolicitante: string = 'Joao Paulo';
-  private _fotoPerfil = ConstantesIcons.ICONE_UPLOAD_FOTO_PERFIL;
 
   public ICONE_APROVACAO_PEDIDO = ConstantesIcons.ICONE_APROVACAO_PEDIDO;
   public ICONE_CANCELAMENTO_PEDIDO = ConstantesIcons.ICONE_CANCELAMENTO_PEDIDO;
-  private _servico: any = 'Corte Simples';
-  private _dataServico: any = '05/07/2021';
-  private _valorServico: any = 'R$ 25,00';
-  private _horarioServico: any = '15:45';
+  public pedidoAtivo: boolean = true;
+  @Input() agendamento: Agendamento;
+  @Input() fotoPerfil: String;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  nomeSolicitante() {
-    return this._nomeSolicitante;
+  retornaNomeSolicitante() {
+    return this.agendamento.nome;
   }
 
-  fotoPerfil() {
-    return this._fotoPerfil;
+  retornaFotoPerfil() {
+    return this.fotoPerfil;
   }
 
-  servico() {
-    return this._servico;
+  retornaTipoServico() {
+    return this.agendamento.tipoCorte;
   }
-  valorServico() {
-    return this._valorServico;
-  }
-
-  dataServico() {
-    return this._dataServico;
+  retornaValorServico() {
+    return this.agendamento.valor;
   }
 
-  horarioServico() {
-    return this._horarioServico;
+  retornaDataServico() {
+    let dataHorario = this.agendamento.data.split("T");
+    let data = dataHorario[0];
+    return data;
+  }
+
+  retornaHorarioServico() {
+    let dataHorario = this.agendamento.data.split("T");
+    let horario = dataHorario[1]
+    let horarioSplit = horario.split(":");
+    let horaMinuto = horarioSplit[0] + ":" + horarioSplit[1];
+    return horaMinuto;
   }
 
   cancelarPedido() {
-
+    setTimeout(()=>{
+      this.pedidoAtivo = false;
+    },100);
   }
 
   aprovarPedido() {
-
+    setTimeout(()=>{
+      this.pedidoAtivo = false;
+    },100);
   }
 }

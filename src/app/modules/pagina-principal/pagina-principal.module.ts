@@ -27,6 +27,7 @@ import {AgmCoreModule} from "@agm/core";
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+
    // BrowserAnimationsModule,
   ],
   exports: [PaginaPrincipalComponent, HomeBarbeariaComponent, PaginaPrincipalComponent, HomeClienteComponent],

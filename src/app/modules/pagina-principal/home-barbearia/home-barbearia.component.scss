@@ -1,10 +1,8 @@
-.container{
-
+.container {
   section {
     display: flex;
     flex-direction: column;
     color: black;
-
   }
   button {
     align-items: flex-end;
@@ -13,16 +11,17 @@
     border: none;
     background-color: inherit;
   }
+
   .icon {
     width: 20px;
     clear: both;
   }
 
   .cabecalho {
-    background-color: #EDEAE3;
+    background-color: #edeae3;
     padding: 8px;
   }
-  .conteudo{
+  .conteudo {
     margin-bottom: 20px;
     color: black;
     background-color: #edeae3e7;
@@ -35,21 +34,36 @@
   }
   .agendamentos {
     min-height: 5vh;
-    max-height: 20px;
-   // max-width: 200px;
+    max-height: 100px;
+    // max-width: 200px;
+
+    h1 {
+      font-size: 18px;
+      font-weight: 800;
+      color: orange;
+      margin: auto;
+      text-align: center;
+      padding-bottom: 10px;
+    }
+
+    .btn-toggle {
+      width: 200px;
+      margin: auto;
+      padding-top: 10px;
+    }
   }
 
-  .conteudo-agendamentos{
+  .conteudo-agendamentos {
     background-color: #edeae3e7;
-    height: 50px;
+    height:100px;
     min-height: 322px;
-    max-height: 50px;
+    max-height: 100px;
     margin-bottom: 30px;
     overflow: auto;
 
-    .data-atual{
+    .data-atual {
       color: rgb(255, 166, 1);
-      font-size: 40px;
+      font-size: 9vw;
       font-weight: 600;
       border: solid 1px;
       padding: 5px;
@@ -61,11 +75,9 @@
       margin-top: 25px;
     }
   }
-    .calendario {
-     margin-top: 25px;
-    }
-
-
+  .calendario {
+    margin-top: 25px;
+  }
 
   .slider {
     position: absolute;
@@ -79,6 +91,15 @@
     animation: slide-in 0.5s forwards;
     animation-delay: 2s;
     -webkit-animation: slide-in 0.5s forwards;
+
+  }
+
+  .aumenta-campo-agendamentos {
+    min-height: 530px;
+  }
+
+  .diminui-campo-agendamentos {
+    min-height: 240px;
   }
 
   .slide-out {
@@ -88,35 +109,59 @@
   }
 
   @keyframes slide-in {
-    100% { transform: translateX(0%);
+    100% {
+      transform: translateX(0%);
     }
   }
 
-@-webkit-keyframes slide-in {
-  100% { -webkit-transform: translateX(0%);min-height: 200px; }
-}
+  @-webkit-keyframes slide-in {
+    100% {
+      -webkit-transform: translateX(0%);
+      min-height: 200px;
+    }
+  }
 
-@keyframes slide-out {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%);max-height: 10px; }
-}
+  @keyframes slide-out {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+      max-height: 10px;
+    }
+  }
 
-@-webkit-keyframes slide-out {
-  0% { -webkit-transform: translateX(0%); }
-  100% { -webkit-transform: translateX(-100%); }
-}
+  @-webkit-keyframes slide-out {
+    0% {
+      -webkit-transform: translateX(0%);
+    }
+    100% {
+      -webkit-transform: translateX(-100%);
+    }
+  }
 
+  //RODAR
+  .rotate {
+    -webkit-animation: spin 0.5s linear;
+    -moz-animation: spin 0.5s linear;
+    animation: spin 0.5s linear;
+    transform: rotate(90deg) translateY(-100%);
+  }
 
-//RODAR
-.rotate{
-  -webkit-animation:spin 0.5s linear;
-  -moz-animation:spin 0.5s linear;
-  animation:spin 0.5s linear;
-  transform: rotate(90deg) translateY(-100%);
-}
-
-@-moz-keyframes spin { 100% { -moz-transform: rotate(90deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(90deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(90deg); transform:rotate(90deg); } }
-
+  @-moz-keyframes spin {
+    100% {
+      -moz-transform: rotate(90deg);
+    }
+  }
+  @-webkit-keyframes spin {
+    100% {
+      -webkit-transform: rotate(90deg);
+    }
+  }
+  @keyframes spin {
+    100% {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+    }
+  }
 }

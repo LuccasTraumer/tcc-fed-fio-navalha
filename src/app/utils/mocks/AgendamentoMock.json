@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "nome": "Pedro",
+      "tipoCorte": "Corte Masculino",
+      "valor": 20.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 2,
+      "nome": "João",
+      "tipoCorte": "Corte Masculino",
+      "valor": 20.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 3,
+      "nome": "Paulo",
+      "tipoCorte": "Corte Masculino",
+      "valor": 20.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 4,
+      "nome": "Thiago",
+      "tipoCorte": "Corte Infantil",
+      "valor": 10.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 5,
+      "nome": "Carlos",
+      "tipoCorte": "Barba",
+      "valor": 15.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 6,
+      "nome": "Jonas",
+      "tipoCorte": "Corte Masculino",
+      "valor": 20.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 7,
+      "nome": "Gabriel",
+      "tipoCorte": "Corte Masculino",
+      "valor": 20.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 8,
+      "nome": "Apolonio",
+      "tipoCorte": "Barba",
+      "valor": 15.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 9,
+      "nome": "Kaike",
+      "tipoCorte": "Corte Infantil",
+      "valor": 10.00,
+      "data": "30-11-2021T03:00:00"
+    },
+    {
+      "id": 10,
+      "nome": "Alessandro",
+      "tipoCorte": "Corte Masculino",
+      "valor": 20.00,
+      "data": "30-11-2021T03:00:00"
+    }
+  ]
+}

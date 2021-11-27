@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Barbearia } from '../models/barbearia';
-import * as barbeariaMock from '../utils/mocks/barbeariaMock.json';
-import { BarbeariasResponseMock } from './../utils/interfaces/BarbeariasResponseMock';
+import { BarbeariasResponseMock } from 'src/app/utils/interfaces/BarbeariasResponseMock';
+import { Barbearia } from '../../models/barbearia';
+import * as barbeariaMock from '../../utils/mocks/barbeariaMock.json';
+
 
 @Injectable({
   providedIn: 'root'
