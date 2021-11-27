@@ -19,7 +19,7 @@ const mainRoutes = [
   },
   {
     path: '',
-    redirectTo: 'explorar',
+    redirectTo: '/search/maps',
     pathMatch: 'full'
   },
   {

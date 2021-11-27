@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import { PerfilComponent } from './perfil.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const perfilRoutes = [
   {

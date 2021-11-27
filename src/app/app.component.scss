@@ -35,14 +35,14 @@
     align-items: center;
     justify-content: space-around;
 
-    a {
+    div, a {
       display: inherit;
       align-items: center;
       justify-content: center;
       color: var(--background-color);
 
       img {
-        width: 35%;
+        width: 30%;
       }
     }
 
@@ -57,13 +57,6 @@
   }
 }
 
-* {
-  @media only screen and (min-width: 426px) {
-    visibility: visible;
-    background: var(--background-color);
 
-    .layout-desktop {
 
-    }
-  }
-}
+

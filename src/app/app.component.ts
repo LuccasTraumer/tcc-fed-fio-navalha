@@ -1,6 +1,5 @@
 import {Component, OnDestroy} from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 import {Usuario} from "./models/Usuario";
 import {AutenticacaoService} from "./modules/cadastro-usuario/services/autenticacao.service";
 import {Cliente} from "./models/Cliente";
@@ -11,7 +10,7 @@ import {Cliente} from "./models/Cliente";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnDestroy{
-  title = 'tcc-fed-fio-navalha';
+  title = 'Fio da Navalha';
 
   cliente: Usuario;
 
@@ -43,19 +42,20 @@ export class AppComponent implements OnDestroy{
     else if (this.autenticacaoService.usuarioEstaAutenticado() && jwtUser.toLocaleLowerCase().includes('barbearia'))
       this.router.navigate(['/home-barbearia']);
     else
-      this.router.navigate(['']);
-  }
-
-  public irParaMaps() {
-    if (this.usuarioAutenticado)
       this.router.navigate(['/search/maps']);
   }
 
+  public irParaMaps() {
+    this.router.navigate(['/search/maps']);
+  }
+
   public irParaPerfil() {
+    console.log(this.autenticacaoService.usuarioEstaAutenticado());
     if (this.autenticacaoService.usuarioEstaAutenticado())
       this.router.navigate(['/perfil']);
-    else
+    else{
       this.router.navigate(['/login']);
+    }
   }
 
   ngOnDestroy(): void {

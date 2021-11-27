@@ -1,12 +1,12 @@
-import {HttpClient, HttpEvent, HttpHeaders} from '@angular/common/http';
-import {Injectable, EventEmitter, OnDestroy, Component} from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Usuario } from 'src/app/models/Usuario';
 import { Barbearia } from '../../../models/barbearia';
 import { environment } from 'src/environments/environment';
-import {CadastroServiceService} from "./cadastro-service.service";
-import {Cliente} from "../../../models/Cliente";
-import {LoginComponent} from "../../login/login/login.component";
-import {Observable, Subscription} from "rxjs";
+import { CadastroServiceService } from "./cadastro-service.service";
+import { Cliente } from "../../../models/Cliente";
+import { LoginComponent } from "../../login/login/login.component";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +16,7 @@ export class AutenticacaoService {
   private usuarioAutenticado: boolean = true;
   clienteAutenticado = new EventEmitter<boolean>();
   private options: any;
+
   constructor(
     private http: HttpClient,
     private cadastroService: CadastroServiceService) {

@@ -11,28 +11,35 @@ const routes: Routes = [
   },
   {
     path: 'esqueceu-senha',
-    loadChildren: () => import('./modules/esqueceu-senha/esqueceu-senha.module').then(module => module.EsqueceuSenhaModule)
+    loadChildren: () => import('./modules/esqueceu-senha/esqueceu-senha.module')
+      .then(module => module.EsqueceuSenhaModule)
   },
   {
     path: 'loading',
-    loadChildren: () => import('./modules/loading/loading.module').then(module => module.LoadingModule)
+    loadChildren: () => import('./modules/loading/loading.module')
+      .then(module => module.LoadingModule)
   },
   {
     path: 'cadastro',
-    loadChildren: () => import('./modules/cadastro-usuario/cadastro-usuario.module').then(module => module.CadastroUsuarioModule)
+    loadChildren: () => import('./modules/cadastro-usuario/cadastro-usuario.module')
+      .then(module => module.CadastroUsuarioModule)
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./modules/perfil/perfil/perfil.module').then(module => module.PerfilModule)
+    loadChildren: () => import('./modules/perfil/perfil.module')
+      .then(module => module.PerfilModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'search',
-    loadChildren: () => import('./modules/search/search.module').then(module => module.SearchModule)
+    loadChildren: () => import('./modules/search/search.module')
+      .then(module => module.SearchModule)
   },
   {
     path: '',
     loadChildren: () => import('./modules/pagina-principal/pagina-principal.module')
       .then(module => module.PaginaPrincipalModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '**',

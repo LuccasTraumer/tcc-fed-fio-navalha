@@ -9,8 +9,6 @@ import { SharedModule } from './modules/shared/shared.module';
 import { AutenticacaoService } from './modules/cadastro-usuario/services/autenticacao.service';
 import { AuthGuard } from './guardas/auth.guard';
 import { environment } from 'src/environments/environment';
-import { LoginComponent } from './modules/login/login/login.component';
-import { LoginModule } from './modules/login/login.module';
 
 @NgModule({
   declarations: [

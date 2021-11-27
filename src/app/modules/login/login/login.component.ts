@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('jwtUser', JSON.stringify(response.body));
         this.autenticacaoService.setUsuarioAutenticado(LoginComponent.prototype, true);
         const tipoCliente = response.body.tipoCliente.split('.')[4];
-        console.log(tipoCliente !== undefined);
         if(tipoCliente !== undefined && (tipoCliente === Cliente.name || tipoCliente === Barbearia.name)) {
           this.autenticacaoService.setUsuarioAutenticado(LoginComponent.prototype, true);
           this.router.navigate([`/home-${tipoCliente.toLocaleLowerCase()}`]);

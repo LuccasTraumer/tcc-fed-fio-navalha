@@ -1,15 +1,15 @@
 <div class="container">
   <div *ngIf="exibirMenu" class="header background-hr" (click)="irParaHome()">
-    <a href="#">
+    <div>
       <img src="../assets/icons/fdn-icon.png" alt="logo fio da navalha">
-    </a>
-    <a href="#">
+    </div>
+    <div>
       <label class="top-text">Fio da</label>
       <label class="bottom-text">navalha</label>
-    </a>
-    <a href="#">
+    </div>
+    <div>
       <img src="{{cliente.fotoPerfil}}" alt="foto de perfil">
-    </a>
+    </div>
   </div>
 
   <router-outlet></router-outlet>
