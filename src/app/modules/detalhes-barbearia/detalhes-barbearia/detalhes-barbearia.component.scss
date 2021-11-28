@@ -1,4 +1,5 @@
 .container {
+  overflow: auto;
   .header {
     display: flex;
     flex-direction: row;
@@ -31,12 +32,108 @@
     .opcoes {
       text-align: center;
       button {
-        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin: 10px 0px;
         width: 50vw;
         height: 50px;
         border-radius: 10px;
-        border: none;
+        border: solid 2px #dfff3d;
+        font-size: 16px;
+        font-family: "cursive";
+        background-color: #ffc113;
+      }
+
+      button:active {
+        background-color: #f7d066;
+      }
+
+      .icon {
+        width: 25px;
+        margin-right: 10px;
+      }
+    }
+  }
+  .modal {
+    color: black;
+
+    h1 {
+      margin: 10px 0px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 600;
+      font-family: "emoji";
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+    }
+
+    h4 {
+      margin: 20px 0px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .select {
+      text-align: center;
+      font-size: 16px;
+      margin: 20px 0px;
+    }
+
+    .btn-toggle {
+      width: 200px;
+      margin: auto;
+      padding-top: 10px;
+    }
+  }
+
+  .section-detalhes {
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(97, 97, 97, 0.35);
+    border-radius: 10px;
+    width: 80%;
+    height: 200px;
+    font-size: 16px;
+    line-height: 25px;
+  }
+
+  .section-fotos {
+    .galeria-label {
+      height: 10;
+      width: 100%;
+      background-color: white;
+      text-align: center;
+      font-family: "Times New Roman", serif;
+      font-size: 28px;
+      color: black;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .div-galeria {
+      height: 100%;
+      overflow: auto;
+      background-color: antiquewhite;
+      .galeria {
+        margin: auto;
+        margin-top: 5px;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+
+        .foto-catalogo {
+          margin-top: 3px;
+          margin-left: 3px;
+          height: 30vw;
+          width: 30vw;
+        }
       }
     }
   }

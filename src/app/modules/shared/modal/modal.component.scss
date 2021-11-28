@@ -2,7 +2,6 @@
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 8px #333;
-  min-width: 320px;
   position: fixed;
   left: 50%;
   padding: 24px;
@@ -10,8 +9,8 @@
   transform: translate(-50%, -50%);
   z-index: 11;
 
-  min-width: 320px;
-  max-height: 90vmax;
+  min-width: 75vw;
+  max-height: 50vmax;
   overflow-y: scroll;
 }
 
