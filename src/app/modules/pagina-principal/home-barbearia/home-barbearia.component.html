@@ -10,6 +10,7 @@
       *ngFor="let item of agendamentos; let i = index"
       [agendamento]="agendamentos[i]"
       [fotoPerfil]="fotosPessoas[i]"
+      (isPedidoAprovado)="respostaPedidoCorte($event)"
       ></fdn-card-pedido-corte>
 
     </div>
@@ -25,11 +26,11 @@
 
       <h1>Informações Cliente</h1>
       <p>
-        Nome: <br>
-        Servico: <br>
-        Data: <br>
-        Hora: <br>
-        Valor: <br>
+        Nome: {{ agendamentoSelecionado.nome }} <br>
+        Servico: {{ agendamentoSelecionado.tipoCorte }} <br>
+        Data: {{ dataCorte }} <br>
+        Horário: {{ horarioCorte }} <br>
+        Valor: R$ {{ agendamentoSelecionado.valor }},00 <br>
       </p>
 
       <div class="btn-toggle">
@@ -37,8 +38,8 @@
       </div>
 
     </modal>
-    <div class="conteudo-agendamentos" [class.slide-in]="isAgendamentosExibido" [class.aumenta-campo-agendamentos]="!isPedidosExibido"
-      [class.slide-out]="!isAgendamentosExibido" [class.diminui-campo-agendamentos]="isPedidosExibido">
+    <div class="conteudo-agendamentos" [class.slide-in]="isAgendamentosExibido" [class.aumenta-campo-agendamentos]="quantidadePedidos <= 1 || !isPedidosExibido"
+      [class.slide-out]="!isAgendamentosExibido" [class.diminui-campo-agendamentos]="quantidadePedidos > 2 && isPedidosExibido">
       <mwl-demo-utils-calendar-header [(view)]="view" [(viewDate)]="viewDate">
       </mwl-demo-utils-calendar-header>
 
