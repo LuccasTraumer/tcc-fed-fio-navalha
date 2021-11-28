@@ -5,12 +5,13 @@ import { SearchRoutes } from './search.routing';
 import { SharedModule } from '../shared/shared.module';
 import { MapsComponent } from './maps/maps.component';
 import {AgmCoreModule} from "@agm/core";
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   imports: [
-    AgmCoreModule.forRoot({
+  AgmCoreModule.forRoot({
       // apiKey: process.env.API_KEY,
-      apiKey: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0',
+      apiKey: environment.MAPS_KEY,
     }),
     CommonModule,
     SearchRoutes,

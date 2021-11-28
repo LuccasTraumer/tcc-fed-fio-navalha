@@ -39,7 +39,8 @@ const environmentFileContent = `
 export const environment = {
   production: ${isProduction},
   srvTCC: '${isProduction === true ? process.env.SRV_FIO_DA_NAVALHA : process.env.SRV_FIO_DA_NAVALHA_LOCAL}',
-  API_CEP: '${process.env.CEP_SERVICE}'
+  API_CEP: '${process.env.CEP_SERVICE}',
+  MAPS_KEY: '${process.env.API_KEY}'
 };
 
 `;
