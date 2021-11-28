@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './modules/login/login/login.component';
 import { LoginModule } from './modules/login/login.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DetalhesBarbeariaModule } from './modules/detalhes-barbearia/detalhes-barbearia.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
+    DetalhesBarbeariaModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
