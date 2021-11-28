@@ -37,7 +37,8 @@ const routes: Routes = [
   },
   {
     path: 'detalhes',
-    loadChildren: () => import('./modules/detalhes-barbearia/detalhes-barbearia.routing.module').then(module => module.DetalhesBarbeariaRoutingModule)
+    loadChildren: () => import('./modules/detalhes-barbearia/detalhes-barbearia.routing.module')
+      .then(module => module.DetalhesBarbeariaRoutingModule)
   },
   {
     path: '',

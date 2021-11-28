@@ -1,6 +1,6 @@
 
 import { Usuario } from "./Usuario";
-import {Corte} from "./Corte";
+import {Servico} from "./Servico";
 
 export class Cliente extends Usuario {
   saldoCarteira: number;
@@ -8,5 +8,5 @@ export class Cliente extends Usuario {
   //listaBarbeariasFavoritas: ClienteBarbearia[];
   comentarios: string[];
   reputacao: number;
-  listaServicoConsumidos: Corte[];
+  listaServicoConsumidos: Servico[];
 }

@@ -1,7 +1,7 @@
 import {Barbearia} from "./barbearia";
 import {Cliente} from "./Cliente";
 
-export class Corte {
+export class Servico {
   consumidor: Cliente;
   prestadorServico: Barbearia;
   dataCorte: Date;

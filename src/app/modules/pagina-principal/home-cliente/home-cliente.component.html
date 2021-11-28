@@ -4,8 +4,8 @@
       Horarios Agendados
     </div>
     <div class="horarios-agendados">
-      <fdn-card-horario-agendado
-      [fotoBarbearia]="barbeariasFotos[8]"
+      <fdn-card-horario-agendado *ngFor="let barbearia of barbearias"
+      [barbearia]="barbearia"
       ></fdn-card-horario-agendado>
     </div>
   </section>
@@ -15,9 +15,8 @@
     </div>
     <div class="barbearias-visitadas">
       <fdn-card-barbearia-visitada
-      *ngFor="let item of barbearias; let i = index"
-      [barbearia]="barbearias[i]"
-      [fotoBarbearia]="barbeariasFotos[i]"
+      *ngFor="let barbearia of barbearias;"
+      [barbearia]="barbearia"
       ></fdn-card-barbearia-visitada>
 
     </div>
@@ -28,9 +27,8 @@
   <section class="barbearias-favoritas">
     <div class="barbearias-favoritas">
       <fdn-card-barbearia-favorita
-      *ngFor="let item of barbearias; let i = index"
-      [barbearia]="barbearias[i]"
-      [fotoPerfil]="barbeariasFotos[i]"
+      *ngFor="let barbearia of barbearias; let i = index"
+      [barbearia]="barbearia"
       [tempo]="tempo[i]"
       [valor]="valor[i]"
       [distancia]="distancia[i]"

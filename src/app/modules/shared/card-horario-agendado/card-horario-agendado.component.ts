@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
-import * as EventEmitter from 'events';
 import { BarbeariaDetalhes } from 'src/app/models/BarbeariaDetalhes';
 import { DadosCardService } from '../services/dados-card.service';
+import {Barbearia} from "../../../models/barbearia";
+import {Servico} from "../../../models/Servico";
 
 @Component({
   selector: 'fdn-card-horario-agendado',
@@ -11,26 +12,34 @@ import { DadosCardService } from '../services/dados-card.service';
 })
 export class CardHorarioAgendadoComponent implements OnInit {
 
-  constructor(private router: Router, private dadosCardService: DadosCardService) { }
+  servico: Servico;
 
-  public barbearia: BarbeariaDetalhes = {
-    nome: 'Salão do Zeca',
-    rua: 'Avenida central',
-    bairro: 'Dic City',
-    cidade: 'Campinas',
-    estado: 'SP',
-    numero: '752',
-    email: 'zecasalao@gmail.com',
-    telefone: '(19)4002-8922'
-  };
+  constructor(
+    private router: Router,
+    private dadosCardService: DadosCardService
+  ) { }
+
+  public barbeariaDetalhes: BarbeariaDetalhes;
   ngOnInit() {
+    this.servico = new Servico();
+
+    this.barbeariaDetalhes = {
+      nome: this.barbearia.nome,
+      rua: this.barbearia.endereco.logradouro,
+      bairro: this.barbearia.endereco.bairro,
+      cidade: this.barbearia.endereco.localidade,
+      estado: this.barbearia.endereco.uf,
+      numero: this.barbearia.endereco.numeroResidencia,
+      email: this.barbearia.email,
+      telefone: this.barbearia.telefone
+    };
   }
 
-  @Input() fotoBarbearia: String;
+  @Input() barbearia: Barbearia;
 
   public detalhes(): void {
-    this.dadosCardService.gravaDadosCardNaSessionStorage(this.barbearia);
-    this.router.navigate(['/detalhes'], {state: {data: this.barbearia}});
+    this.dadosCardService.gravaDadosCardNaSessionStorage(this.barbeariaDetalhes);
+    this.router.navigate(['/detalhes'], {state: {data: this.barbeariaDetalhes}});
   }
 
 }

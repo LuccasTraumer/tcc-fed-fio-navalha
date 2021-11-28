@@ -7,7 +7,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -19,7 +31,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil1.jpg",
       "telefone": null
     },
     {
@@ -29,7 +41,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -41,7 +65,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil2.jpg",
       "telefone": null
     },
     {
@@ -51,7 +75,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -63,7 +99,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil3.jpg",
       "telefone": null
     },
     {
@@ -73,7 +109,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -85,7 +133,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil4.jpg",
       "telefone": null
     },
     {
@@ -95,7 +143,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -107,7 +167,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil5.jpg",
       "telefone": null
     },
     {
@@ -117,7 +177,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -129,7 +201,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil6.jpg",
       "telefone": null
     },
     {
@@ -139,7 +211,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -151,7 +235,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil7.jpg",
       "telefone": null
     },
     {
@@ -161,7 +245,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -173,7 +269,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil8.jpg",
       "telefone": null
     },
     {
@@ -183,7 +279,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -195,7 +303,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil9.jpg",
       "telefone": null
     },
     {
@@ -205,7 +313,19 @@
       "comentariosSobre": null,
       "dataNascimento": null,
       "descricao": null,
-      "endereco": null,
+      "endereco": {
+        "cep": "13092-511",
+        "logradouro": "Rua Francisco Mesquita",
+        "complemento": "Ao lado do Bar",
+        "bairro": "Vila Brandina",
+        "localidade": "Campinas",
+        "uf": "SP",
+        "ibge": "3509502",
+        "gia": "2446",
+        "ddd": "19",
+        "siafi": "6291",
+        "numeroResidencia": "07"
+      },
       "enderecosBarbearia": null,
       "especialidade": null,
       "horarioFuncionamento": null,
@@ -217,7 +337,7 @@
       "tipoCliente": null,
       "tiposPlanos": null,
       "email": null,
-      "fotoPerfil": null,
+      "fotoPerfil": "../../assets/images/Barbearias/barbeariaPerfil10.jpg",
       "telefone": null
     }
 

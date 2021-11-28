@@ -1,5 +1,6 @@
-import {Corte} from "./Corte";
+import {Servico} from "./Servico";
 import {Usuario} from "./Usuario";
+import {Endereco} from "./Endereco";
 
 export class Barbearia extends Usuario {
   agendaDisponivel: Date[];
@@ -11,7 +12,7 @@ export class Barbearia extends Usuario {
   descricao: string;
   mensalidade: number;
   horarioFuncionamento: Date[];
-  servicosRealizados: Corte[];
+  servicosRealizados: Servico[];
   comentariosSobre: string[];
   tiposPlanos: string[];
 }
