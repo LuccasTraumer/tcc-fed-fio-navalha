@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Barbearia } from 'src/app/models/barbearia';
+import { BarbeariaDetalhes } from 'src/app/models/BarbeariaDetalhes';
 
 @Component({
   selector: 'fdn-detalhes-barbearia',
@@ -15,34 +16,31 @@ export class DetalhesBarbeariaComponent implements OnInit {
   public horario;
   public servico;
 
-  @Input() barbearia: Barbearia = {
-    nome: "Barber Star",
-    agendaDisponivel: null,
-    avaliacaoBarbearia: 4.5,
-    comentariosSobre: null,
-    dataNascimento: null,
-    descricao: null,
-    endereco: null,
-    enderecosBarbearia: null,
-    especialidade: null,
-    horarioFuncionamento: null,
-    mensalidade: null,
-    precoMedio: null,
-    senha: null,
-    servicosRealizados: null,
-    tempoMedio: null,
-    tipoCliente: null,
-    tiposPlanos: null,
-    email: null,
-    fotoPerfil: null,
-    telefone: null
-  };
+  public barbearia: BarbeariaDetalhes;
+
   constructor() { }
 
   ngOnInit() {
-
+      this.barbearia = history.state.data == undefined ? this.obterDadosSessionStorage() : history.state.data;
   }
 
+ private obterDadosSessionStorage(): BarbeariaDetalhes {
+    let barbearia: BarbeariaDetalhes = {
+      nome: sessionStorage.getItem('nome-info'),
+      rua: sessionStorage.getItem('rua-info'),
+      bairro: sessionStorage.getItem('bairro-info'),
+      cidade: sessionStorage.getItem('cidade-info'),
+      estado: sessionStorage.getItem('estado-info'),
+      numero: sessionStorage.getItem('numero-info'),
+      email: sessionStorage.getItem('email-info'),
+      telefone: sessionStorage.getItem('telefone-info')
+    };
+    return barbearia;
+  }
+
+  public recebeBarbearia(barbearia: any) {
+
+  }
 
   public salvarHorario(event) {
     this.horario = event;
@@ -54,7 +52,7 @@ export class DetalhesBarbeariaComponent implements OnInit {
 
   public favoritar(): void {
     this.favorito = !this.favorito;
-    if(!this.favorito) {
+    if (!this.favorito) {
       this.favoritarTxt = "Seguir";
       this.favoritarIcon = "../../../../assets/icons/white-hearth.png";
     }

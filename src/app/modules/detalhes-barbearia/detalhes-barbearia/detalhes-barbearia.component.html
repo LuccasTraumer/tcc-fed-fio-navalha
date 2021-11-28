@@ -10,7 +10,7 @@
       </div>
     </section>
     <section class="opcoes">
-      <div>Nome Barbearia</div>
+      <div>{{ barbearia.nome }}</div>
       <button (click)="modalHorario.toggle()">Agendar Horário <img src="../../../../assets/icons/white-timer.png"
           class="icon" alt=""></button>
       <br>
@@ -21,14 +21,11 @@
   </div>
 
   <section class="section-detalhes">
-    Av. Rua Qualquer, <br>
-
-    N 777, Bairro Qualquer um <br>
-
-    Fone: (19) 4002-8922 <br>
-
-    Informações Barbearia
-
+    {{ barbearia.rua }} <br>
+    {{ barbearia.numero }}, {{ barbearia.bairro }} <br>
+    Fone: {{ barbearia.telefone }} <br>
+    Email: {{ barbearia.email }} <br>
+    Informações Barbearia:
   </section>
 
   <modal #modalHorario class="modal">
