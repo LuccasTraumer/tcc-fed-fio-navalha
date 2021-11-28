@@ -31,7 +31,19 @@ export class HomeBarbeariaComponent implements OnInit {
  public isPedidosExibido: boolean = true;
  public isAgendamentosExibido: boolean = true;
  public dataHoraAtual: any = new Date();
- public agendamentos: AgendamentosResponseMock;
+ public agendamentos: any;
+ public dataCorte: string = '';
+ public horarioCorte: string = '';
+ public quantidadePedidos: number = 0;
+ public agendamentosConfirmados: any;
+
+ public agendamentoSelecionado: Agendamento = {
+   id: 0,
+   nome: '',
+   data: '',
+   tipoCorte: '',
+   valor: 0
+ };
 
  public fotosBase: String = "../../../../assets/images/Pessoas/";
  public fotosPessoas: String[] = [
@@ -48,9 +60,7 @@ export class HomeBarbeariaComponent implements OnInit {
 
  ];
 
- constructor(private agendamentoService: AgendamentoService) {
-
- }
+ constructor(private agendamentoService: AgendamentoService) {}
 
   ngOnInit(): void {
     this.retornaAgendamentos();
@@ -79,48 +89,57 @@ export class HomeBarbeariaComponent implements OnInit {
 
   events: CalendarEvent[] = [
     {
-      title: 'Pedro Henrique',
-      start: addHours(startOfDay(new Date()), 3),
-      id: 1,
-      //color: colors.blue,
-    },
-    {
       title: 'Cristiano Ronaldo',
-      start: addHours(startOfDay(new Date()), 6),
-      id: 2,
-      //color: colors.blue,
-    },
-    {
-      title: 'Lionel Messi',
       start: addHours(startOfDay(new Date()), 10),
-      id: 3,
-      //color: colors.blue,
+      id: 1,
+      color: colors.blue,
     },
     {
       title: 'Elon Musk',
-      start: addHours(startOfDay(new Date()), 15),
+      start: addHours(startOfDay(new Date()), 11),
+      id: 2,
+      color: colors.red,
+    },
+    {
+      title: 'Luciano Hang',
+      start: addHours(startOfDay(new Date()), 13),
+      id: 3,
+      color: colors.yellow,
+    },
+    {
+      title: 'Carl Jhonson',
+      start: addHours(startOfDay(new Date()), 14),
       id: 4,
-      //color: colors.blue,
+      color: colors.blue,
     },
   ];
 
   private retornaAgendamentos(): void {
     this.agendamentoService.RetornaListaAgendamentos().subscribe((agendamentos: AgendamentosResponseMock) => {
       this.agendamentos = agendamentos;
+      this.agendamentosConfirmados = this.agendamentos;
+      this.quantidadePedidos = this.agendamentos.length;
       console.log(this.agendamentos[0]);
     });
   }
 
-
-
   public eventoClicado(event: any) {
-    console.log(event);
+     this.agendamentoSelecionado = this.agendamentosConfirmados.find(element => element.id === event.event.id);
+     this.dataCorte = this.agendamentoSelecionado.data.split('T')[0];
+     this.horarioCorte = this.agendamentoSelecionado.data.split('T')[1].substring(0, 5);
+  }
+
+  public respostaPedidoCorte(event: boolean): void {
+    this.agendamentos.shift();
+    this.fotosPessoas.shift();
+    this.quantidadePedidos = this.agendamentos.length;
+    console.log(this.quantidadePedidos);
   }
 
 }
 
 
-/*
+
 export const colors: any = {
   red: {
     primary: '#ad2121',
@@ -135,4 +154,4 @@ export const colors: any = {
     secondary: '#FDF1BA',
   },
 };
-*/
+

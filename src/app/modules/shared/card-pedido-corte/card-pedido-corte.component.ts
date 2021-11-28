@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
 import { Agendamento } from 'src/app/models/agendamento';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 
@@ -14,34 +14,36 @@ export class CardPedidoCorteComponent implements OnInit {
   public pedidoAtivo: boolean = true;
   @Input() agendamento: Agendamento;
   @Input() fotoPerfil: String;
+  @Output() isPedidoAprovado = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  retornaNomeSolicitante() {
+  public retornaNomeSolicitante() {
     return this.agendamento.nome;
   }
 
-  retornaFotoPerfil() {
+  public retornaFotoPerfil() {
     return this.fotoPerfil;
   }
 
-  retornaTipoServico() {
+  public retornaTipoServico() {
     return this.agendamento.tipoCorte;
   }
-  retornaValorServico() {
+
+  public retornaValorServico() {
     return this.agendamento.valor;
   }
 
-  retornaDataServico() {
+  public retornaDataServico() {
     let dataHorario = this.agendamento.data.split("T");
     let data = dataHorario[0];
     return data;
   }
 
-  retornaHorarioServico() {
+  public retornaHorarioServico() {
     let dataHorario = this.agendamento.data.split("T");
     let horario = dataHorario[1]
     let horarioSplit = horario.split(":");
@@ -49,15 +51,21 @@ export class CardPedidoCorteComponent implements OnInit {
     return horaMinuto;
   }
 
-  cancelarPedido() {
+  public cancelarPedido() {
     setTimeout(()=>{
       this.pedidoAtivo = false;
+      this.isPedidoAprovado.emit(false);
     },100);
   }
 
-  aprovarPedido() {
+  public aprovarPedido() {
     setTimeout(()=>{
       this.pedidoAtivo = false;
+      this.isPedidoAprovado.emit(true);
     },100);
   }
+
+  pu
+
+
 }

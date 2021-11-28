@@ -2,30 +2,30 @@
   "data": [
     {
       "id": 1,
-      "nome": "Pedro",
+      "nome": "Cristiano Ronaldo",
       "tipoCorte": "Corte Masculino",
       "valor": 20.00,
       "data": "30-11-2021T03:00:00"
     },
     {
       "id": 2,
-      "nome": "João",
-      "tipoCorte": "Corte Masculino",
-      "valor": 20.00,
+      "nome": "Elon Musk",
+      "tipoCorte": "Barba",
+      "valor": 15.00,
       "data": "30-11-2021T03:00:00"
     },
     {
       "id": 3,
-      "nome": "Paulo",
-      "tipoCorte": "Corte Masculino",
-      "valor": 20.00,
+      "nome": "Luciano Hang",
+      "tipoCorte": "Corte Infantil",
+      "valor": 10.00,
       "data": "30-11-2021T03:00:00"
     },
     {
       "id": 4,
-      "nome": "Thiago",
-      "tipoCorte": "Corte Infantil",
-      "valor": 10.00,
+      "nome": "Carl Jhonson",
+      "tipoCorte": "Corte Masculino",
+      "valor": 20.00,
       "data": "30-11-2021T03:00:00"
     },
     {
