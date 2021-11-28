@@ -5,6 +5,7 @@
     flex-direction: row;
     margin: 15px 10px 0px 10px;
     justify-content: space-around;
+
     .foto {
       display: flex;
       flex-direction: column;
@@ -31,6 +32,8 @@
 
     .opcoes {
       text-align: center;
+      color: white;
+
       button {
         display: flex;
         justify-content: space-between;
@@ -102,6 +105,7 @@
     height: 200px;
     font-size: 16px;
     line-height: 25px;
+    color: white;
   }
 
   .section-fotos {

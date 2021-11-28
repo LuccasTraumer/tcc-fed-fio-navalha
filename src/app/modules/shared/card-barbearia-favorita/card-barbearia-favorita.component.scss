@@ -47,6 +47,7 @@
       }
 
       .distancia {
+        color: black;
         font-weight: 800;
         margin-top: 15px;
         margin-left: 30px;
@@ -65,17 +66,20 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-
+      color: black;
 
       .tempo {
         margin-top: 10px;
         font-weight: 500;
+        color: black;
       }
 
       .valor {
         margin-top: 10px;
         margin-left: 30px;
         font-weight: 500;
+        color: black;
+
       }
     }
 

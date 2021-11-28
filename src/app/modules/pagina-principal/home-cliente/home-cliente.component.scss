@@ -9,8 +9,6 @@
       color: white;
     }
 
-
-
     .horarios-agendados {
       display: flex;
       overflow-x: scroll;
@@ -146,5 +144,5 @@
 }
 .barbearias-favoritas {
   overflow: auto;
-  max-height: 230px;
+  max-height: 270px;
 }

@@ -5,7 +5,7 @@ import { BarbeariaDetalhes } from 'src/app/models/BarbeariaDetalhes';
 @Component({
   selector: 'fdn-detalhes-barbearia',
   templateUrl: './detalhes-barbearia.component.html',
-  styleUrls: ['./detalhes-barbearia.component.scss']
+  styleUrls: ['./detalhes-barbearia.component.scss'],
 })
 export class DetalhesBarbeariaComponent implements OnInit {
 
@@ -22,7 +22,8 @@ export class DetalhesBarbeariaComponent implements OnInit {
 
   ngOnInit() {
       this.barbearia = history.state.data == undefined ? this.obterDadosSessionStorage() : history.state.data;
-  }
+
+    }
 
  private obterDadosSessionStorage(): BarbeariaDetalhes {
     let barbearia: BarbeariaDetalhes = {
