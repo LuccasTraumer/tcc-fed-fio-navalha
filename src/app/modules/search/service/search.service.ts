@@ -16,8 +16,9 @@ export class SearchService {
     }
   }
 
-  buscarDadosSearch() {
-    return this.http.get(`${environment.srvTCC}/search`, this.options);
+  buscarDadosIniciais() {
+    const jwt = sessionStorage.getItem('jwtUser');
+    return this.http.post(`${environment.srvTCC}/search`, JSON.parse(jwt).email, this.options);
   }
 
   buscarBarbearia(nomeBarbearia: string) {

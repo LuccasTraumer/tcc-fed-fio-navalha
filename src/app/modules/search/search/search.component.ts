@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Barbearia} from "../../../models/barbearia";
 import {ConstantesIcons} from "../../../utils/constantes.icons";
+import {SearchService} from "../service/search.service";
+import {take} from "rxjs/operators";
 
 @Component({
   selector: 'app-search',
@@ -30,7 +32,7 @@ export class SearchComponent implements OnInit {
 
   listaBarbearia = [];
 
-  constructor() {
+  constructor(private service: SearchService) {
     const barbearia = new Barbearia();
     barbearia.nome = 'Roni Barbearia';
     barbearia.fotoPerfil = ConstantesIcons.BARBEARIA_FOTO;
@@ -54,6 +56,13 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.buscarDadosIniciais()
+      .pipe(take(1))
+      .subscribe(response => {
+        console.log(response);
+      }, error => {
+
+      });
   }
 
 }
