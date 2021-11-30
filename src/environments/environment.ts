@@ -4,6 +4,6 @@ export const environment = {
   production: false,
   srvTCC: 'http://localhost:8083',
   API_CEP: 'https://viacep.com.br/ws/',
-  MAPS_KEY: 'AIzaSyBmXz70MR4g-XminoGFy5XiuLBtqiw-8t0'
+  MAPS_KEY: '{yourAPI_KEY}'
 };
 
