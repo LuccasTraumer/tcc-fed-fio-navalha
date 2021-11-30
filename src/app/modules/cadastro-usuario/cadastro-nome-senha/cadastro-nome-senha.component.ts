@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {Component, Output, EventEmitter, Input, OnInit} from '@angular/core';
 
 import { Usuario } from '../../../models/Usuario';
 
@@ -7,16 +7,20 @@ import { Usuario } from '../../../models/Usuario';
   templateUrl: './cadastro-nome-senha.component.html',
   styleUrls: ['./cadastro-nome-senha.component.scss']
 })
-export class CadastroNomeSenhaComponent {
+export class CadastroNomeSenhaComponent implements OnInit {
 
   public senhaValida: boolean = false;
   public mensagemErro: string = '';
+  text: string;
   public nome: string = '';
   public senha: string = '';
   public senhaConfirmacao: string = '';
   private tipoErro: number = 0;
   public cliente2: Usuario = new Usuario();
   @Output() infoLoginCadastrado = new EventEmitter<Usuario>();
+
+  @Input()
+  tipoCliente: string;
 
   constructor() {}
 
@@ -77,4 +81,7 @@ export class CadastroNomeSenhaComponent {
     this.infoLoginCadastrado.emit(cliente);
   }
 
+  ngOnInit(): void {
+    this.tipoCliente.toLocaleLowerCase() === 'cliente' ? this.text = 'amigos' : this.text = 'clientes';
+  }
 }
