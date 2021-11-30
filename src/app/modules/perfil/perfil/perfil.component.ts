@@ -42,7 +42,6 @@ export class PerfilComponent implements OnInit {
         this.usuario = resp;
         if (Object.keys(this.usuario.fotoPerfil).length === 0)
           this.usuario.fotoPerfil = '../../../../../assets/images/Pessoas/pessoaPerfil9.jpg';
-        // console.log(`Usuario: ${JSON.stringify(JSON.stringify(this.usuario.fotoPerfil) === JSON.stringify({}))} e Response: ${JSON.stringify(resp)}`);
       }, error => {
         console.error(`Erro ao tentar buscar cliente com email: ${JSON.parse(usuario).email}`);
         this.router.navigate(['/login'])
