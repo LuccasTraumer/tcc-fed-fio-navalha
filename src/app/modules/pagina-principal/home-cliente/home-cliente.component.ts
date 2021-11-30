@@ -3,6 +3,9 @@ import { BarbeariaService } from 'src/app/services/Barbearia/barbearia.service';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import { BarbeariasResponseMock } from './../../../utils/interfaces/BarbeariasResponseMock';
 import {HomeService} from "../services/home.service";
+import {Router} from "@angular/router";
+import {DadosCardService} from "../../shared/services/dados-card.service";
+import {Barbearia} from "../../../models/barbearia";
 
 @Component({
   selector: 'fdn-home-cliente',
@@ -36,7 +39,9 @@ export class HomeClienteComponent implements OnInit {
 
   constructor(
     private homeService: HomeService,
-    private barbeariaService: BarbeariaService
+    private barbeariaService: BarbeariaService,
+    private router: Router,
+    private dadosCardService: DadosCardService
   ) { }
 
   ngOnInit(): void {
@@ -55,6 +60,11 @@ export class HomeClienteComponent implements OnInit {
     this.barbeariaService.RetornaListaBarbearias().subscribe((barbearias: BarbeariasResponseMock) => {
       this.barbearias = barbearias;
     });
+  }
+
+  public detalhes(barbearia: Barbearia): void {
+    this.dadosCardService.gravaDadosCardNaSessionStorage(barbearia);
+    this.router.navigate(['/detalhes'], {state: {data: barbearia}});
   }
 }
 

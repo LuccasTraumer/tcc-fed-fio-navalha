@@ -24,7 +24,7 @@ export class InputBuscaComponent {
 
   buscarBarbearia(valorBusca: string) {
     setTimeout(() => {
-      console.log(valorBusca);
+      // console.log(valorBusca);
     }, 2000);
 
     this.valorBuscaPreenchido.emit(valorBusca !== '' || valorBusca !== undefined);

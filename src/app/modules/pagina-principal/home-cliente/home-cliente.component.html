@@ -4,8 +4,11 @@
       Horarios Agendados
     </div>
     <div class="horarios-agendados">
-      <fdn-card-barbearia-vertical [isVisitada]="false" *ngFor="let barbearia of barbearias"
-      [barbearia]="barbearia"
+      <fdn-card-barbearia-vertical
+        [isVisitada]="false"
+        *ngFor="let barbearia of barbearias"
+        (click)="detalhes(barbearia)"
+        [barbearia]="barbearia"
       ></fdn-card-barbearia-vertical>
     </div>
   </section>
@@ -17,6 +20,7 @@
       <fdn-card-barbearia-visitada
       *ngFor="let barbearia of barbearias;"
       [barbearia]="barbearia"
+      (click)="detalhes(barbearia)"
       ></fdn-card-barbearia-visitada>
 
     </div>
@@ -29,6 +33,7 @@
       <fdn-card-barbearia-favorita
       *ngFor="let barbearia of barbearias; let i = index"
       [barbearia]="barbearia"
+      (click)="detalhes(barbearia)"
       [tempo]="tempo[i]"
       [valor]="valor[i]"
       [distancia]="distancia[i]"

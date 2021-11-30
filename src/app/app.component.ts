@@ -50,7 +50,7 @@ export class AppComponent implements OnDestroy{
   }
 
   public irParaPerfil() {
-    console.log(this.autenticacaoService.usuarioEstaAutenticado());
+    // console.log(this.autenticacaoService.usuarioEstaAutenticado());
     if (this.autenticacaoService.usuarioEstaAutenticado())
       this.router.navigate(['/perfil']);
     else{

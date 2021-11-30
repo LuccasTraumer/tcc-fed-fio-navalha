@@ -119,7 +119,7 @@ export class HomeBarbeariaComponent implements OnInit {
       this.agendamentos = agendamentos;
       this.agendamentosConfirmados = this.agendamentos;
       this.quantidadePedidos = this.agendamentos.length;
-      console.log(this.agendamentos[0]);
+      // console.log(this.agendamentos[0]);
     });
   }
 
@@ -133,7 +133,7 @@ export class HomeBarbeariaComponent implements OnInit {
     this.agendamentos.shift();
     this.fotosPessoas.shift();
     this.quantidadePedidos = this.agendamentos.length;
-    console.log(this.quantidadePedidos);
+    // console.log(this.quantidadePedidos);
   }
 
 }

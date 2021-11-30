@@ -21,26 +21,13 @@ export class CardHorarioAgendadoComponent implements OnInit {
     private dadosCardService: DadosCardService
   ) { }
 
-  public barbeariaDetalhes: BarbeariaDetalhes;
   ngOnInit() {
     this.servico = new Servico();
-
-    this.barbeariaDetalhes = {
-      nome: this.barbearia.nome,
-      rua: this.barbearia.endereco.logradouro,
-      bairro: this.barbearia.endereco.bairro,
-      cidade: this.barbearia.endereco.localidade,
-      estado: this.barbearia.endereco.uf,
-      numero: this.barbearia.endereco.numeroResidencia,
-      email: this.barbearia.email,
-      telefone: this.barbearia.telefone,
-      descricao: this.barbearia.descricao
-    };
   }
 
   public detalhes(): void {
-    this.dadosCardService.gravaDadosCardNaSessionStorage(this.barbeariaDetalhes);
-    this.router.navigate(['/detalhes'], {state: {data: this.barbeariaDetalhes}});
+    this.dadosCardService.gravaDadosCardNaSessionStorage(this.barbearia);
+    this.router.navigate(['/detalhes'], {state: {data: this.barbearia}});
   }
 
 }

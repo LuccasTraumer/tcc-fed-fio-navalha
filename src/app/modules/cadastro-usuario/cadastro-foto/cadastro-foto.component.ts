@@ -42,7 +42,6 @@ export class CadastroFotoComponent {
       this.fileReader.readAsDataURL(this.foto);
       this.fileReader.onloadend = ()=>{this.foto = this.fileReader.result}
       this.cliente.fotoPerfil = this.foto;
-      console.log(this.cliente.fotoPerfil);
     }
   }
 

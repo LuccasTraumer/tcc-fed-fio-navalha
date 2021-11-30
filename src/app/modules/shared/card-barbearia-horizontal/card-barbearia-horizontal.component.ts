@@ -31,14 +31,14 @@ export class CardBarbeariaHorizontalComponent implements Card {
   }
 
   public irBarbearia() {
-    console.log('Vou para barbearia');
+    // console.log('Vou para barbearia');
   }
 
   public avaliarBarbearia() {
-    console.log('Vou avaliar a barbearia');
+    // console.log('Vou avaliar a barbearia');
   }
 
   public favoritarBarbearia() {
-    console.log('Vou favoritar barbearia');
+    // console.log('Vou favoritar barbearia');
   }
 }

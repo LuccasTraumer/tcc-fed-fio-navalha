@@ -63,7 +63,7 @@ export class CadastroEnderecoComponent implements OnDestroy {
     {
       await this.buscarEndereco(cep);
       if(this.endereco.erro || this.endereco.erro == undefined) {
-        console.log(this.endereco.erro);
+        // console.log(this.endereco.erro);
         this.resetaEndereco();
         this.cepValido = true;
         return;

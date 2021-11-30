@@ -38,7 +38,8 @@ const routes: Routes = [
   {
     path: 'detalhes',
     loadChildren: () => import('./modules/detalhes-barbearia/detalhes-barbearia.routing.module')
-      .then(module => module.DetalhesBarbeariaRoutingModule)
+      .then(module => module.DetalhesBarbeariaRoutingModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '',

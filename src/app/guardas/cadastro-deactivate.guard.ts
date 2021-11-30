@@ -11,7 +11,7 @@ export class CadastroDeactiveGuard implements CanDeactivate<CadastroDeactivate> 
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot
   ): Observable<boolean>|Promise<boolean>|boolean {
-    console.log('Cheguei no Guarda de Rotas!');
+    // console.log('Cheguei no Guarda de Rotas!');
     return component.prosseguir != false;
   }
 }

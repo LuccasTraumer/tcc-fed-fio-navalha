@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import { Barbearia } from 'src/app/models/barbearia';
 import { BarbeariaDetalhes } from 'src/app/models/BarbeariaDetalhes';
 import {Servico} from "../../../models/Servico";
@@ -9,7 +9,7 @@ import {Cliente} from "../../../models/Cliente";
   templateUrl: './detalhes-barbearia.component.html',
   styleUrls: ['./detalhes-barbearia.component.scss'],
 })
-export class DetalhesBarbeariaComponent implements OnInit {
+export class DetalhesBarbeariaComponent implements OnInit, OnDestroy {
 
   public favoritarTxt: string = 'Seguir';
   public favoritarIcon: string = '../../../../assets/icons/white-hearth.png';
@@ -18,26 +18,20 @@ export class DetalhesBarbeariaComponent implements OnInit {
   public horario;
   public servico;
 
-  public barbearia: BarbeariaDetalhes;
+  public barbearia: Barbearia;
 
   constructor() { }
 
   ngOnInit() {
-      this.barbearia = history.state.data == undefined ? this.obterDadosSessionStorage() : history.state.data;
+    this.barbearia = history.state.data === undefined ? this.obterDadosSessionStorage() : history.state.data;
   }
 
- private obterDadosSessionStorage(): BarbeariaDetalhes {
-    let barbearia: BarbeariaDetalhes = {
-        nome: sessionStorage.getItem('nome-info'),
-        rua: sessionStorage.getItem('rua-info'),
-        bairro: sessionStorage.getItem('bairro-info'),
-        cidade: sessionStorage.getItem('cidade-info'),
-        estado: sessionStorage.getItem('estado-info'),
-        numero: sessionStorage.getItem('numero-info'),
-        email: sessionStorage.getItem('email-info'),
-        telefone: sessionStorage.getItem('telefone-info'),
-        descricao: sessionStorage.getItem('descricao-info')
-    };
+  ngOnDestroy(): void {
+    sessionStorage.clear();
+  }
+
+ private obterDadosSessionStorage(): Barbearia {
+    let barbearia: Barbearia = JSON.parse(sessionStorage.getItem('barbearia'));
     return barbearia;
   }
 
@@ -57,7 +51,7 @@ export class DetalhesBarbeariaComponent implements OnInit {
     servico.consumidor = sessionStorage.getItem('jwtUser') as any as Cliente;
     servico.inicioCorte = this.horario;
 
-    console.log(servico);
+    // console.log(servico);
     this.servico = event;
   }
 

@@ -59,7 +59,7 @@ export class SearchComponent implements OnInit {
     this.service.buscarDadosIniciais()
       .pipe(take(1))
       .subscribe(response => {
-        console.log(response);
+        // console.log(response);
       }, error => {
 
       });

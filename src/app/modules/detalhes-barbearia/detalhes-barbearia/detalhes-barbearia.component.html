@@ -21,13 +21,13 @@
   </div>
 
   <section class="section-detalhes">
-    {{ barbearia.rua }} <br>
-    {{ barbearia.numero }}, {{ barbearia.bairro }} <br>
-    {{ barbearia.cidade }}/ {{ barbearia.estado }} <br>
+    {{ barbearia.endereco.logradouro }} <br>
+    {{ barbearia.endereco.numeroResidencia }}, {{ barbearia.endereco.bairro }} <br>
+    {{ barbearia.endereco.localidade }}/ {{ barbearia.endereco.uf }} <br>
     <label *ngIf="barbearia.telefone == null"> Fone: {{ barbearia.telefone }} </label>
     <label *ngIf="barbearia.email == null"> Email: {{ barbearia.email }} </label>
     Informações Barbearia: <br>
-    {{barbearia.descricao}}
+    {{barbearia.descricao === null || barbearia.descricao === undefined || barbearia.descricao === 'null' ? 'Não existe descrição para esta barbearia!' : barbearia.descricao}}
   </section>
 
   <modal #modalHorario class="modal">

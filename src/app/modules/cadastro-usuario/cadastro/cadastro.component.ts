@@ -40,7 +40,6 @@ export class CadastroComponent {
   }
 
   setNumeroEmail(cpfCnpj: string): void {
-    console.log(cpfCnpj)
     let chaveValor = cpfCnpj.split(':');
     if (chaveValor[0] == 'numero') {
       this.cliente.telefone = chaveValor[1];
@@ -135,7 +134,7 @@ export class CadastroComponent {
     if(this.cliente.fotoPerfil != null){
       this.contador += 1;
       if(this.contador == 1)
-      console.log(this.cliente);
+        console.log(this.cliente);
     }
     return this.fotoPerfilCadastrado !== true && this.enderecoCadastrado == true;
   }
