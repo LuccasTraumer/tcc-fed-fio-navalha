@@ -14,7 +14,7 @@
     <section class="perfil">
       <div class="fotoMaisCamera">
       <img *ngIf="foto == null" src="{{icone_upload}}" class="foto-perfil" alt="foto de perfil">
-      <img *ngIf="foto != null" src="{{foto}}" class="foto-perfil" alt="foto de perfil">
+      <img *ngIf="foto != null" src="{{ fotoBase64 }}" class="foto-perfil" alt="foto de perfil">
       <label for="input-foto"><img src="{{icone_camera}}" class="upload-foto"></label>
       </div>
       <input hidden id="input-foto" type="file" name="foto" accept=".png, .jpeg, .jpg" (change)="UploadFoto($event)">
