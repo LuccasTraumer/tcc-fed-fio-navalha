@@ -5,6 +5,7 @@ import { PerfilComponent } from './perfil/perfil.component'
 import { PerfilRoutingModule } from './perfil.routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
+import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   declarations: [PerfilComponent],
@@ -12,7 +13,8 @@ import {HttpClientModule} from "@angular/common/http";
     CommonModule,
     PerfilRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

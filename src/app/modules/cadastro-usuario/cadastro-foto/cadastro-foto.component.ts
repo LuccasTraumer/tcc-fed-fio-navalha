@@ -42,14 +42,12 @@ export class CadastroFotoComponent {
       this.fileReader.readAsDataURL(this.foto);
       this.fileReader.onloadend = ()=>{this.foto = this.fileReader.result}
       this.cliente.fotoPerfil = this.foto;
+      console.log(this.cliente.fotoPerfil);
     }
   }
 
   private isTamanhoFotoValido(tamanho: number): boolean {
-    if(tamanho > this.tamanhoFotoPermitido)
-      return false;
-
-    return true;
+    return !(tamanho > this.tamanhoFotoPermitido);
   }
 
   onSubmit() {

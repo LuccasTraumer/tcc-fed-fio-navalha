@@ -14,6 +14,8 @@ export class CardHorarioAgendadoComponent implements OnInit {
 
   servico: Servico;
 
+  @Input() barbearia: Barbearia;
+
   constructor(
     private router: Router,
     private dadosCardService: DadosCardService
@@ -31,11 +33,10 @@ export class CardHorarioAgendadoComponent implements OnInit {
       estado: this.barbearia.endereco.uf,
       numero: this.barbearia.endereco.numeroResidencia,
       email: this.barbearia.email,
-      telefone: this.barbearia.telefone
+      telefone: this.barbearia.telefone,
+      descricao: this.barbearia.descricao
     };
   }
-
-  @Input() barbearia: Barbearia;
 
   public detalhes(): void {
     this.dadosCardService.gravaDadosCardNaSessionStorage(this.barbeariaDetalhes);

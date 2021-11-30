@@ -4,9 +4,9 @@
       Horarios Agendados
     </div>
     <div class="horarios-agendados">
-      <fdn-card-horario-agendado *ngFor="let barbearia of barbearias"
+      <fdn-card-barbearia-vertical [isVisitada]="false" *ngFor="let barbearia of barbearias"
       [barbearia]="barbearia"
-      ></fdn-card-horario-agendado>
+      ></fdn-card-barbearia-vertical>
     </div>
   </section>
   <section>

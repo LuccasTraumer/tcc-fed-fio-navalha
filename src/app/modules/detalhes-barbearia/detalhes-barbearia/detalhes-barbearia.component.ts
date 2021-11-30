@@ -28,14 +28,15 @@ export class DetalhesBarbeariaComponent implements OnInit {
 
  private obterDadosSessionStorage(): BarbeariaDetalhes {
     let barbearia: BarbeariaDetalhes = {
-      nome: sessionStorage.getItem('nome-info'),
-      rua: sessionStorage.getItem('rua-info'),
-      bairro: sessionStorage.getItem('bairro-info'),
-      cidade: sessionStorage.getItem('cidade-info'),
-      estado: sessionStorage.getItem('estado-info'),
-      numero: sessionStorage.getItem('numero-info'),
-      email: sessionStorage.getItem('email-info'),
-      telefone: sessionStorage.getItem('telefone-info')
+        nome: sessionStorage.getItem('nome-info'),
+        rua: sessionStorage.getItem('rua-info'),
+        bairro: sessionStorage.getItem('bairro-info'),
+        cidade: sessionStorage.getItem('cidade-info'),
+        estado: sessionStorage.getItem('estado-info'),
+        numero: sessionStorage.getItem('numero-info'),
+        email: sessionStorage.getItem('email-info'),
+        telefone: sessionStorage.getItem('telefone-info'),
+        descricao: sessionStorage.getItem('descricao-info')
     };
     return barbearia;
   }

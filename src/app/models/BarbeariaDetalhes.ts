@@ -7,4 +7,5 @@ export class BarbeariaDetalhes {
   estado: string;
   telefone: string;
   email: string;
+  descricao: string;
 }

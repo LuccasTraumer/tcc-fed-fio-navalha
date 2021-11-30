@@ -1,7 +1,7 @@
 import { Perfil } from './../../../models/Perfil';
 import { Component, OnInit } from '@angular/core';
 import {BuscarDadosClienteService} from "../services/buscar-dados-cliente.service";
-import {take} from "rxjs/operators";
+import {isEmpty, take} from "rxjs/operators";
 import {Usuario} from "../../../models/Usuario";
 import {Router} from "@angular/router";
 
@@ -40,7 +40,9 @@ export class PerfilComponent implements OnInit {
       .pipe(take(1))
       .subscribe(resp => {
         this.usuario = resp;
-        console.log(`Usuario: ${JSON.stringify(this.usuario)} e Response: ${JSON.stringify(resp)}`);
+        if (Object.keys(this.usuario.fotoPerfil).length === 0)
+          this.usuario.fotoPerfil = '../../../../../assets/images/Pessoas/pessoaPerfil9.jpg';
+        console.log(`Usuario: ${JSON.stringify(JSON.stringify(this.usuario.fotoPerfil) === JSON.stringify({}))} e Response: ${JSON.stringify(resp)}`);
       }, error => {
         console.error(`Erro ao tentar buscar cliente com email: ${JSON.parse(usuario).email}`);
         this.router.navigate(['/login'])
@@ -79,5 +81,10 @@ export class PerfilComponent implements OnInit {
 
   public onSubmit(): void {
     //this.emailCadastrado.emit(`${this.switchType}: ${this.valorInput}`);
+  }
+
+  sairAplicacao() {
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
   }
 }

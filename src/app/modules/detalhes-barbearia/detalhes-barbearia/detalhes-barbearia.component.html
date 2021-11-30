@@ -24,9 +24,10 @@
     {{ barbearia.rua }} <br>
     {{ barbearia.numero }}, {{ barbearia.bairro }} <br>
     {{ barbearia.cidade }}/ {{ barbearia.estado }} <br>
-    Fone: {{ barbearia.telefone }} <br>
-    Email: {{ barbearia.email }} <br>
-    Informações Barbearia:
+    <label *ngIf="barbearia.telefone == null"> Fone: {{ barbearia.telefone }} </label>
+    <label *ngIf="barbearia.email == null"> Email: {{ barbearia.email }} </label>
+    Informações Barbearia: <br>
+    {{barbearia.descricao}}
   </section>
 
   <modal #modalHorario class="modal">

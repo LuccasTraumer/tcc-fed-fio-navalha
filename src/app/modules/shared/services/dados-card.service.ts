@@ -17,5 +17,6 @@ public gravaDadosCardNaSessionStorage(objeto: BarbeariaDetalhes): void {
   sessionStorage.setItem('numero-info', objeto.numero);
   sessionStorage.setItem('telefone-info', objeto.telefone);
   sessionStorage.setItem('email-info', objeto.email);
+  sessionStorage.setItem('descricao-info', objeto.descricao);
 }
 }

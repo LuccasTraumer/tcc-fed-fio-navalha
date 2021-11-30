@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@
 import { BarbeariaService } from 'src/app/services/Barbearia/barbearia.service';
 import { ConstantesIcons } from 'src/app/utils/constantes.icons';
 import { BarbeariasResponseMock } from './../../../utils/interfaces/BarbeariasResponseMock';
+import {HomeService} from "../services/home.service";
 
 @Component({
   selector: 'fdn-home-cliente',
@@ -33,10 +34,14 @@ export class HomeClienteComponent implements OnInit {
   public valor: Number[] = [50, 40, 20, 35, 25, 45, 20, 40, 15, 15];
   public distancia: Number[] = [5.4, 8.2, 9.3, 7.4, 5.5, 9, 1.7, 4.1, 2.5, 2.7];
 
-  constructor(private barbeariaService: BarbeariaService) { }
+  constructor(
+    private homeService: HomeService,
+    private barbeariaService: BarbeariaService
+  ) { }
 
   ngOnInit(): void {
     this.retornaBarbearias();
+    this.homeService.buscarDadosHomeCliente();
   }
 
   slider(container: number) {

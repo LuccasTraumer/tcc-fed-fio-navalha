@@ -19,7 +19,7 @@ export class CadastroServiceService {
   }
 
   public cadastrarCliente(cliente: Cliente) {
-    return  this.http.post<Cliente>(`${environment.srvTCC}/cadastro/cliente`, cliente);
+    return  this.http.post<Cliente>(`${environment.srvTCC}/cadastro/cliente`, cliente, {});
   }
 
   public cadastrarBarbearia(barbearia: Barbearia) {

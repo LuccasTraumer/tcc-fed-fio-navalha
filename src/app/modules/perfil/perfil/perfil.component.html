@@ -1,6 +1,6 @@
 <div class="container">
   <div class="user">
-    <img src="{{usuario.fotoPerfil == undefined ?  pathImg : usuario.fotoPerfil}}" class="foto-perfil" alt="foto de perfil">
+    <img src="{{ usuario.fotoPerfil == undefined ?  pathImg : usuario.fotoPerfil }}" class="foto-perfil" alt="foto de perfil">
     <h1>{{usuario.nome}}</h1>
       <div class="container">
         <div class="form">
@@ -9,20 +9,25 @@
             <label *ngIf="opcao == 1" (click)="escolherPerfil()">Perfil</label>
             <hr>
             <label class="opcao-selecionada" *ngIf="opcao == 1;" (click)="escolherConfiguracao()">Configurações</label>
-            <label *ngIf="opcao == 0"  (click)="escolherConfiguracao()">Configurações</label>
+            <label *ngIf="opcao == 0"  (click)="escolherConfiguracao()">Configurações </label>
+
           </nav>
           <hr>
         <div *ngIf="opcao == 0" class="phone" id="text">
           <h1>Perfil</h1>
           <p>
             Nome: {{usuario.nome}}<br>
-            <label [hidden]="usuario.email == null"> Email: {{usuario.email}}<br></label>
+            <label [hidden]="usuario.email == null"> Email: {{ usuario.email }}<br></label>
             <label [hidden]="usuario.telefone == null"> Telefone: ({{perfil.ddd}}){{perfil.tel}}<br></label>
             Endereço: {{usuario.endereco.logradouro}}, {{usuario.endereco.numeroResidencia}}<br>
             Bairro: {{usuario.endereco.bairro}}
           </p>
         </div>
         <div *ngIf="opcao == 1" class="phone" id="text">
+          <fdn-button
+            (click)="sairAplicacao()"
+            textoInterno="Sair">
+          </fdn-button>
         </div>
   </div>
 </div>

@@ -17,4 +17,5 @@ export class CardBarbeariaVisitadaComponent implements OnInit {
   }
 
   @Input() barbearia: Barbearia;
+
 }
